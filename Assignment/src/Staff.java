@@ -1,5 +1,5 @@
 public class Staff extends User {
-    public Staff(String userID, String name, String faculty){
-        super(userID, name, faculty);
+    public Staff(String userID, String name, String faculty, String password){
+        super(userID, name, faculty, password);
     }
 }
