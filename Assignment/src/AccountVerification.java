@@ -3,15 +3,19 @@ import java.util.Scanner;
 
 public class AccountVerification {
 
-    public void Login(ArrayList<User> users){
+    private int index;
+
+    public User Login(ArrayList<User> users){
         Scanner sc = new Scanner(System.in);
         int enter = 0;
         String correctPW = null;
+        User temp = null;
         while (true){
             System.out.print("Please enter your userID: ");
             String idInput = sc.nextLine();
             for (int i=0; i<users.size(); i++){
-                User temp = users.get(i);
+                temp = users.get(i);
+                index = i;
                 if (temp.getUserID().equals(idInput)){
                     enter = 1;
                     correctPW = temp.getPassword();
@@ -34,5 +38,11 @@ public class AccountVerification {
             System.out.println("Invalid password! Please try again");
             
         }
+
+        return temp;
+    }
+    
+    public int getIndex(){
+        return index;
     }
 }

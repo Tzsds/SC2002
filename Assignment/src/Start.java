@@ -14,8 +14,12 @@ public class Start {
         //SHOW THE LOGIN SYSTEM
         //ACCOUNT VERIFICATION
         AccountVerification log = new AccountVerification();
-        log.Login(users);
+        User current = log.Login(users);
         //LOAD THE PAGE FOR THE SPECIFIC ROLE
-
+        ChangeAccountPassword cp = new ChangeAccountPassword();
+        cp.updatePassword(current);
+        users.set(log.getIndex(), current);
+        fw.FileWrite(users);
+        System.out.println("success");
     }
 }
