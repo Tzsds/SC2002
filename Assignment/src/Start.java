@@ -16,10 +16,13 @@ public class Start {
         AccountVerification log = new AccountVerification();
         User current = log.Login(users);
         //LOAD THE PAGE FOR THE SPECIFIC ROLE
+        
+        //CHANGE PASSWORD Function
         ChangeAccountPassword cp = new ChangeAccountPassword();
         cp.updatePassword(current);
         users.set(log.getIndex(), current);
         fw.FileWrite(users);
         System.out.println("success");
+        
     }
 }

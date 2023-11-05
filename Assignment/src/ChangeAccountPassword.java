@@ -17,6 +17,5 @@ public class ChangeAccountPassword {
         }
         System.out.println("Password successfully changed");
         u.setPassword(input1);
-        sc.close();
     }
 }
