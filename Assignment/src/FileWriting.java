@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class FileWriting {
     
     public void FileWrite(ArrayList<User> entity){
-        String allUserCSV = "database/users.csv";
+        String allUserCSV = "Assignment//database//users.csv";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(allUserCSV))){
 
             //Header of CSV File
@@ -23,7 +23,65 @@ public class FileWriting {
         catch(IOException e){
             e.printStackTrace();
         }
+    }
 
+    public void FileWrite(CampDetails campDetails) {
+        String campDetailsCSV = "Assignment//database//camp_details.csv"; 
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))){
 
+            String header = "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n";
+            writer.write(header);
+
+            // Write campDetails to the CSV file
+            String data = campDetails.getCampName() + "," +
+                        campDetails.getStartDate() + "," +
+                        campDetails.getEndDate() + "," +
+                        campDetails.getCloseDate() + "," +
+                        campDetails.getOpenTo() + "," +
+                        campDetails.getLocation() + "," +
+                        campDetails.getTotalSlots() + "," +
+                        campDetails.getCampComitteeSlots() + "," +
+                        campDetails.getDescription() + "," +
+                        campDetails.getStaffInCharge() + "," +
+                        campDetails.getVisibility() + "\n";
+            writer.write(data);
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void FileWrite(Camp camp) {
+        String campDetailsCSV = "Assignment//database//camp_student_list.csv"; 
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))){
+
+            String header = "campName,userID,Role\n";
+            writer.write(header);
+
+            // Write campDetails to the CSV file
+            CampDetails campDetails = camp.getCampDetails();
+            String campName = campDetails.getCampName();
+            ArrayList<Student> attendeesList = camp.getParticipants();
+            ArrayList<Student> committeeList = camp.getCampComittee();
+
+            if (attendeesList != null) {
+                for (int i=0; i < attendeesList.size(); i++){
+                    User user = attendeesList.get(i);
+                    String data = campName + "," + user.getUserID() + "," + "Attendee" + "\n";
+                    writer.write(data);
+                }
+            }
+
+            if (committeeList != null) {
+                for (int i=0; i < committeeList.size(); i++){
+                    User user = committeeList.get(i);
+                    String data = campName + "," + user.getUserID() + "," + "Committee" + "\n";
+                    writer.write(data);
+                }
+            }
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }
