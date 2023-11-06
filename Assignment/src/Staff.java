@@ -86,14 +86,14 @@ public class Staff extends User {
     //public static Camp createNewCamp() {
     public static void createNewCamp() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter your camp name: ");
+        System.out.print("Enter new camp name: ");
         String campName = sc.nextLine();
 
-        System.out.println("Write in your camp description:");
+        System.out.println("Write in your camp description.");
         System.out.print("Description: ");
         String description = sc.nextLine();
 
-        System.out.print("Enter your camp start date in format (dd/mm/yyyy): ");
+        System.out.print("Enter camp start date in format (dd/mm/yyyy): ");
         String dateString = sc.nextLine();
         String[] parts = dateString.split("/");
         int day = Integer.parseInt(parts[0]);
@@ -101,7 +101,7 @@ public class Staff extends User {
         int year = Integer.parseInt(parts[2]);
         LocalDate startDate = LocalDate.of(year, month, day);
 
-        System.out.print("Enter your camp end date in format (dd/mm/yyyy): ");
+        System.out.print("Enter camp end date in format (dd/mm/yyyy): ");
         dateString = sc.nextLine();
         parts = dateString.split("/");
         day = Integer.parseInt(parts[0]);
@@ -109,7 +109,7 @@ public class Staff extends User {
         year = Integer.parseInt(parts[2]);
         LocalDate endDate = LocalDate.of(year, month, day);
 
-        System.out.print("Enter your camp registration closing date in format (dd/mm/yyyy): ");
+        System.out.print("Enter camp registration closing date in format (dd/mm/yyyy): ");
         dateString = sc.nextLine();
         parts = dateString.split("/");
         day = Integer.parseInt(parts[0]);
@@ -120,7 +120,7 @@ public class Staff extends User {
         System.out.println("Which user group is this camp open to?");
         //switch statement for user group
 
-        System.out.print("Where is the location of the camp? ");
+        System.out.print("Enter location of the camp: ");
         String location = sc.nextLine();
 
         System.out.print("Enter the total number of slots open for the camp: ");

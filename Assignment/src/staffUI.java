@@ -18,7 +18,7 @@ public class staffUI {
                          + "(9) Change Password\n"
                          + "(10) Log Out\n");
 
-        System.out.print("Input your choice of actions (1-10): ");
+        System.out.print("Input your choice of action (1-10): ");
         int input = sc.nextInt();
 
         do {
