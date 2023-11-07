@@ -1,21 +1,23 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class FileRead {
 
-    public static ArrayList<User> read(int reset){
+    public static void read(int reset){
         if (reset == 1){
-            return readWithReset();
+            //return readWithReset();
+            readWithReset();
         }
         else{
-            return readWithoutReset();
+            //return readWithoutReset();
+            readWithoutReset();
         }
     }
 
-    private static ArrayList<User> readWithReset(){
-        ArrayList <User> entity = new ArrayList<User>();
+    private static void readWithReset(){
+        //ArrayList <User> entity = new ArrayList<User>();
         String studentCSV = "database/student_list.csv";
         String staffCSV = "database/staff_list.csv";
 
@@ -30,7 +32,8 @@ public class FileRead {
                     String email = words[1].trim();
                     String faculty = words[2].trim();
                     String userID = email.substring(0, email.indexOf("@"));
-                    entity.add(new Student(userID, name, faculty, "password"));
+                    //entity.add(new Student(userID, name, faculty, "password"));
+                    UserRepository.addUser(new Student(userID, name, faculty, "password"));
                 }
             }
         }
@@ -49,7 +52,8 @@ public class FileRead {
                     String email = words[1].trim();
                     String faculty = words[2].trim();
                     String userID = email.substring(0, email.indexOf("@"));
-                    entity.add(new Staff(userID, name, faculty, "password"));
+                    //entity.add(new Staff(userID, name, faculty, "password"));
+                    UserRepository.addUser(new Staff(userID, name, faculty, "password"));
                 }
             }
         }
@@ -57,12 +61,12 @@ public class FileRead {
             e.printStackTrace();
         }
 
-        return entity;
+        //return entity;
     
     }
 
-    private static ArrayList<User> readWithoutReset(){
-        ArrayList <User> entity = new ArrayList<User>();
+    private static void readWithoutReset(){
+        //ArrayList <User> entity = new ArrayList<User>();
         String allUserCSV = "database/users.csv";
 
         //Reading in the CSV that has all the updated passwords
@@ -78,13 +82,16 @@ public class FileRead {
                     String userID = words[3].trim();
                     String password = words[4].trim();
                     if (role.equals("Staff")){
-                        entity.add(new Staff(userID, name, faculty, password));
+                        //entity.add(new Staff(userID, name, faculty, password));
+                        UserRepository.addUser(new Staff(userID, name, faculty, password));
                     }
                     else if (role.equals("CampCommitteeMem")){
-                        entity.add(new CampCommitteeMem(userID, name, faculty, password));
+                        //entity.add(new CampCommitteeMem(userID, name, faculty, password));
+                        UserRepository.addUser(new CampCommitteeMem(userID, name, faculty, password));
                     }
                     else{
-                        entity.add(new Student(userID, name, faculty, password));
+                        //entity.add(new Student(userID, name, faculty, password));
+                        UserRepository.addUser(new Student(userID, name, faculty, password));
                     }
                 }
             }
@@ -92,8 +99,6 @@ public class FileRead {
         catch (IOException e){
             e.printStackTrace();
         }
-
-        return entity;
-
+        //return entity;
     }
 }

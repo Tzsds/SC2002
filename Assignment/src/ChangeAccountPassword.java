@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ChangeAccountPassword {
 
-    public void updatePassword(User u){
+    public static void updatePassword(User u){
         Scanner sc = new Scanner(System.in);
         String input1, input2;
         while (true){
@@ -17,5 +17,7 @@ public class ChangeAccountPassword {
         }
         System.out.println("Password successfully changed");
         u.setPassword(input1);
+        UserRepository.replaceUser(u, AccountVerification.getIndex());
     }
+
 }

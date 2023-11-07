@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FileWriting {
     
-    public static void FileWrite(ArrayList<User> entity){
+    public static void FileWrite(){
         String allUserCSV = "database/users.csv";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(allUserCSV))){
 
@@ -14,8 +14,8 @@ public class FileWriting {
             String role;
             writer.write(header);
 
-            for (int i=0; i < entity.size(); i++){
-                User temp = entity.get(i);
+            for (int i=0; i < UserRepository.getSizeOfUsers(); i++){
+                User temp = UserRepository.get(i);
                 if (temp instanceof Staff){
                     role = "Staff";
                 }

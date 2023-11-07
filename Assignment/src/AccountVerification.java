@@ -1,24 +1,28 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 
 public class AccountVerification {
 
     private static int index;
+    private static User currentUser;
 
-    public static User Login(ArrayList<User> users){
-        User temp = AccountVerification.getID(users);
+    public static void Login(){
+        User temp = AccountVerification.getID();
         AccountVerification.checkPassword(temp);
-        return temp;
+        System.out.println(currentUser.getName() + " logged in!");
+        //return temp;
     }
 
-    private static User getID(ArrayList<User> users){
+    private static User getID(){
         User temp;
         while (true){
             String id = AccountInput.inputID();
-            for (int i=0; i<users.size(); i++){
-                temp = users.get(i);
+            for (int i=0; i<UserRepository.getSizeOfUsers(); i++){
+                temp = UserRepository.get(i);
                 index = i;
                 if (temp.getUserID().equals(id)){
+                    index = i;
+                    currentUser = temp;
                     return temp;
                 }
             }
@@ -40,5 +44,9 @@ public class AccountVerification {
 
     public static int getIndex(){
         return index;
+    }
+
+    public static User getCurrentUser(){
+        return currentUser;
     }
 }
