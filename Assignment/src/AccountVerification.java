@@ -1,48 +1,44 @@
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class AccountVerification {
 
-    private int index;
+    private static int index;
 
-    public User Login(ArrayList<User> users){
-        Scanner sc = new Scanner(System.in);
-        int enter = 0;
-        String correctPW = null;
-        User temp = null;
+    public static User Login(ArrayList<User> users){
+        User temp = AccountVerification.getID(users);
+        AccountVerification.checkPassword(temp);
+        return temp;
+    }
+
+    private static User getID(ArrayList<User> users){
+        User temp;
         while (true){
-            System.out.print("Please enter your userID: ");
-            String idInput = sc.nextLine();
+            String id = AccountInput.inputID();
             for (int i=0; i<users.size(); i++){
                 temp = users.get(i);
                 index = i;
-                if (temp.getUserID().equals(idInput)){
-                    enter = 1;
-                    correctPW = temp.getPassword();
-                    break;
+                if (temp.getUserID().equals(id)){
+                    return temp;
                 }
             }
-            if (enter == 1){
-                break;
-            }
-            System.out.println("Invalid userID!!");
-            
+            System.out.println("Invalid User ID!");
         }
-        enter = 0;
-        while (enter == 0){
-            System.out.print("Please enter your password: ");
-            String pwInput = sc.nextLine();
-            if (pwInput.equals(correctPW)){
-                break;
-            }
-            System.out.println("Invalid password! Please try again");
-            
-        }
-        //System.out.println("in the system");
-        return temp;
     }
-    
-    public int getIndex(){
+
+    private static void checkPassword(User person){
+        while (true){
+            String pw = AccountInput.inputPW();
+            if (pw.equals(person.getPassword())){
+                return;
+            }
+            else{
+                System.out.println("Wrong password entered!");
+            }
+        }
+    }
+
+    public static int getIndex(){
         return index;
     }
 }
