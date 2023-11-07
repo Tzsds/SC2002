@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FileWriting {
     
-    public void FileWrite(ArrayList<User> entity){
+    public static void FileWrite(ArrayList<User> entity){
         String allUserCSV = "database/users.csv";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(allUserCSV))){
 
