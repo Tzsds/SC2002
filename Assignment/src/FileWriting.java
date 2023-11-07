@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FileWriting {
     
-    public static void FileWrite(){
+    public static void FileWriteUser(){
         String allUserCSV = "database/users.csv";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(allUserCSV))){
 
@@ -36,7 +36,7 @@ public class FileWriting {
     }
 
     public void FileWrite(CampDetails campDetails) {
-        String campDetailsCSV = "Assignment//database//camp_details.csv"; 
+        String campDetailsCSV = "database/camp_details.csv"; 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))){
 
             String header = "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n";
@@ -62,7 +62,7 @@ public class FileWriting {
     }
 
     public void FileWrite(Camp camp) {
-        String campDetailsCSV = "Assignment//database//camp_student_list.csv"; 
+        String campDetailsCSV = "database/camp_student_list.csv"; 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))){
 
             String header = "campName,userID,Role\n";

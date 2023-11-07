@@ -3,17 +3,16 @@
 
 public class AccountVerification {
 
-    private static int index;
-    private static User currentUser;
+    private static int index; //Index of the current user in the Repository
+    private static User currentUser; //Current user which is in the system
 
     public static void Login(){
-        User temp = AccountVerification.getID();
-        AccountVerification.checkPassword(temp);
+        AccountVerification.getID();
+        AccountVerification.checkPassword(currentUser);
         System.out.println(currentUser.getName() + " logged in!");
-        //return temp;
     }
 
-    private static User getID(){
+    private static void getID(){
         User temp;
         while (true){
             String id = AccountInput.inputID();
@@ -23,7 +22,7 @@ public class AccountVerification {
                 if (temp.getUserID().equals(id)){
                     index = i;
                     currentUser = temp;
-                    return temp;
+                    return;
                 }
             }
             System.out.println("Invalid User ID!");

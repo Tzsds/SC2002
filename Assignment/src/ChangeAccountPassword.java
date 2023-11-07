@@ -2,7 +2,20 @@ import java.util.Scanner;
 
 public class ChangeAccountPassword {
 
-    public static void updatePassword(User u){
+    public static void changePassword(){
+        String password = passwordInput();
+        UpdatePassword(password);
+    }
+    
+    private static void UpdatePassword(String password){
+        User currentUser = AccountVerification.getCurrentUser();
+        currentUser.setPassword(password);
+        UserRepository.replaceUser(currentUser, AccountVerification.getIndex());
+        FileWriting.FileWriteUser();
+        System.out.println("Password successfully changed!");
+    }
+
+    private static String passwordInput(){
         Scanner sc = new Scanner(System.in);
         String input1, input2;
         while (true){
@@ -15,9 +28,7 @@ public class ChangeAccountPassword {
             }
             System.out.println("Passwords do not match! Please try again");
         }
-        System.out.println("Password successfully changed");
-        u.setPassword(input1);
-        UserRepository.replaceUser(u, AccountVerification.getIndex());
+        return input1;
     }
 
 }

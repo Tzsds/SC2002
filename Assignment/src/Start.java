@@ -3,28 +3,22 @@
 public class Start {
     public static void main(String[] args){
         System.out.println("Welcome to NTU CAMS System!");
-
-        //ArrayList <User> users;
-        int reset = Reset.PromptForReset();
-        //users = FileRead.read(reset); 
+        int reset = Reset.PromptForReset(); //reset or retain data
         FileRead.read(reset);
-        FileWriting.FileWrite();
-
-        //User current = AccountVerification.Login();
         AccountVerification.Login();
 
-        //CHANGE PASSWORD FUNCTION 
         User currentUser = AccountVerification.getCurrentUser();
-        ChangeAccountPassword.updatePassword(currentUser);
-        //users.set(AccountVerification.getIndex(), current);
-        //UserRepository.replaceUser(current, AccountVerification.getIndex());
 
-        FileWriting.FileWrite();
-
+        //change password for current user in the system
+        ChangeAccountPassword.changePassword();
         System.out.println(currentUser.getName() + " logged out");
+
+        //another user will be in the system
         AccountVerification.Login();
         currentUser = AccountVerification.getCurrentUser();
-        ChangeAccountPassword.updatePassword(currentUser);
+        
+        //change password for current user in the system
+        ChangeAccountPassword.changePassword();
         System.out.println("end of program");
     }
 }
