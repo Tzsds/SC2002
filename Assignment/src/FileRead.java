@@ -15,8 +15,9 @@ public class FileRead {
     }
 
     private static void readWithReset(){
-        String studentCSV = "database/student_list.csv";
-        String staffCSV = "database/staff_list.csv";
+        //ArrayList <User> entity = new ArrayList<User>();
+        String studentCSV = "../database/student_list.csv";
+        String staffCSV = "../database/staff_list.csv";
 
         //Reading in the studentCSV
         try (BufferedReader br = new BufferedReader(new FileReader(studentCSV))){
@@ -60,7 +61,8 @@ public class FileRead {
     }
 
     private static void readWithoutReset(){
-        String allUserCSV = "database/users.csv";
+        //ArrayList <User> entity = new ArrayList<User>();
+        String allUserCSV = "../database/users.csv";
 
         //Reading in the CSV that has all the updated passwords
         try (BufferedReader br = new BufferedReader(new FileReader(allUserCSV))){

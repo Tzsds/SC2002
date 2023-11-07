@@ -3,6 +3,8 @@ public class User {
     private String name;
     private String faculty;
     private String password;
+
+   
     
     public User(String userID, String name, String faculty, String password){
         this.userID = userID;
@@ -28,5 +30,9 @@ public class User {
 
     public void setPassword(String password){
         this.password = password;
+    }
+
+    public MainMenu creatMainMenu(){
+        return new MainMenu();
     }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class FileWriting {
     
     public static void FileWriteUser(){
-        String allUserCSV = "database/users.csv";
+        String allUserCSV = "../database/users.csv";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(allUserCSV))){
 
             //Header of CSV File
