@@ -1,4 +1,8 @@
+package UI;
 //import java.util.Scanner;
+
+import Controller.Account.ChangeAccountPassword;
+import Entity.User;
 
 public class CampCommitteeMainPage {
     private MainMenu mainMenu;

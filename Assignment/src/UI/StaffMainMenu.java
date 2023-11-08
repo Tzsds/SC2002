@@ -1,3 +1,4 @@
+package UI;
 public class StaffMainMenu extends MainMenu {
     public void displayMainMenu(){
         super.displayMainMenu();

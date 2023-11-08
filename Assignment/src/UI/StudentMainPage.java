@@ -1,3 +1,7 @@
+package UI;
+import Controller.Account.ChangeAccountPassword;
+import Entity.User;
+
 public class StudentMainPage {
     private MainMenu mainMenu;
     private InputScanner inputScanner;

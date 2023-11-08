@@ -1,4 +1,9 @@
+package Repository;
 import java.util.ArrayList;
+
+import Entity.CampCommittee;
+import Entity.Staff;
+import Entity.User;
 
 public class UserRepository {
     private static ArrayList<User> listOfUsers = new ArrayList<User>();
