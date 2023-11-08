@@ -141,6 +141,8 @@ public class Staff extends User {
             bool = false;
         }
 
+        //CampDetails newCampDetails = new CampDetails(campName, description, startDate, endDate, registrationClosingDate, userGroup, location, totalSlots, campCommitteeSlots, staffInCharge, visibility);
+
         CampDetails newCampDetails = new CampDetails();
         newCampDetails.setCampName(campName);
         newCampDetails.setDescription(description);
