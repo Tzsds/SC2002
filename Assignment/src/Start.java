@@ -1,5 +1,3 @@
-//import java.util.ArrayList;
-
 public class Start {
     public static void main(String[] args) {
         System.out.println("Welcome to NTU CAMS System!");
@@ -9,8 +7,6 @@ public class Start {
 
         User currentUser = AccountVerification.getCurrentUser();
 
-        // change password for current user in the system
-        ChangeAccountPassword.changePassword();
 
         while (true) {
             /*

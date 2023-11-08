@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class FileWriting {
     
     public static void FileWriteUser(){
-        String allUserCSV = "../database/users.csv";
+        String allUserCSV = "Assignment/database/users.csv";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(allUserCSV))){
 
             //Header of CSV File
@@ -19,8 +19,8 @@ public class FileWriting {
                 if (temp instanceof Staff){
                     role = "Staff";
                 }
-                else if (temp instanceof CampCommitteeMem){
-                    role = "CampCommitteeMem";
+                else if (temp instanceof CampCommittee){
+                    role = "CampCommittee";
                 }
                 else{
                     role = "Student";
@@ -36,7 +36,7 @@ public class FileWriting {
     }
 
     public void FileWrite(CampDetails campDetails) {
-        String campDetailsCSV = "database/camp_details.csv"; 
+        String campDetailsCSV = "Assignment/database/camp_details.csv"; 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))){
 
             String header = "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n";
@@ -62,7 +62,7 @@ public class FileWriting {
     }
 
     public void FileWrite(Camp camp) {
-        String campDetailsCSV = "database/camp_student_list.csv"; 
+        String campDetailsCSV = "Assignment/database/camp_student_list.csv"; 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))){
 
             String header = "campName,userID,Role\n";
