@@ -19,8 +19,8 @@ public class FileWriting {
                 if (temp instanceof Staff){
                     role = "Staff";
                 }
-                else if (temp instanceof CampCommitteeMem){
-                    role = "CampCommitteeMem";
+                else if (temp instanceof CampCommittee){
+                    role = "CampCommittee";
                 }
                 else{
                     role = "Student";

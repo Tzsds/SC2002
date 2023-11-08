@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-//import java.util.ArrayList;
 
 public class FileRead {
 
@@ -15,7 +14,6 @@ public class FileRead {
     }
 
     private static void readWithReset(){
-        //ArrayList <User> entity = new ArrayList<User>();
         String studentCSV = "../database/student_list.csv";
         String staffCSV = "../database/staff_list.csv";
 
@@ -61,7 +59,6 @@ public class FileRead {
     }
 
     private static void readWithoutReset(){
-        //ArrayList <User> entity = new ArrayList<User>();
         String allUserCSV = "../database/users.csv";
 
         //Reading in the CSV that has all the updated passwords
@@ -79,8 +76,8 @@ public class FileRead {
                     if (role.equals("Staff")){
                         UserRepository.addUser(new Staff(userID, name, faculty, password));
                     }
-                    else if (role.equals("CampCommitteeMem")){
-                        UserRepository.addUser(new CampCommitteeMem(userID, name, faculty, password));
+                    else if (role.equals("CampCommittee")){
+                        UserRepository.addUser(new CampCommittee(userID, name, faculty, password));
                     }
                     else{
                         UserRepository.addUser(new Student(userID, name, faculty, password));

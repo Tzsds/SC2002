@@ -1,6 +1,3 @@
-//import java.util.ArrayList;
-
-
 public class AccountVerification {
 
     private static int index; //Index of the current user in the Repository

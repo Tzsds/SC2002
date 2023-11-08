@@ -26,8 +26,8 @@ public class UserRepository {
     public static String getUserRole(String userID) {
         for (User user : listOfUsers) {
             if (user.getUserID().equals(userID)) {
-                if (user instanceof Student) {
-                    return "Student";
+                if (user instanceof CampCommittee) {
+                    return "CampCommittee";
                 } else if (user instanceof Staff) {
                     return "Staff";
                 } else {
