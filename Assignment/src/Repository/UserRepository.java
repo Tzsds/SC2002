@@ -3,10 +3,15 @@ import java.util.ArrayList;
 
 import Entity.CampCommittee;
 import Entity.Staff;
+import Entity.Student;
 import Entity.User;
 
 public class UserRepository {
     private static ArrayList<User> listOfUsers = new ArrayList<User>();
+
+    //private static ArrayList<Staff> listOfStaffs = new ArrayList<Staff>();
+    //private static ArrayList<CampCommittee> listOfCampCommittees = new ArrayList<CampCommittee>();
+    //private static ArrayList<Student> listOfStudents = new ArrayList<Student>();
 
     public static ArrayList<User> getListofUsers() {
         return listOfUsers;

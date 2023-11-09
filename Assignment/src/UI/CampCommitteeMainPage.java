@@ -5,13 +5,12 @@ import Entity.User;
 
 public class CampCommitteeMainPage {
     private MainMenu mainMenu;
-    private InputScanner inputScanner;
     private User currentUser;
 
     public CampCommitteeMainPage(User currentUser) {
         this.currentUser = currentUser;
         mainMenu = new StudentMainMenu();
-        inputScanner = new InputScanner();
+        //inputScanner = new InputScanner();
     }
 
     public void run() {
@@ -19,7 +18,8 @@ public class CampCommitteeMainPage {
         while (continueMenu) {
             System.out.println("Welcome " + currentUser.getName());
             mainMenu.displayMainMenu();
-            int option = inputScanner.promtForInt("Input your choice of action (1-9):");
+            //int option = inputScanner.promtForInt("Input your choice of action (1-9):");
+            int option = InputScanner.promtForInt("Input your choice of action (1-9):");
             switch (option) {
 
                 case 1:

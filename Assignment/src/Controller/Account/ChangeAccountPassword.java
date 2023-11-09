@@ -15,7 +15,6 @@ public class ChangeAccountPassword {
     private static void UpdatePassword(String password){
         User currentUser = LoginManager.getCurrentUser();
         currentUser.setPassword(password);
-        UserRepository.replaceUser(currentUser, LoginManager.getIndex());
         FileWriting.FileWriteUser();
         System.out.println("Password successfully changed!");
     }

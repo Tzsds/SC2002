@@ -16,7 +16,8 @@ public class Start {
             LoginManager.Login();
             User currentUser = LoginManager.getCurrentUser();
 
-            String userRole = UserRepository.getUserRole(currentUser.getUserID());
+            //String userRole = UserRepository.getUserRole(currentUser.getUserID());
+            String userRole = LoginManager.getUserRole();
             // the following 3 codes below are just for testing purposes
             System.out.println("Current user: " + currentUser.getName());
             System.out.println("user id:" + currentUser.getUserID());

@@ -1,5 +1,7 @@
 package Controller.Account;
 
+import Entity.CampCommittee;
+import Entity.Staff;
 import Entity.User;
 import Repository.UserRepository;
 import UI.AccountInput;
@@ -50,5 +52,15 @@ public class LoginManager {
 
     public static User getCurrentUser(){
         return currentUser;
+    }
+
+    public static String getUserRole(){
+        if (currentUser instanceof CampCommittee) {
+            return "CampCommittee";
+        } else if (currentUser instanceof Staff) {
+            return "Staff";
+        } else {
+            return "Student"; // as of now default is student
+        }
     }
 }
