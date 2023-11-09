@@ -5,7 +5,6 @@ import Entity.User;
 
 public class StudentMainPage {
     private MainMenu mainMenu;
-    private InputScanner inputScanner;
     private User currentUser;
     private String userRole;
 
@@ -13,8 +12,6 @@ public class StudentMainPage {
         this.currentUser = currentUser;
         this.userRole = userRole;
         mainMenu = new StudentMainMenu();
-        //inputScanner = new InputScanner();
-
     }
 
     public void run() {
@@ -33,6 +30,8 @@ public class StudentMainPage {
                 case 2:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
+                    EnquiryMainPage enquiryPage = new EnquiryMainPage(currentUser);
+                    enquiryPage.run();
                     break;
                 case 3:
                     // Display registered camps

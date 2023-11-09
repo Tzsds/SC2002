@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 import Entity.CampCommittee;
 import Entity.Staff;
-import Entity.Student;
 import Entity.User;
 
 public class UserRepository {

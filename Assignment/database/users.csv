@@ -1,7 +1,7 @@
 name,role,faculty,userID,password
 CHERN,Student,SCSE,YCHERN,password
 KOH,Student,ADM,KOH1,password
-BRANDON,Student,EEE,BR015,password
+BRANDON,Student,EEE,BR015,PASSWORD
 CALVIN,Student,SCSE,CT113,password
 CHAN,Student,NBS,YCN019,password
 DENISE,Student,SCSE,DL007,password
