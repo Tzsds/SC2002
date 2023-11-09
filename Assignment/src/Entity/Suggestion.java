@@ -1,14 +1,16 @@
 package Entity;
 
+import Controller.Account.LoginManager;
+
 public class Suggestion {
     public enum Status {APPROVED, PENDING, REJECTED};
 
-    private String proposer;
+    private CampCommittee proposer;
     private Status status;
     private String content;
 
-    public Suggestion(String proposer, String content){
-        this.proposer = proposer;
+    public Suggestion(String content){
+        this.proposer = (CampCommittee)LoginManager.getCurrentUser();
         this.content = content;
         this.status = Status.PENDING;
     }
@@ -29,7 +31,7 @@ public class Suggestion {
         return content;
     }
 
-    public String getProposer(){
+    public CampCommittee getProposer(){
         return proposer;
     }
 

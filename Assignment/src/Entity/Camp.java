@@ -7,6 +7,7 @@ public class Camp {
     private ArrayList<Student> campComittee;
     private Enquiry enquiries;
     private ArrayList<Student> withdrawnStudents;
+    private ArrayList<Suggestion> listOfSuggestions = new ArrayList<Suggestion>();
 
     //set functions
     public void setCampDetails(CampDetails campDetails) {
@@ -22,5 +23,9 @@ public class Camp {
     }
     public ArrayList<Student> getCampComittee() {
         return campComittee;
+    }
+    
+    public ArrayList<Suggestion> getListOfSuggestions(){
+        return listOfSuggestions;
     }
 }

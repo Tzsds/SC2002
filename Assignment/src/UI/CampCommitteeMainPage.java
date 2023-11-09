@@ -25,13 +25,15 @@ public class CampCommitteeMainPage {
                 case 3:
                     // Display registered camps
                     System.out.println("Retrieving registered camps...");
+                    
+                    //Print ArrayList<Camp> registeredCamps
 
                     break;
                 case 4:
-                    // Initiate password change process
+                    //Submit suggestion
                     System.out.println("Submitting Suggestions...");
-                    
-                    return;
+                    SuggestionManager.addSuggestion();
+                    break;
                 case 5:
                     System.out.println("Viewing Enquiries...");
                     continueMenu = false;

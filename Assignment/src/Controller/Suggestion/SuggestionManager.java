@@ -3,23 +3,27 @@ package Controller.Suggestion;
 import java.util.ArrayList;
 
 import Controller.Account.LoginManager;
+import Controller.Camp.CampManager;
 import Entity.CampCommittee;
 import Entity.Suggestion;
+import Entity.Suggestion.Status;
 import Repository.SuggestionRepository;
 import UI.InputScanner;
 
 public class SuggestionManager {
-    public void addSuggestion(){
+
+    public static void addSuggestion(){
         CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
         Suggestion temp = createSuggestion();
         User.getSuggestions().add(temp);
         SuggestionRepository.addSuggestionToRepo(temp);
+        CampManager.addSuggestion(User.getCommitteeOf(), temp);
+        User.addPoints(); //Add one point for a suggestion given
     }
 
     private static Suggestion createSuggestion(){
         String content = InputScanner.promptForString("What do you want to suggest?");
-        String proposer = LoginManager.getCurrentUser().getUserID();
-        return new Suggestion(proposer, content);
+        return new Suggestion(content);
     }
 
     public static void editSuggestion(Suggestion suggestion){
@@ -36,6 +40,23 @@ public class SuggestionManager {
             Suggestion temp = suggestions.get(i);
             System.out.println(temp.getContent());
         }
+    }
+
+    public static void acceptSuggestion(Suggestion temp){
+        temp.setStatus(Status.APPROVED);
+        CampCommittee member = temp.getProposer();
+        member.addPoints(); //Additional points for accepted Suggestion
+        CampManager.removeSuggestion(member.getCommitteeOf(), temp);
+        member.getSuggestions().remove(temp);
+        SuggestionRepository.getListOfSuggestions().remove(temp);
+    }
+
+    public static void rejectSuggestion(Suggestion temp){
+        temp.setStatus(Status.REJECTED);
+        CampCommittee member = temp.getProposer();
+        CampManager.removeSuggestion(member.getCommitteeOf(), temp);
+        member.getSuggestions().remove(temp);
+        SuggestionRepository.getListOfSuggestions().remove(temp);
     }
 
 
