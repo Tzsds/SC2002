@@ -48,7 +48,7 @@ public class FileWriting {
 
     public void FileWrite(CampDetails campDetails) {
         String campDetailsCSV = "Assignment/database/camp_details.csv";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV,true))) {
 
             String header = "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n";
             writer.write(header);

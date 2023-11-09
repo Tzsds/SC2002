@@ -2,6 +2,7 @@ package UI;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
+import Entity.Student;
 
 public class StudentMainPage {
     
@@ -16,6 +17,7 @@ public class StudentMainPage {
                 case 1:
                     // Display list of camps available
                     System.out.println("Retrieving list of available camps...");
+                    Student.viewAvailableCamps();
                     break;
                 case 2:
                     // Navigate to Enquiry Page

@@ -17,7 +17,7 @@ public class StaffMainPage {
                 case 1:
                     // Show all Camps
                     System.out.println("Showing all camps created...");
-                    // Staff.viewAllCamps();
+                    Staff.viewAllCamps();
                     break;
                 case 2:
                     // Create new camp
