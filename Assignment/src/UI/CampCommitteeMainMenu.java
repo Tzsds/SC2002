@@ -1,7 +1,9 @@
 package UI;
-public class CampCommitteeMainMenu extends MainMenu {
-    public void displayMainMenu(){
-        super.displayMainMenu();
+public class CampCommitteeMainMenu {
+    public static void displayMainMenu(){
+        System.out.println("----------------------------------------");
+        System.out.println("Welcome to the Camp Committee Main Page");
+        System.out.println("----------------------------------------");
         System.out.println("1. View List of Camps Available");
         System.out.println("2. Enquiry Page");
         System.out.println("3. View Registered Camps");

@@ -1,7 +1,9 @@
 package UI;
-public class StaffMainMenu extends MainMenu {
-    public void displayMainMenu(){
-        super.displayMainMenu();
+public class StaffMainMenu{
+    public static void displayMainMenu(){
+        System.out.println("----------------------------------------");
+        System.out.println("Welcome to the Staff Main Page");
+        System.out.println("----------------------------------------");
         System.out.println("(1) View All Camps\n"
                          + "(2) Create New Camp\n"
                          + "(3) View Camps Created\n"

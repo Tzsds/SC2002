@@ -1,25 +1,15 @@
 package UI;
 
 import Controller.Account.ChangeAccountPassword;
-import Entity.User;
+import Controller.Account.LoginManager;
 
 public class StudentMainPage {
-    private MainMenu mainMenu;
-    private User currentUser;
-    private String userRole;
-
-    public StudentMainPage(User currentUser, String userRole) {
-        this.currentUser = currentUser;
-        this.userRole = userRole;
-        mainMenu = new StudentMainMenu();
-    }
-
-    public void run() {
+    
+    public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            System.out.println("Welcome " + currentUser.getName());
-            mainMenu.displayMainMenu();
-            //int option = inputScanner.promtForInt("Input your choice of action (1-5):");
+            System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+            StudentMainMenu.displayMainMenu();
             int option = InputScanner.promtForInt("Input your choice of action (1-5):");
             switch (option) {
 
@@ -30,7 +20,7 @@ public class StudentMainPage {
                 case 2:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
-                    EnquiryMainPage enquiryPage = new EnquiryMainPage(currentUser);
+                    EnquiryMainPage enquiryPage = new EnquiryMainPage(LoginManager.getCurrentUser());
                     enquiryPage.run();
                     break;
                 case 3:
@@ -42,12 +32,13 @@ public class StudentMainPage {
                     // Initiate password change process
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
-                    System.out.println("Returning back to main page...");
+                    System.out.println("Logging out...");
+                    continueMenu = false;
                     break;
                 case 5:
                     System.out.println("Logging out...");
                     continueMenu = false;
-                    return;
+                    break;
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
                     break;

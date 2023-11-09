@@ -1,27 +1,19 @@
 package UI;
 
 import Controller.Account.ChangeAccountPassword;
-import Entity.User;
+import Controller.Account.LoginManager;
+import Controller.Suggestion.SuggestionManager;
+import Entity.CampCommittee;
 
 public class CampCommitteeMainPage {
-    private MainMenu mainMenu;
-    private User currentUser;
 
-    public CampCommitteeMainPage(User currentUser) {
-        this.currentUser = currentUser;
-        mainMenu = new StudentMainMenu();
-        //inputScanner = new InputScanner();
-    }
-
-    public void run() {
+    public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            System.out.println("Welcome " + currentUser.getName());
-            mainMenu.displayMainMenu();
-            //int option = inputScanner.promtForInt("Input your choice of action (1-9):");
+            System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+            CampCommitteeMainMenu.displayMainMenu();
             int option = InputScanner.promtForInt("Input your choice of action (1-9):");
             switch (option) {
-
                 case 1:
                     // Display list of camps available
                     System.out.println("Retrieving list of available camps...");
@@ -38,7 +30,7 @@ public class CampCommitteeMainPage {
                 case 4:
                     // Initiate password change process
                     System.out.println("Submitting Suggestions...");
-                    continueMenu = false;
+                    
                     return;
                 case 5:
                     System.out.println("Viewing Enquiries...");
@@ -46,21 +38,23 @@ public class CampCommitteeMainPage {
                     return;
                 case 6:
                     System.out.println("Viewing Suggestions...");
-                    continueMenu = false;
-                    return;
+                    CampCommittee temp = (CampCommittee)LoginManager.getCurrentUser();
+                    SuggestionManager.printSuggestions(temp.getSuggestions());
+                    break;
                 case 7:
                     System.out.println("Generating Report...");
                     continueMenu = false;
-                    return;
+                    break;
                 case 8:
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
-                    System.out.println("Returning back to main page...");
+                    System.out.println("Logging out...");
+                    continueMenu = false;
                     break;
                 case 9:
                     System.out.println("Logging out...");
                     continueMenu = false;
-                    return;
+                    break;
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
                     break;

@@ -3,6 +3,7 @@ import Controller.Account.LoginManager;
 import Controller.File.FileRead;
 import Entity.User;
 import Repository.UserRepository;
+import UI.CampCommitteeMainPage;
 import UI.StaffMainPage;
 import UI.StudentMainPage;
 
@@ -15,8 +16,6 @@ public class Start {
         while (true) {
             LoginManager.Login();
             User currentUser = LoginManager.getCurrentUser();
-
-            //String userRole = UserRepository.getUserRole(currentUser.getUserID());
             String userRole = LoginManager.getUserRole();
             // the following 3 codes below are just for testing purposes
             System.out.println("Current user: " + currentUser.getName());
@@ -27,13 +26,15 @@ public class Start {
             // entering main pages
             if (userRole == "Student") {
                 System.out.println("Redirecting to student menu");
-                StudentMainPage studentPage = new StudentMainPage(currentUser, userRole);
-                studentPage.run();
+                StudentMainPage.run();
             }
             else if (userRole == "Staff") {
                 System.out.println("Redirecting to staff menu");
-                StaffMainPage staffPage = new StaffMainPage(currentUser);
-                staffPage.run();
+                StaffMainPage.run();
+            }
+            else{
+                System.out.println("Redirecting to Camp Committee menu");
+                CampCommitteeMainPage.run();
             }
 
             System.out.println(currentUser.getName() + " logged out");

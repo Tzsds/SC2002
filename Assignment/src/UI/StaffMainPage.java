@@ -1,26 +1,16 @@
 package UI;
 
 import Controller.Account.ChangeAccountPassword;
+import Controller.Account.LoginManager;
 import Entity.Staff;
-import Entity.User;
 
 public class StaffMainPage {
-    private MainMenu mainMenu;
-    private InputScanner inputScanner;
-    private User currentUser;
-
-    public StaffMainPage(User currentUser) {
-        this.currentUser = currentUser;
-        mainMenu = new StaffMainMenu();
-        //inputScanner = new InputScanner();
-    }
-
-    public void run() {
+    
+    public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            System.out.println("Welcome " + currentUser.getName());
-            mainMenu.displayMainMenu();
-            //int option = inputScanner.promtForInt("Input your choice of action (1-9):");
+            System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+            StaffMainMenu.displayMainMenu();
             int option = InputScanner.promtForInt("Input your choice of action (1-9):");
             switch (option) {
 
@@ -63,12 +53,13 @@ public class StaffMainPage {
                     // Initiate password change process
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
-                    System.out.println("Returning back to main page...");
+                    System.out.println("Logging out...");
+                    continueMenu = false;
                     break;
                 case 9:
                     System.out.println("Logging out...");
                     continueMenu = false;
-                    return;
+                    break;
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
                     break;
