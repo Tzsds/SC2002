@@ -1,5 +1,4 @@
 package UI;
-//import java.util.Scanner;
 
 import Controller.Account.ChangeAccountPassword;
 import Entity.User;
@@ -8,14 +7,11 @@ public class CampCommitteeMainPage {
     private MainMenu mainMenu;
     private InputScanner inputScanner;
     private User currentUser;
-    private String userRole;
 
-    public CampCommitteeMainPage(User currentUser, String userRole) {
+    public CampCommitteeMainPage(User currentUser) {
         this.currentUser = currentUser;
-        this.userRole = userRole;
         mainMenu = new StudentMainMenu();
         inputScanner = new InputScanner();
-
     }
 
     public void run() {

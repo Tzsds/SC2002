@@ -2,14 +2,19 @@ package UI;
 import java.util.Scanner;
 
 public class InputScanner {
-    private final Scanner scanner;
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public InputScanner() {
-        this.scanner = new Scanner(System.in);
-    }
+    // public InputScanner() {
+    //     this.scanner = new Scanner(System.in);
+    // }
 
-    public int promtForInt(String prompt) {
+    public static int promtForInt(String prompt) {
         System.out.print(prompt);
         return scanner.nextInt();
+    }
+
+    public static String promptForString(String prompt){
+        System.out.println(prompt);
+        return scanner.nextLine();
     }
 }

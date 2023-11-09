@@ -13,7 +13,7 @@ public class StudentMainPage {
         this.currentUser = currentUser;
         this.userRole = userRole;
         mainMenu = new StudentMainMenu();
-        inputScanner = new InputScanner();
+        //inputScanner = new InputScanner();
 
     }
 
@@ -22,7 +22,8 @@ public class StudentMainPage {
         while (continueMenu) {
             System.out.println("Welcome " + currentUser.getName());
             mainMenu.displayMainMenu();
-            int option = inputScanner.promtForInt("Input your choice of action (1-5):");
+            //int option = inputScanner.promtForInt("Input your choice of action (1-5):");
+            int option = InputScanner.promtForInt("Input your choice of action (1-5):");
             switch (option) {
 
                 case 1:
