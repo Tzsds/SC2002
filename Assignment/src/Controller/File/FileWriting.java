@@ -74,9 +74,11 @@ public class FileWriting {
     public void FileWrite(Camp camp) {
         String campDetailsCSV = "Assignment/database/camp_student_list.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))) {
-
-            String header = "campName,userID,Role\n";
-            writer.write(header);
+            
+            // If the file is empty, write the header
+            if (Files.size(Paths.get(campDetailsCSV)) == 0) {
+                writer.write("campName,userID,Role\n");
+            }
 
             // Write campDetails to the CSV file
             CampDetails campDetails = camp.getCampDetails();
