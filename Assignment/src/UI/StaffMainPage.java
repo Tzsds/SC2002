@@ -1,5 +1,7 @@
 package UI;
 
+import java.util.Scanner;
+
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Entity.Staff;
@@ -29,34 +31,41 @@ public class StaffMainPage {
                     System.out.println("Showing camps created by you...");
                     // viewCampCreatedList();
                     break;
-                case 4:
+                case 4: 
+                    // Delete camps created by staff
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Enter the camp you wish to remove");
+                    String campName = sc.nextLine();
+                    Staff.deleteCamp(campName);
+                    break;
+                case 5:
                     // Show Enqueries asked by students
                     System.out.println("Showing enqueries by students...");
                     // viewEnqueries();
                     break;
-                case 5:
+                case 6:
                     // View suggestions given by camp committee members
                     System.out.println("Showing suggestions from camp committee members...");
                     // viewSuggestions();
                     break;
-                case 6:
+                case 7:
                     // Generate camp report
                     System.out.println("Generating camp report...");
                     // generateCampReport();
                     break;
-                case 7:
+                case 8:
                     // Generate performance report
                     System.out.println("Generating performance report of camp committee members...");
                     // generatePerformanceReport();
                     break;
-                case 8:
+                case 9:
                     // Initiate password change process
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;
-                case 9:
+                case 10:
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;

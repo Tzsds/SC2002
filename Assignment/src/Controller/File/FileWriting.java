@@ -36,7 +36,7 @@ public class FileWriting {
                 } else {
                     role = "Student";
                 }
-                String data = User.getName() + "," + role + "," + temp.getFaculty() + "," + temp.getUserID() + ","
+                String data = temp.getName() + "," + role + "," + temp.getFaculty() + "," + temp.getUserID() + ","
                         + temp.getPassword() + "\n";
                 writer.write(data);
             }

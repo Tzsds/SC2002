@@ -1,10 +1,12 @@
 package Entity;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import Controller.File.FileRemove;
 import Controller.File.FileWriting;
 
 public class Staff extends User {
@@ -167,5 +169,11 @@ public class Staff extends User {
         fw.FileWrite(newCamp);
 
         System.out.println("Camp Created!");
+    }
+
+    public static void deleteCamp(String campName){
+        String campDetailsCSV = "Assignment//database//camp_details.csv";
+        FileRemove fr = new FileRemove();
+        fr.removeCamp(campDetailsCSV, campName);
     }
 }

@@ -1,7 +1,3 @@
 campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
-SCSE TOP,1111-01-01,1111-01-12,1111-01-01,null,AIA,100,20,fun,null,true
-campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
-abc,1111-11-11,1111-11-11,1111-11-11,null,ntu,10,2,boo,null,true
-campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
-zxc,1111-11-11,1111-11-11,1111-11-11,null,nus,20,4,hais,null,false
-qwer,1111-11-11,1111-11-11,1111-11-11,null,sit,23,2,play,Arvind,true
+abc,1111-11-11,1111-11-11,1111-11-11,null,ntu,10,2,play,Arvind,true
+zxc,1111-11-11,1111-11-11,1111-11-11,null,nus,50,10,study,Arvind,false
