@@ -2,18 +2,18 @@ package Entity;
 
 public class User {
     private String userID;
-    private String name;
+    private static String name;
     private String faculty;
     private String password;
 
     public User(String userID, String name, String faculty, String password) {
         this.userID = userID;
-        this.name = name;
+        User.name = name;
         this.faculty = faculty;
         this.password = password;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 

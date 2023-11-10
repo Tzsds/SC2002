@@ -132,8 +132,8 @@ public class Staff extends User {
         System.out.print("Enter the number of camp committee slots open for the camp: ");
         int campCommitteeSlots = sc.nextInt();        
 
-        System.out.print("Enter your staff name: ");
-        String staffInCharge = sc.nextLine();
+        
+        String staffInCharge = Staff.getName();
 
         System.out.print("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
         int visibility = sc.nextInt();
@@ -156,7 +156,7 @@ public class Staff extends User {
         newCampDetails.setLocation(location);
         newCampDetails.setTotalSlots(totalSlots);
         newCampDetails.setCampComitteeSlots(campCommitteeSlots);
-        //newCampDetails.setStaffInCharge(staffInCharge);     //String or Staff
+        newCampDetails.setStaffInCharge(staffInCharge);     //String or Staff
         newCampDetails.setVisibility(bool);
     
         Camp newCamp = new Camp();

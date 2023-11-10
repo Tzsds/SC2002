@@ -4,3 +4,4 @@ campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,des
 abc,1111-11-11,1111-11-11,1111-11-11,null,ntu,10,2,boo,null,true
 campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
 zxc,1111-11-11,1111-11-11,1111-11-11,null,nus,20,4,hais,null,false
+qwer,1111-11-11,1111-11-11,1111-11-11,null,sit,23,2,play,Arvind,true

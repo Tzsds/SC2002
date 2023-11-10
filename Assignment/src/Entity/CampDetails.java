@@ -11,7 +11,7 @@ public class CampDetails {
     private int slots;
     private int campComitteeSlots;
     private String description;
-    private Staff staffInCharge;
+    private String staffInCharge;
     private boolean visibility;
 
     //constructor
@@ -44,7 +44,7 @@ public class CampDetails {
     public void setDescription(String description) {
         this.description = description;
     }
-    public void setStaffInCharge(Staff staffInCharge) {
+    public void setStaffInCharge(String staffInCharge) {
         this.staffInCharge = staffInCharge;
     }
     public void setVisibility(boolean bool) {
@@ -79,7 +79,7 @@ public class CampDetails {
     public String getDescription() {
         return description;
     }
-    public Staff getStaffInCharge() {
+    public String getStaffInCharge() {
         return staffInCharge;
     }
     public boolean getVisibility() {

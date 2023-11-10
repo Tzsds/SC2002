@@ -14,7 +14,7 @@ public class LoginManager {
     public static void Login(){
         LoginManager.getID();
         LoginManager.checkPassword(currentUser);
-        System.out.println(currentUser.getName() + " logged in!");
+        System.out.println(User.getName() + " logged in!");
     }
 
     private static void getID(){
