@@ -98,6 +98,7 @@ public class Staff extends User {
         System.out.print("Description: ");
         String description = sc.nextLine();
 
+
         System.out.print("Enter camp start date in format (dd/mm/yyyy): ");
         String dateString = sc.nextLine();
         String[] parts = dateString.split("/");

@@ -12,9 +12,25 @@ public class CampDetails {
     private int campComitteeSlots;
     private String description;
     private String staffInCharge;
+    // i think have to change to private Staff staffInCharge
     private boolean visibility;
 
-    //constructor
+    // constructor
+    public CampDetails(String name, LocalDate startDate, LocalDate endDate, LocalDate closeDate, String openTo, String location, int slots, int campComitteeSlots,
+    String description, String staffInCharge, boolean visibility){
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.closeDate = closeDate;
+        this.openTo = openTo;
+        this. location = location;
+        this.slots = slots;
+        this.campComitteeSlots = campComitteeSlots;
+        this.description = description;
+        this.staffInCharge = staffInCharge;
+        this.visibility = visibility;
+    }
+
     public CampDetails() {
     }
 
