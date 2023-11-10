@@ -50,8 +50,11 @@ public class FileWriting {
         String campDetailsCSV = "Assignment/database/camp_details.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV,true))) {
 
-            String header = "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n";
-            writer.write(header);
+            // If the file is empty, write the header
+            if (Files.size(Paths.get(campDetailsCSV)) == 0) {
+                System.out.println("ininnini");
+                writer.write("campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n");
+            }
 
             // Write campDetails to the CSV file
             String data = campDetails.getCampName() + "," +
@@ -72,11 +75,11 @@ public class FileWriting {
     }
 
     public void FileWrite(Camp camp) {
-        String campDetailsCSV = "Assignment/database/camp_student_list.csv";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV))) {
+        String campStudentListCSV = "Assignment/database/camp_student_list.csv";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campStudentListCSV))) {
             
             // If the file is empty, write the header
-            if (Files.size(Paths.get(campDetailsCSV)) == 0) {
+            if (Files.size(Paths.get(campStudentListCSV)) == 0) {
                 writer.write("campName,userID,Role\n");
             }
 
