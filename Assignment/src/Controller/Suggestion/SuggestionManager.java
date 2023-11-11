@@ -5,16 +5,16 @@ import java.util.InputMismatchException;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
-import Controller.File.FileWriting;
 import Controller.File.Suggestion.WriteSuggestion;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
-import Entity.Suggestion.Status;
 import Repository.SuggestionRepository;
 import UI.InputScanner;
 
 public class SuggestionManager {
+
+    //Functions to be used by Camp Committee
 
     public static void addSuggestion(){
         CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
@@ -95,20 +95,4 @@ public class SuggestionManager {
             i += 1;
         }
     }
-
-    public static void acceptSuggestion(Suggestion temp){
-        temp.setStatus(Status.APPROVED);
-        CampCommittee member = temp.getProposer();
-        member.addPoints(); //Additional points for accepted Suggestion
-        deleteSuggestion(temp);
-        FileWriting.FileWriteSuggestion();
-    }
-
-    public static void rejectSuggestion(Suggestion temp){
-        temp.setStatus(Status.REJECTED);
-        deleteSuggestion(temp);
-        FileWriting.FileWriteSuggestion();
-    }
-
-
 }
