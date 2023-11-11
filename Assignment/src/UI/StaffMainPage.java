@@ -14,7 +14,7 @@ public class StaffMainPage {
         while (continueMenu) {
             System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
             StaffMainMenu.displayMainMenu();
-            int option = InputScanner.promtForInt("Input your choice of action (1-9):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-9):");
             switch (option) {
 
                 case 1:

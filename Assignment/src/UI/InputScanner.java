@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class InputScanner {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static int promtForInt(String prompt) {
+    public static int promptForInt(String prompt) {
         System.out.print(prompt);
         return scanner.nextInt();
     }

@@ -1,11 +1,13 @@
 package Controller.Suggestion;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
 import Controller.File.Suggestion.WriteSuggestion;
+import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
 import Entity.Suggestion.Status;
@@ -29,9 +31,57 @@ public class SuggestionManager {
         return new Suggestion(content);
     }
 
-    public static void editSuggestion(Suggestion suggestion){
-        String content = InputScanner.promptForString("What is your editted Suggestion?: ");
-        suggestion.setContent(content);
+    public static void editSuggestion(ArrayList<Suggestion> suggestions){
+        printSuggestions(suggestions);
+        while (true){
+            int prompt = 0;
+            try{
+                prompt = InputScanner.promptForInt("Enter the suggestion no. you wish to edit: ");
+            }
+            catch (InputMismatchException e){
+                System.out.println("Invalid input! Please try again");
+                InputScanner.waitForUserInput();
+                continue;
+            }
+            if (prompt <= 0 || prompt > suggestions.size()){
+                System.out.println("Invalid number! Please try again");
+                continue;
+            }
+            String content = InputScanner.promptForString("What is your editted Suggestion?: ");
+            suggestions.get(prompt-1).setContent(content);
+            return;
+        }
+    }
+
+    public static void deleteSuggestion(ArrayList<Suggestion> suggestions){
+        printSuggestions(suggestions);
+        while (true){
+            int prompt = 0;
+            try{
+                prompt = InputScanner.promptForInt("Enter the suggestion no. you wish to edit: ");
+            }
+            catch (InputMismatchException e){
+                System.out.println("Invalid input! Please try again");
+                InputScanner.waitForUserInput();
+                continue;
+            }
+            if (prompt <= 0 || prompt > suggestions.size()){
+                System.out.println("Invalid number! Please try again");
+                continue;
+            }
+            Suggestion temp = suggestions.get(prompt-1);
+            deleteSuggestion(temp);
+            System.out.println("Suggestion successfully deleted");
+            return;
+        }
+    }
+
+    public static void deleteSuggestion(Suggestion temp){
+        CampCommittee User = temp.getProposer();
+        Camp c1 = User.getCommitteeOf();
+        User.getSuggestions().remove(temp);
+        c1.getListOfSuggestions().remove(temp);
+        SuggestionRepository.getListOfSuggestions().remove(temp);
     }
 
     public static void printSuggestions(ArrayList<Suggestion> suggestions){
@@ -39,9 +89,10 @@ public class SuggestionManager {
             System.out.println("You have no Pending Suggestions");
             return;
         }
+        int i = 1;
         for (Suggestion temp : suggestions){
-            System.out.println(temp.getContent());
-            System.out.println();
+            System.out.println(i + ". " + temp.getContent());
+            i += 1;
         }
     }
 
@@ -49,18 +100,13 @@ public class SuggestionManager {
         temp.setStatus(Status.APPROVED);
         CampCommittee member = temp.getProposer();
         member.addPoints(); //Additional points for accepted Suggestion
-        CampManager.removeSuggestion(member.getCommitteeOf(), temp);
-        member.getSuggestions().remove(temp);
-        SuggestionRepository.getListOfSuggestions().remove(temp);
+        deleteSuggestion(temp);
         FileWriting.FileWriteSuggestion();
     }
 
     public static void rejectSuggestion(Suggestion temp){
         temp.setStatus(Status.REJECTED);
-        CampCommittee member = temp.getProposer();
-        CampManager.removeSuggestion(member.getCommitteeOf(), temp);
-        member.getSuggestions().remove(temp);
-        SuggestionRepository.getListOfSuggestions().remove(temp);
+        deleteSuggestion(temp);
         FileWriting.FileWriteSuggestion();
     }
 

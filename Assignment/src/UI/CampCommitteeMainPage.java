@@ -3,8 +3,6 @@ package UI;
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
-import Controller.Suggestion.SuggestionManager;
-import Entity.CampCommittee;
 import Entity.Student;
 
 public class CampCommitteeMainPage {
@@ -14,7 +12,7 @@ public class CampCommitteeMainPage {
         while (continueMenu) {
             System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
             CampCommitteeMainMenu.displayMainMenu();
-            int option = InputScanner.promtForInt("Input your choice of action (1-10):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-9):");
             switch (option) {
                 case 1:
                     // Display list of camps available
@@ -29,37 +27,32 @@ public class CampCommitteeMainPage {
                     System.out.println("Navigating to Enquiry Page...");
                     break;
                 case 4:
-                    // Display registered camps
-                    System.out.println("Retrieving registered camps...");
-                    
-                    //Print ArrayList<Camp> registeredCamps
+                    // Navigate to Suggestion Page
+                    System.out.println("Navigating to Suggestion Page");
+                    SuggestionMainPage.run();
                     break;
                 case 5:
-                    //Submit suggestion
-                    System.out.println("Submitting Suggestions...");
-                    SuggestionManager.addSuggestion();
+                    //View Registered Camps
+                    
                     return;
                 case 6:
+                    //View and Reply to Enquiries
                     System.out.println("Viewing Enquiries...");
                     continueMenu = false;
                     break;
                 case 7:
-                    System.out.println("Viewing Suggestions...");
-                    CampCommittee temp = (CampCommittee)LoginManager.getCurrentUser();
-                    SuggestionManager.printSuggestions(temp.getSuggestions());
+                    //Generate Report
                     break;
                 case 8:
-                    System.out.println("Generating Report...");
-                    continueMenu = false;
-                    break;
-                case 9:
+                    //Change Password
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteCampCommittee();
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;
-                case 10:
+                case 9:
+                    //Log out
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;

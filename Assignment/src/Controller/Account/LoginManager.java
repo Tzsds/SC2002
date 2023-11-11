@@ -1,6 +1,5 @@
 package Controller.Account;
 
-import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Staff;
 import Entity.Student;

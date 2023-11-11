@@ -20,7 +20,7 @@ public class EnquiryMainPage {
         boolean continueMenu = true;
         while (continueMenu) {
             mainMenu.displayMainMenu();
-            int option = InputScanner.promtForInt("Input your choice of action (1-4):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-4):");
             switch (option) {
 
                 case 1:

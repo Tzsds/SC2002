@@ -12,7 +12,7 @@ public class StudentMainPage {
         while (continueMenu) {
             System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
             StudentMainMenu.displayMainMenu();
-            int option = InputScanner.promtForInt("Input your choice of action (1-6):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-6):");
             switch (option) {
 
                 case 1:
