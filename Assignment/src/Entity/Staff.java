@@ -1,9 +1,9 @@
 package Entity;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Controller.Account.LoginManager;
@@ -11,6 +11,8 @@ import Controller.File.FileRemove;
 import Controller.File.FileWriting;
 
 public class Staff extends User {
+    private ArrayList<Camp> campsCreatedList = new ArrayList<>();
+
     public Staff(String userID, String name, String faculty, String password){
         super(userID, name, faculty, password);
     }
@@ -162,9 +164,12 @@ public class Staff extends User {
         newCampDetails.setCampComitteeSlots(campCommitteeSlots);
         newCampDetails.setStaffInCharge(staffInCharge);     //String or Staff
         newCampDetails.setVisibility(bool);
+
+        Staff currentStaff = (Staff)LoginManager.getCurrentUser();
     
         Camp newCamp = new Camp();
         newCamp.setCampDetails(newCampDetails);
+        currentStaff.campsCreatedList.add(newCamp);
 
         FileWriting fw = new FileWriting();
         fw.FileWrite(newCampDetails);
@@ -177,5 +182,29 @@ public class Staff extends User {
         String campDetailsCSV = "Assignment//database//camp_details.csv";
         FileRemove fr = new FileRemove();
         fr.removeCamp(campDetailsCSV, campName);
+    }
+    
+    public void viewCampCreatedList() {
+        if (campsCreatedList.size() == 0) {
+            System.out.println("You have not created any camps yet!");
+        }
+        else {
+            System.out.println("Camps created:");
+            System.out.println("---------------------------------------------");
+            for (Camp camp : campsCreatedList) {
+                CampDetails campDetails = camp.getCampDetails();
+                System.out.println("Camp: " + campDetails.getCampName());
+                System.out.println("Camp Description: " + campDetails.getDescription());
+                System.out.println("Start Date: " + campDetails.getStartDate());
+                System.out.println("End Date: " + campDetails.getEndDate());
+                System.out.println("Registration Close Date: " + campDetails.getCloseDate());
+                System.out.println("Open To: " + campDetails.getOpenTo());
+                System.out.println("Location: " + campDetails.getLocation());
+                System.out.println("Total Slots: " + campDetails.getTotalSlots());
+                System.out.println("Total Camp Committee Slots: " + campDetails.getOpenTo());
+                System.out.println("Visibility: " + campDetails.getVisibility());
+                System.out.println("---------------------------------------------");
+            }
+        }
     }
 }

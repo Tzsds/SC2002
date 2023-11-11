@@ -6,13 +6,16 @@ import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Entity.Staff;
+import Entity.User;
 
 public class StaffMainPage {
     
     public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+            User currentUser = LoginManager.getCurrentUser();
+            Staff currentStaff = (Staff)currentUser;
+            System.out.println("Welcome " + currentUser.getName());
             StaffMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-9):");
             switch (option) {
@@ -30,7 +33,7 @@ public class StaffMainPage {
                 case 3:
                     // View camps created by the staff
                     System.out.println("Showing camps created by you...");
-                    // viewCampCreatedList();
+                    currentStaff.viewCampCreatedList();
                     break;
                 case 4: 
                     // Delete camps created by staff
