@@ -52,7 +52,7 @@ public class WriteUser {
     }
 
     public static void FileWriteCampCommittee(){
-        String campCommitteeCSV = "Assignment/database/CampCommittee.csv";
+        String campCommitteeCSV = "Assignment/database/campcommittee.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(campCommitteeCSV))) {
             writer.write(header);
 

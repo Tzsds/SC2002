@@ -58,7 +58,7 @@ public class ReadUser {
     public static void readUserWithoutReset(){
         String studentCSV = "Assignment/database/student.csv";
         String staffCSV = "Assignment/database/staff.csv";
-        String campCommitteeCSV = "Assignment/database/CampCommittee.csv";
+        String campCommitteeCSV = "Assignment/database/campcommittee.csv";
 
         //Reading studentCSV
         try (BufferedReader br = new BufferedReader(new FileReader(studentCSV))){

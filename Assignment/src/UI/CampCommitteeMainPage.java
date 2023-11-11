@@ -14,7 +14,7 @@ public class CampCommitteeMainPage {
         while (continueMenu) {
             System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
             CampCommitteeMainMenu.displayMainMenu();
-            int option = InputScanner.promtForInt("Input your choice of action (1-9):");
+            int option = InputScanner.promtForInt("Input your choice of action (1-10):");
             switch (option) {
                 case 1:
                     // Display list of camps available
@@ -22,42 +22,44 @@ public class CampCommitteeMainPage {
                     Student.viewAvailableCamps();
                     break;
                 case 2:
+                    System.out.println("Navigating to camp registration page");
+                    break;
+                case 3:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
                     break;
-                case 3:
+                case 4:
                     // Display registered camps
                     System.out.println("Retrieving registered camps...");
                     
                     //Print ArrayList<Camp> registeredCamps
-
                     break;
-                case 4:
+                case 5:
                     //Submit suggestion
                     System.out.println("Submitting Suggestions...");
                     SuggestionManager.addSuggestion();
-                    break;
-                case 5:
-                    System.out.println("Viewing Enquiries...");
-                    continueMenu = false;
                     return;
                 case 6:
+                    System.out.println("Viewing Enquiries...");
+                    continueMenu = false;
+                    break;
+                case 7:
                     System.out.println("Viewing Suggestions...");
                     CampCommittee temp = (CampCommittee)LoginManager.getCurrentUser();
                     SuggestionManager.printSuggestions(temp.getSuggestions());
                     break;
-                case 7:
+                case 8:
                     System.out.println("Generating Report...");
                     continueMenu = false;
                     break;
-                case 8:
+                case 9:
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteCampCommittee();
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;
-                case 9:
+                case 10:
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;
