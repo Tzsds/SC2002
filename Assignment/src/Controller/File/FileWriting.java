@@ -23,7 +23,7 @@ public class FileWriting {
         WriteUser.FileWriteStaff();
     }
 
-    public static void FileWriteSuggestion(){
+    public static void FileWriteSuggestion() {
         WriteSuggestion.writeSuggestion();
     }
 
@@ -91,25 +91,4 @@ public class FileWriting {
         }
     }
 
-    public static void FileWriteEnquiry(Enquiry enquiry) {
-        String enquiryCSV = "Assignment/database/enquiries.csv";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(enquiryCSV, true))) {
-
-            // If the file is empty, write the header
-            if (Files.size(Paths.get(enquiryCSV)) == 0) {
-                writer.write("sender,content,camp,status,replier\n");
-            }
-
-            // Write enquiry to the CSV file
-            String data = enquiry.getSender() + "," +
-                    enquiry.getContent() + "," +
-                    enquiry.getCampName() + "," +
-                    enquiry.getStatus() + "," +
-                    enquiry.getReplier() + "\n";
-            writer.write(data);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

@@ -3,7 +3,7 @@ package Controller.Enquiry;
 import java.util.List;
 
 import Controller.Account.LoginManager;
-import Controller.File.FileWriting;
+import Controller.File.Enquiry.WriteEnquiry;
 import Entity.CampDetails;
 import Entity.Enquiry;
 import Entity.Student;
@@ -36,7 +36,7 @@ public class EnquiryManager {
         EnquiryRepository.addEnquiryToRepo(enquiry);
 
         // Write the new enquiry to CSV
-        FileWriting.FileWriteEnquiry(enquiry);
+        WriteEnquiry.FileWriteEnquiry(enquiry);
         System.out.println("Enquiry added successfully!");
     }
 
