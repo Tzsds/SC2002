@@ -3,6 +3,7 @@ package Controller.Suggestion;
 import java.util.ArrayList;
 
 import Controller.File.FileWriting;
+import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
 import Entity.Suggestion.Status;
@@ -17,9 +18,13 @@ public class StaffSuggestionManager {
             System.out.println("There is no existing suggestions.");
         }
         else{
-            for(int i=0; i<size; i++){
-                Suggestion temp = suggestions.get(i);
-                System.out.println(i + ". " + temp.getContent()); 
+            for (Suggestion suggestion : suggestions) {
+                Camp camp = suggestion.getProposer().getCommitteeOf();
+                System.out.println("Camp: " + camp.getCampDetails().getCampName());
+                System.out.println("Proposer: " + suggestion.getProposer().getName());
+                System.out.println("Content: " + suggestion.getContent());
+                System.out.println("Status: " + suggestion.getStatus());
+                System.out.println("---------------------------------------------");
             }
         }
     }

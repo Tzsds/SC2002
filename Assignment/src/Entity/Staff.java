@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Controller.Account.LoginManager;
+import Controller.Camp.CampManager;
 import Controller.File.FileRemove;
 import Controller.File.FileWriting;
 import Controller.Suggestion.SuggestionManager;
@@ -192,21 +193,8 @@ public class Staff extends User {
         }
         else {
             System.out.println("Camps created:");
-            System.out.println("---------------------------------------------");
-            for (Camp camp : campsCreatedList) {
-                CampDetails campDetails = camp.getCampDetails();
-                System.out.println("Camp: " + campDetails.getCampName());
-                System.out.println("Camp Description: " + campDetails.getDescription());
-                System.out.println("Start Date: " + campDetails.getStartDate());
-                System.out.println("End Date: " + campDetails.getEndDate());
-                System.out.println("Registration Close Date: " + campDetails.getCloseDate());
-                System.out.println("Open To: " + campDetails.getOpenTo());
-                System.out.println("Location: " + campDetails.getLocation());
-                System.out.println("Total Slots: " + campDetails.getTotalSlots());
-                System.out.println("Total Camp Committee Slots: " + campDetails.getOpenTo());
-                System.out.println("Visibility: " + campDetails.getVisibility());
-                System.out.println("---------------------------------------------");
-            }
+            System.out.println("====================================");
+            CampManager.printCampsForStaff(campsCreatedList);
         }
     }
 
@@ -218,15 +206,7 @@ public class Staff extends User {
         else {
             for (Camp camp : campsCreatedList) {
                 ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
-                if (listOfSuggestions.size() != 0) {
-                    for (Suggestion suggestion : listOfSuggestions) {
-                        System.out.println("Camp: " + camp.getCampDetails().getCampName());
-                        System.out.println("Proposer: " + suggestion.getProposer().getName());
-                        System.out.println("Content: " + suggestion.getContent());
-                        System.out.println("Status: " + suggestion.getStatus());
-                        System.out.println("---------------------------------------------");
-                    }
-                }
+                SuggestionManager.printSuggestions(listOfSuggestions);
             }
         }
     }
