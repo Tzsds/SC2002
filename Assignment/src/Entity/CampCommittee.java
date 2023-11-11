@@ -23,6 +23,10 @@ public class CampCommittee extends Student {
     public ArrayList<Suggestion> getSuggestions(){
         return suggestions;
     }
+
+    public void addSuggestion(Suggestion s){
+        suggestions.add(s);
+    }
     
     public void setCommitteeOf(Camp camp){
         committeeOf = camp; //Need this function when a Student registers for Camp Committee

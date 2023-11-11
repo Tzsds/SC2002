@@ -7,7 +7,6 @@ import java.io.IOException;
 import Entity.CampCommittee;
 import Entity.Staff;
 import Entity.Student;
-//import Repository.UserRepository;
 import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StaffRepository;
 import Repository.UserRepository.StudentRepository;
@@ -28,7 +27,6 @@ public class ReadUser {
                     String email = words[1].trim();
                     String faculty = words[2].trim();
                     String userID = email.substring(0, email.indexOf("@"));
-                    //UserRepository.addUser(new Student(userID, name, faculty, "password"));
                     StudentRepository.addStudent(new Student(userID, name, faculty, "password"));
                 }
             }
@@ -48,7 +46,6 @@ public class ReadUser {
                     String email = words[1].trim();
                     String faculty = words[2].trim();
                     String userID = email.substring(0, email.indexOf("@"));
-                    //UserRepository.addUser(new Staff(userID, name, faculty, "password"));
                     StaffRepository.addStaff(new Staff(userID, name, faculty, "password"));
                 }
             }

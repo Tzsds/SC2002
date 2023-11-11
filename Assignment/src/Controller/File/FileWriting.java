@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import Controller.File.Suggestion.WriteSuggestion;
 import Controller.File.User.WriteUser;
 import Entity.Camp;
 import Entity.CampDetails;
@@ -20,6 +21,10 @@ public class FileWriting {
         WriteUser.FileWriteCampCommittee();
         WriteUser.FileWriteStudent();
         WriteUser.FileWriteStaff();
+    }
+
+    public static void FileWriteSuggestion(){
+        WriteSuggestion.writeSuggestion();
     }
 
     public void FileWrite(CampDetails campDetails) {

@@ -5,6 +5,7 @@ import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Controller.Suggestion.SuggestionManager;
 import Entity.CampCommittee;
+import Entity.Student;
 
 public class CampCommitteeMainPage {
 
@@ -18,6 +19,7 @@ public class CampCommitteeMainPage {
                 case 1:
                     // Display list of camps available
                     System.out.println("Retrieving list of available camps...");
+                    Student.viewAvailableCamps();
                     break;
                 case 2:
                     // Navigate to Enquiry Page

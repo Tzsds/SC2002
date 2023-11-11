@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
+import Controller.File.FileWriting;
+import Controller.File.Suggestion.WriteSuggestion;
 import Entity.CampCommittee;
 import Entity.Suggestion;
 import Entity.Suggestion.Status;
@@ -15,10 +17,11 @@ public class SuggestionManager {
     public static void addSuggestion(){
         CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
         Suggestion temp = createSuggestion();
-        User.getSuggestions().add(temp);
+        User.addSuggestion(temp);
         SuggestionRepository.addSuggestionToRepo(temp);
         CampManager.addSuggestion(User.getCommitteeOf(), temp);
         User.addPoints(); //Add one point for a suggestion given
+        WriteSuggestion.writeSuggestion();
     }
 
     private static Suggestion createSuggestion(){
@@ -36,9 +39,9 @@ public class SuggestionManager {
             System.out.println("You have no Pending Suggestions");
             return;
         }
-        for (int i = 0; i<suggestions.size(); i++){
-            Suggestion temp = suggestions.get(i);
+        for (Suggestion temp : suggestions){
             System.out.println(temp.getContent());
+            System.out.println();
         }
     }
 
@@ -49,6 +52,7 @@ public class SuggestionManager {
         CampManager.removeSuggestion(member.getCommitteeOf(), temp);
         member.getSuggestions().remove(temp);
         SuggestionRepository.getListOfSuggestions().remove(temp);
+        FileWriting.FileWriteSuggestion();
     }
 
     public static void rejectSuggestion(Suggestion temp){
@@ -57,6 +61,7 @@ public class SuggestionManager {
         CampManager.removeSuggestion(member.getCommitteeOf(), temp);
         member.getSuggestions().remove(temp);
         SuggestionRepository.getListOfSuggestions().remove(temp);
+        FileWriting.FileWriteSuggestion();
     }
 
 

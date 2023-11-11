@@ -1,4 +1,1 @@
-CampName,SenderID,Suggestion,Status,ReplierID
-camp1,KOH1,change game,PENDING,null
-camp1,KOH1,more food,PENDING,null
-camp1,KOH1,very good!,PENDING,null
+senderID,content

@@ -1,5 +1,6 @@
 package Controller.File;
 
+import Controller.File.Suggestion.ReadSuggestion;
 import Controller.File.User.ReadUser;
 
 public class FileRead {
@@ -15,7 +16,9 @@ public class FileRead {
 
     private static void readWithReset(){
         ReadUser.readUserWithReset();
-        FileWriting.FileWriteUser(); //create a new users csv file
+        FileWriting.FileWriteUser(); //reset staff,student,camp comm csv file
+
+        ReadSuggestion.readWithReset(); //reset suggestions.csv file
 
         // Need to reset Camps, Suggestion, Enquiries CSV file if we choose to reset
         // To be implemented in the future
@@ -24,6 +27,8 @@ public class FileRead {
 
     private static void readWithoutReset(){
         ReadUser.readUserWithoutReset();
+        ReadSuggestion.readWithoutReset();
+        
         // Need to read in Camp, Enquiries, Student
         // To be implemented in the future
     }
