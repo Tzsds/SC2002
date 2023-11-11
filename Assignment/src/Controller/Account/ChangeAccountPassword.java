@@ -1,9 +1,8 @@
 package Controller.Account;
+
 import java.util.Scanner;
 
-import Controller.File.FileWriting;
 import Entity.User;
-import Repository.UserRepository;
 
 public class ChangeAccountPassword {
 
@@ -15,7 +14,6 @@ public class ChangeAccountPassword {
     private static void UpdatePassword(String password){
         User currentUser = LoginManager.getCurrentUser();
         currentUser.setPassword(password);
-        FileWriting.FileWriteUser();
         System.out.println("Password successfully changed!");
     }
 

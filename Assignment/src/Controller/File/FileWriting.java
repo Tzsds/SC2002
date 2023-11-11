@@ -7,43 +7,19 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import Controller.File.User.WriteUser;
 import Entity.Camp;
-import Entity.CampCommittee;
 import Entity.CampDetails;
 import Entity.Enquiry;
-import Entity.Staff;
 import Entity.Student;
 import Entity.User;
-import Repository.UserRepository;
 
 public class FileWriting {
 
     public static void FileWriteUser() {
-        String allUserCSV = "Assignment/database/users.csv";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(allUserCSV))) {
-
-            // Header of CSV File
-            String header = "name,role,faculty,userID,password\n";
-            String role;
-            writer.write(header);
-
-            for (int i = 0; i < UserRepository.getSizeOfUsers(); i++) {
-                User temp = UserRepository.get(i);
-                if (temp instanceof Staff) {
-                    role = "Staff";
-                } else if (temp instanceof CampCommittee) {
-                    role = "CampCommittee";
-                } else {
-                    role = "Student";
-                }
-                String data = temp.getName() + "," + role + "," + temp.getFaculty() + "," + temp.getUserID() + ","
-                        + temp.getPassword() + "\n";
-                writer.write(data);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        WriteUser.FileWriteCampCommittee();
+        WriteUser.FileWriteStudent();
+        WriteUser.FileWriteStaff();
     }
 
     public void FileWrite(CampDetails campDetails) {

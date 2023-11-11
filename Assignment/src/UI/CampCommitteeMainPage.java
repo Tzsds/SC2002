@@ -2,6 +2,7 @@ package UI;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
+import Controller.File.User.WriteUser;
 import Controller.Suggestion.SuggestionManager;
 import Entity.CampCommittee;
 
@@ -50,6 +51,7 @@ public class CampCommitteeMainPage {
                 case 8:
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
+                    WriteUser.FileWriteCampCommittee();
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;

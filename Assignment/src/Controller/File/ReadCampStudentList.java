@@ -11,7 +11,8 @@ import Entity.Enquiry;
 import Entity.Student;
 import Entity.User;
 import Repository.CampRepository;
-import Repository.UserRepository;
+import Repository.UserRepository.CampCommitteeRepository;
+import Repository.UserRepository.StudentRepository;
 
 public class ReadCampStudentList {
     public static void readUserWithoutReset(){
@@ -28,12 +29,14 @@ public class ReadCampStudentList {
                     String role = words[2].trim();
 
                     Camp camp = CampRepository.getCampByCampName(campName);
-                    Student student = (Student)UserRepository.getUserByUserID(userID);
+                    Student student;
 
                     if (role.equals("Committee")) {
+                        student = CampCommitteeRepository.getUserByID(userID);
                         camp.addCampCommittee(student);
                     }
                     else {
+                        student = StudentRepository.getStudentByID(userID);
                         camp.addParticipants(student);
                     }
 

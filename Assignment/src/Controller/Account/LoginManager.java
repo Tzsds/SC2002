@@ -1,35 +1,56 @@
 package Controller.Account;
 
+import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Staff;
+import Entity.Student;
 import Entity.User;
-import Repository.UserRepository;
+import Repository.UserRepository.CampCommitteeRepository;
+import Repository.UserRepository.StaffRepository;
+import Repository.UserRepository.StudentRepository;
 import UI.AccountInput;
 
 public class LoginManager {
 
-    private static int index; //Index of the current user in the Repository
     private static User currentUser; //Current user which is in the system
+    private static String role; //Role of current user in the system
 
     public static void Login(){
-        LoginManager.getID();
+        LoginManager.checkID();
         LoginManager.checkPassword(currentUser);
         System.out.println(currentUser.getName() + " logged in!");
     }
 
-    private static void getID(){
+    private static void checkID(){
         User temp;
         while (true){
             String id = AccountInput.inputID();
-            for (int i=0; i<UserRepository.getSizeOfUsers(); i++){
-                temp = UserRepository.get(i);
-                index = i;
+    
+            for (Student s : StudentRepository.getListOfStudents()){
+                temp = s;
                 if (temp.getUserID().equals(id)){
-                    index = i;
-                    currentUser = temp;
+                    currentUser = s;
+                    role = "Student";
                     return;
                 }
             }
+            for (Staff s : StaffRepository.getListOfStaff()){
+                temp = s;
+                if (temp.getUserID().equals(id)){
+                    currentUser = s;
+                    role = "Staff";
+                    return;
+                }
+            }
+            for (CampCommittee s : CampCommitteeRepository.getListOfCampCommittee()){
+                temp = s;
+                if (temp.getUserID().equals(id)){
+                    currentUser = s;
+                    role = "CampCommittee";
+                    return;
+                }
+            }
+            
             System.out.println("Invalid User ID!");
         }
     }
@@ -46,21 +67,11 @@ public class LoginManager {
         }
     }
 
-    public static int getIndex(){
-        return index;
-    }
-
     public static User getCurrentUser(){
         return currentUser;
     }
 
     public static String getUserRole(){
-        if (currentUser instanceof CampCommittee) {
-            return "CampCommittee";
-        } else if (currentUser instanceof Staff) {
-            return "Staff";
-        } else {
-            return "Student"; // as of now default is student
-        }
+        return role;
     }
 }

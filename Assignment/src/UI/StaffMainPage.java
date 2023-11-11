@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
+import Controller.File.User.WriteUser;
 import Entity.Staff;
 
 public class StaffMainPage {
@@ -62,6 +63,7 @@ public class StaffMainPage {
                     // Initiate password change process
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
+                    WriteUser.FileWriteStaff();
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;

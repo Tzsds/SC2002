@@ -5,17 +5,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 import Entity.Camp;
-import Entity.CampCommittee;
 import Entity.CampDetails;
-import Entity.Enquiry;
-import Entity.Staff;
-import Entity.Student;
 import Entity.User;
 import Repository.CampRepository;
-import Repository.UserRepository;
+import Repository.UserRepository.StaffRepository;
+
 
 public class ReadCamp {
 
@@ -70,7 +66,7 @@ public class ReadCamp {
                     String staffInCharge = words[9].trim();
                     String visibility = words[10].trim();
 
-                    User user = UserRepository.getUserByUserID(staffInCharge);
+                    User user = StaffRepository.getStaffByID(staffInCharge);
 
                     // if staff is Staff variable
                     // CampDetails newCampDetails = new CampDetails(campName, formatDate(startDate), formatDate(endDate), formatDate(closeDate), openTo, location, strToInt(slots), strToInt(campComitteeSlots), description, user, strToBool(visibility));

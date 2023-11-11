@@ -2,6 +2,7 @@ package UI;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
+import Controller.File.User.WriteUser;
 import Entity.Student;
 
 public class StudentMainPage {
@@ -34,6 +35,7 @@ public class StudentMainPage {
                     // Initiate password change process
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
+                    WriteUser.FileWriteStudent();
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;
