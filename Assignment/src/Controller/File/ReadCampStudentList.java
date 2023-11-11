@@ -3,13 +3,10 @@ package Controller.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import Entity.Camp;
-import Entity.CampDetails;
-import Entity.Enquiry;
+import Entity.CampCommittee;
 import Entity.Student;
-import Entity.User;
 import Repository.CampRepository;
 import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StudentRepository;
@@ -40,8 +37,6 @@ public class ReadCampStudentList {
                         camp.addParticipants(student);
                     }
 
-                    // create camp committee, update role to camp committee
-                    // update student role, add participants, add comm members
                 }
             }
         }

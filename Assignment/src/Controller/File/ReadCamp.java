@@ -16,7 +16,7 @@ import Repository.UserRepository.StaffRepository;
 public class ReadCamp {
 
     //utilities function
-    //havent yet to be shifted elsewhr for SOLID
+    //havent yet to be shifted elsewhere for SOLID
 
     public static LocalDate formatDate(String dateString) {
         // Define the formatter based on the pattern of the input string
