@@ -6,18 +6,16 @@ import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Entity.Staff;
-import Entity.User;
 
 public class StaffMainPage {
     
     public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            User currentUser = LoginManager.getCurrentUser();
-            Staff currentStaff = (Staff)currentUser;
-            System.out.println("Welcome " + currentUser.getName());
+            Staff currentStaff = (Staff)LoginManager.getCurrentUser();
+            System.out.println("Welcome " + currentStaff.getName());
             StaffMainMenu.displayMainMenu();
-            int option = InputScanner.promptForInt("Input your choice of action (1-9):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-9): ");
             switch (option) {
 
                 case 1:
@@ -50,7 +48,7 @@ public class StaffMainPage {
                 case 6:
                     // View suggestions given by camp committee members
                     System.out.println("Showing suggestions from camp committee members...");
-                    // viewSuggestions();
+                    currentStaff.viewSuggestions();
                     break;
                 case 7:
                     // Generate camp report

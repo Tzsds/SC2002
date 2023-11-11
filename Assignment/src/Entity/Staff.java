@@ -9,6 +9,7 @@ import java.util.Scanner;
 import Controller.Account.LoginManager;
 import Controller.File.FileRemove;
 import Controller.File.FileWriting;
+import Controller.Suggestion.SuggestionManager;
 
 public class Staff extends User {
     private ArrayList<Camp> campsCreatedList = new ArrayList<>();
@@ -184,6 +185,7 @@ public class Staff extends User {
         fr.removeCamp(campDetailsCSV, campName);
     }
     
+    // View list of camp created by the staff
     public void viewCampCreatedList() {
         if (campsCreatedList.size() == 0) {
             System.out.println("You have not created any camps yet!");
@@ -204,6 +206,27 @@ public class Staff extends User {
                 System.out.println("Total Camp Committee Slots: " + campDetails.getOpenTo());
                 System.out.println("Visibility: " + campDetails.getVisibility());
                 System.out.println("---------------------------------------------");
+            }
+        }
+    }
+
+    // View suggestions given by camp committee members
+    public void viewSuggestions() {
+        if (campsCreatedList.size() == 0) {
+            System.out.println("You have not created any camps yet!");
+        }
+        else {
+            for (Camp camp : campsCreatedList) {
+                ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
+                if (listOfSuggestions.size() != 0) {
+                    for (Suggestion suggestion : listOfSuggestions) {
+                        System.out.println("Camp: " + camp.getCampDetails().getCampName());
+                        System.out.println("Proposer: " + suggestion.getProposer().getName());
+                        System.out.println("Content: " + suggestion.getContent());
+                        System.out.println("Status: " + suggestion.getStatus());
+                        System.out.println("---------------------------------------------");
+                    }
+                }
             }
         }
     }

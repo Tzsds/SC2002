@@ -19,7 +19,7 @@ public class Suggestion {
         this.status = status;
     }
 
-    public Status geStatus(){
+    public Status getStatus(){
         return status;
     }
 
