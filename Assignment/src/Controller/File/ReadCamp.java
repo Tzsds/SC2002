@@ -70,20 +70,14 @@ public class ReadCamp {
                     String staffInCharge = words[9].trim();
                     String visibility = words[10].trim();
 
-                    for (int i = 0; i < UserRepository.getSizeOfUsers(); i++) {
-                        User temp = UserRepository.get(i);
-                        String userID = temp.getUserID();
-                        if (userID.equals(staffInCharge)) {
+                    User user = UserRepository.getUserByUserID(staffInCharge);
 
-                            // if staff is Staff variable
-                            // CampDetails newCampDetails = new CampDetails(campName, formatDate(startDate), formatDate(endDate), formatDate(closeDate), openTo, location, strToInt(slots), strToInt(campComitteeSlots), description, temp, strToBool(visibility));
+                    // if staff is Staff variable
+                    // CampDetails newCampDetails = new CampDetails(campName, formatDate(startDate), formatDate(endDate), formatDate(closeDate), openTo, location, strToInt(slots), strToInt(campComitteeSlots), description, user, strToBool(visibility));
 
-                            // if staff is String variable (staffid)
-                            CampDetails newCampDetails = new CampDetails(campName, formatDate(startDate), formatDate(endDate), formatDate(closeDate), openTo, location, strToInt(slots), strToInt(campComitteeSlots), description, staffInCharge, strToBool(visibility));
-                            CampRepository.addCampToRepo(new Camp(newCampDetails));
-                            break;
-                        }
-                    }
+                    // if staff is String variable (staffid)
+                    CampDetails newCampDetails = new CampDetails(campName, formatDate(startDate), formatDate(endDate), formatDate(closeDate), openTo, location, strToInt(slots), strToInt(campComitteeSlots), description, staffInCharge, strToBool(visibility));
+                    CampRepository.addCampToRepo(new Camp(newCampDetails));
                 }
             }
         }

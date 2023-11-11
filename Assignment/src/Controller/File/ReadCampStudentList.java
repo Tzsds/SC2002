@@ -27,25 +27,17 @@ public class ReadCampStudentList {
                     String userID = words[1].trim();
                     String role = words[2].trim();
 
-                    // can create a getCampByCampName function in CampRepo
-                    for (int j = 0; j < CampRepository.getSizeOfCamps(); j++) {
-                        Camp tempCamp = CampRepository.get(j);
-                        CampDetails tempCampDetails = tempCamp.getCampDetails();
-                        String tempCampName = tempCampDetails.getCampName();
-                        if (campName.equals(tempCampName)) {
-                            break;
-                        }
+                    Camp camp = CampRepository.getCampByCampName(campName);
+                    Student student = (Student)UserRepository.getUserByUserID(userID);
+
+                    if (role.equals("Committee")) {
+                        camp.addCampCommittee(student);
+                    }
+                    else {
+                        camp.addParticipants(student);
                     }
 
-                    // can create a getuserByUserID function in userRepo
-                    for (int i = 0; i < UserRepository.getSizeOfUsers(); i++) {
-                        User temp = UserRepository.get(i);
-                        String tempID = temp.getUserID();
-                        if (userID.equals(tempID)) {
-                            break;
-                        }
-                    }
-
+                    // create camp committee, update role to camp committee
                     // update student role, add participants, add comm members
                 }
             }

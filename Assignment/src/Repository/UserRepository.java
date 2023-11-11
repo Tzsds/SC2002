@@ -47,4 +47,14 @@ public class UserRepository {
         return null; // Return null if the user is not found
     }
 
+    public static User getUserByUserID(String userID) {
+        for (int i = 0; i < getSizeOfUsers(); i++) {
+            User temp = get(i);
+            String tempID = temp.getUserID();
+            if (userID.equals(tempID)) {
+                return temp;
+            }
+        }
+        return null;
+    }
 }
