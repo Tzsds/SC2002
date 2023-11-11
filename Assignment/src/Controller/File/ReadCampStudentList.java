@@ -31,11 +31,15 @@ public class ReadCampStudentList {
                     if (role.equals("Committee")) {
                         student = CampCommitteeRepository.getUserByID(userID);
                         camp.addCampCommittee(student);
+                        CampCommittee temp = (CampCommittee)student;
+                        temp.setCommitteeOf(camp);
                     }
                     else {
                         student = StudentRepository.getStudentByID(userID);
                         camp.addParticipants(student);
                     }
+
+                    student.addRegisteredCamp(camp);
 
                 }
             }
