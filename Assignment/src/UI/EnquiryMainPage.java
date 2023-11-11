@@ -25,31 +25,19 @@ public class EnquiryMainPage {
 
                 case 1:
                     // Navigate to Enquiry Page
-                    System.out.println("View enquiry");
-
-                    // THE ENQUIRY LIST PRINITNG IS FOR TESTING PURPOSES ONLY!
-                    // Can remove once a proper method is created
-                    List<Enquiry> enquiriesList = EnquiryRepository.getListOfEnquiries();
-
-                    System.out.println("Number of enquiries: " + enquiriesList.size());
-
-                    for (Enquiry enquiry : enquiriesList) {
-                        System.out.println("Sender: " + enquiry.getSender());
-                        System.out.println("Content: " + enquiry.getContent());
-                        System.out.println("Status: " + enquiry.getStatus());
-                        System.out.println("------------------------------");
-                    }
+                    System.out.println("Displaying enquiries:\n");
+                    EnquiryManager.viewStudentEnquiries(currentUser);
                     break;
                 case 2:
                     System.out.println("Creating a new enquiry");
                     EnquiryManager.addEnquiry();
                     break;
                 case 3:
-               
+
                     System.out.println("Edit your enquiry...");
                     break;
                 case 4:
-          
+
                     System.out.println("Delete your enquiry...");
 
                     break;

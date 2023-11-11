@@ -24,12 +24,13 @@ public class FileWriting {
 
     public void FileWrite(CampDetails campDetails) {
         String campDetailsCSV = "Assignment/database/camp_details.csv";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV,true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV, true))) {
 
             // If the file is empty, write the header
             if (Files.size(Paths.get(campDetailsCSV)) == 0) {
                 System.out.println("ininnini");
-                writer.write("campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n");
+                writer.write(
+                        "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n");
             }
 
             // Write campDetails to the CSV file
@@ -53,7 +54,7 @@ public class FileWriting {
     public void FileWrite(Camp camp) {
         String campStudentListCSV = "Assignment/database/camp_student_list.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(campStudentListCSV))) {
-            
+
             // If the file is empty, write the header
             if (Files.size(Paths.get(campStudentListCSV)) == 0) {
                 writer.write("campName,userID,Role\n");
@@ -91,12 +92,13 @@ public class FileWriting {
 
             // If the file is empty, write the header
             if (Files.size(Paths.get(enquiryCSV)) == 0) {
-                writer.write("sender,content,status\n");
+                writer.write("sender,content,camp,status,replier\n");
             }
 
             // Write enquiry to the CSV file
             String data = enquiry.getSender() + "," +
                     enquiry.getContent() + "," +
+                    enquiry.getCampName() + "," +
                     enquiry.getStatus() + "," +
                     enquiry.getReplier() + "\n";
             writer.write(data);

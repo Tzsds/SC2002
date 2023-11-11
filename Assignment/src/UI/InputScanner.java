@@ -18,4 +18,12 @@ public class InputScanner {
     public static String waitForUserInput() {
         return scanner.nextLine();
     }
+
+    public static String waitForUserInputString() {
+        return scanner.nextLine();
+    }
+
+    public static int waitForUserInputInt() {
+        return scanner.nextInt();
+    }
 }

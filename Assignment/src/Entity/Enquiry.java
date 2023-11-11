@@ -9,10 +9,12 @@ public class Enquiry {
     private Status status;
     private String content;
     private String replier;
+    private String campName;
 
-    public Enquiry(String sender, String content) {
+    public Enquiry(String sender, String content, String campName) {
         this.sender = sender;
         this.content = content;
+        this.campName = campName.toUpperCase();
         this.status = Status.PENDING;
     }
 
@@ -46,6 +48,14 @@ public class Enquiry {
 
     public boolean hasReplied() {
         return status == Status.REPLIED;
+    }
+
+    public String getCampName() {
+        return campName;
+    }
+
+    public void setCampName(String campName) {
+        this.campName = campName;
     }
 
 }
