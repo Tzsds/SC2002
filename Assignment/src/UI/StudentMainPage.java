@@ -6,13 +6,13 @@ import Controller.File.User.WriteUser;
 import Entity.Student;
 
 public class StudentMainPage {
-    
+
     public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
             System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
             StudentMainMenu.displayMainMenu();
-            int option = InputScanner.promtForInt("Input your choice of action (1-5):");
+            int option = InputScanner.promtForInt("Input your choice of action (1-6):");
             switch (option) {
 
                 case 1:
@@ -20,18 +20,22 @@ public class StudentMainPage {
                     System.out.println("Retrieving list of available camps...");
                     Student.viewAvailableCamps();
                     break;
+
                 case 2:
+                    System.out.println("Navigating to Camp Registration Page");
+                    break;
+                case 3:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
                     EnquiryMainPage enquiryPage = new EnquiryMainPage(LoginManager.getCurrentUser());
                     enquiryPage.run();
                     break;
-                case 3:
+                case 4:
                     // Display registered camps
                     System.out.println("Retrieving registered camps...");
 
                     break;
-                case 4:
+                case 5:
                     // Initiate password change process
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
@@ -39,7 +43,7 @@ public class StudentMainPage {
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;
-                case 5:
+                case 6:
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;

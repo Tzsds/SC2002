@@ -29,7 +29,7 @@ public class ReadEnquiry {
                 String replier = data[4].trim();
 
                 Enquiry.Status status = Enquiry.Status.valueOf(statusString.toUpperCase());
-                Enquiry enquiry = new Enquiry(sender, camp, content);
+                Enquiry enquiry = new Enquiry(sender, content, camp);
                 enquiry.setStatus(status);
                 enquiry.setReplier(replier);
 
