@@ -10,7 +10,8 @@ public class StudentMainPage {
     public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+            Student currentStudent = (Student)LoginManager.getCurrentUser();
+            System.out.println("Welcome " + currentStudent.getName());
             StudentMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-6):");
             switch (option) {
@@ -33,7 +34,7 @@ public class StudentMainPage {
                 case 4:
                     // Display registered camps
                     System.out.println("Retrieving registered camps...");
-
+                    currentStudent.viewRegisteredCamps();
                     break;
                 case 5:
                     // Initiate password change process
