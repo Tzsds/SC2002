@@ -74,13 +74,29 @@ public class Student extends User{
             for (String[] row : data) {
                 //boolean check = row[10].equalsIgnoreCase("true") ? true : false;
                 String check = row[10];
+                
                 if (check.equals("true")){
-                    for (int i = 0; i < row.length; i++) {
-                        System.out.print(padRight(row[i], columnWidths[i] + 2)); // Add 2 for extra spacing
-                    }
-                    System.out.println();
+                    System.out.println("===========================================");
+                    //for (int i = 0; i < row.length; i++) {
+                        System.out.println("Camp Name: " + row[0]);
+                        System.out.println("Start Date: " + row[1]);
+                        System.out.println("End Date: " + row[2]);
+                        System.out.println("Registration Closing Date: " + row[3]);
+                        System.out.println("Location: " + row[4]);
+                        System.out.println("Group: " + row[5]);
+                        System.out.println("Slots: " + row[6]);
+                        System.out.println("Camp Committee Slots: " + row[7]);
+                        System.out.println("Description: " + row[8]);
+                        System.out.println("Staff In Charge: " + row[9]);
+                        System.out.println("===========================================");
+                        //System.out.print(padRight(row[i], columnWidths[i] + 2)); // Add 2 for extra spacing
+                   // }
+                    //System.out.println();
+                    
                 }
             }
+
+            
         }
 
         catch (IOException e){
