@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import Controller.Account.LoginManager;
 import Controller.File.FileRemove;
 import Controller.File.FileWriting;
 
@@ -136,7 +137,7 @@ public class Staff extends User {
         int campCommitteeSlots = sc.nextInt();        
 
         
-        String staffInCharge = Staff.getName();
+        String staffInCharge = LoginManager.getCurrentUser().getName();
 
         System.out.print("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
         int visibility = sc.nextInt();
