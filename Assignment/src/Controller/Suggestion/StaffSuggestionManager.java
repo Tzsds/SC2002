@@ -24,7 +24,7 @@ public class StaffSuggestionManager {
                 System.out.println("Proposer: " + suggestion.getProposer().getName());
                 System.out.println("Content: " + suggestion.getContent());
                 System.out.println("Status: " + suggestion.getStatus());
-                System.out.println("---------------------------------------------");
+                System.out.println("============================================");
             }
         }
     }

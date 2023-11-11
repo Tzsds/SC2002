@@ -206,6 +206,7 @@ public class Staff extends User {
         else {
             for (Camp camp : campsCreatedList) {
                 ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
+                System.out.println("====================================");
                 SuggestionManager.printSuggestions(listOfSuggestions);
             }
         }
