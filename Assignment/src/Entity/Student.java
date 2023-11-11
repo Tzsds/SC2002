@@ -21,6 +21,10 @@ public class Student extends User{
         return registeredCamps;
     }
 
+    public void addRegisteredCamp(Camp camp) {
+        registeredCamps.add(camp);
+    }
+
     public static void viewAvailableCamps() {
         String campDetailsCSV = "Assignment//database//camp_details.csv";
         try (BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))){

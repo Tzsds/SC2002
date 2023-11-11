@@ -5,14 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 import Entity.Camp;
-import Entity.CampCommittee;
 import Entity.CampDetails;
-import Entity.Enquiry;
-import Entity.Staff;
-import Entity.Student;
 import Entity.User;
 import Repository.CampRepository;
 import Repository.UserRepository;
@@ -20,7 +15,7 @@ import Repository.UserRepository;
 public class ReadCamp {
 
     //utilities function
-    //havent yet to be shifted elsewhr for SOLID
+    //havent yet to be shifted elsewhere for SOLID
 
     public static LocalDate formatDate(String dateString) {
         // Define the formatter based on the pattern of the input string

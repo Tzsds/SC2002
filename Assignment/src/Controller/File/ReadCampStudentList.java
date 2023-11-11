@@ -3,13 +3,10 @@ package Controller.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import Entity.Camp;
-import Entity.CampDetails;
-import Entity.Enquiry;
+import Entity.CampCommittee;
 import Entity.Student;
-import Entity.User;
 import Repository.CampRepository;
 import Repository.UserRepository;
 
@@ -30,15 +27,19 @@ public class ReadCampStudentList {
                     Camp camp = CampRepository.getCampByCampName(campName);
                     Student student = (Student)UserRepository.getUserByUserID(userID);
 
-                    if (role.equals("Committee")) {
+                    // update camp into student details
+                    student.addRegisteredCamp(camp);
+                    
+                    if (student instanceof CampCommittee && role.equals("CampCommittee")) {
+                        CampCommittee committee = (CampCommittee)student;
+                        committee.setCommitteeOf(camp);
+                        // update student into camp
                         camp.addCampCommittee(student);
                     }
                     else {
+                        // update committee into camp
                         camp.addParticipants(student);
                     }
-
-                    // create camp committee, update role to camp committee
-                    // update student role, add participants, add comm members
                 }
             }
         }
