@@ -36,8 +36,13 @@ public class StaffManager {
         System.out.println("==========================");
     }
 
+    public static void editCamp(){
+        
+    }
+
     public static void viewSuggestions(){
         Staff currentStaff = (Staff)LoginManager.getCurrentUser();
         StaffSuggestionManager.printSuggestions(currentStaff.getListOfCampsCreated());
     }
+
 }
