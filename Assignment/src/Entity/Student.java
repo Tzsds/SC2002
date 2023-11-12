@@ -27,7 +27,7 @@ public class Student extends User{
     public void addRegisteredCamp(Camp camp) {
         registeredCamps.add(camp);
     }
-
+    /*
     public static void viewAvailableCamps() {
         String campDetailsCSV = "Assignment//database//camp_details.csv";
         try (BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))){
@@ -106,6 +106,8 @@ public class Student extends User{
             e.printStackTrace();
         }
     }
+
+     */
 
     public static String padRight(String s, int width) {
         return String.format("%-" + width + "s", s);

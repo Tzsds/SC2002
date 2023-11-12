@@ -3,7 +3,7 @@ package Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controller.File.ReadEnquiry;
+import Controller.File.Enquiry.ReadEnquiry;
 import Entity.Enquiry;
 
 public class EnquiryRepository {
