@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
+import Controller.Enquiry.EnquiryManager;
 import Controller.File.User.WriteUser;
 import Entity.Staff;
 
@@ -44,7 +45,7 @@ public class StaffMainPage {
                 case 5:
                     // Show Enqueries asked by students
                     System.out.println("Showing enqueries by students...");
-                    // viewEnqueries();
+                    EnquiryManager.viewAllEnquiries();
                     break;
                 case 6:
                     // View suggestions given by camp committee members

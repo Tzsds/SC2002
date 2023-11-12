@@ -1,5 +1,6 @@
 package Controller.File;
 
+import Controller.File.Enquiry.ReadEnquiry;
 import Controller.File.Suggestion.ReadSuggestion;
 import Controller.File.User.ReadUser;
 
@@ -19,8 +20,9 @@ public class FileRead {
         FileWriting.FileWriteUser(); //reset staff,student,camp comm csv file
 
         ReadSuggestion.readWithReset(); //reset suggestions.csv file
+        ReadEnquiry.readWithReset();
 
-        // Need to reset Camps, Suggestion, Enquiries CSV file if we choose to reset
+        // Need to reset Camps, Suggestion CSV file if we choose to reset
         // To be implemented in the future
     
     }
@@ -28,10 +30,11 @@ public class FileRead {
     private static void readWithoutReset(){
         ReadUser.readUserWithoutReset();
         ReadSuggestion.readWithoutReset(); //clear the suggestions.csv file
+        ReadEnquiry.readWithoutReset();
         // ReadCampDetails.readCampDetailsWithoutReset();
         // ReadCampStudentList.ReadCampStudentListWithoutReset();
         
-        // Need to read in Camp, Enquiries, Student
+        // Need to read in Camp, Student
         // To be implemented in the future
     }
 }

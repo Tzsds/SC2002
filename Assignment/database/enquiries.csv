@@ -1,7 +1,3 @@
 sender,content,camp,status,replier
-BR015,whats the duration of the camp?,TEST1,PENDING,null
-YCHERN,testing if it works properly,TEST2,PENDING,null
-SL22,how long?,TEST1,PENDING,null
-CT113,Where is the location of the camp?,QWER,PENDING,null
-BR015,location of the camp?,QWER,PENDING,null
-SL22,laze,ABC,PENDING,null
+BR015,test,LOL,PENDING,null
+BR015,test,ABC,PENDING,null

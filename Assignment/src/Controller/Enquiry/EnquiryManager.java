@@ -1,12 +1,11 @@
 package Controller.Enquiry;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
 import Controller.Account.LoginManager;
-import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
+import Controller.Student.StudentManager;
 import Entity.CampDetails;
 import Entity.Enquiry;
 import Entity.Student;
@@ -18,7 +17,7 @@ import UI.InputScanner;
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {
         System.out.println("Which Camp do you want to enquiry on?");
-        CampManager.viewAvailableCamps();
+        StudentManager.viewAvailableCamps();
         InputScanner.promptForString("Choose a camp(Enter Camp Name)");
         String campChoice = InputScanner.waitForUserInputString();
         // Validate if the chosen camp name exists in the available camps
@@ -117,10 +116,7 @@ public class EnquiryManager {
                 Enquiry selectedEnquiry = studentEnquiries.get(choice - 1);
 
                 if (selectedEnquiry.getStatus() != Enquiry.Status.REPLIED) {
-                    // Display current content and prompt for new content
-                    System.out.println("Current Content: " + selectedEnquiry.getContent());
                     String oldContent = selectedEnquiry.getContent(); // Keep a copy of the original content
-                    System.out.println("Old Content: " + oldContent);
 
                     InputScanner.promptForString("Enter the new Enquiry content: ");
                     String newContent = InputScanner.waitForUserInputString();
@@ -130,7 +126,6 @@ public class EnquiryManager {
                             selectedEnquiry.getSender(),
                             newContent,
                             selectedEnquiry.getCampName());
-                    System.out.println("New Content: " + newContent);
 
                     // Update the enquiry in the CSV file
                     WriteEnquiry.updateEnquiryInCSV(selectedEnquiry, updatedSelectedEnquiry, oldContent);

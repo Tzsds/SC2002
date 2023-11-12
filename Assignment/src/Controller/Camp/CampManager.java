@@ -56,7 +56,7 @@ public class CampManager {
         }
     }
 
-    /*public static void viewAvailableCamps() {
+    /* public static void viewAvailableCamps() {
         String campDetailsCSV = "Assignment//database//camp_details.csv";
         try (BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))){
             int numRows = 0;
@@ -134,5 +134,5 @@ public class CampManager {
         catch (IOException e){
             e.printStackTrace();
         }
-    }/* */
+    } */
 }

@@ -98,11 +98,7 @@ public class WriteEnquiry {
                 String[] columns = line.split(",");
                 if (areEnquiriesEqualVerbose(selectedEnquiry, columns)
                         && columns[1].equals(selectedEnquiry.getContent())) {
-                    System.out.println("Found matching enquiry to update: " + Arrays.toString(columns));
-                    System.out.println("Old content: " + selectedEnquiry.getContent());
                     columns[1] = updatedEnquiry.getContent();
-                    ; // Update the content
-                    System.out.println("Enquiry updated to: " + Arrays.toString(columns));
                 }
                 rows.add(columns);
             }
@@ -119,7 +115,7 @@ public class WriteEnquiry {
                         line.append(",");
                     }
                 }
-                System.out.println("Writing line: " + line.toString());
+
                 bw.write(line.toString());
                 bw.newLine();
             }
@@ -138,9 +134,7 @@ public class WriteEnquiry {
         String sender = columns[0];
         String content = columns[1];
         String campName = columns[2];
-        System.out.println("Comparing: " + selectedEnquiry.getSender() + ", Content:" +
-                selectedEnquiry.getContent() + ", Camp Name: " + selectedEnquiry.getCampName() +
-                " with: " + sender + ", " + content + ", " + campName);
+
         return selectedEnquiry.getSender().equals(sender) &&
                 selectedEnquiry.getCampName().equals(campName) &&
                 selectedEnquiry.getContent().equals(content);
