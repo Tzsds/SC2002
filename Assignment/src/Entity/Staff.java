@@ -12,6 +12,7 @@ import java.util.Scanner;
 import Controller.Account.LoginManager;
 import Controller.File.FileRemove;
 import Controller.File.FileWriting;
+import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Suggestion.SuggestionManager;
 
 public class Staff extends User {
@@ -251,22 +252,23 @@ public class Staff extends User {
 
     // View suggestions given by camp committee members
     public void viewSuggestions() {
-        if (campsCreatedList.size() == 0) {
-            System.out.println("You have not created any camps yet!");
-        }
-        else {
-            for (Camp camp : campsCreatedList) {
-                ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
-                if (listOfSuggestions.size() != 0) {
-                    for (Suggestion suggestion : listOfSuggestions) {
-                        System.out.println("Camp: " + camp.getCampDetails().getCampName());
-                        System.out.println("Proposer: " + suggestion.getProposer().getName());
-                        System.out.println("Content: " + suggestion.getContent());
-                        System.out.println("Status: " + suggestion.getStatus());
-                        System.out.println("---------------------------------------------");
-                    }
-                }
-            }
-        }
+        // if (campsCreatedList.size() == 0) {
+        //     System.out.println("You have not created any camps yet!");
+        // }
+        // else {
+        //     for (Camp camp : campsCreatedList) {
+        //         ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
+        //         if (listOfSuggestions.size() != 0) {
+        //             for (Suggestion suggestion : listOfSuggestions) {
+        //                 System.out.println("Camp: " + camp.getCampDetails().getCampName());
+        //                 System.out.println("Proposer: " + suggestion.getProposer().getName());
+        //                 System.out.println("Content: " + suggestion.getContent());
+        //                 System.out.println("Status: " + suggestion.getStatus());
+        //                 System.out.println("---------------------------------------------");
+        //             }
+        //         }
+        //     }
+        // }
+        StaffSuggestionManager.printSuggestions(campsCreatedList);
     }
 }
