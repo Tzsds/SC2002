@@ -12,10 +12,19 @@ public class CampCommittee extends Student {
         points = 0;
     }
 
+    public CampCommittee(String userID, String name, String faculty, String password, int points){
+        super(userID, name, faculty, password);
+        this.points = points;
+    }
+
     public int getPoints(){
         return points;
     }
     
+    public void setPoints(int points){
+        this.points = points;
+    }
+
     public void addPoints(){
         points += 1;
     }

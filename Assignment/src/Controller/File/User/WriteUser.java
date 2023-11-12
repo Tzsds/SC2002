@@ -54,11 +54,11 @@ public class WriteUser {
     public static void FileWriteCampCommittee(){
         String campCommitteeCSV = "Assignment/database/campcommittee.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(campCommitteeCSV))) {
-            writer.write(header);
+            writer.write("name,faculty,userID,password,points\n");
 
             for (CampCommittee s : CampCommitteeRepository.getListOfCampCommittee()){
                 String data = s.getName() + "," + s.getFaculty() + "," + s.getUserID() + ","
-                        + s.getPassword() + "\n";
+                        + s.getPassword() + "," + s.getPoints() + "\n";
                 writer.write(data);
 
             }

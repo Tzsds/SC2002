@@ -23,7 +23,6 @@ public class StudentMainPage {
                     // Display list of camps available
                     System.out.println("Retrieving list of available camps...");
                     CampManager.viewAvailableCamps();
-                    //Student.viewAvailableCamps();
                     break;
 
                 case 2:

@@ -98,17 +98,19 @@ public class ReadUser {
             e.printStackTrace();
         }
 
+        //Reading campCommitteeCSV
          try (BufferedReader br = new BufferedReader(new FileReader(campCommitteeCSV))){
             String line;
             br.readLine();
             while ((line = br.readLine()) != null){
                 String [] words = line.split(",");
-                if (words.length >= 4){
+                if (words.length >= 5){
                     String name = words[0].trim();
                     String faculty = words[1].trim();
                     String userID = words[2].trim();
                     String password = words[3].trim();
-                    CampCommitteeRepository.addCampCommittee(new CampCommittee(userID, name, faculty, password));
+                    int points = Integer.parseInt(words[4].trim());
+                    CampCommitteeRepository.addCampCommittee(new CampCommittee(userID, name, faculty, password,points));
                 }
             }
         }

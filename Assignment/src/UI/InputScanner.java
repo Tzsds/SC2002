@@ -11,8 +11,9 @@ public class InputScanner {
     }
 
     public static String promptForString(String prompt) {
-        System.out.println(prompt);
-        return scanner.nextLine();
+        System.out.print(prompt);
+        String s = scanner.nextLine();
+        return s;
     }
 
     public static String waitForUserInput() {
