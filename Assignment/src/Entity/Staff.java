@@ -101,9 +101,11 @@ public class Staff extends User {
     //public static Camp createNewCamp() {
     public void createNewCamp() {
         Scanner sc = new Scanner(System.in);
-
-        String campName = InputScanner.promptForString("Enter new camp name: ");
-        String description = InputScanner.promptForString("Write in your camp description: ");
+        System.out.print("Enter new camp name: ");
+        String campName = sc.nextLine();
+        
+        System.out.print("Write in your camp description: ");
+        String description = sc.nextLine();
 
         System.out.print("Enter camp start date in format (dd/mm/yyyy): ");
         String dateString = sc.nextLine();
@@ -130,12 +132,20 @@ public class Staff extends User {
         LocalDate registrationClosingDate = LocalDate.of(year, month, day);
 
         System.out.print("Which user group is this camp open to? (Enter \"1\" for Everyone or \"0\" for " + getFaculty() + "): ");
-        int openTo = InputScanner.promptForInt("");
-        String location = InputScanner.promptForString("Enter location of the camp: ");
-        int totalSlots = InputScanner.promptForInt("Enter the total number of slots open for the camp: ");    
-        int campCommitteeSlots = InputScanner.promptForInt("Enter the number of camp committee slots open for the camp: ");    
+        int openTo = sc.nextInt();
+
+        System.out.println("Enter location of the camp: ");
+        String location = sc.nextLine();
+
+        System.out.print("Enter the total number of slots open for the camp: ");
+        int totalSlots = sc.nextInt();
+        
+        System.out.print("Enter the number of camp committee slots open for the camp: ");
+        int campCommitteeSlots = sc.nextInt();    
+
         String staffInCharge = LoginManager.getCurrentUser().getName();
-        int visibility = InputScanner.promptForInt("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
+        System.out.print("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
+        int visibility = sc.nextInt();
         
         boolean bool = false;
         if (visibility == 1) {
