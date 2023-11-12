@@ -12,7 +12,7 @@ import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StudentRepository;
 
 public class ReadCampStudentList {
-    public static void readUserWithoutReset(){
+    public static void ReadCampStudentListWithoutReset(){
         String campDetailsCSV = "Assignment/database/camp_student_list.csv";
 
         try (BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))) {
@@ -25,22 +25,31 @@ public class ReadCampStudentList {
                     String userID = words[1].trim();
                     String role = words[2].trim();
 
+                    System.out.println(campName);
+                    System.out.println(userID);
+                    System.out.println(role);
+
                     Camp camp = CampRepository.getCampByCampName(campName);
                     Student student;
 
                     if (role.equals("Committee")) {
+                        System.out.println("test");
+                        CampCommitteeRepository
                         student = CampCommitteeRepository.getUserByID(userID);
+                        System.out.println(student.getName());
+                        System.out.println(camp.getCampDetails().getCampName());
+                        System.out.println("test1");
                         camp.addCampCommittee(student);
+                        System.out.println("test2");
                         CampCommittee temp = (CampCommittee)student;
+                        System.out.println("test3");
                         temp.setCommitteeOf(camp);
                     }
                     else {
                         student = StudentRepository.getStudentByID(userID);
                         camp.addParticipants(student);
                     }
-
                     student.addRegisteredCamp(camp);
-
                 }
             }
         }
