@@ -12,21 +12,30 @@ public class StaffSuggestionManager {
 
     //Functions to be used by the Staff
 
-    public static void printSuggestions(ArrayList<Suggestion> suggestions){
-        int size = suggestions.size();
-        if (size == 0){
-            System.out.println("There is no existing suggestions.");
+    public static void printSuggestions(ArrayList<Camp> listOfCampsCreated){
+        if (listOfCampsCreated.size() == 0){
+            System.out.println("You have not created any camps yet.");
         }
         else{
-            for (Suggestion suggestion : suggestions) {
-                Camp camp = suggestion.getProposer().getCommitteeOf();
-                System.out.println("Camp: " + camp.getCampDetails().getCampName());
-                System.out.println("Proposer: " + suggestion.getProposer().getName());
-                System.out.println("Content: " + suggestion.getContent());
-                System.out.println("Status: " + suggestion.getStatus());
-                System.out.println("============================================");
+            boolean empty = true;
+            for (Camp camp : listOfCampsCreated){
+                ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
+                if (listOfSuggestions.size() != 0) {
+                    empty = false;
+                    for (Suggestion suggestion : listOfSuggestions) {
+                        System.out.println("Camp: " + camp.getCampDetails().getCampName());
+                        System.out.println("Proposer: " + suggestion.getProposer().getName());
+                        System.out.println("Content: " + suggestion.getContent());
+                        System.out.println("Status: " + suggestion.getStatus());
+                        System.out.println("---------------------------------------------");
+                    }
+                }
+            }
+            if (empty){
+                System.out.println("There is no existing suggestions.");
             }
         }
+
     }
 
     public static void rejectSuggestion(Suggestion temp){

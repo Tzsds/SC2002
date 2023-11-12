@@ -1,15 +1,19 @@
 package Entity;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.FileRemove;
 import Controller.File.FileWriting;
+import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Suggestion.SuggestionManager;
 
 public class Staff extends User {
@@ -182,9 +186,45 @@ public class Staff extends User {
 
     public static void deleteCamp(String campName){
         String campDetailsCSV = "Assignment//database//camp_details.csv";
-        FileRemove fr = new FileRemove();
-        fr.removeCamp(campDetailsCSV, campName);
+        String staffInCharge = LoginManager.getCurrentUser().getName();
+       List<String[]> rows = new ArrayList<>();
+        
+        try(BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))){
+            String line;
+            while ((line = br.readLine()) != null){
+                String [] colums = line.split(",");
+                if(!colums[0].equals(campName)){
+                    rows.add(colums);
+                }
+                else if(!line.contains(staffInCharge)){
+                    System.out.println("You did not create the camp");
+                    rows.add(colums);
+                }
+                else
+                    System.out.println("Camp deleted successfully");
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(campDetailsCSV))){
+            for (String [] row : rows) {
+                StringBuilder line = new StringBuilder();
+                for (int i = 0; i<row.length; i++){
+                    line.append(row[i]);
+                    if(i<row.length-1){
+                        line.append(",");
+                    }
+                }
+                bw.write(line.toString());
+                bw.newLine();
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
+
+
     
     // View list of camp created by the staff
     public void viewCampCreatedList() {
@@ -200,15 +240,6 @@ public class Staff extends User {
 
     // View suggestions given by camp committee members
     public void viewSuggestions() {
-        if (campsCreatedList.size() == 0) {
-            System.out.println("You have not created any camps yet!");
-        }
-        else {
-            for (Camp camp : campsCreatedList) {
-                ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
-                System.out.println("====================================");
-                SuggestionManager.printSuggestions(listOfSuggestions);
-            }
-        }
+        StaffSuggestionManager.printSuggestions(campsCreatedList);
     }
 }
