@@ -43,7 +43,7 @@ public class FileWriting {
                     campDetails.getStartDate() + "," +
                     campDetails.getEndDate() + "," +
                     campDetails.getCloseDate() + "," +
-                    campDetails.getOpenTo() + "," +
+                    campDetails.getUserGroup() + "," +
                     campDetails.getLocation() + "," +
                     campDetails.getTotalSlots() + "," +
                     campDetails.getCampComitteeSlots() + "," +

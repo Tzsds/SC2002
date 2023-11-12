@@ -10,7 +10,7 @@ public class CampDetails {
     private LocalDate startDate;
     private LocalDate endDate;
     private LocalDate closeDate;
-    private String openTo;
+    private String userGroup;
     private String location;
     private int slots;
     private int campComitteeSlots;
@@ -20,14 +20,14 @@ public class CampDetails {
     private boolean visibility;
 
     // constructor
-    public CampDetails(String name, LocalDate startDate, LocalDate endDate, LocalDate closeDate, String openTo,
+    public CampDetails(String name, LocalDate startDate, LocalDate endDate, LocalDate closeDate, String userGroup,
             String location, int slots, int campComitteeSlots,
             String description, String staffInCharge, boolean visibility) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
         this.closeDate = closeDate;
-        this.openTo = openTo;
+        this.userGroup = userGroup;
         this.location = location;
         this.slots = slots;
         this.campComitteeSlots = campComitteeSlots;
@@ -56,7 +56,10 @@ public class CampDetails {
         this.closeDate = date;
     }
 
-    // public void setOpenTo(String)
+    public void setUserGroup(String userGroup) {
+        this.userGroup = userGroup;
+    }
+
     public void setLocation(String location) {
         this.location = location;
     }
@@ -98,8 +101,8 @@ public class CampDetails {
         return closeDate;
     }
 
-    public String getOpenTo() {
-        return openTo;
+    public String getUserGroup() {
+        return userGroup;
     }
 
     public String getLocation() {
@@ -145,4 +148,6 @@ public class CampDetails {
         }
         return false; // Camp does not exist
     }
+
+    
 }

@@ -1,2 +1,6 @@
 campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
-abc,1111-11-11,1111-11-11,1111-11-11,null,ntu,2134,23,paly,Arvind,true
+abc,1111-11-11,1111-11-11,1111-11-11,Everyone,ntu,234,34,play,Arvind,true
+zxc,1111-11-11,1111-11-11,1111-11-11,NBS,nus,34,32,nus,Arvind,true
+qwer,1111-11-11,1111-11-11,1111-11-11,SCSE,sim,234,21,sleep,Datta,true
+lol,1111-11-11,1111-11-11,1111-11-11,Everyone,sit,234,2,bla,Datta,true
+booo,1111-11-11,1111-11-11,1111-11-11,Everyone,suss,234,21,efbis,Arvind,false

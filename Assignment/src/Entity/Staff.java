@@ -101,6 +101,7 @@ public class Staff extends User {
     //public static Camp createNewCamp() {
     public void createNewCamp() {
         Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
         System.out.print("Enter new camp name: ");
         String campName = sc.nextLine();
         
@@ -132,10 +133,15 @@ public class Staff extends User {
         LocalDate registrationClosingDate = LocalDate.of(year, month, day);
 
         System.out.print("Which user group is this camp open to? (Enter \"1\" for Everyone or \"0\" for " + getFaculty() + "): ");
-        int openTo = sc.nextInt();
+        int a = sc.nextInt();
+        String userGroup;
+        if(a == 1)
+            userGroup = "Everyone";
+        else
+            userGroup = getFaculty();
 
         System.out.println("Enter location of the camp: ");
-        String location = sc.nextLine();
+        String location = sc2.nextLine();
 
         System.out.print("Enter the total number of slots open for the camp: ");
         int totalSlots = sc.nextInt();
@@ -160,7 +166,7 @@ public class Staff extends User {
         newCampDetails.setStartDate(startDate);
         newCampDetails.setEndDate(endDate);
         newCampDetails.setCloseDate(registrationClosingDate);
-        //newCampDetails.setUserGroup(userGroup);
+        newCampDetails.setUserGroup(userGroup);
         newCampDetails.setLocation(location);
         newCampDetails.setTotalSlots(totalSlots);
         newCampDetails.setCampComitteeSlots(campCommitteeSlots);

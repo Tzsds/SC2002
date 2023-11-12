@@ -28,10 +28,10 @@ public class CampManager {
                 System.out.println("Start Date: " + campDetails.getStartDate());
                 System.out.println("End Date: " + campDetails.getEndDate());
                 System.out.println("Registration Close Date: " + campDetails.getCloseDate());
-                System.out.println("Open To: " + campDetails.getOpenTo());
+                System.out.println("Open To: " + campDetails.getUserGroup());
                 System.out.println("Location: " + campDetails.getLocation());
                 System.out.println("Total Slots: " + campDetails.getTotalSlots());
-                System.out.println("Total Camp Committee Slots: " + campDetails.getOpenTo());
+                System.out.println("Total Camp Committee Slots: " + campDetails.getCampComitteeSlots());
                 System.out.println("=====================================");
             }
         }
@@ -46,17 +46,17 @@ public class CampManager {
                 System.out.println("Start Date: " + campDetails.getStartDate());
                 System.out.println("End Date: " + campDetails.getEndDate());
                 System.out.println("Registration Close Date: " + campDetails.getCloseDate());
-                System.out.println("Open To: " + campDetails.getOpenTo());
+                System.out.println("Open To: " + campDetails.getUserGroup());
                 System.out.println("Location: " + campDetails.getLocation());
                 System.out.println("Total Slots: " + campDetails.getTotalSlots());
-                System.out.println("Total Camp Committee Slots: " + campDetails.getOpenTo());
+                System.out.println("Total Camp Committee Slots: " + campDetails.getCampComitteeSlots());
                 System.out.println("Visibility: " + campDetails.getVisibility());
                 System.out.println("=====================================");
             }
         }
     }
 
-    public static void viewAvailableCamps() {
+    /*public static void viewAvailableCamps() {
         String campDetailsCSV = "Assignment//database//camp_details.csv";
         try (BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))){
             int numRows = 0;
@@ -104,17 +104,18 @@ public class CampManager {
             // Print the table
             for (String[] row : data) {
                 //boolean check = row[10].equalsIgnoreCase("true") ? true : false;
-                String check = row[10];
-                
-                if (check.equals("true")){
+                String visibilityCheck = row[10];
+                String userGroupCheck = row[4];
+                if (visibilityCheck.equals("true"))
+                    if(userGroupCheck.equals("Everyone")  || userGroupCheck.equals(getFaculty)){
                     System.out.println("===========================================");
                     //for (int i = 0; i < row.length; i++) {
                         System.out.println("Camp Name: " + row[0]);
                         System.out.println("Start Date: " + row[1]);
                         System.out.println("End Date: " + row[2]);
                         System.out.println("Registration Closing Date: " + row[3]);
-                        System.out.println("Location: " + row[4]);
-                        System.out.println("Group: " + row[5]);
+                        System.out.println("Group: " + row[4]);
+                        System.out.println("Location: " + row[5]);
                         System.out.println("Slots: " + row[6]);
                         System.out.println("Camp Committee Slots: " + row[7]);
                         System.out.println("Description: " + row[8]);
@@ -133,5 +134,5 @@ public class CampManager {
         catch (IOException e){
             e.printStackTrace();
         }
-    }
+    }/* */
 }
