@@ -16,6 +16,7 @@ public class StaffMainPage {
             System.out.println("Welcome " + currentStaff.getName());
             StaffMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-9): ");
+            System.out.println();
             switch (option) {
 
                 case 1:

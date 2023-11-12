@@ -27,7 +27,9 @@ public class FileRead {
 
     private static void readWithoutReset(){
         ReadUser.readUserWithoutReset();
-        ReadSuggestion.readWithoutReset();
+        ReadSuggestion.readWithoutReset(); //clear the suggestions.csv file
+        // ReadCampDetails.readCampDetailsWithoutReset();
+        // ReadCampStudentList.ReadCampStudentListWithoutReset();
         
         // Need to read in Camp, Enquiries, Student
         // To be implemented in the future

@@ -50,7 +50,7 @@ public class SuggestionManager {
             String content = InputScanner.promptForString("What is your editted Suggestion?: ");
             suggestions.get(prompt-1).setContent(content);
             return;
-        }
+        }   
     }
 
     public static void deleteSuggestion(ArrayList<Suggestion> suggestions){

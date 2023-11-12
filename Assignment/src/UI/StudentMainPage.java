@@ -2,6 +2,7 @@ package UI;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
+import Controller.Camp.CampManager;
 import Controller.File.User.WriteUser;
 import Entity.Camp;
 import Entity.Staff;
@@ -21,7 +22,8 @@ public class StudentMainPage {
                 case 1:
                     // Display list of camps available
                     System.out.println("Retrieving list of available camps...");
-                    Student.viewAvailableCamps();
+                    CampManager.viewAvailableCamps();
+                    //Student.viewAvailableCamps();
                     break;
 
                 case 2:
@@ -39,7 +41,7 @@ public class StudentMainPage {
                 case 4:
                     // Display registered camps
                     System.out.println("Retrieving registered camps...");
-
+                    currentStudent.viewRegisteredCamps();
                     break;
                 case 5:
                     // Initiate password change process

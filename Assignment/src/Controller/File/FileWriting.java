@@ -82,7 +82,7 @@ public class FileWriting {
             if (committeeList != null) {
                 for (int i = 0; i < committeeList.size(); i++) {
                     User user = committeeList.get(i);
-                    String data = campName + "," + user.getUserID() + "," + "Committee" + "\n";
+                    String data = campName + "," + user.getUserID() + "," + "CampCommittee" + "\n";
                     writer.write(data);
                 }
             }

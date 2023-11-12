@@ -1,11 +1,7 @@
 package UI;
 
-import java.util.List;
-
 import Controller.Enquiry.EnquiryManager;
-import Entity.Enquiry;
 import Entity.User;
-import Repository.EnquiryRepository;
 
 public class EnquiryMainPage {
     private MainMenu mainMenu;
@@ -35,11 +31,10 @@ public class EnquiryMainPage {
                 case 3:
 
                     System.out.println("Edit your enquiry...");
+                    EnquiryManager.editEnquiry(currentUser);
                     break;
                 case 4:
-
-                    System.out.println("Delete your enquiry...");
-
+                    EnquiryManager.deleteEnquiry(currentUser);
                     break;
                 case 5:
                     System.out.println("Returning to main menu");
