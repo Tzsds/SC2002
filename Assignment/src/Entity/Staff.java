@@ -20,7 +20,7 @@ public class Staff extends User {
     public Staff(String userID, String name, String faculty, String password){
         super(userID, name, faculty, password);
     }
-
+    
     //not yet done
     public static void viewAllCamps() {
         String campDetailsCSV = "Assignment//database//camp_details.csv";
