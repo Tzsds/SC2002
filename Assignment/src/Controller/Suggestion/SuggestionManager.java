@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
+import Controller.File.FileWriting;
 import Controller.File.Suggestion.WriteSuggestion;
 import Entity.Camp;
 import Entity.CampCommittee;
@@ -82,6 +83,7 @@ public class SuggestionManager {
         User.getSuggestions().remove(temp);
         c1.getListOfSuggestions().remove(temp);
         SuggestionRepository.getListOfSuggestions().remove(temp);
+        FileWriting.FileWriteSuggestion();
     }
 
     public static void printSuggestions(ArrayList<Suggestion> suggestions){

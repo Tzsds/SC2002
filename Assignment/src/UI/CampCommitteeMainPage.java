@@ -4,7 +4,7 @@ import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.User.WriteUser;
-import Controller.Student.StudentManager;
+import Controller.Users.StudentManager;
 import Entity.CampCommittee;
 
 public class CampCommitteeMainPage {

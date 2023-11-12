@@ -5,7 +5,7 @@ import java.util.List;
 
 import Controller.Account.LoginManager;
 import Controller.File.Enquiry.WriteEnquiry;
-import Controller.Student.StudentManager;
+import Controller.Users.StudentManager;
 import Entity.CampDetails;
 import Entity.Enquiry;
 import Entity.Student;

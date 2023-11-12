@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ import Controller.File.FileRemove;
 import Controller.File.FileWriting;
 import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Suggestion.SuggestionManager;
+import Repository.CampRepository;
 import UI.InputScanner;
 
 public class Staff extends User {
@@ -23,82 +25,15 @@ public class Staff extends User {
     public Staff(String userID, String name, String faculty, String password){
         super(userID, name, faculty, password);
     }
-    
-    //not yet done
-    public static void viewAllCamps() {
-        String campDetailsCSV = "Assignment//database//camp_details.csv";
-        try (BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))){
-            int numRows = 0;
-            int numCols = 0;
-            String line;
-            while ((line = br.readLine()) != null) {
-                numRows++;
-                String[] row = line.split(",");
-                if (numCols < row.length) {
-                    numCols = row.length;
-                }
-            }
 
-            // Create a 2D array to store the CSV data
-            String[][] data = new String[numRows][numCols];
-
-            // Reset the reader
-            br.close();
-            BufferedReader br1 = new BufferedReader(new FileReader(campDetailsCSV));
-            //br = new BufferedReader(new FileReader(campDetailsCSV));
-
-            int rowIdx = 0;
-            while ((line = br1.readLine()) != null) {
-                String[] row = line.split(",");
-                for (int colIdx = 0; colIdx < row.length; colIdx++) {
-                    data[rowIdx][colIdx] = row[colIdx];
-                }
-                rowIdx++;
-            }
-
-            //rename headers
-            //campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
-
-            data[0][0] = "Camp Name";
-            data[0][1] = "Duration";
-            data[0][2] = "Registration Date";
-            data[0][3] = "Staff";
-            data[0][4] = "Total Slots";
-            data[0][5] = "Attendee Slots";
-            data[0][6] = "Committee Slots";
-            data[0][7] = "Attendee Slots Left";
-            data[0][8] = "Committee Slots Left";
-            
-            // Determine the maximum width for each column
-            int[] columnWidths = new int[data[0].length];
-            for (int i = 0; i < data[0].length; i++) {
-                for (int j = 0; j < data.length; j++) {
-                    int length = data[j][i].length();
-                    if (length > columnWidths[i]) {
-                        columnWidths[i] = length;
-                    }
-                }
-            }
-
-            // Print the table
-            for (String[] row : data) {
-                for (int i = 0; i < row.length; i++) {
-                    System.out.print(padRight(row[i], columnWidths[i] + 2)); // Add 2 for extra spacing
-                }
-                System.out.println();
-            }
-        }
-
-        catch (IOException e){
-            e.printStackTrace();
-        }
+    public ArrayList<Camp> getListOfCampsCreated(){
+        return campsCreatedList;
     }
-
+    
     public static String padRight(String s, int width) {
         return String.format("%-" + width + "s", s);
     }
 
-    //public static Camp createNewCamp() {
     public void createNewCamp() {
         Scanner sc = new Scanner(System.in);
         Scanner sc2 = new Scanner(System.in);
@@ -140,7 +75,7 @@ public class Staff extends User {
         else
             userGroup = getFaculty();
 
-        System.out.println("Enter location of the camp: ");
+        System.out.print("Enter location of the camp: ");
         String location = sc2.nextLine();
 
         System.out.print("Enter the total number of slots open for the camp: ");
@@ -149,7 +84,6 @@ public class Staff extends User {
         System.out.print("Enter the number of camp committee slots open for the camp: ");
         int campCommitteeSlots = sc.nextInt();    
 
-        String staffInCharge = LoginManager.getCurrentUser().getName();
         System.out.print("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
         int visibility = sc.nextInt();
         
@@ -158,27 +92,19 @@ public class Staff extends User {
             bool = true;
         }
 
-        //CampDetails newCampDetails = new CampDetails(campName, description, startDate, endDate, registrationClosingDate, userGroup, location, totalSlots, campCommitteeSlots, staffInCharge, visibility);
+        String id = getUserID();
 
-        CampDetails newCampDetails = new CampDetails();
-        newCampDetails.setCampName(campName);
-        newCampDetails.setDescription(description);
-        newCampDetails.setStartDate(startDate);
-        newCampDetails.setEndDate(endDate);
-        newCampDetails.setCloseDate(registrationClosingDate);
-        newCampDetails.setUserGroup(userGroup);
-        newCampDetails.setLocation(location);
-        newCampDetails.setTotalSlots(totalSlots);
-        newCampDetails.setCampComitteeSlots(campCommitteeSlots);
-        newCampDetails.setStaffInCharge(staffInCharge);     //String or Staff
-        newCampDetails.setVisibility(bool);
-
-        Staff currentStaff = (Staff)LoginManager.getCurrentUser();
+        CampDetails newCampDetails = new CampDetails(campName, startDate, endDate, 
+                                    registrationClosingDate, userGroup, location, 
+                                    totalSlots, campCommitteeSlots, description, 
+                                    id, bool);
     
         Camp newCamp = new Camp();
         newCamp.setCampDetails(newCampDetails);
-        currentStaff.campsCreatedList.add(newCamp);
+        campsCreatedList.add(newCamp);
+        CampRepository.addCampToRepo(newCamp); //NEED TO ADD TO REPOSITORY
 
+        //ADD TO CSV
         FileWriting fw = new FileWriting();
         fw.FileWrite(newCampDetails);
         fw.FileWrite(newCamp);
@@ -186,79 +112,54 @@ public class Staff extends User {
         System.out.println("Camp Created!");
     }
 
-    public static void deleteCamp(String campName){
-        String campDetailsCSV = "Assignment//database//camp_details.csv";
-        String staffInCharge = LoginManager.getCurrentUser().getName();
-       List<String[]> rows = new ArrayList<>();
+    public void deleteCamp(){
+        Scanner sc = new Scanner(System.in);
+        int size = campsCreatedList.size();
+        int choice = 0;
+        if (size == 0){
+            System.out.println("You have not created any camp yet!");
+            return;
+        }
+        for (int i = 0; i<size; i++){
+            String campName = campsCreatedList.get(i).getCampDetails().getCampName();
+            System.out.println(i+1 + ". " + campName);
+        }
         
-        try(BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))){
-            String line;
-            while ((line = br.readLine()) != null){
-                String [] colums = line.split(",");
-                if(!colums[0].equals(campName)){
-                    rows.add(colums);
-                }
-                else if(!line.contains(staffInCharge)){
-                    System.out.println("You did not create the camp");
-                    rows.add(colums);
-                }
-                else
-                    System.out.println("Camp deleted successfully");
+        while (true){
+            try{
+                System.out.print("Which camp do you want to delete?: ");
+                choice = sc.nextInt();
             }
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(campDetailsCSV))){
-            for (String [] row : rows) {
-                StringBuilder line = new StringBuilder();
-                for (int i = 0; i<row.length; i++){
-                    line.append(row[i]);
-                    if(i<row.length-1){
-                        line.append(",");
-                    }
-                }
-                bw.write(line.toString());
-                bw.newLine();
+            catch (InputMismatchException e){
+                System.out.println("Invalid input! Please try again.");
+                sc.nextLine();
+                continue;
             }
-        }catch (IOException e){
-            e.printStackTrace();
+            if (choice <= 0 || choice > size){
+                System.out.println("Invalid input! Please try again.");
+                continue;
+            }
+            Camp temp = campsCreatedList.get(choice-1);
+            //Check if there are any Students or Camp Committee registered
+            size = temp.getCampComittee().size();
+            if (size < 0){
+                break;
+            }
+            size = temp.getParticipants().size();
+            if (size < 0){
+                break;
+            }
+            CampRepository.removeCamp(temp);
+            campsCreatedList.remove(temp);
+            //
+            //
+            //NEED TO UPDATE CSV
+            //
+            //
+            System.out.println("Camp successfully removed");
+            return;
         }
+        System.out.println("Cannot remove camp as there are already registered participants");
     }
 
-
-    
-    // View list of camp created by the staff
-    public void viewCampCreatedList() {
-        if (campsCreatedList.size() == 0) {
-            System.out.println("You have not created any camps yet!");
-        }
-        else {
-            System.out.println("Camps created:");
-            System.out.println("====================================");
-            CampManager.printCampsForStaff(campsCreatedList);
-        }
-    }
-
-    // View suggestions given by camp committee members
-    public void viewSuggestions() {
-        // if (campsCreatedList.size() == 0) {
-        //     System.out.println("You have not created any camps yet!");
-        // }
-        // else {
-        //     for (Camp camp : campsCreatedList) {
-        //         ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
-        //         if (listOfSuggestions.size() != 0) {
-        //             for (Suggestion suggestion : listOfSuggestions) {
-        //                 System.out.println("Camp: " + camp.getCampDetails().getCampName());
-        //                 System.out.println("Proposer: " + suggestion.getProposer().getName());
-        //                 System.out.println("Content: " + suggestion.getContent());
-        //                 System.out.println("Status: " + suggestion.getStatus());
-        //                 System.out.println("---------------------------------------------");
-        //             }
-        //         }
-        //     }
-        // }
-        StaffSuggestionManager.printSuggestions(campsCreatedList);
-    }
 }

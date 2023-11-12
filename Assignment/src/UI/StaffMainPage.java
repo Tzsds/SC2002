@@ -6,6 +6,7 @@ import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.Enquiry.EnquiryManager;
 import Controller.File.User.WriteUser;
+import Controller.Users.StaffManager;
 import Entity.Staff;
 
 public class StaffMainPage {
@@ -23,7 +24,7 @@ public class StaffMainPage {
                 case 1:
                     // Show all Camps
                     System.out.println("Showing all camps created...");
-                    Staff.viewAllCamps();
+                    StaffManager.viewAllCamps();
                     break;
                 case 2:
                     // Create new camp
@@ -33,14 +34,11 @@ public class StaffMainPage {
                 case 3:
                     // View camps created by the staff
                     System.out.println("Showing camps created by you...");
-                    currentStaff.viewCampCreatedList();
+                    StaffManager.viewCampsCreated(currentStaff.getListOfCampsCreated());
                     break;
                 case 4: 
                     // Delete camps created by staff
-                    Scanner sc = new Scanner(System.in);
-                    System.out.println("Enter the camp you wish to remove");
-                    String campName = sc.nextLine();
-                    Staff.deleteCamp(campName);
+                    currentStaff.deleteCamp();
                     break;
                 case 5:
                     // Show Enqueries asked by students
@@ -50,7 +48,7 @@ public class StaffMainPage {
                 case 6:
                     // View suggestions given by camp committee members
                     System.out.println("Showing suggestions from camp committee members...");
-                    currentStaff.viewSuggestions();
+                    StaffManager.viewSuggestions();
                     break;
                 case 7:
                     // Generate camp report

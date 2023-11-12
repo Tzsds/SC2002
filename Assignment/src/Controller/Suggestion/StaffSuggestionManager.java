@@ -41,7 +41,7 @@ public class StaffSuggestionManager {
     public static void rejectSuggestion(Suggestion temp){
         temp.setStatus(Status.REJECTED);
         SuggestionManager.deleteSuggestion(temp);
-        FileWriting.FileWriteSuggestion();
+        //FileWriting.FileWriteSuggestion();
     }
 
     public static void acceptSuggestion(Suggestion temp){
@@ -49,7 +49,7 @@ public class StaffSuggestionManager {
         CampCommittee member = temp.getProposer();
         member.addPoints(); //Additional points for accepted Suggestion
         SuggestionManager.deleteSuggestion(temp);
-        FileWriting.FileWriteSuggestion();
+        //FileWriting.FileWriteSuggestion();
     }
 
 }

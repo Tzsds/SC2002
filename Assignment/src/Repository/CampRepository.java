@@ -24,6 +24,10 @@ public class CampRepository {
     public static void addCampToRepo(Camp camp) {
         listOfCamps.add(camp);
     }
+
+    public static void removeCamp(Camp camp){
+        listOfCamps.remove(camp);
+    }
     
     public static Camp getCampByCampName(String campName) {
         for (int j = 0; j < getSizeOfCamps(); j++) {

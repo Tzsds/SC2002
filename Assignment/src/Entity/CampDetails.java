@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import Controller.Account.LoginManager;
+
 public class CampDetails {
     private String name;
     private LocalDate startDate;
@@ -16,13 +18,14 @@ public class CampDetails {
     private int campComitteeSlots;
     private String description;
     private String staffInCharge;
-    // i think have to change to private Staff staffInCharge
     private boolean visibility;
+    private String faculty;
 
     // constructor
-    public CampDetails(String name, LocalDate startDate, LocalDate endDate, LocalDate closeDate, String userGroup,
-            String location, int slots, int campComitteeSlots,
-            String description, String staffInCharge, boolean visibility) {
+    public CampDetails(
+            String name, LocalDate startDate, LocalDate endDate, LocalDate closeDate, 
+            String userGroup,String location, int slots, int campComitteeSlots,
+            String description, String staffID, boolean visibility) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -32,12 +35,10 @@ public class CampDetails {
         this.slots = slots;
         this.campComitteeSlots = campComitteeSlots;
         this.description = description;
-        this.staffInCharge = staffInCharge;
         this.visibility = visibility;
+        this.staffInCharge = staffID;
     }
 
-    public CampDetails() {
-    }
 
     // set functions
     public void setCampName(String name) {
@@ -85,6 +86,10 @@ public class CampDetails {
     }
 
     // get functions
+    public String getFaculty(){
+        return faculty;
+    }
+
     public String getCampName() {
         return name;
     }

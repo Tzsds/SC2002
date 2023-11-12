@@ -27,4 +27,8 @@ public class InputScanner {
     public static int waitForUserInputInt() {
         return scanner.nextInt();
     }
+
+    public static void clear(){
+        scanner.nextLine();
+    }
 }
