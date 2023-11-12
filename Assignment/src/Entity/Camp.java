@@ -31,11 +31,49 @@ public class Camp {
     }
     public ArrayList<Student> getCampComittee() {
         return campComittee;
+        
     }
     
     public ArrayList<Suggestion> getListOfSuggestions(){
         return listOfSuggestions;
     }
+    public String convertToString(){
+        return campDetails.getCampName() + "," +
+        campDetails.getStartDate() + "," +
+        campDetails.getEndDate() + "," +
+        campDetails.getCloseDate() + "," +
+        campDetails.getUserGroup() + "," +
+        campDetails.getLocation() + "," +
+        campDetails.getTotalSlots() + "," +
+        campDetails.getCampComitteeSlots() + "," +
+        campDetails.getDescription() + "," +
+        campDetails.getStaffInCharge() + "," +
+        campDetails.getVisibility();
+
+    }
+    //edit functions
+    public void editCampName(String newName){
+        campDetails.setCampName(newName);
+    }
+    public void editLocation(String newLocation){
+        campDetails.setLocation(newLocation);
+    }
+    public void editUserGroup(String newUserGroup){
+        campDetails.setUserGroup(newUserGroup);
+    }
+    public void editTotalSlots(int newTotalSlots){
+        campDetails.setTotalSlots(newTotalSlots);
+    }
+    public void editCampComitteeSlots(int newComitteeSlots){
+        campDetails.setCampComitteeSlots(newComitteeSlots);
+    }
+    public void editDecsription(String newDescription){
+        campDetails.setDescription(newDescription);
+    }
+    public void editVisibility(boolean newVisibility){
+        campDetails.setVisibility(newVisibility);
+    }
+    
 
     public void addParticipants(Student student) {
         participants.add(student);

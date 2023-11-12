@@ -38,29 +38,33 @@ public class StaffMainPage {
                     break;
                 case 4: 
                     // Delete camps created by staff
+                    StaffManager.editCamp(currentStaff.getListOfCampsCreated());
+                    break;
+                case 5: 
+                    // Delete camps created by staff
                     currentStaff.deleteCamp();
                     break;
-                case 5:
+                case 6:
                     // Show Enqueries asked by students
                     System.out.println("Showing enqueries by students...");
                     EnquiryManager.viewAllEnquiries();
                     break;
-                case 6:
+                case 7:
                     // View suggestions given by camp committee members
                     System.out.println("Showing suggestions from camp committee members...");
                     StaffManager.viewSuggestions();
                     break;
-                case 7:
+                case 8:
                     // Generate camp report
                     System.out.println("Generating camp report...");
                     // generateCampReport();
                     break;
-                case 8:
+                case 9:
                     // Generate performance report
                     System.out.println("Generating performance report of camp committee members...");
                     // generatePerformanceReport();
                     break;
-                case 9:
+                case 10:
                     // Initiate password change process
                     System.out.println("Initiating password change process...");
                     ChangeAccountPassword.changePassword();
@@ -68,7 +72,7 @@ public class StaffMainPage {
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;
-                case 10:
+                case 11:
                     System.out.println("Logging out...");
                     continueMenu = false;
                     break;
