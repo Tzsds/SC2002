@@ -22,7 +22,7 @@ public class Staff extends User {
     public Staff(String userID, String name, String faculty, String password){
         super(userID, name, faculty, password);
     }
-
+    
     //not yet done
     public static void viewAllCamps() {
         String campDetailsCSV = "Assignment//database//camp_details.csv";
@@ -240,6 +240,23 @@ public class Staff extends User {
 
     // View suggestions given by camp committee members
     public void viewSuggestions() {
+        // if (campsCreatedList.size() == 0) {
+        //     System.out.println("You have not created any camps yet!");
+        // }
+        // else {
+        //     for (Camp camp : campsCreatedList) {
+        //         ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
+        //         if (listOfSuggestions.size() != 0) {
+        //             for (Suggestion suggestion : listOfSuggestions) {
+        //                 System.out.println("Camp: " + camp.getCampDetails().getCampName());
+        //                 System.out.println("Proposer: " + suggestion.getProposer().getName());
+        //                 System.out.println("Content: " + suggestion.getContent());
+        //                 System.out.println("Status: " + suggestion.getStatus());
+        //                 System.out.println("---------------------------------------------");
+        //             }
+        //         }
+        //     }
+        // }
         StaffSuggestionManager.printSuggestions(campsCreatedList);
     }
 }
