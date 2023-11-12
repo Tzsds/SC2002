@@ -32,10 +32,10 @@ public class ReadCampStudentList {
                     Camp camp = CampRepository.getCampByCampName(campName);
                     Student student;
 
-                    if (role.equals("Committee")) {
+                 /*    if (role.equals("Committee")) {
                         System.out.println("test");
                         CampCommitteeRepository
-                        student = CampCommitteeRepository.getUserByID(userID);
+                       student = CampCommitteeRepository.getUserByID(userID);
                         System.out.println(student.getName());
                         System.out.println(camp.getCampDetails().getCampName());
                         System.out.println("test1");
@@ -49,7 +49,7 @@ public class ReadCampStudentList {
                         student = StudentRepository.getStudentByID(userID);
                         camp.addParticipants(student);
                     }
-                    student.addRegisteredCamp(camp);
+                    student.addRegisteredCamp(camp); */
                 }
             }
         }

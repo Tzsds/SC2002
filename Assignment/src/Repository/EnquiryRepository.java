@@ -39,4 +39,6 @@ public class EnquiryRepository {
         }
         return enquiriesBySender;
     }
+
+    
 }
