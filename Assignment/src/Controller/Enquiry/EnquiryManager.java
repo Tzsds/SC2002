@@ -7,6 +7,7 @@ import java.util.List;
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
+import Controller.Student.StudentManager;
 import Entity.CampDetails;
 import Entity.Enquiry;
 import Entity.Student;
@@ -18,7 +19,7 @@ import UI.InputScanner;
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {
         System.out.println("Which Camp do you want to enquiry on?");
-        CampManager.viewAvailableCamps();
+        StudentManager.viewAvailableCamps();
         InputScanner.promptForString("Choose a camp(Enter Camp Name)");
         String campChoice = InputScanner.waitForUserInputString();
         // Validate if the chosen camp name exists in the available camps
