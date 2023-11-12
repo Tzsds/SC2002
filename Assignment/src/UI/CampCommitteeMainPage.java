@@ -4,16 +4,17 @@ import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.User.WriteUser;
-import Entity.Student;
+import Entity.CampCommittee;
 
 public class CampCommitteeMainPage {
 
     public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+            CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
+            System.out.println("Welcome " + User.getName());
             CampCommitteeMainMenu.displayMainMenu();
-            int option = InputScanner.promptForInt("Input your choice of action (1-9):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-9): ");
             switch (option) {
                 case 1:
                     // Display list of camps available
@@ -26,6 +27,8 @@ public class CampCommitteeMainPage {
                 case 3:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
+                    EnquiryMainPage enquiryPage = new EnquiryMainPage(LoginManager.getCurrentUser());
+                    enquiryPage.run();
                     break;
                 case 4:
                     // Navigate to Suggestion Page
@@ -34,7 +37,7 @@ public class CampCommitteeMainPage {
                     break;
                 case 5:
                     //View Registered Camps
-                    
+                    User.viewRegisteredCamps();
                     return;
                 case 6:
                     //View and Reply to Enquiries
