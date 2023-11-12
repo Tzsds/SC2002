@@ -3,6 +3,8 @@ package UI;
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
+import Entity.Camp;
+import Entity.Staff;
 import Entity.Student;
 
 public class StudentMainPage {
@@ -10,8 +12,8 @@ public class StudentMainPage {
     public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
+            System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
             Student currentStudent = (Student)LoginManager.getCurrentUser();
-            System.out.println("Welcome " + currentStudent.getName());
             StudentMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-6):");
             switch (option) {
@@ -24,6 +26,9 @@ public class StudentMainPage {
 
                 case 2:
                     System.out.println("Navigating to Camp Registration Page");
+
+                    //Camp.addParticipants(currentStudent);
+                    //Camp.addCampCommittee(currentStudent);
                     break;
                 case 3:
                     // Navigate to Enquiry Page
