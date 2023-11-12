@@ -11,7 +11,7 @@ public class InputScanner {
     }
 
     public static String promptForString(String prompt) {
-        System.out.println(prompt);
+        System.out.print(prompt);
         return scanner.nextLine();
     }
 

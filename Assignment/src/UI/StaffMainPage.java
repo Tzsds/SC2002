@@ -27,7 +27,7 @@ public class StaffMainPage {
                 case 2:
                     // Create new camp
                     System.out.println("Navigating to create camp page...");
-                    Staff.createNewCamp();
+                    currentStaff.createNewCamp();
                     break;
                 case 3:
                     // View camps created by the staff

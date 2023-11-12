@@ -15,6 +15,7 @@ import Controller.File.FileRemove;
 import Controller.File.FileWriting;
 import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Suggestion.SuggestionManager;
+import UI.InputScanner;
 
 public class Staff extends User {
     private ArrayList<Camp> campsCreatedList = new ArrayList<>();
@@ -98,15 +99,11 @@ public class Staff extends User {
     }
 
     //public static Camp createNewCamp() {
-    public static void createNewCamp() {
+    public void createNewCamp() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter new camp name: ");
-        String campName = sc.nextLine();
 
-        System.out.println("Write in your camp description.");
-        System.out.print("Description: ");
-        String description = sc.nextLine();
-
+        String campName = InputScanner.promptForString("Enter new camp name: ");
+        String description = InputScanner.promptForString("Write in your camp description: ");
 
         System.out.print("Enter camp start date in format (dd/mm/yyyy): ");
         String dateString = sc.nextLine();
@@ -132,28 +129,17 @@ public class Staff extends User {
         year = Integer.parseInt(parts[2]);
         LocalDate registrationClosingDate = LocalDate.of(year, month, day);
 
-        System.out.println("Which user group is this camp open to?");
-        //switch statement for user group
-
-        System.out.print("Enter location of the camp: ");
-        String location = sc.nextLine();
-
-        System.out.print("Enter the total number of slots open for the camp: ");
-        int totalSlots = sc.nextInt();    
-
-        System.out.print("Enter the number of camp committee slots open for the camp: ");
-        int campCommitteeSlots = sc.nextInt();        
-
-        
+        System.out.print("Which user group is this camp open to? (Enter \"1\" for Everyone or \"0\" for " + getFaculty() + "): ");
+        int openTo = InputScanner.promptForInt("");
+        String location = InputScanner.promptForString("Enter location of the camp: ");
+        int totalSlots = InputScanner.promptForInt("Enter the total number of slots open for the camp: ");    
+        int campCommitteeSlots = InputScanner.promptForInt("Enter the number of camp committee slots open for the camp: ");    
         String staffInCharge = LoginManager.getCurrentUser().getName();
-
-        System.out.print("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
-        int visibility = sc.nextInt();
-        boolean bool;
+        int visibility = InputScanner.promptForInt("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
+        
+        boolean bool = false;
         if (visibility == 1) {
             bool = true;
-        } else {
-            bool = false;
         }
 
         //CampDetails newCampDetails = new CampDetails(campName, description, startDate, endDate, registrationClosingDate, userGroup, location, totalSlots, campCommitteeSlots, staffInCharge, visibility);
