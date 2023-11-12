@@ -2,6 +2,7 @@ package UI;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
+import Controller.Camp.CampManager;
 import Controller.File.User.WriteUser;
 import Entity.Student;
 
@@ -17,7 +18,7 @@ public class CampCommitteeMainPage {
                 case 1:
                     // Display list of camps available
                     System.out.println("Retrieving list of available camps...");
-                    Student.viewAvailableCamps();
+                    CampManager.viewAvailableCamps();
                     break;
                 case 2:
                     System.out.println("Navigating to camp registration page");

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import Controller.Account.LoginManager;
+import Controller.Camp.CampManager;
 import Controller.File.FileRemove;
 import Controller.File.FileWriting;
 import Controller.Suggestion.StaffSuggestionManager;
@@ -21,7 +22,7 @@ public class Staff extends User {
     public Staff(String userID, String name, String faculty, String password){
         super(userID, name, faculty, password);
     }
-
+    
     //not yet done
     public static void viewAllCamps() {
         String campDetailsCSV = "Assignment//database//camp_details.csv";
@@ -232,21 +233,8 @@ public class Staff extends User {
         }
         else {
             System.out.println("Camps created:");
-            System.out.println("---------------------------------------------");
-            for (Camp camp : campsCreatedList) {
-                CampDetails campDetails = camp.getCampDetails();
-                System.out.println("Camp: " + campDetails.getCampName());
-                System.out.println("Camp Description: " + campDetails.getDescription());
-                System.out.println("Start Date: " + campDetails.getStartDate());
-                System.out.println("End Date: " + campDetails.getEndDate());
-                System.out.println("Registration Close Date: " + campDetails.getCloseDate());
-                System.out.println("Open To: " + campDetails.getOpenTo());
-                System.out.println("Location: " + campDetails.getLocation());
-                System.out.println("Total Slots: " + campDetails.getTotalSlots());
-                System.out.println("Total Camp Committee Slots: " + campDetails.getOpenTo());
-                System.out.println("Visibility: " + campDetails.getVisibility());
-                System.out.println("---------------------------------------------");
-            }
+            System.out.println("====================================");
+            CampManager.printCampsForStaff(campsCreatedList);
         }
     }
 
