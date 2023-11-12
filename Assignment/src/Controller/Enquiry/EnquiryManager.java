@@ -44,8 +44,6 @@ public class EnquiryManager {
     }
 
     public static void deleteEnquiry(User currentUser) {
-        String enquiryCSV = "Assignment/database/enquiries.csv";
-
         List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
 
         if (studentEnquiries.isEmpty()) {
@@ -89,55 +87,6 @@ public class EnquiryManager {
             }
         }
     }
-
-    /*
-     * public static void editEnquiry(User currentUser) {
-     * List<Enquiry> studentEnquiries =
-     * EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
-     * 
-     * if (studentEnquiries.isEmpty()) {
-     * System.out.println("No enquiries to edit!");
-     * return;
-     * }
-     * 
-     * // Display student's enquiries
-     * System.out.println("Your Enquiries:");
-     * viewStudentEnquiries(currentUser);
-     * 
-     * // Choose which enquiry to edit
-     * int choice = InputScanner.
-     * promptForInt("Enter the number of the enquiry to edit (0 to cancel): ");
-     * 
-     * if (choice < 0 || choice > studentEnquiries.size()) {
-     * System.out.println("Invalid choice. Editing cancelled.");
-     * return;
-     * } else if (choice == 0) {
-     * System.out.println("Editing cancelled.");
-     * return;
-     * }
-     * 
-     * // Get the selected enquiry
-     * Enquiry selectedEnquiry = studentEnquiries.get(choice - 1);
-     * 
-     * // Display current content and prompt for new content
-     * System.out.println("Current Content: " + selectedEnquiry.getContent());
-     * InputScanner.promptForString("Enter the new Enquiry content: ");
-     * String newContent = InputScanner.waitForUserInputString();
-     * // Update the selected enquiry
-     * selectedEnquiry.setContent(newContent);
-     * System.out.println(newContent);
-     * 
-     * // Update the enquiry in the repository
-     * // EnquiryRepository.setE(selectedEnquiry);
-     * // Read the enquiries from the CSV file.
-     * ArrayList<Enquiry> enquiriesFromCSV = ReadEnquiry.readEnquiriesFromCSV();
-     * 
-     * // Edit the enquiries and write them back to the CSV file.
-     * // WriteEnquiry.editEnquiries(studentEnquiries, enquiriesFromCSV);
-     * 
-     * System.out.println("Enquiry edited successfully!");
-     * }
-     */
 
     public static void editEnquiry(User currentUser) {
 
