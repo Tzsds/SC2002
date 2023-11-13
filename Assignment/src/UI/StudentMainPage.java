@@ -26,7 +26,7 @@ public class StudentMainPage {
                 case 2:
                     //Register for camp under Student Manager
                     System.out.println("Navigating to Camp Registration Page");
-
+                    StudentManager.registerForCamps();
                     //Camp.addParticipants(currentStudent);
                     //Camp.addCampCommittee(currentStudent);
                     break;

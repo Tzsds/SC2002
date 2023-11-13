@@ -88,4 +88,8 @@ public class CampManager {
         System.out.println("Total Slots: " + detail.getTotalSlots());
         System.out.println("Total Camp Committee Slots: " + detail.getCampCommitteeSlots());
     }
+
+    public static void printCampRegistrationForStudents(CampDetails detail){
+        System.out.println("Camp: " + detail.getCampName());
+    }
 }
