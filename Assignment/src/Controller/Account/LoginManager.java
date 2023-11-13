@@ -24,6 +24,15 @@ public class LoginManager {
         User temp;
         while (true){
             String id = AccountInput.inputID();
+            
+            for (CampCommittee s : CampCommitteeRepository.getListOfCampCommittee()){
+                temp = s;
+                if (temp.getUserID().equals(id)){
+                    currentUser = s;
+                    role = "CampCommittee";
+                    return;
+                }
+            }
     
             for (Student s : StudentRepository.getListOfStudents()){
                 temp = s;
@@ -38,14 +47,6 @@ public class LoginManager {
                 if (temp.getUserID().equals(id)){
                     currentUser = s;
                     role = "Staff";
-                    return;
-                }
-            }
-            for (CampCommittee s : CampCommitteeRepository.getListOfCampCommittee()){
-                temp = s;
-                if (temp.getUserID().equals(id)){
-                    currentUser = s;
-                    role = "CampCommittee";
                     return;
                 }
             }
