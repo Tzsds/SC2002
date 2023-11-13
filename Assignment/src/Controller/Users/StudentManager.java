@@ -88,9 +88,11 @@ public class StudentManager {
                 System.out.println("Camp Successfully Registered!");
             }
         }
+    }
+    
+    public static void withdrawFromCamp(){
         
-        
-    }   
+    }
         
     public static ArrayList<Camp> viewAvailableCamps(){
         ArrayList <Camp> list = new ArrayList<>();
