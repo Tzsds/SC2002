@@ -26,7 +26,6 @@ public class WriteUser {
                 String data = s.getName() + "," + s.getFaculty() + "," + s.getUserID() + ","
                         + s.getPassword() + "\n";
                 writer.write(data);
-
             }
 
         } catch (IOException e) {
@@ -43,9 +42,7 @@ public class WriteUser {
                 String data = s.getName() + "," + s.getFaculty() + "," + s.getUserID() + ","
                         + s.getPassword() + "\n";
                 writer.write(data);
-
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,11 +59,8 @@ public class WriteUser {
                 writer.write(data);
 
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-
 }

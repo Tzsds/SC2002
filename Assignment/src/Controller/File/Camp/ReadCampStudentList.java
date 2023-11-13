@@ -1,4 +1,4 @@
-package Controller.File;
+package Controller.File.Camp;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

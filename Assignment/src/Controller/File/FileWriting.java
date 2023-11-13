@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import Controller.File.Camp.WriteCampDetails;
 import Controller.File.Suggestion.WriteSuggestion;
 import Controller.File.User.WriteUser;
 import Entity.Camp;
@@ -27,34 +28,38 @@ public class FileWriting {
         WriteSuggestion.writeSuggestion();
     }
 
-    public void FileWrite(CampDetails campDetails) {
-        String campDetailsCSV = "Assignment/database/camp_details.csv";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV, true))) {
-
-            // If the file is empty, write the header
-            if (Files.size(Paths.get(campDetailsCSV)) == 0) {
-                System.out.println("ininnini");
-                writer.write(
-                        "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n");
-            }
-
-            // Write campDetails to the CSV file
-            String data = campDetails.getCampName() + "," +
-                    campDetails.getStartDate() + "," +
-                    campDetails.getEndDate() + "," +
-                    campDetails.getCloseDate() + "," +
-                    campDetails.getUserGroup() + "," +
-                    campDetails.getLocation() + "," +
-                    campDetails.getTotalSlots() + "," +
-                    campDetails.getCampComitteeSlots() + "," +
-                    campDetails.getDescription() + "," +
-                    campDetails.getStaffInCharge() + "," +
-                    campDetails.getVisibility() + "\n";
-            writer.write(data);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void FileWriteCamp(){
+        WriteCampDetails.WriteCamp();
     }
+
+    // public void FileWrite(CampDetails campDetails) {
+    //     String campDetailsCSV = "Assignment/database/camp_details.csv";
+    //     try (BufferedWriter writer = new BufferedWriter(new FileWriter(campDetailsCSV, true))) {
+
+    //         // If the file is empty, write the header
+    //         if (Files.size(Paths.get(campDetailsCSV)) == 0) {
+    //             System.out.println("ininnini");
+    //             writer.write(
+    //                     "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n");
+    //         }
+
+    //         // Write campDetails to the CSV file
+    //         String data = campDetails.getCampName() + "," +
+    //                 campDetails.getStartDate() + "," +
+    //                 campDetails.getEndDate() + "," +
+    //                 campDetails.getCloseDate() + "," +
+    //                 campDetails.getUserGroup() + "," +
+    //                 campDetails.getLocation() + "," +
+    //                 campDetails.getTotalSlots() + "," +
+    //                 campDetails.getCampComitteeSlots() + "," +
+    //                 campDetails.getDescription() + "," +
+    //                 campDetails.getStaffInCharge() + "," +
+    //                 campDetails.getVisibility() + "\n";
+    //         writer.write(data);
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     public void FileWrite(Camp camp) {
         String campStudentListCSV = "Assignment/database/camp_student_list.csv";

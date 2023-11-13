@@ -1,23 +1,14 @@
 package Entity;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
-import Controller.Account.LoginManager;
-import Controller.Camp.CampManager;
-import Controller.File.FileRemove;
+
 import Controller.File.FileWriting;
-import Controller.Suggestion.StaffSuggestionManager;
-import Controller.Suggestion.SuggestionManager;
 import Repository.CampRepository;
-import UI.InputScanner;
 
 public class Staff extends User {
     private ArrayList<Camp> campsCreatedList = new ArrayList<>();
@@ -104,11 +95,8 @@ public class Staff extends User {
         campsCreatedList.add(newCamp);
         CampRepository.addCampToRepo(newCamp); //NEED TO ADD TO REPOSITORY
 
-        //ADD TO CSV
-        FileWriting fw = new FileWriting();
-        fw.FileWrite(newCampDetails);
-        fw.FileWrite(newCamp);
 
+        FileWriting.FileWriteCamp(); //update csv
         System.out.println("Camp Created!");
     }
 
@@ -151,11 +139,8 @@ public class Staff extends User {
             }
             CampRepository.removeCamp(temp);
             campsCreatedList.remove(temp);
-            //
-            //
-            //NEED TO UPDATE CSV
-            //
-            //
+
+            FileWriting.FileWriteCamp(); //update csv
             System.out.println("Camp successfully removed");
             return;
         }
