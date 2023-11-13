@@ -143,7 +143,7 @@ public class StaffManager {
                         System.out.println("Invalid option. Please enter a valid option.");
                         continue;
                 }
-                FileWriting.FileWriteCamp(); //update to csv
+                FileWriting.FileWriteCampDetails(); //update to csv
                 return;
             }
         }

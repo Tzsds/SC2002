@@ -1,6 +1,5 @@
 package Entity;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -31,7 +30,6 @@ public class Staff extends User {
 
     public void createNewCamp() {
         Scanner sc = new Scanner(System.in);
-        Scanner sc2 = new Scanner(System.in);
         System.out.print("Enter new camp name: ");
         String campName = sc.nextLine();
         
@@ -64,6 +62,7 @@ public class Staff extends User {
 
         System.out.print("Which user group is this camp open to? (Enter \"1\" for Everyone or \"0\" for " + getFaculty() + "): ");
         int a = sc.nextInt();
+        sc.nextLine(); //Consume the \n character
         String userGroup;
         if(a == 1)
             userGroup = "Everyone";
@@ -71,7 +70,7 @@ public class Staff extends User {
             userGroup = getFaculty();
 
         System.out.print("Enter location of the camp: ");
-        String location = sc2.nextLine();
+        String location = sc.nextLine();
 
         System.out.print("Enter the total number of slots open for the camp: ");
         int totalSlots = sc.nextInt();
@@ -81,6 +80,7 @@ public class Staff extends User {
 
         System.out.print("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
         int visibility = sc.nextInt();
+        sc.nextLine(); //Consume '\n' character
         
         boolean bool = false;
         if (visibility == 1) {
@@ -100,7 +100,7 @@ public class Staff extends User {
         CampRepository.addCampToRepo(newCamp); //NEED TO ADD TO REPOSITORY
 
 
-        FileWriting.FileWriteCamp(); //update csv
+        FileWriting.FileWriteCampDetails(); //update csv
         System.out.println("Camp Created!");
     }
 
@@ -116,7 +116,6 @@ public class Staff extends User {
             String campName = campsCreatedList.get(i).getCampDetails().getCampName();
             System.out.println(i+1 + ". " + campName);
         }
-        
         while (true){
             try{
                 System.out.print("Which camp do you want to delete?: ");
@@ -144,7 +143,7 @@ public class Staff extends User {
             CampRepository.removeCamp(temp);
             campsCreatedList.remove(temp);
 
-            FileWriting.FileWriteCamp(); //update csv
+            FileWriting.FileWriteCampDetails(); //update csv
             System.out.println("Camp successfully removed");
             return;
         }

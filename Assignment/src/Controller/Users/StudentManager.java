@@ -65,7 +65,6 @@ public class StudentManager {
             System.out.println("There is currently no available camps.");
         }
         return list;
-        
     }
 
 }

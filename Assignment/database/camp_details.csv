@@ -1,7 +1,5 @@
 campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
-NBS,2001-12-10,2001-12-10,2001-12-10,Everyone,NTU,10,10,SCSE,ARVI,true
-abc,1111-11-11,1111-11-11,1111-11-11,Everyone,ntu,10,2,play,ARVI,true
-EveryoneCamp,2001-12-10,2001-12-10,2001-12-10,Everyone,10,10,10,test1,ARVI,true
-SCSEcamp,2001-12-10,2001-12-10,2201-12-10,SCSE,NTU,10,10,test2,HUKUMAR,true
-testKOH,2001-12-10,2001-12-10,2001-12-10,ADM,10,10,10,test1,ARVI,true
-testJES,2001-12-10,2001-12-10,2001-12-10,SCSE,10,10,10,test1,ARVI,true
+NTU,0020-01-20,0020-01-20,0020-01-20,Everyone,ntu,10,10,NTU,ARVI,true
+dasdsad,2001-12-10,2001-12-10,2001-12-10,Everyone,ntu,10,10,adsadsadsa,ARVI,true
+ntu,2001-12-10,2001-12-10,2001-12-10,Everyone,ntu,10,10,ntu,ARVI,true
+123,2001-12-10,2001-12-10,2001-12-10,Everyone,NTU,10,10,123,ARVI,false
