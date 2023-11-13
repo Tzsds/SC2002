@@ -58,7 +58,7 @@ public class ReadUser {
     public static void readUserWithoutReset(){
         String studentCSV = "Assignment/database/student.csv";
         String staffCSV = "Assignment/database/staff.csv";
-        String campCommitteeCSV = "Assignment/database/campcommittee.csv";
+        String campCommitteeCSV = "Assignment/database/camp_committee.csv";
 
         //Reading studentCSV
         try (BufferedReader br = new BufferedReader(new FileReader(studentCSV))){
@@ -110,7 +110,9 @@ public class ReadUser {
                     String userID = words[2].trim();
                     String password = words[3].trim();
                     int points = Integer.parseInt(words[4].trim());
-                    CampCommitteeRepository.addCampCommittee(new CampCommittee(userID, name, faculty, password,points));
+                    CampCommitteeRepository.addCampCommittee(new CampCommittee(userID, name, faculty, password, points));
+                    Student student = (Student)CampCommitteeRepository.getCommitteeByID(userID);
+                    StudentRepository.addStudent(student);
                 }
             }
         }

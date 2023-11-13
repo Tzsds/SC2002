@@ -23,7 +23,7 @@ public class ReadSuggestion {
                 if (words.length >= 2){
                     String senderID = words[0].trim();
                     String content = words[1].trim();
-                    CampCommittee user = CampCommitteeRepository.getUserByID(senderID);
+                    CampCommittee user = CampCommitteeRepository.getCommitteeByID(senderID);
                     user.addSuggestion(new Suggestion(content));
                 }
             }

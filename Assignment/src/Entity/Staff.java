@@ -129,7 +129,7 @@ public class Staff extends User {
             }
             Camp temp = campsCreatedList.get(choice-1);
             //Check if there are any Students or Camp Committee registered
-            size = temp.getCampComittee().size();
+            size = temp.getCampCommittee().size();
             if (size < 0){
                 break;
             }

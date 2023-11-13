@@ -27,7 +27,7 @@ public class WriteCampDetails {
                             detail.getUserGroup() + "," +
                             detail.getLocation() + "," +
                             detail.getTotalSlots() + "," +
-                            detail.getCampComitteeSlots() + "," +
+                            detail.getCampCommitteeSlots() + "," +
                             detail.getDescription() + "," +
                             detail.getStaffInCharge() + "," +
                             detail.getVisibility() + "\n";

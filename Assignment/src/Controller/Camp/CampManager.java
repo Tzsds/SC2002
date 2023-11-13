@@ -33,7 +33,7 @@ public class CampManager {
                 System.out.println("Open To: " + campDetails.getUserGroup());
                 System.out.println("Location: " + campDetails.getLocation());
                 System.out.println("Total Slots: " + campDetails.getTotalSlots());
-                System.out.println("Total Camp Committee Slots: " + campDetails.getCampComitteeSlots());
+                System.out.println("Total Camp Committee Slots: " + campDetails.getCampCommitteeSlots());
                 System.out.println("=====================================");
             }
         }
@@ -70,7 +70,7 @@ public class CampManager {
         System.out.println("Open To: " + detail.getUserGroup());
         System.out.println("Location: " + detail.getLocation());
         System.out.println("Total Slots: " + detail.getTotalSlots());
-        System.out.println("Total Camp Committee Slots: " + detail.getCampComitteeSlots());
+        System.out.println("Total Camp Committee Slots: " + detail.getCampCommitteeSlots());
         String visibility = "Closed";
         if (detail.getVisibility()){
             visibility = "Open";
@@ -86,6 +86,6 @@ public class CampManager {
         System.out.println("Registration Close Date: " + detail.getCloseDate());
         System.out.println("Location: " + detail.getLocation());
         System.out.println("Total Slots: " + detail.getTotalSlots());
-        System.out.println("Total Camp Committee Slots: " + detail.getCampComitteeSlots());
+        System.out.println("Total Camp Committee Slots: " + detail.getCampCommitteeSlots());
     }
 }

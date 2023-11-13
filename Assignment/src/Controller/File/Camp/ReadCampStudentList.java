@@ -1,7 +1,9 @@
 package Controller.File.Camp;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import Entity.Camp;
@@ -12,10 +14,10 @@ import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StudentRepository;
 
 public class ReadCampStudentList {
-    public static void ReadCampStudentListWithoutReset(){
-        String campDetailsCSV = "Assignment/database/camp_student_list.csv";
+    private static String campStudentListSV = "Assignment/database/camp_student_list.csv";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))) {
+    public static void readCampStudentListWithoutReset(){
+        try (BufferedReader br = new BufferedReader(new FileReader(campStudentListSV))) {
             String line;
             br.readLine();
             while ((line = br.readLine()) != null){
@@ -24,37 +26,34 @@ public class ReadCampStudentList {
                     String campName = words[0].trim();
                     String userID = words[1].trim();
                     String role = words[2].trim();
-
-                    System.out.println(campName);
-                    System.out.println(userID);
-                    System.out.println(role);
-
+                    
                     Camp camp = CampRepository.getCampByCampName(campName);
-                    Student student;
+                    Student student = StudentRepository.getStudentByID(userID);
+                    student.addRegisteredCamp(camp);
 
-                 /*    if (role.equals("Committee")) {
-                        System.out.println("test");
-                        CampCommitteeRepository
-                       student = CampCommitteeRepository.getUserByID(userID);
-                        System.out.println(student.getName());
-                        System.out.println(camp.getCampDetails().getCampName());
-                        System.out.println("test1");
+                    if (role.equals("Committee")) {
                         camp.addCampCommittee(student);
-                        System.out.println("test2");
-                        CampCommittee temp = (CampCommittee)student;
-                        System.out.println("test3");
-                        temp.setCommitteeOf(camp);
+                        CampCommittee committee = CampCommitteeRepository.getCommitteeByID(userID);
+                        committee.setCommitteeOf(camp);
                     }
                     else {
-                        student = StudentRepository.getStudentByID(userID);
                         camp.addParticipants(student);
                     }
-                    student.addRegisteredCamp(camp); */
                 }
             }
         }
         catch(IOException e){
             e.printStackTrace();
         }
-    }   
+    }
+
+    public static void readCampStudentListWithReset(){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campStudentListSV))) {
+            String header = "campName,userID,role\n";
+            writer.write(header);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }

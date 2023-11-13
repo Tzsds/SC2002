@@ -15,7 +15,7 @@ public class CampCommitteeRepository {
         listOfCampCommittee.add(s);
     }
 
-    public static CampCommittee getUserByID(String id){
+    public static CampCommittee getCommitteeByID(String id){
         for (CampCommittee s : CampCommitteeRepository.getListOfCampCommittee()){
             if (s.getUserID().equals(id)){
                 return s;

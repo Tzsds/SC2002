@@ -118,7 +118,7 @@ public class StaffManager {
                     case 5:
                         System.out.println("Enter New Camp Comittee Slots: ");
                         int newComitteeSlots = input.nextInt();
-                        temp.editCampComitteeSlots(newComitteeSlots);
+                        temp.editCampCommitteeSlots(newComitteeSlots);
                         System.out.println("Camp successfully edited");
                         continue;
                     case 6:

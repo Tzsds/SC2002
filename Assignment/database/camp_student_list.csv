@@ -1,1 +1,5 @@
-campName,userID,Role
+campName,userID,role
+SCSEcamp,YCHERN,Attendee
+EveryoneCamp,YCHERN,Attendee
+EveryoneCamp,KOH1,Attendee
+testJES,JESICA,Committee

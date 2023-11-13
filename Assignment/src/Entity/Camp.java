@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Camp {
     private CampDetails campDetails;
     private ArrayList<Student> participants = new ArrayList<>();
-    private ArrayList<Student> campComittee = new ArrayList<>();;
+    private ArrayList<Student> campCommittee = new ArrayList<>();;
     private Enquiry enquiries;
     private ArrayList<Student> withdrawnStudents = new ArrayList<>();;
     private ArrayList<Suggestion> listOfSuggestions = new ArrayList<Suggestion>();
@@ -29,8 +29,8 @@ public class Camp {
     public ArrayList<Student> getParticipants() {
         return participants;
     }
-    public ArrayList<Student> getCampComittee() {
-        return campComittee;
+    public ArrayList<Student> getCampCommittee() {
+        return campCommittee;
         
     }
     
@@ -45,7 +45,7 @@ public class Camp {
         campDetails.getUserGroup() + "," +
         campDetails.getLocation() + "," +
         campDetails.getTotalSlots() + "," +
-        campDetails.getCampComitteeSlots() + "," +
+        campDetails.getCampCommitteeSlots() + "," +
         campDetails.getDescription() + "," +
         campDetails.getStaffInCharge() + "," +
         campDetails.getVisibility();
@@ -64,8 +64,8 @@ public class Camp {
     public void editTotalSlots(int newTotalSlots){
         campDetails.setTotalSlots(newTotalSlots);
     }
-    public void editCampComitteeSlots(int newComitteeSlots){
-        campDetails.setCampComitteeSlots(newComitteeSlots);
+    public void editCampCommitteeSlots(int newCommitteeSlots){
+        campDetails.setCampCommitteeSlots(newCommitteeSlots);
     }
     public void editDecsription(String newDescription){
         campDetails.setDescription(newDescription);
@@ -77,10 +77,9 @@ public class Camp {
 
     public void addParticipants(Student student) {
         participants.add(student);
-        System.out.println(participants.size());
     }
 
     public void addCampCommittee(Student student) {
-        campComittee.add(student);
+        campCommittee.add(student);
     }
 }

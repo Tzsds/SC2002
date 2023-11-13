@@ -15,7 +15,7 @@ public class CampDetails {
     private String userGroup;
     private String location;
     private int slots;
-    private int campComitteeSlots;
+    private int campCommitteeSlots;
     private String description;
     private String staffInCharge;
     private boolean visibility;
@@ -33,7 +33,7 @@ public class CampDetails {
         this.userGroup = userGroup;
         this.location = location;
         this.slots = slots;
-        this.campComitteeSlots = campComitteeSlots;
+        this.campCommitteeSlots = campComitteeSlots;
         this.description = description;
         this.visibility = visibility;
         this.staffInCharge = staffID;
@@ -69,8 +69,8 @@ public class CampDetails {
         this.slots = slots;
     }
 
-    public void setCampComitteeSlots(int campComitteeSlots) {
-        this.campComitteeSlots = campComitteeSlots;
+    public void setCampCommitteeSlots(int campCommitteeSlots) {
+        this.campCommitteeSlots = campCommitteeSlots;
     }
 
     public void setDescription(String description) {
@@ -118,8 +118,8 @@ public class CampDetails {
         return slots;
     }
 
-    public int getCampComitteeSlots() {
-        return campComitteeSlots;
+    public int getCampCommitteeSlots() {
+        return campCommitteeSlots;
     }
 
     public String getDescription() {

@@ -12,7 +12,6 @@ import Controller.File.Suggestion.WriteSuggestion;
 import Controller.File.User.WriteUser;
 import Entity.Camp;
 import Entity.CampDetails;
-import Entity.Enquiry;
 import Entity.Student;
 import Entity.User;
 
@@ -74,7 +73,7 @@ public class FileWriting {
             CampDetails campDetails = camp.getCampDetails();
             String campName = campDetails.getCampName();
             ArrayList<Student> attendeesList = camp.getParticipants();
-            ArrayList<Student> committeeList = camp.getCampComittee();
+            ArrayList<Student> committeeList = camp.getCampCommittee();
 
             if (attendeesList != null) {
                 for (int i = 0; i < attendeesList.size(); i++) {
