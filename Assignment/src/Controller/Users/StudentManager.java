@@ -1,8 +1,6 @@
 package Controller.Users;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
 
 import Controller.Account.LoginManager;
@@ -23,6 +21,7 @@ public class StudentManager {
         }
         else{
             //Need to check remaining slots
+            //Cannot let him register twice
         }
         //once register need add in registered list
         //update csv?

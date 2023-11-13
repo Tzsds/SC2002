@@ -5,10 +5,11 @@ import Entity.User;
 import UI.CampCommitteeMainPage;
 import UI.StaffMainPage;
 import UI.StudentMainPage;
+import UI.SystemMessage;
 
 public class Start {
     public static void main(String[] args) {
-        System.out.println("Welcome to NTU CAMS System!");
+        SystemMessage.WelcomeMessage();
         int reset = Reset.PromptForReset(); // reset or retain data
         FileRead.read(reset);
 

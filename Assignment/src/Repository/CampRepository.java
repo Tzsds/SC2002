@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import Entity.Camp;
 import Entity.CampDetails;
-import Entity.User;
 
 public class CampRepository {
     private static ArrayList<Camp> listOfCamps = new ArrayList<Camp>();

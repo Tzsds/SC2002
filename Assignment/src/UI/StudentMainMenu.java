@@ -10,6 +10,7 @@ public class StudentMainMenu{
         System.out.println("4. View Registered Camps");
         System.out.println("5. Change Password");
         System.out.println("6. Logout");
+        System.out.println("7. Quit Program");
         System.out.println("----------------------------------------");
     }
 }

@@ -2,7 +2,6 @@ package UI;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
-import Controller.Camp.CampManager;
 import Controller.File.User.WriteUser;
 import Controller.Users.StudentManager;
 import Entity.CampCommittee;
@@ -15,7 +14,7 @@ public class CampCommitteeMainPage {
             CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
             System.out.println("Welcome " + User.getName());
             CampCommitteeMainMenu.displayMainMenu();
-            int option = InputScanner.promptForInt("Input your choice of action (1-9): ");
+            int option = InputScanner.promptForInt("Input your choice of action (1-10): ");
             switch (option) {
                 case 1:
                     // Display list of camps available
@@ -23,6 +22,7 @@ public class CampCommitteeMainPage {
                     StudentManager.viewAvailableCamps();
                     break;
                 case 2:
+                    //Register for camp under Student Manager
                     System.out.println("Navigating to camp registration page");
                     break;
                 case 3:
@@ -50,17 +50,21 @@ public class CampCommitteeMainPage {
                     break;
                 case 8:
                     //Change Password
-                    System.out.println("Initiating password change process...");
+                    SystemMessage.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteCampCommittee();
-                    System.out.println("Logging out...");
+                    SystemMessage.LogOut();
                     continueMenu = false;
                     break;
                 case 9:
                     //Log out
-                    System.out.println("Logging out...");
+                    SystemMessage.LogOut();
                     continueMenu = false;
                     break;
+                case 10:
+                    //Quit Program
+                    SystemMessage.ExitMessage();
+                    System.exit(0);
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
                     break;
