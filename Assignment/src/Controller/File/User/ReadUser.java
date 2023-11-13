@@ -1,7 +1,9 @@
 package Controller.File.User;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import Entity.CampCommittee;
@@ -12,12 +14,17 @@ import Repository.UserRepository.StaffRepository;
 import Repository.UserRepository.StudentRepository;
 
 public class ReadUser {
+
+    private static String studentListCSV = "Assignment/database/student_list.csv";
+    private static String staffListCSV = "Assignment/database/staff_list.csv";
+    private static String studentCSV = "Assignment/database/student.csv";
+    private static String staffCSV = "Assignment/database/staff.csv";
+    private static String campCommitteeCSV = "Assignment/database/camp_committee.csv";
+
     public static void readUserWithReset(){
-        String studentCSV = "Assignment/database/student_list.csv";
-        String staffCSV = "Assignment/database/staff_list.csv";
 
         //Reading in the studentCSV
-        try (BufferedReader br = new BufferedReader(new FileReader(studentCSV))){
+        try (BufferedReader br = new BufferedReader(new FileReader(studentListCSV))){
             String line;
             br.readLine();
             while ((line = br.readLine()) != null){
@@ -36,7 +43,7 @@ public class ReadUser {
         }
 
         //Reading in the staffCSV
-        try (BufferedReader br = new BufferedReader(new FileReader(staffCSV))){
+        try (BufferedReader br = new BufferedReader(new FileReader(staffListCSV))){
             String line;
             br.readLine();
             while ((line = br.readLine()) != null){
@@ -53,13 +60,36 @@ public class ReadUser {
         catch (IOException e){
             e.printStackTrace();
         }
+
+        // create new camp committee csv
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campCommitteeCSV))) {
+            String header = "name,faculty,userID,password,points\n";
+            writer.write(header);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+        // create new student csv
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(studentCSV))) {
+            String header = "name,faculty,userID,password\n";
+            writer.write(header);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+        // create new staff csv
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(staffCSV))) {
+            String header = "name,faculty,userID,password\n";
+            writer.write(header);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public static void readUserWithoutReset(){
-        String studentCSV = "Assignment/database/student.csv";
-        String staffCSV = "Assignment/database/staff.csv";
-        String campCommitteeCSV = "Assignment/database/camp_committee.csv";
-
         //Reading studentCSV
         try (BufferedReader br = new BufferedReader(new FileReader(studentCSV))){
             String line;
