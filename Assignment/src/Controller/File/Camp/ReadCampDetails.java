@@ -10,7 +10,9 @@ import java.time.format.DateTimeFormatter;
 
 import Entity.Camp;
 import Entity.CampDetails;
+import Entity.Staff;
 import Repository.CampRepository;
+import Repository.UserRepository.StaffRepository;
 
 public class ReadCampDetails {
     private static String path = "Assignment/database/camp_details.csv";
@@ -58,13 +60,19 @@ public class ReadCampDetails {
                     String description = words[8].trim();
                     String staffInCharge = words[9].trim();
                     String visibility = words[10].trim();
+
+                    // update camp into camp repository
                     CampDetails newCampDetails = new CampDetails(campName, formatDate(startDate), formatDate(endDate), 
                                                 formatDate(closeDate), openTo, location, strToInt(slots), strToInt(campComitteeSlots), 
                                                 description, staffInCharge, strToBool(visibility));
-                    CampRepository.addCampToRepo(new Camp(newCampDetails));
+                    Camp camp = new Camp(newCampDetails);
+                    CampRepository.addCampToRepo(camp);
+
+                    // update camp into staff created camp list
+                    Staff staff = StaffRepository.getStaffByID(staffInCharge);
+                    staff.addCampToList(camp);
                 }
             }
-            
         }
         catch(IOException e){
             e.printStackTrace();

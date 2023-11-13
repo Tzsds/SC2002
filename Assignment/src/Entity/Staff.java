@@ -20,7 +20,11 @@ public class Staff extends User {
     public ArrayList<Camp> getListOfCampsCreated(){
         return campsCreatedList;
     }
-    
+
+    public void addCampToList(Camp camp) {
+        campsCreatedList.add(camp);
+    }
+
     public static String padRight(String s, int width) {
         return String.format("%-" + width + "s", s);
     }
