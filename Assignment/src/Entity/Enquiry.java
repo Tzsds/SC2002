@@ -10,6 +10,7 @@ public class Enquiry {
     private String content;
     private String replier;
     private String campName;
+    private String repliedContent;
 
     public Enquiry(String sender, String content, String campName) {
         this.sender = sender;
@@ -56,6 +57,14 @@ public class Enquiry {
 
     public void setCampName(String campName) {
         this.campName = campName;
+    }
+
+    public String getRepliedContent(){
+        return repliedContent;
+    }
+
+    public void setRepliedContent(String repliedContent){
+        this.repliedContent = repliedContent;
     }
 
 }

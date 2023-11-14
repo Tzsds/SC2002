@@ -40,5 +40,30 @@ public class EnquiryRepository {
         return enquiriesBySender;
     }
 
-    
+    public static Enquiry getPendingEnquiry(String campName) {
+        ArrayList<Enquiry> enquiries = ReadEnquiry.readEnquiriesFromCSV();
+
+        for (Enquiry enquiry : enquiries) {
+            if (enquiry.getCampName().equalsIgnoreCase(campName) &&
+                    enquiry.getStatus() == Enquiry.Status.PENDING) {
+                return enquiry;
+            }
+        }
+
+        return null;
+    }
+
+    public static boolean hasPendingEnquiries(String campName) {
+        ArrayList<Enquiry> enquiries = ReadEnquiry.readEnquiriesFromCSV();
+
+        for (Enquiry enquiry : enquiries) {
+            if (enquiry.getCampName().equalsIgnoreCase(campName) &&
+                    enquiry.getStatus() == Enquiry.Status.PENDING) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

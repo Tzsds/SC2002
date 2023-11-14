@@ -3,26 +3,29 @@ package Controller.Users;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
+import Controller.Enquiry.StaffEnquiryManager;
 import Controller.File.FileWriting;
 import Controller.Suggestion.StaffSuggestionManager;
 import Entity.Camp;
 import Entity.CampDetails;
+
 import Entity.Staff;
 import Repository.CampRepository;
 
+
 public class StaffManager {
 
-    public static void viewAllCamps(){
+    public static void viewAllCamps() {
         ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
-        if (listOfCamps.size() == 0){
+        if (listOfCamps.size() == 0) {
             System.out.println("There is no existing camps.");
-        }
-        else{
-            for (Camp c : listOfCamps){
+        } else {
+            for (Camp c : listOfCamps) {
                 System.out.println("==========================");
                 CampDetails detail = c.getCampDetails();
                 CampManager.printCampDetails(detail);
@@ -31,10 +34,10 @@ public class StaffManager {
         }
     }
 
-    public static void viewCampsCreated(ArrayList<Camp> campCreated){
-        if(campCreated.size()==0)
+    public static void viewCampsCreated(ArrayList<Camp> campCreated) {
+        if (campCreated.size() == 0)
             System.out.println("You have not created any camps");
-        for (Camp c: campCreated){
+        for (Camp c : campCreated) {
             System.out.println("==========================");
             CampDetails detail = c.getCampDetails();
             CampManager.printCampDetails(detail);
@@ -42,48 +45,47 @@ public class StaffManager {
         System.out.println("==========================");
     }
 
-    public static void editCamp(ArrayList<Camp> campCreated){
-        Staff staff = (Staff)LoginManager.getCurrentUser();
+    public static void editCamp(ArrayList<Camp> campCreated) {
+        Staff staff = (Staff) LoginManager.getCurrentUser();
         Scanner sc1 = new Scanner(System.in);
         Scanner sc2 = new Scanner(System.in);
         int choice = 0;
         int option;
         int size = campCreated.size();
-        if (size == 0){
+        if (size == 0) {
             System.out.println("You have not created any camp yet!");
             return;
         }
-        
-        while (true){
-            for (int i = 0; i<size; i++){
-            String campName = campCreated.get(i).getCampDetails().getCampName();
-            System.out.println(i+1 + ". " + campName);
+
+        while (true) {
+            for (int i = 0; i < size; i++) {
+                String campName = campCreated.get(i).getCampDetails().getCampName();
+                System.out.println(i + 1 + ". " + campName);
             }
-            try{
+            try {
                 System.out.print("Which camp do you want to edit?: ");
                 choice = sc1.nextInt();
-            }
-            catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input! Please try again.");
                 sc1.nextLine();
                 continue;
             }
-            if (choice <= 0 || choice > size){
+            if (choice <= 0 || choice > size) {
                 System.out.println("Invalid input! Please try again.");
                 continue;
             }
-            Camp temp = campCreated.get(choice-1);
-            while(true){
+            Camp temp = campCreated.get(choice - 1);
+            while (true) {
                 System.out.println("What do you want to edit?");
                 System.out.println("(1) Camp Name\n"
-                            + "(2) Location\n"
-                            + "(3) User Group\n"
-                            + "(4) Total Slots\n"
-                            + "(5) Camp Comittee Slots\n"
-                            + "(6) Description\n"
-                            + "(7) Visibility\n"
-                            + "(8) Return to Main Menu");
-                
+                        + "(2) Location\n"
+                        + "(3) User Group\n"
+                        + "(4) Total Slots\n"
+                        + "(5) Camp Comittee Slots\n"
+                        + "(6) Description\n"
+                        + "(7) Visibility\n"
+                        + "(8) Return to Main Menu");
+
                 option = sc2.nextInt();
                 Scanner input = new Scanner(System.in);
                 switch (option) {
@@ -99,11 +101,12 @@ public class StaffManager {
                         temp.editLocation(newLocation);
                         System.out.println("Camp successfully edited");
                         continue;
-                    case 3: 
-                        System.out.println("Enter New User Group: (Enter \"1\" for Everyone or \"0\" for " + staff.getFaculty() + "): ");
+                    case 3:
+                        System.out.println("Enter New User Group: (Enter \"1\" for Everyone or \"0\" for "
+                                + staff.getFaculty() + "): ");
                         int a = input.nextInt();
                         String newUserGroup;
-                        if(a == 1)
+                        if (a == 1)
                             newUserGroup = "Everyone";
                         else
                             newUserGroup = staff.getFaculty();
@@ -143,15 +146,24 @@ public class StaffManager {
                         System.out.println("Invalid option. Please enter a valid option.");
                         continue;
                 }
-                FileWriting.FileWriteCampDetails(); //update to csv
+                FileWriting.FileWriteCampDetails(); // update to csv
                 return;
             }
         }
     }
 
-    public static void viewSuggestions(){
-        Staff currentStaff = (Staff)LoginManager.getCurrentUser();
+    public static void viewSuggestions() {
+        Staff currentStaff = (Staff) LoginManager.getCurrentUser();
         StaffSuggestionManager.printSuggestions(currentStaff.getListOfCampsCreated());
     }
 
+    public static void viewEnquiries(){
+        Staff currentStaff = (Staff)LoginManager.getCurrentUser();
+        StaffEnquiryManager.viewAllEnquiriesStaff(currentStaff.getUserID());
+    }
+
+    public static void replyEnquiry(){
+        Staff currentStaff = (Staff)LoginManager.getCurrentUser();
+        StaffEnquiryManager.replyEnquiry(currentStaff.getUserID());
+    }
 }

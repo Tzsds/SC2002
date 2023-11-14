@@ -44,7 +44,8 @@ public class StaffMainPage {
                 case 6:
                     // Show Enqueries asked by students
                     System.out.println("Showing enqueries by students...");
-                    EnquiryManager.viewAllEnquiries();
+                    //StaffManager.viewEnquiries();
+                    StaffManager.replyEnquiry();
                     break;
                 case 7:
                     // View suggestions given by camp committee members

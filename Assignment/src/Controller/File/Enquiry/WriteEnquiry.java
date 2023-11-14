@@ -20,7 +20,7 @@ public class WriteEnquiry {
 
             // If the file is empty, write the header
             if (Files.size(Paths.get(enquiryCSV)) == 0) {
-                writer.write("sender,content,camp,status,replier\n");
+                writer.write("sender,content,camp,status,repliedContent,replier\n");
             }
 
             // Write enquiry to the CSV file
@@ -28,6 +28,7 @@ public class WriteEnquiry {
                     enquiry.getContent() + "," +
                     enquiry.getCampName() + "," +
                     enquiry.getStatus() + "," +
+                    enquiry.getRepliedContent() + "," +
                     enquiry.getReplier() + "\n";
             writer.write(data);
 
