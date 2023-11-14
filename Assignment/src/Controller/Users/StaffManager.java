@@ -1,10 +1,7 @@
 package Controller.Users;
 
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
@@ -16,6 +13,7 @@ import Entity.CampDetails;
 
 import Entity.Staff;
 import Repository.CampRepository;
+import UI.InputScanner;
 
 
 public class StaffManager {
@@ -47,8 +45,6 @@ public class StaffManager {
 
     public static void editCamp(ArrayList<Camp> campCreated) {
         Staff staff = (Staff) LoginManager.getCurrentUser();
-        Scanner sc1 = new Scanner(System.in);
-        Scanner sc2 = new Scanner(System.in);
         int choice = 0;
         int option;
         int size = campCreated.size();
@@ -63,11 +59,10 @@ public class StaffManager {
                 System.out.println(i + 1 + ". " + campName);
             }
             try {
-                System.out.print("Which camp do you want to edit?: ");
-                choice = sc1.nextInt();
+                choice = InputScanner.promptForInt("Which camp do you want to edit?: ");
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input! Please try again.");
-                sc1.nextLine();
+                InputScanner.clear();
                 continue;
             }
             if (choice <= 0 || choice > size) {
@@ -77,34 +72,29 @@ public class StaffManager {
             Camp temp = campCreated.get(choice - 1);
             while (true) {
                 System.out.println("What do you want to edit?");
-                System.out.println("(1) Camp Name\n"
-                        + "(2) Location\n"
-                        + "(3) User Group\n"
-                        + "(4) Total Slots\n"
-                        + "(5) Camp Comittee Slots\n"
-                        + "(6) Description\n"
-                        + "(7) Visibility\n"
-                        + "(8) Return to Main Menu");
-
-                option = sc2.nextInt();
-                Scanner input = new Scanner(System.in);
+                option = InputScanner.promptForInt("1. Camp Name\n"
+                                                 + "2. Location\n"
+                                                 + "3. User Group\n"
+                                                 + "4. Total Slots\n"
+                                                 + "5. Camp Comittee Slots\n"
+                                                 + "6. Description\n"
+                                                 + "7. Visibility\n"
+                                                 + "8. Return to Main Menu\n"
+                                                 + "Choice: ");
                 switch (option) {
                     case 1:
-                        System.out.println("Enter Camp New Name: ");
-                        String newName = input.nextLine();
+                        String newName = InputScanner.promptForString("Enter Camp New Name: ");
                         temp.editCampName(newName);
                         System.out.println("Camp successfully edited");
                         continue;
                     case 2:
-                        System.out.println("Enter New Camp Location: ");
-                        String newLocation = input.nextLine();
+                        String newLocation = InputScanner.promptForString("Enter New Camp Location: ");
                         temp.editLocation(newLocation);
                         System.out.println("Camp successfully edited");
                         continue;
                     case 3:
-                        System.out.println("Enter New User Group: (Enter \"1\" for Everyone or \"0\" for "
-                                + staff.getFaculty() + "): ");
-                        int a = input.nextInt();
+                        int a = InputScanner.promptForInt("Enter New User Group: (Enter \"1\" for Everyone or \"0\" for "
+                                                       + staff.getFaculty() + "): ");
                         String newUserGroup;
                         if (a == 1)
                             newUserGroup = "Everyone";
@@ -113,26 +103,22 @@ public class StaffManager {
                         temp.editUserGroup(newUserGroup);
                         continue;
                     case 4:
-                        System.out.println("Enter New Total Slots: ");
-                        int newTotalSlots = input.nextInt();
+                        int newTotalSlots = InputScanner.promptForInt("Enter New Total Slots: ");
                         temp.editTotalSlots(newTotalSlots);
                         System.out.println("Camp successfully edited");
                         continue;
                     case 5:
-                        System.out.println("Enter New Camp Comittee Slots: ");
-                        int newComitteeSlots = input.nextInt();
-                        temp.editCampCommitteeSlots(newComitteeSlots);
+                        int newCommitteeSlots = InputScanner.promptForInt("Enter New Camp Committee Slots: ");
+                        temp.editCampCommitteeSlots(newCommitteeSlots);
                         System.out.println("Camp successfully edited");
                         continue;
                     case 6:
-                        System.out.println("Enter New Camp Description: ");
-                        String newDescription = input.nextLine();
+                        String newDescription = InputScanner.promptForString("Enter New Camp Description: ");
                         temp.editDecsription(newDescription);
                         System.out.println("Camp successfully edited");
                         continue;
                     case 7:
-                        System.out.println("Visibility of camp (Enter \"1\" for On | \"0\" for Off):");
-                        int visible = input.nextInt();
+                        int visible = InputScanner.promptForInt("Visibility of camp (Enter \"1\" for On | \"0\" for Off):");
                         boolean newVisibility = false;
                         if (visible == 1)
                             newVisibility = true;

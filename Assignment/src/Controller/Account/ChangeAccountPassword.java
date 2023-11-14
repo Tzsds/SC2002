@@ -1,8 +1,7 @@
 package Controller.Account;
 
-import java.util.Scanner;
-
 import Entity.User;
+import UI.InputScanner;
 
 public class ChangeAccountPassword {
 
@@ -18,13 +17,10 @@ public class ChangeAccountPassword {
     }
 
     private static String passwordInput(){
-        Scanner sc = new Scanner(System.in);
         String input1, input2;
         while (true){
-            System.out.print("Enter your new password: ");
-            input1 = sc.nextLine();
-            System.out.print("Please re-enter you new password: ");
-            input2 = sc.nextLine();
+            input1 = InputScanner.promptForString("Enter your new password: ");
+            input2 = InputScanner.promptForString("Please re-enter you new password: ");
             if (input1.equals(input2)){
                 break;
             }

@@ -7,13 +7,14 @@ public class InputScanner {
 
     public static int promptForInt(String prompt) {
         System.out.print(prompt);
-        return scanner.nextInt();
+        int x = scanner.nextInt();
+        scanner.nextLine(); //This is to clear the '\n' left in the input stream
+        return x;
     }
 
     public static String promptForString(String prompt) {
         System.out.print(prompt);
-        String s = scanner.nextLine();
-        return s;
+        return scanner.nextLine();
     }
 
     public static String waitForUserInput() {

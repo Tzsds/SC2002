@@ -58,7 +58,7 @@ public class SuggestionMainPage {
             }
             catch(InputMismatchException e){
                 System.out.println("Invalid option. Please enter a valid option");
-                InputScanner.waitForUserInputString();
+                InputScanner.clear();
             }
         }
     }
