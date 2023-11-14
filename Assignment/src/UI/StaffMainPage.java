@@ -8,11 +8,11 @@ import Controller.Users.StaffManager;
 import Entity.Staff;
 
 public class StaffMainPage {
-    
+
     public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            Staff currentStaff = (Staff)LoginManager.getCurrentUser();
+            Staff currentStaff = (Staff) LoginManager.getCurrentUser();
             System.out.println("Welcome " + currentStaff.getName());
             StaffMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-12): ");
@@ -33,19 +33,18 @@ public class StaffMainPage {
                     System.out.println("Showing camps created by you...");
                     StaffManager.viewCampsCreated(currentStaff.getListOfCampsCreated());
                     break;
-                case 4: 
-                    //Edit camp
+                case 4:
+                    // Edit camp
                     StaffManager.editCamp(currentStaff.getListOfCampsCreated());
                     break;
-                case 5: 
+                case 5:
                     // Delete camps created by staff
                     currentStaff.deleteCamp();
                     break;
                 case 6:
                     // Show Enqueries asked by students
-                    System.out.println("Showing enqueries by students...");
-                    //StaffManager.viewEnquiries();
-                    StaffManager.replyEnquiry();
+                    StaffEnquiryPage enquiryPage = new StaffEnquiryPage();
+                    enquiryPage.run();
                     break;
                 case 7:
                     // View suggestions given by camp committee members
@@ -63,7 +62,7 @@ public class StaffMainPage {
                     // generatePerformanceReport();
                     break;
                 case 10:
-                    //Change Password
+                    // Change Password
                     SystemMessage.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteStaff();
@@ -71,12 +70,12 @@ public class StaffMainPage {
                     continueMenu = false;
                     break;
                 case 11:
-                    //Log Out
+                    // Log Out
                     SystemMessage.LogOut();
                     continueMenu = false;
                     break;
                 case 12:
-                    //Quit Program
+                    // Quit Program
                     SystemMessage.ExitMessage();
                     System.exit(0);
                 default:

@@ -9,6 +9,7 @@ import Entity.Camp;
 import Entity.Enquiry;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
+import UI.InputScanner;
 
 public class StaffEnquiryManager {
     // functions to be used by staff
@@ -17,6 +18,15 @@ public class StaffEnquiryManager {
     public static void viewAllEnquiriesStaff(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
 
+        // Check if there are any enquiries for the specific staff
+        boolean hasEnquiriesForStaff = allEnquiries.stream()
+                .anyMatch(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName().toLowerCase(), staffID));
+
+        if (!hasEnquiriesForStaff) {
+            System.out.println("No Enquiries!");
+            return;
+        }
+        int index = 1;
         for (Enquiry enquiry : allEnquiries) {
             // Debug lines to check the camp name and staff ID
             /*
@@ -45,47 +55,49 @@ public class StaffEnquiryManager {
 
             // Check if the camp of the enquiry is created by the staff
             if (camp != null && CampManager.isCampCreatedByStaff(enquiry.getCampName().toLowerCase(), staffID)) {
+                System.out.println(index + ":");
                 System.out.println("Camp: " + enquiry.getCampName());
                 System.out.println("Sender: " + enquiry.getSender());
                 System.out.println("Content: " + enquiry.getContent());
                 System.out.println("Status: " + enquiry.getStatus());
                 System.out.println("------------------------------");
-            } else {
-                System.out.println("No Enquiries!");
+                index++;
             }
         }
     }
 
     public static void replyEnquiry(String staffID) {
-        Scanner scanner = new Scanner(System.in);
 
         // Display enquiries for staff
         viewAllEnquiriesStaff(staffID);
 
         // Prompt staff to select an enquiry to reply
-        System.out.print("Enter the Camp Name of the enquiry you want to reply to: ");
-        String selectedCampName = scanner.nextLine().toUpperCase(); // Assuming the user enters the Camp Name
+        int selectedIndex = InputScanner
+                .promptForInt("Enter the index of the enquiry you want to reply to (0 to cancel): ");
 
         // Check if the selected camp has any pending enquiries
-        if (EnquiryRepository.hasPendingEnquiries(selectedCampName)) {
-            // Prompt staff to enter the reply content
-            System.out.print("Enter your reply: ");
-            String replyContent = scanner.nextLine();
-
-            // Get the pending enquiry to reply to
-            Enquiry selectedEnquiry = EnquiryRepository.getPendingEnquiry(selectedCampName);
-
-            // Update the selected enquiry
-            selectedEnquiry.setRepliedContent(replyContent);
-            selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
-            selectedEnquiry.setReplier(staffID);
-
-            // Update the Enquiry CSV
-            WriteEnquiry.FileWriteEnquiry(selectedEnquiry);
-
-            System.out.println("Enquiry replied successfully!");
-        } else {
-            System.out.println("No pending enquiries for the selected camp.");
-        }
+        /*
+         * if (EnquiryRepository.hasPendingEnquiries(selectedCampName)) {
+         * // Prompt staff to enter the reply content
+         * System.out.print("Enter your reply: ");
+         * String replyContent = scanner.nextLine();
+         * 
+         * // Get the pending enquiry to reply to
+         * Enquiry selectedEnquiry =
+         * EnquiryRepository.getPendingEnquiry(selectedCampName);
+         * 
+         * // Update the selected enquiry
+         * selectedEnquiry.setRepliedContent(replyContent);
+         * selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
+         * selectedEnquiry.setReplier(staffID);
+         * 
+         * // Update the Enquiry CSV
+         * WriteEnquiry.FileWriteEnquiry(selectedEnquiry);
+         * 
+         * System.out.println("Enquiry replied successfully!");
+         * } else {
+         * System.out.println("No pending enquiries for the selected camp.");
+         * }
+         */
     }
 }
