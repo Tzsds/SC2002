@@ -2,6 +2,7 @@ package Controller.Enquiry;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
@@ -75,29 +76,46 @@ public class StaffEnquiryManager {
         int selectedIndex = InputScanner
                 .promptForInt("Enter the index of the enquiry you want to reply to (0 to cancel): ");
 
-        // Check if the selected camp has any pending enquiries
-        /*
-         * if (EnquiryRepository.hasPendingEnquiries(selectedCampName)) {
-         * // Prompt staff to enter the reply content
-         * System.out.print("Enter your reply: ");
-         * String replyContent = scanner.nextLine();
-         * 
-         * // Get the pending enquiry to reply to
-         * Enquiry selectedEnquiry =
-         * EnquiryRepository.getPendingEnquiry(selectedCampName);
-         * 
-         * // Update the selected enquiry
-         * selectedEnquiry.setRepliedContent(replyContent);
-         * selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
-         * selectedEnquiry.setReplier(staffID);
-         * 
-         * // Update the Enquiry CSV
-         * WriteEnquiry.FileWriteEnquiry(selectedEnquiry);
-         * 
-         * System.out.println("Enquiry replied successfully!");
-         * } else {
-         * System.out.println("No pending enquiries for the selected camp.");
-         * }
-         */
+        // Retrieve the selected enquiry
+        Enquiry selectedEnquiry = getEnquiryByIndex(staffID, selectedIndex);
+
+        if (selectedEnquiry != null) {
+            // Display details of the selected enquiry
+            System.out.println("Selected Enquiry:");
+            System.out.println("Camp: " + selectedEnquiry.getCampName());
+            System.out.println("Sender: " + selectedEnquiry.getSender());
+            System.out.println("Content: " + selectedEnquiry.getContent());
+            System.out.println("Status: " + selectedEnquiry.getStatus());
+
+            // Prompt staff to enter the reply content
+            InputScanner.promptForString("Enter your reply: ");
+
+            String replyContent = InputScanner.waitForUserInput();
+            // Update the selected enquiry
+            selectedEnquiry.setRepliedContent(replyContent);
+            selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
+            selectedEnquiry.setReplier(staffID);
+
+            // Update the Enquiry CSV
+            WriteEnquiry.FileWriteEnquiry(selectedEnquiry);
+
+            System.out.println("Enquiry replied successfully!");
+        } else {
+            System.out.println("Invalid index. No enquiry selected.");
+        }
     }
+
+    public static Enquiry getEnquiryByIndex(String staffID, int selectedIndex) {
+        List<Enquiry> staffEnquiries = EnquiryRepository.getListOfEnquiries().stream()
+                .filter(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName().toLowerCase(), staffID))
+                .collect(Collectors.toList());
+
+        // Check if the index is within the valid range
+        if (selectedIndex > 0 && selectedIndex <= staffEnquiries.size()) {
+            return staffEnquiries.get(selectedIndex - 1);
+        } else {
+            return null; // Invalid index
+        }
+    }
+
 }
