@@ -50,7 +50,6 @@ public class LoginManager {
                     return;
                 }
             }
-            
             System.out.println("Invalid User ID!");
         }
     }

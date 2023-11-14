@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import Entity.Camp;
-import Entity.CampCommittee;
 import Entity.CampDetails;
 import Entity.Student;
 import Repository.CampRepository;

@@ -1,11 +1,8 @@
 package Entity;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.time.LocalDate;
 
-import Controller.Account.LoginManager;
+import Repository.CampRepository;
 
 public class CampDetails {
     private String name;
@@ -136,22 +133,12 @@ public class CampDetails {
 
     // Helper method to check if the camp exists
     public static boolean campExists(String campName) {
-        String campDetailsCSV = "Assignment/database/camp_details.csv";
-        try (BufferedReader br = new BufferedReader(new FileReader(campDetailsCSV))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] row = line.split(",");
-                String currentCampName = row[0].trim(); // Assuming camp name is in the first column
-                // Check if the currentCampName matches the provided campName
-                if (currentCampName.equalsIgnoreCase(campName)) {
-                    return true; // Camp exists
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle the exception (e.g., log it, display an error message, etc.)
+        if (CampRepository.getCampByCampName(campName) != null){
+            return true;
         }
-        return false; // Camp does not exist
+        else{
+            return false;
+        }
     }
 
     
