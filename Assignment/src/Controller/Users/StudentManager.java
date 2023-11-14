@@ -79,11 +79,33 @@ public class StudentManager {
             else{
                 Camp registeredCamp = list.get(userChoice-1);
                 System.out.println("The camp you are registering for is " + registeredCamp.getCampDetails().getCampName());
-                registeredCamp.addParticipants(s);
-                FileWriting.FileWriteCampStudentList();
-                registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots()-1);
-                s.addRegisteredCamp(registeredCamp);
-                System.out.println("Camp Successfully Registered!");
+                if(registeredCamp.getCampDetails().getCampCommitteeSlots()>0){
+                    System.out.println("Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No");
+                    int committeeDecision;
+                    committeeDecision = sc.nextInt();
+                    if(committeeDecision == 1){
+                        registeredCamp.addCampCommittee(s);
+                        FileWriting.FileWriteCampStudentList();
+                        s.addRegisteredCamp(registeredCamp);
+                        registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getCampCommitteeSlots()-1);
+                        System.out.println("Camp Successfully Registered as Camp Committee!");
+                    }
+                    else{
+                        registeredCamp.addParticipants(s);
+                        FileWriting.FileWriteCampStudentList();
+                        registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots()-1);
+                        s.addRegisteredCamp(registeredCamp);
+                        System.out.println("Camp Successfully Registered as Camp Attendee!");
+                    }
+                }
+                else{
+                    registeredCamp.addParticipants(s);
+                    FileWriting.FileWriteCampStudentList();
+                    registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots()-1);
+                    s.addRegisteredCamp(registeredCamp);
+                    System.out.println("Camp Successfully Registered as Camp Attendee!");
+                }
+                
             }
         }
     }
