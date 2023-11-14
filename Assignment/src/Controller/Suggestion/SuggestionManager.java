@@ -10,6 +10,7 @@ import Controller.File.Suggestion.WriteSuggestion;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
+import Entity.Suggestion.Status;
 import Repository.SuggestionRepository;
 import UI.InputScanner;
 
@@ -19,7 +20,8 @@ public class SuggestionManager {
 
     public static void addSuggestion(){
         CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
-        Suggestion temp = createSuggestion();
+        String content = InputScanner.promptForString("What do you want to suggest?");
+        Suggestion temp = new Suggestion(content);
         User.addSuggestion(temp);
         SuggestionRepository.addSuggestionToRepo(temp);
         CampManager.addSuggestion(User.getCommitteeOf(), temp);
@@ -27,13 +29,17 @@ public class SuggestionManager {
         WriteSuggestion.writeSuggestion();
     }
 
-    private static Suggestion createSuggestion(){
-        String content = InputScanner.promptForString("What do you want to suggest?");
-        return new Suggestion(content);
-    }
-
     public static void editSuggestion(ArrayList<Suggestion> suggestions){
-        printSuggestions(suggestions);
+        int count = 1;
+        ArrayList<Suggestion> temporaryList = getPendingSuggestions(suggestions);
+        if (temporaryList.size() == 0){
+            System.out.println("You have no pending suggestions.");
+            return;
+        }
+        for (Suggestion s : temporaryList){
+            System.out.println(count + ". " + s.getContent());
+        }
+
         while (true){
             int prompt = 0;
             try{
@@ -44,18 +50,29 @@ public class SuggestionManager {
                 InputScanner.waitForUserInput();
                 continue;
             }
-            if (prompt <= 0 || prompt > suggestions.size()){
+            if (prompt <= 0 || prompt > temporaryList.size()){
                 System.out.println("Invalid number! Please try again");
                 continue;
             }
             String content = InputScanner.promptForString("What is your editted Suggestion?: ");
-            suggestions.get(prompt-1).setContent(content);
+            Suggestion temp = temporaryList.get(prompt-1);
+            temp.setContent(content);
+            WriteSuggestion.writeSuggestion();
             return;
         }   
     }
 
     public static void deleteSuggestion(ArrayList<Suggestion> suggestions){
-        printSuggestions(suggestions);
+        int count = 1;
+        ArrayList<Suggestion> temporaryList = getPendingSuggestions(suggestions);
+        if (temporaryList.size() == 0){
+            System.out.println("You have no pending suggestions.");
+            return;
+        }
+        for (Suggestion s : temporaryList){
+            System.out.println(count + ". " + s.getContent());
+        }
+
         while (true){
             int prompt = 0;
             try{
@@ -66,24 +83,23 @@ public class SuggestionManager {
                 InputScanner.waitForUserInput();
                 continue;
             }
-            if (prompt <= 0 || prompt > suggestions.size()){
+            if (prompt <= 0 || prompt > temporaryList.size()){
                 System.out.println("Invalid number! Please try again");
                 continue;
             }
             Suggestion temp = suggestions.get(prompt-1);
-            deleteSuggestion(temp);
+            CampCommittee User = temp.getProposer();
+            
+            //deleting from database
+            Camp c1 = User.getCommitteeOf();
+            User.getSuggestions().remove(temp);
+            c1.getListOfSuggestions().remove(temp);
+            SuggestionRepository.getListOfSuggestions().remove(temp);
+            FileWriting.FileWriteSuggestion();
+
             System.out.println("Suggestion successfully deleted");
             return;
         }
-    }
-
-    public static void deleteSuggestion(Suggestion temp){
-        CampCommittee User = temp.getProposer();
-        Camp c1 = User.getCommitteeOf();
-        User.getSuggestions().remove(temp);
-        c1.getListOfSuggestions().remove(temp);
-        SuggestionRepository.getListOfSuggestions().remove(temp);
-        FileWriting.FileWriteSuggestion();
     }
 
     public static void printSuggestions(ArrayList<Suggestion> suggestions){
@@ -96,5 +112,15 @@ public class SuggestionManager {
             System.out.println(i + ". " + temp.getContent());
             i += 1;
         }
+    }
+
+    public static ArrayList<Suggestion> getPendingSuggestions(ArrayList<Suggestion> suggestion){
+        ArrayList<Suggestion> tempList = new ArrayList<>();
+        for (Suggestion s : suggestion){
+            if (s.getStatus() == Status.PENDING){
+                tempList.add(s);
+            }
+        }
+        return tempList;
     }
 }

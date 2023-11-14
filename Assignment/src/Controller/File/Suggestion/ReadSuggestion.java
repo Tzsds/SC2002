@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import Entity.CampCommittee;
 import Entity.Suggestion;
+import Entity.Suggestion.Status;
 import Repository.UserRepository.CampCommitteeRepository;
 
 public class ReadSuggestion {
@@ -20,11 +21,14 @@ public class ReadSuggestion {
             String line;
             while ((line = br.readLine()) != null){
                 String[] words = line.split(",");
-                if (words.length >= 2){
+                if (words.length >= 3){
                     String senderID = words[0].trim();
                     String content = words[1].trim();
+                    Status x = Status.valueOf(words[2].trim());
                     CampCommittee user = CampCommitteeRepository.getCommitteeByID(senderID);
-                    user.addSuggestion(new Suggestion(content));
+                    Suggestion s1 = new Suggestion(content);
+                    s1.setStatus(x);
+                    user.addSuggestion(s1);
                 }
             }
 
@@ -36,7 +40,7 @@ public class ReadSuggestion {
     
     public static void readWithReset(){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-            String header = "senderID,content\n";
+            String header = "senderID,content,STATUS\n";
             writer.write(header);
         }
         catch (IOException e){

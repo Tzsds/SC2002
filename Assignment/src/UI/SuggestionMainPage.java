@@ -28,22 +28,12 @@ public class SuggestionMainPage {
 
                     case 3:
                         //Edit Suggestion
-                        if (currentUser.getSuggestions().size() == 0){
-                            System.out.println("You have no PENDING suggestions.");
-                        }
-                        else{
-                            SuggestionManager.editSuggestion(currentUser.getSuggestions());
-                        }
+                        SuggestionManager.editSuggestion(currentUser.getSuggestions());
                         break;
 
                     case 4:
                         //Delete Suggestion
-                        if (currentUser.getSuggestions().size() == 0){
-                            System.out.println("You have no PENDING suggestions.");
-                        }
-                        else{
-                            SuggestionManager.deleteSuggestion(currentUser.getSuggestions());
-                        }
+                        SuggestionManager.deleteSuggestion(currentUser.getSuggestions());
                         break;
 
                     case 5:
