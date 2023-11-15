@@ -27,8 +27,10 @@ public class StudentMainPage {
                     //Register for camp under Student Manager
                     System.out.println("Navigating to Camp Registration Page");
                     StudentManager.registerForCamps();
-                    //Camp.addParticipants(currentStudent);
-                    //Camp.addCampCommittee(currentStudent);
+                    if (LoginManager.getUserRole() == "CampCommittee"){
+                        continueMenu = false;
+                        CampCommitteeMainPage.run();
+                    }
                     break;
                 case 3:
                     // Navigate to Enquiry Page

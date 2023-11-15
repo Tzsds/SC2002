@@ -8,6 +8,7 @@ import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
 import Entity.Camp;
+import Entity.CampCommittee;
 import Entity.CampDetails;
 import Entity.Student;
 import Repository.CampRepository;
@@ -84,9 +85,11 @@ public class StudentManager {
                     int committeeDecision;
                     committeeDecision = sc.nextInt();
                     if(committeeDecision == 1){
-                        registeredCamp.addCampCommittee(s);
+                        CampCommittee tempStudent = CampCommitteeManager.toCampCommittee(s);
+                        tempStudent.setCommitteeOf(registeredCamp);
+                        registeredCamp.addCampCommittee(tempStudent);
                         FileWriting.FileWriteCampStudentList();
-                        s.addRegisteredCamp(registeredCamp);
+                        tempStudent.addRegisteredCamp(registeredCamp);
                         registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getCampCommitteeSlots()-1);
                         System.out.println("Camp Successfully Registered as Camp Committee!");
                     }

@@ -35,14 +35,14 @@ public class Staff extends User {
         int year = Integer.parseInt(parts[2]);
         LocalDate startDate = LocalDate.of(year, month, day);
 
-        dateString = InputScanner.promptForString("Enter camp start date in format (dd/mm/yyyy): ");
+        dateString = InputScanner.promptForString("Enter camp end date in format (dd/mm/yyyy): ");
         parts = dateString.split("/");
         day = Integer.parseInt(parts[0]);
         month = Integer.parseInt(parts[1]);
         year = Integer.parseInt(parts[2]);
         LocalDate endDate = LocalDate.of(year, month, day);
 
-        dateString = InputScanner.promptForString("Enter camp start registration closing date in format (dd/mm/yyyy): ");
+        dateString = InputScanner.promptForString("Enter camp registration closing date in format (dd/mm/yyyy): ");
         parts = dateString.split("/");
         day = Integer.parseInt(parts[0]);
         month = Integer.parseInt(parts[1]);

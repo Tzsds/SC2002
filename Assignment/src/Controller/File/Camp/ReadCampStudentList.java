@@ -29,9 +29,12 @@ public class ReadCampStudentList {
                     
                     Camp camp = CampRepository.getCampByCampName(campName);
                     Student student = StudentRepository.getStudentByID(userID);
+                    if (student == null){
+                        student = CampCommitteeRepository.getCommitteeByID(userID);
+                    }
                     student.addRegisteredCamp(camp);
 
-                    if (role.equals("Committee")) {
+                    if (role.equals("CampCommittee")) {
                         camp.addCampCommittee(student);
                         CampCommittee committee = CampCommitteeRepository.getCommitteeByID(userID);
                         committee.setCommitteeOf(camp);

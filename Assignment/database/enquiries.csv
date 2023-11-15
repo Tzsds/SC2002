@@ -1,5 +1,1 @@
-sender,content,camp,status,repliedContent,replier
-BR015,test,NTU,PENDING,null,null
-BR015,testing,DASDSAD,PENDING,null,null
-CT113,tired,NTU,PENDING,null,null
-CT113,tired,NTU,REPLIED,testing bro,ARVI
+sender,content,camp,status,replier

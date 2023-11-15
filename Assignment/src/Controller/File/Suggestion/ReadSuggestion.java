@@ -9,6 +9,7 @@ import java.io.IOException;
 import Entity.CampCommittee;
 import Entity.Suggestion;
 import Entity.Suggestion.Status;
+import Repository.SuggestionRepository;
 import Repository.UserRepository.CampCommitteeRepository;
 
 public class ReadSuggestion {
@@ -26,9 +27,10 @@ public class ReadSuggestion {
                     String content = words[1].trim();
                     Status x = Status.valueOf(words[2].trim());
                     CampCommittee user = CampCommitteeRepository.getCommitteeByID(senderID);
-                    Suggestion s1 = new Suggestion(content);
+                    Suggestion s1 = new Suggestion(user, content);
                     s1.setStatus(x);
                     user.addSuggestion(s1);
+                    SuggestionRepository.addSuggestionToRepo(s1);
                 }
             }
 

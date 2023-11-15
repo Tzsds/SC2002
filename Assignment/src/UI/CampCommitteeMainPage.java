@@ -39,7 +39,7 @@ public class CampCommitteeMainPage {
                 case 5:
                     //View Registered Camps
                     User.viewRegisteredCamps();
-                    return;
+                    break;
                 case 6:
                     //View and Reply to Enquiries
                     System.out.println("Viewing Enquiries...");

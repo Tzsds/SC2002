@@ -12,6 +12,14 @@ public class Student extends User{
         super(userID, name, faculty, password);
     }
     
+    public void setEnquiries(ArrayList<Enquiry> listOfEnquiry){
+        enquiries = listOfEnquiry;
+    }
+
+    public void setRegisteredCamps(ArrayList<Camp> listOfCamp){
+        registeredCamps = listOfCamp;
+    }
+
     public ArrayList<Enquiry> getEnquiries(){
         return enquiries;
     }

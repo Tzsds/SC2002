@@ -20,8 +20,8 @@ public class SuggestionManager {
 
     public static void addSuggestion(){
         CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
-        String content = InputScanner.promptForString("What do you want to suggest?");
-        Suggestion temp = new Suggestion(content);
+        String content = InputScanner.promptForString("What do you want to suggest?: ");
+        Suggestion temp = new Suggestion(User, content);
         User.addSuggestion(temp);
         SuggestionRepository.addSuggestionToRepo(temp);
         CampManager.addSuggestion(User.getCommitteeOf(), temp);
@@ -38,8 +38,9 @@ public class SuggestionManager {
         }
         for (Suggestion s : temporaryList){
             System.out.println(count + ". " + s.getContent());
+            count += 1;
         }
-
+        System.out.println("----------------------------------------");
         while (true){
             int prompt = 0;
             try{
@@ -58,6 +59,7 @@ public class SuggestionManager {
             Suggestion temp = temporaryList.get(prompt-1);
             temp.setContent(content);
             WriteSuggestion.writeSuggestion();
+            System.out.println("Suggestion successfully editted!");
             return;
         }   
     }
@@ -71,8 +73,9 @@ public class SuggestionManager {
         }
         for (Suggestion s : temporaryList){
             System.out.println(count + ". " + s.getContent());
+            count += 1;
         }
-
+        System.out.println("----------------------------------------");
         while (true){
             int prompt = 0;
             try{

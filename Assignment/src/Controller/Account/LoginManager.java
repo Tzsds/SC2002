@@ -66,6 +66,14 @@ public class LoginManager {
         }
     }
 
+    public static void setUser(User newUser){
+        currentUser = newUser;
+    }
+
+    public static void setCurrentRole(String newRole){
+        role = newRole;
+    }
+    
     public static User getCurrentUser(){
         return currentUser;
     }

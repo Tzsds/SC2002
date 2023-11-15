@@ -1,7 +1,5 @@
 package Entity;
 
-import Controller.Account.LoginManager;
-
 public class Suggestion {
     public enum Status {APPROVED, PENDING, REJECTED};
 
@@ -9,8 +7,8 @@ public class Suggestion {
     private Status status;
     private String content;
 
-    public Suggestion(String content){
-        this.proposer = (CampCommittee)LoginManager.getCurrentUser();
+    public Suggestion(CampCommittee proposer, String content){
+        this.proposer = proposer;
         this.content = content;
         this.status = Status.PENDING;
     }
