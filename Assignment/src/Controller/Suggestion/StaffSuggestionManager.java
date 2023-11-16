@@ -1,12 +1,14 @@
 package Controller.Suggestion;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 import Controller.File.FileWriting;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
 import Entity.Suggestion.Status;
+import UI.InputScanner;
 
 public class StaffSuggestionManager {
 
@@ -14,7 +16,7 @@ public class StaffSuggestionManager {
 
     public static void printSuggestions(ArrayList<Camp> listOfCampsCreated){
         if (listOfCampsCreated.size() == 0){
-            System.out.println("You have not created any camps yet.");
+            System.out.println("You have not created any camp yet.");
         }
         else{
             boolean empty = true;
@@ -26,7 +28,6 @@ public class StaffSuggestionManager {
                         System.out.println("Camp: " + camp.getCampDetails().getCampName());
                         System.out.println("Proposer: " + suggestion.getProposer().getName());
                         System.out.println("Content: " + suggestion.getContent());
-                        System.out.println("Status: " + suggestion.getStatus());
                         System.out.println("---------------------------------------------");
                     }
                 }
@@ -35,12 +36,82 @@ public class StaffSuggestionManager {
                 System.out.println("There is no existing suggestions.");
             }
         }
+    }
 
+    public static void processSuggestions(ArrayList<Camp> listOfCampsCreated){
+        if (listOfCampsCreated.size() == 0){
+            System.out.println("You have not created any camp yet.");
+        }
+        else{
+            ArrayList<Suggestion> pendingSuggestions = new ArrayList<>();
+            for (Camp c : listOfCampsCreated){
+                ArrayList<Suggestion> listOfSuggestion = c.getListOfSuggestions();
+                for (Suggestion s : listOfSuggestion){
+                    if (s.getStatus() == Status.PENDING){
+                        pendingSuggestions.add(s);
+                    }
+                }
+            }
+            if (pendingSuggestions.size() == 0){
+                System.out.println("There is no existing suggestions");
+            }
+            else{
+                int choice = 0;
+                while (true){
+                    int count = 1;
+                    for (Suggestion s : pendingSuggestions){
+                        Camp camp = s.getProposer().getCommitteeOf();
+                        System.out.println("Suggestion " + count);
+                        System.out.println("Camp: " + camp.getCampDetails().getCampName());
+                        System.out.println("Content: " + s.getContent());
+                        count += 1;
+                    }
+                    try{
+                        choice = InputScanner.promptForInt("Which suggestion do you want to process?: ");
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println("Wrong input entered. Please try again");
+                        InputScanner.clear();
+                        continue;
+                    }
+                    if (choice <= 0 || choice > pendingSuggestions.size()){
+                        System.out.println("Wrong value entered. Please try again");
+                        continue;
+                    }
+                    break;
+                }
+                int reject = 0;
+                while (true){
+                    try{
+                        reject = InputScanner.promptForInt("Enter 0 to accept or 1 to reject suggestion: ");
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println("Wrong input entered. Please try again");
+                        InputScanner.clear();
+                        continue;
+                    }
+                    if (reject != 0 && reject != 1){
+                        System.out.println("Wrong value entered. Please try again");
+                        continue;
+                    }
+                    Suggestion s = pendingSuggestions.get(choice-1);
+                    if (reject == 1){
+                        StaffSuggestionManager.rejectSuggestion(s);
+                    }
+                    else{
+                        StaffSuggestionManager.acceptSuggestion(s);
+                    }
+                    return;
+                }
+            }
+        }   
     }
 
     public static void rejectSuggestion(Suggestion temp){
         temp.setStatus(Status.REJECTED);
         FileWriting.FileWriteSuggestion();
+        removeSuggestionFromCamp(temp);
+        System.out.println("Suggestion rejected!");
     }
 
     public static void acceptSuggestion(Suggestion temp){
@@ -48,6 +119,13 @@ public class StaffSuggestionManager {
         CampCommittee member = temp.getProposer();
         member.addPoints(); //Additional points for accepted Suggestion
         FileWriting.FileWriteSuggestion();
+        removeSuggestionFromCamp(temp);
+        System.out.println("Suggestion accepted!");
+    }
+
+    private static void removeSuggestionFromCamp(Suggestion temp){
+        Camp camp = temp.getProposer().getCommitteeOf();
+        camp.getListOfSuggestions().remove(temp);
     }
 
 }

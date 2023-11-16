@@ -1,6 +1,5 @@
 name,faculty,userID,password
 CHERN,SCSE,YCHERN,password
-KOH,ADM,KOH1,password
 BRANDON,EEE,BR015,password
 CALVIN,SCSE,CT113,password
 CHAN,NBS,YCN019,password
@@ -8,5 +7,5 @@ DENISE,SCSE,DL007,password
 DONG,ADM,DON84,password
 ERNEST,EEE,ELI34,password
 LEE,SCSE,LE51,password
-LIU,NBS,SL22,password
+LIU,NBS,SL22,123
 RAWAL,SSS,AKY013,password

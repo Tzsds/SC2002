@@ -1,6 +1,6 @@
 package UI;
 
-public class SystemMessage {
+public class Display {
     public static void WelcomeMessage(){
         System.out.println("Welcome to NTU CAMS System!");
     }
@@ -16,5 +16,14 @@ public class SystemMessage {
 
     public static void changePassword(){
         System.out.println("Initiating password change process...");
+    }
+    
+    public static void firstTimeLogin(){
+        System.out.println("Please log in again");
+    }
+    
+    public static void clearScreen(){
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
     }
 }

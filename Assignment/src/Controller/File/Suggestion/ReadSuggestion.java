@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
 import Entity.Suggestion.Status;
@@ -28,6 +29,10 @@ public class ReadSuggestion {
                     Status x = Status.valueOf(words[2].trim());
                     CampCommittee user = CampCommitteeRepository.getCommitteeByID(senderID);
                     Suggestion s1 = new Suggestion(user, content);
+                    Camp camp = user.getCommitteeOf();
+                    if (x == Status.PENDING){
+                        camp.getListOfSuggestions().add(s1);
+                    }
                     s1.setStatus(x);
                     user.addSuggestion(s1);
                     SuggestionRepository.addSuggestionToRepo(s1);

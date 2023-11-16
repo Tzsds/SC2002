@@ -31,7 +31,7 @@ public class SuggestionManager {
 
     public static void editSuggestion(ArrayList<Suggestion> suggestions){
         int count = 1;
-        ArrayList<Suggestion> temporaryList = getPendingSuggestions(suggestions);
+        ArrayList<Suggestion> temporaryList = getSuggestions(suggestions, true);
         if (temporaryList.size() == 0){
             System.out.println("You have no pending suggestions.");
             return;
@@ -66,7 +66,7 @@ public class SuggestionManager {
 
     public static void deleteSuggestion(ArrayList<Suggestion> suggestions){
         int count = 1;
-        ArrayList<Suggestion> temporaryList = getPendingSuggestions(suggestions);
+        ArrayList<Suggestion> temporaryList = getSuggestions(suggestions, true);
         if (temporaryList.size() == 0){
             System.out.println("You have no pending suggestions.");
             return;
@@ -79,7 +79,7 @@ public class SuggestionManager {
         while (true){
             int prompt = 0;
             try{
-                prompt = InputScanner.promptForInt("Enter the suggestion no. you wish to edit: ");
+                prompt = InputScanner.promptForInt("Enter the suggestion no. you wish to delete: ");
             }
             catch (InputMismatchException e){
                 System.out.println("Invalid input! Please try again");
@@ -107,23 +107,40 @@ public class SuggestionManager {
 
     public static void printSuggestions(ArrayList<Suggestion> suggestions){
         if (suggestions.size() == 0){
-            System.out.println("You have no Pending Suggestions");
+            System.out.println("No suggestions found!");
             return;
         }
         int i = 1;
-        for (Suggestion temp : suggestions){
-            System.out.println(i + ". " + temp.getContent());
-            i += 1;
+        if (suggestions.get(0).getStatus() == Status.PENDING){
+            for (Suggestion temp : suggestions){
+                System.out.println(i + ". " + temp.getContent());
+                i += 1;
+            }
+        }
+        else{
+            for (Suggestion temp : suggestions){
+                System.out.println("===========================");
+                System.out.println(temp.getContent() + " (" + temp.getStatus() +")");
+            }
+            System.out.println("===========================");
         }
     }
 
-    public static ArrayList<Suggestion> getPendingSuggestions(ArrayList<Suggestion> suggestion){
-        ArrayList<Suggestion> tempList = new ArrayList<>();
+    public static ArrayList<Suggestion> getSuggestions(ArrayList<Suggestion> suggestion, boolean pending){
+        ArrayList<Suggestion> tempList = new ArrayList<>(); //Pending
+        ArrayList<Suggestion> tempList1 = new ArrayList<>(); //Processed
+
         for (Suggestion s : suggestion){
             if (s.getStatus() == Status.PENDING){
                 tempList.add(s);
             }
+            else{
+                tempList1.add(s);
+            }
         }
-        return tempList;
+        if (pending){
+            return tempList;
+        }
+        return tempList1;
     }
 }

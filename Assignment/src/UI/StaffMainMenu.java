@@ -10,7 +10,7 @@ public class StaffMainMenu{
                          + "4. Edit Camp\n"
                          + "5. Delete Camp\n"
                          + "6. View Enquiries\n"
-                         + "7. View Suggestions\n"
+                         + "7. Suggestion Page\n"
                          + "8. Generate Camp Report\n"
                          + "9. Generate Performance Report\n"
                          + "10. Change Password\n"

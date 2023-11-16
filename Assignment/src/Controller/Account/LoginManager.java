@@ -1,5 +1,8 @@
 package Controller.Account;
 
+import java.util.Currency;
+
+import Controller.File.FileWriting;
 import Entity.CampCommittee;
 import Entity.Staff;
 import Entity.Student;
@@ -8,6 +11,7 @@ import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StaffRepository;
 import Repository.UserRepository.StudentRepository;
 import UI.AccountInput;
+import UI.Display;
 
 public class LoginManager {
 
@@ -17,7 +21,13 @@ public class LoginManager {
     public static void Login(){
         LoginManager.checkID();
         LoginManager.checkPassword(currentUser);
-        System.out.println(currentUser.getName() + " logged in!");
+        if (currentUser.getPassword() == "password"){
+            System.out.println("First time in the system, please change your password.");
+            ChangeAccountPassword.changePassword();
+            Display.firstTimeLogin();
+            Login();
+            FileWriting.FileWriteUser();
+        }
     }
 
     private static void checkID(){

@@ -18,7 +18,7 @@ public class SuggestionMainPage {
                     case 1:
                         //View Suggestion
                         System.out.println("Viewing Suggestions...");
-                        SuggestionManager.printSuggestions(currentUser.getSuggestions());
+                        SuggestionManager.printSuggestions(SuggestionManager.getSuggestions(currentUser.getSuggestions(), true));
                         break;
 
                     case 2:
@@ -35,8 +35,11 @@ public class SuggestionMainPage {
                         //Delete Suggestion
                         SuggestionManager.deleteSuggestion(currentUser.getSuggestions());
                         break;
-
                     case 5:
+                        //View processed suggestions
+                        SuggestionManager.printSuggestions(SuggestionManager.getSuggestions(currentUser.getSuggestions(), false));
+                        break;
+                    case 6:
                         //Back to MM
                         System.out.println("Returning to main menu");
                         continueMenu = false;

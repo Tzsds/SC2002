@@ -47,8 +47,8 @@ public class StaffMainPage {
                     break;
                 case 7:
                     // View suggestions given by camp committee members
-                    System.out.println("Showing suggestions from camp committee members...");
-                    StaffManager.viewSuggestions();
+                    System.out.println("Navigating to suggestion page...");
+                    StaffSuggestionMainPage.run();
                     break;
                 case 8:
                     // Generate camp report
@@ -62,20 +62,20 @@ public class StaffMainPage {
                     break;
                 case 10:
                     // Change Password
-                    SystemMessage.changePassword();
+                    Display.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteStaff();
-                    SystemMessage.LogOut();
+                    Display.LogOut();
                     continueMenu = false;
                     break;
                 case 11:
                     // Log Out
-                    SystemMessage.LogOut();
+                    Display.LogOut();
                     continueMenu = false;
                     break;
                 case 12:
                     // Quit Program
-                    SystemMessage.ExitMessage();
+                    Display.ExitMessage();
                     System.exit(0);
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");

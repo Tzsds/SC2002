@@ -45,20 +45,20 @@ public class StudentMainPage {
                     break;
                 case 5:
                     // Initiate password change process
-                    SystemMessage.changePassword();
+                    Display.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteStudent();
-                    SystemMessage.LogOut();
+                    Display.LogOut();
                     continueMenu = false;
                     break;
                 case 6:
                     //Log Out
-                    SystemMessage.LogOut();
+                    Display.LogOut();
                     continueMenu = false;
                     break;
                 case 7:
                     //Quit Program
-                    SystemMessage.ExitMessage();
+                    Display.ExitMessage();
                     System.exit(0);
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");

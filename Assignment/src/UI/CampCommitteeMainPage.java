@@ -50,20 +50,20 @@ public class CampCommitteeMainPage {
                     break;
                 case 8:
                     //Change Password
-                    SystemMessage.changePassword();
+                    Display.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteCampCommittee();
-                    SystemMessage.LogOut();
+                    Display.LogOut();
                     continueMenu = false;
                     break;
                 case 9:
                     //Log out
-                    SystemMessage.LogOut();
+                    Display.LogOut();
                     continueMenu = false;
                     break;
                 case 10:
                     //Quit Program
-                    SystemMessage.ExitMessage();
+                    Display.ExitMessage();
                     System.exit(0);
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");

@@ -5,11 +5,11 @@ import Entity.User;
 import UI.CampCommitteeMainPage;
 import UI.StaffMainPage;
 import UI.StudentMainPage;
-import UI.SystemMessage;
+import UI.Display;
 
 public class Start {
     public static void main(String[] args) {
-        SystemMessage.WelcomeMessage();
+        Display.WelcomeMessage();
         int reset = Reset.PromptForReset(); // reset or retain data
         FileRead.read(reset);
 
@@ -18,10 +18,10 @@ public class Start {
             User currentUser = LoginManager.getCurrentUser();
             String userRole = LoginManager.getUserRole();
             // the following 3 codes below are just for testing purposes
-            System.out.println("Current user: " + currentUser.getName());
-            System.out.println("user id:" + currentUser.getUserID());
-            System.out.println("user role: " + userRole);
-            System.out.println();
+            // System.out.println("Current user: " + currentUser.getName());
+            // System.out.println("user id:" + currentUser.getUserID());
+            // System.out.println("user role: " + userRole);
+            Display.clearScreen();
 
             // entering main pages
             if (userRole == "Student") {
