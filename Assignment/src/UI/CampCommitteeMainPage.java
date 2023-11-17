@@ -25,6 +25,7 @@ public class CampCommitteeMainPage {
                 case 2:
                     //Register for camp under Student Manager
                     System.out.println("Navigating to camp registration page");
+                    StudentManager.registerForCamps();
                     break;
                 case 3:
                     // Navigate to Enquiry Page
@@ -52,6 +53,11 @@ public class CampCommitteeMainPage {
                     User.generateCampReport();
                     break;
                 case 8:
+                    //Generate Report
+                    System.out.println("Withdrawing From Camps...");
+                    StudentManager.withdrawFromCamp();
+                    break;
+                case 9:
                     //Change Password
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
@@ -59,12 +65,12 @@ public class CampCommitteeMainPage {
                     Display.LogOut();
                     continueMenu = false;
                     break;
-                case 9:
+                case 10:
                     //Log out
                     Display.LogOut();
                     continueMenu = false;
                     break;
-                case 10:
+                case 11:
                     //Quit Program
                     Display.ExitMessage();
                     System.exit(0);

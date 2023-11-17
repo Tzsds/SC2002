@@ -48,7 +48,6 @@ public class StudentManager {
                         System.out.println("Camp " + ++count);
                         CampManager.printCampRegistrationForStudents(detail);
                         list.add(c);
-
                     } else {
                         if (detail.getUserGroup().equals(faculty)) {
                             // print
@@ -69,6 +68,11 @@ public class StudentManager {
             System.out.println("If you want to exit please type " + ++count);
             System.out.println("Please input the number of the camp you would like to register for");
             userChoice = sc.nextInt();
+            while (userChoice<=0 ||userChoice>count) {
+                System.out.println("Please input a valid number");
+                System.out.println("Please input the number of the camp you would like to register for");
+                userChoice = sc.nextInt();
+            }
             if (userChoice == count) {
 
             } else {
@@ -76,11 +80,15 @@ public class StudentManager {
                 System.out.println(
                         "The camp you are registering for is " + registeredCamp.getCampDetails().getCampName());
                 if (registeredCamp.getCampDetails().getCampCommitteeSlots() > 0) {
-                    System.out.println(
-                            "Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No");
-                    int committeeDecision;
+                    System.out.println("Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No");
+                    int committeeDecision = 0;
                     committeeDecision = sc.nextInt();
-                    if (committeeDecision == 1) {
+                    while(committeeDecision <=0 || committeeDecision>2){
+                        System.out.println("Enter a valid option");
+                        System.out.println("Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No");
+                        committeeDecision = sc.nextInt();
+                    }
+                     if (committeeDecision == 1) {
                         CampCommittee tempStudent = CampCommitteeManager.toCampCommittee(s);
                         tempStudent.setCommitteeOf(registeredCamp);
                         registeredCamp.addCampCommittee(tempStudent);
@@ -88,13 +96,14 @@ public class StudentManager {
                         tempStudent.addRegisteredCamp(registeredCamp);
                         registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getCampCommitteeSlots() - 1);
                         System.out.println("Camp Successfully Registered as Camp Committee!");
-                    } else {
+                    }else {
                         registeredCamp.addParticipants(s);
                         FileWriting.FileWriteCampStudentList();
                         registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
                         s.addRegisteredCamp(registeredCamp);
                         System.out.println("Camp Successfully Registered as Camp Attendee!");
                     }
+                    
                 } else {
                     registeredCamp.addParticipants(s);
                     FileWriting.FileWriteCampStudentList();
@@ -154,7 +163,12 @@ public class StudentManager {
         if (count == 0) {
             System.out.println("You have not registered for any camps yet.");
         } else {
+            System.out.println(
+                        "Please Enter the number of the camp you would like to withdraw for or if you would like to return please input "
+                                + ++count);
+                userChoice = sc.nextInt();
             while (userChoice <= 0 || userChoice > count) {
+                System.out.println("Please enter either 1 for Yes or 2 for No only");
                 System.out.println(
                         "Please Enter the number of the camp you would like to withdraw for or if you would like to return please input "
                                 + ++count);
