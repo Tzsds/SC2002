@@ -18,7 +18,6 @@ public class StaffEnquiryManager {
     // View all enquiries for staff but can only view camps created by them.
     public static void viewAllEnquiriesStaff(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
-        // System.out.println("Staff ID: " + staffID);
 
         // Check if there are any enquiries for the specific staff
         boolean hasEnquiriesForStaff = allEnquiries.stream()
@@ -42,30 +41,32 @@ public class StaffEnquiryManager {
              * System.out.println("LowerCase Camp Name from EnquiryCSV: " +
              * enquiry.getCampName().toLowerCase());
              */
+            //
 
             Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
 
-            // Print the camp names from the Camp CSV
-            if (camp != null) {
-                // System.out.println("Camp Name from CampCSV: " +
-                // camp.getCampDetails().getCampName());
-
-                // Check if the camp of the enquiry is created by the staff
-                if (camp != null &&
-                        CampManager.isCampCreatedByStaff(enquiry.getCampName(),
-                                staffID)) {
-                    System.out.println(index + ":");
-                    System.out.println("Camp: " + enquiry.getCampName());
-                    System.out.println("Sender: " + enquiry.getSender());
-                    System.out.println("Content: " + enquiry.getContent());
-                    System.out.println("Status: " + enquiry.getStatus());
-                    System.out.println("------------------------------");
-                    index++;
-                }
-            } else {
-                System.out.println("Camp not found in CampCSV");
+            /*
+             * // Print the camp names from the Camp CSV - FOR DEBUGGING!
+             * if (camp != null) {
+             * System.out.println("Camp Name from CampCSV: " +
+             * camp.getCampDetails().getCampName());
+             * 
+             * } else {
+             * System.out.println("Camp not found in CampCSV");
+             * }
+             */
+            // Check if the camp of the enquiry is created by the staff
+            if (camp != null &&
+                    CampManager.isCampCreatedByStaff(enquiry.getCampName(),
+                            staffID)) {
+                System.out.println(index + ":");
+                System.out.println("Camp: " + enquiry.getCampName());
+                System.out.println("Sender: " + enquiry.getSender());
+                System.out.println("Content: " + enquiry.getContent());
+                System.out.println("Status: " + enquiry.getStatus());
+                System.out.println("------------------------------");
+                index++;
             }
-
         }
     }
 
@@ -97,52 +98,52 @@ public class StaffEnquiryManager {
              * System.out.println("LowerCase Camp Name from EnquiryCSV: " +
              * enquiry.getCampName().toLowerCase());
              */
-
             Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
 
             // Print the camp names from the Camp CSV
-            if (camp != null) {
-                System.out.println(index + ":");
-                System.out.println("Camp: " + enquiry.getCampName());
-                System.out.println("Sender: " + enquiry.getSender());
-                System.out.println("Content: " + enquiry.getContent());
-                System.out.println("Status: " + enquiry.getStatus());
-                System.out.println("------------------------------");
-                index++;
-
-                // Prompt staff to select an enquiry to reply
-                int selectedIndex = InputScanner
-                        .promptForInt("Enter the index of the enquiry you want to reply to (0 to cancel): ");
-
-                // Retrieve the selected enquiry
-                Enquiry selectedEnquiry = getEnquiryByIndex(staffID, selectedIndex);
-
-                if (selectedEnquiry != null) {
-                    // Display details of the selected enquiry
-                    System.out.println("Selected Enquiry:");
-                    System.out.println("Camp: " + selectedEnquiry.getCampName());
-                    System.out.println("Sender: " + selectedEnquiry.getSender());
-                    System.out.println("Content: " + selectedEnquiry.getContent());
-                    System.out.println("Status: " + selectedEnquiry.getStatus());
-
-                    // Prompt staff to enter the reply content
-                    String replyContent = InputScanner.promptForString("Enter your reply: ");
-
-                    // Update the selected enquiry
-                    selectedEnquiry.setRepliedContent(replyContent);
-                    selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
-                    selectedEnquiry.setReplier(staffID);
-
-                    // Update the Enquiry CSV
-                    WriteEnquiry.replyEnquiryInCSV(selectedEnquiry);
-
-                    System.out.println("Enquiry replied successfully!");
-                } else {
-                    System.out.println("Invalid index. No enquiry selected.");
-                }
-            } else {
+            if (camp == null) {
                 System.out.println("Camp not found in CampCSV");
+                break;
             }
+    
+            System.out.println(index + ":");
+            System.out.println("Camp: " + enquiry.getCampName());
+            System.out.println("Sender: " + enquiry.getSender());
+            System.out.println("Content: " + enquiry.getContent());
+            System.out.println("Status: " + enquiry.getStatus());
+            System.out.println("------------------------------");
+            index++;
+        }
+
+        // Prompt staff to select an enquiry to reply
+        int selectedIndex = InputScanner
+                .promptForInt("Enter the index of the enquiry you want to reply to (0 to cancel): ");
+
+        // Retrieve the selected enquiry
+        Enquiry selectedEnquiry = getEnquiryByIndex(staffID, selectedIndex);
+
+        if (selectedEnquiry != null) {
+            // Display details of the selected enquiry
+            System.out.println("Selected Enquiry:");
+            System.out.println("Camp: " + selectedEnquiry.getCampName());
+            System.out.println("Sender: " + selectedEnquiry.getSender());
+            System.out.println("Content: " + selectedEnquiry.getContent());
+            System.out.println("Status: " + selectedEnquiry.getStatus());
+
+            // Prompt staff to enter the reply content
+            String replyContent = InputScanner.promptForString("Enter your reply: ");
+
+            // Update the selected enquiry
+            selectedEnquiry.setRepliedContent(replyContent);
+            selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
+            selectedEnquiry.setReplier(staffID);
+
+            // Update the Enquiry CSV
+            WriteEnquiry.replyEnquiryInCSV(selectedEnquiry);
+
+            System.out.println("Enquiry replied successfully!");
+        } else {
+            System.out.println("Invalid index. No enquiry selected.");
         }
 
     }
