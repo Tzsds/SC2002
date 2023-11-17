@@ -25,6 +25,7 @@ public class CampCommitteeMainPage {
                 case 2:
                     //Register for camp under Student Manager
                     System.out.println("Navigating to camp registration page");
+                    
                     break;
                 case 3:
                     // Navigate to Enquiry Page
