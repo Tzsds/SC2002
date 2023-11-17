@@ -94,7 +94,7 @@ public class StudentManager {
                         registeredCamp.addCampCommittee(tempStudent);
                         FileWriting.FileWriteCampStudentList();
                         tempStudent.addRegisteredCamp(registeredCamp);
-                        registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getCampCommitteeSlots() - 1);
+                        registeredCamp.editCampCommitteeSlots(registeredCamp.getCampDetails().getCampCommitteeSlots() - 1);
                         System.out.println("Camp Successfully Registered as Camp Committee!");
                     }else {
                         registeredCamp.addParticipants(s);
