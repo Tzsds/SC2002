@@ -44,6 +44,11 @@ public class StudentMainPage {
                     currentStudent.viewRegisteredCamps();
                     break;
                 case 5:
+                    // Display registered camps
+                    System.out.println("Retrieving registered camps...");
+                    StudentManager.withdrawFromCamp();
+                    break;
+                case 6:
                     // Initiate password change process
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
@@ -51,12 +56,12 @@ public class StudentMainPage {
                     Display.LogOut();
                     continueMenu = false;
                     break;
-                case 6:
+                case 7:
                     //Log Out
                     Display.LogOut();
                     continueMenu = false;
                     break;
-                case 7:
+                case 8:
                     //Quit Program
                     Display.ExitMessage();
                     System.exit(0);

@@ -30,8 +30,10 @@ public class Camp {
         return participants;
     }
     public ArrayList<Student> getCampCommittee() {
-        return campCommittee;
-        
+        return campCommittee; 
+    }
+    public ArrayList<Student> getWithdrawnStudents() {
+        return withdrawnStudents; 
     }
     
     public ArrayList<Suggestion> getListOfSuggestions(){
@@ -81,5 +83,10 @@ public class Camp {
 
     public void addCampCommittee(Student student) {
         campCommittee.add(student);
+    }
+
+    public void withdrawStudent(Student student){
+        participants.remove(student);
+        withdrawnStudents.add(student);
     }
 }

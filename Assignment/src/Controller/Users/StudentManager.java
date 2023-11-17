@@ -114,7 +114,62 @@ public class StudentManager {
     }
     
     public static void withdrawFromCamp(){
-        
+        Scanner sc = new Scanner(System.in);
+        ArrayList <Camp> list = new ArrayList<>();
+        Student s = (Student)LoginManager.getCurrentUser();
+        int userChoice;
+        int userConfirm = 0;
+        int count = 0;
+        ArrayList <Camp> registeredCampList = s.getRegisteredCamps();
+        for (Camp c : registeredCampList){
+            for(Student stud : c.getCampCommittee()){
+                if(s == stud){
+
+                }
+                else{
+                    for(Student withdrawn : c.getWithdrawnStudents()){
+                        if(withdrawn == s){
+
+                        }
+                        else{
+                            CampDetails detail = c.getCampDetails();
+                            System.out.println("==========================");
+                            System.out.println("Camp " + ++count);
+                            CampManager.printCampRegistrationForStudents(detail);
+                            list.add(c);
+                        }
+                    }
+                }
+            }
+            
+        }
+        if (count == 0){
+            System.out.println("You have not registered for any camps yet.");
+        }
+        else{
+            System.out.println("Please Enter the number of the camp you would like to withdraw for or if you would like to return please input " + ++count);
+            userChoice = sc.nextInt();
+            if(userChoice == count){
+
+            }
+            else{
+                Camp registeredCamp = list.get(userChoice-1);
+                while(userConfirm>2 || userConfirm<=0){
+                    System.out.println("The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName() + ". Are you sure you want to withdrawn enter 1 for Yes or 2 for No");
+                    userConfirm = sc.nextInt();
+                }
+                if(userConfirm == 1){
+                    registeredCamp.withdrawStudent(s);
+                    FileWriting.FileWriteCampStudentList();
+                    registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots()+1);
+                    s.removeRegisteredCamp(registeredCamp);
+                    System.out.println("Camp Successfully Withdrawn!");
+                }
+                else{
+
+                }
+            }
+        }
     }
         
     public static ArrayList<Camp> viewAvailableCamps(){

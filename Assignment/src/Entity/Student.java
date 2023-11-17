@@ -31,6 +31,10 @@ public class Student extends User{
     public void addRegisteredCamp(Camp camp) {
         registeredCamps.add(camp);
     }
+
+    public void removeRegisteredCamp(Camp camp) {
+        registeredCamps.remove(camp);
+    }
     
     public void viewRegisteredCamps() {
         if (registeredCamps.size() == 0) {

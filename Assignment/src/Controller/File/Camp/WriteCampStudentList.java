@@ -18,6 +18,7 @@ public class WriteCampStudentList {
         ArrayList<Camp> listOfCamp = CampRepository.getListOfCamps();
         ArrayList<Student> listOfStudent;
         ArrayList<Student> listOfCampCommittee;
+        ArrayList<Student> listOfWithdrawnStudents;
         String data;
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))){
             writer.write(header);
@@ -32,6 +33,11 @@ public class WriteCampStudentList {
                 listOfCampCommittee = c.getCampCommittee();
                 for (Student s : listOfCampCommittee){
                     data = campName + "," + s.getUserID() + ",CampCommittee\n";
+                    writer.write(data);
+                }
+                listOfWithdrawnStudents = c.getWithdrawnStudents();
+                for (Student s : listOfWithdrawnStudents){
+                    data = campName + "," + s.getUserID() + ",Withdrawn\n";
                     writer.write(data);
                 }
             }
