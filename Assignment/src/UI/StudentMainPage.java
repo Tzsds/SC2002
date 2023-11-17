@@ -14,7 +14,7 @@ public class StudentMainPage {
             System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
             Student currentStudent = (Student)LoginManager.getCurrentUser();
             StudentMainMenu.displayMainMenu();
-            int option = InputScanner.promptForInt("Input your choice of action (1-7): ");
+            int option = InputScanner.promptForInt("Input your choice of action (1-8): ");
             switch (option) {
 
                 case 1:

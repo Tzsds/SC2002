@@ -117,7 +117,7 @@ public class StudentManager {
         Scanner sc = new Scanner(System.in);
         ArrayList <Camp> list = new ArrayList<>();
         Student s = (Student)LoginManager.getCurrentUser();
-        int userChoice;
+        int userChoice = 0;
         int userConfirm = 0;
         int count = 0;
         ArrayList <Camp> registeredCampList = s.getRegisteredCamps();
@@ -147,8 +147,10 @@ public class StudentManager {
             System.out.println("You have not registered for any camps yet.");
         }
         else{
-            System.out.println("Please Enter the number of the camp you would like to withdraw for or if you would like to return please input " + ++count);
-            userChoice = sc.nextInt();
+            while(userChoice<=0 || userChoice>count){
+                System.out.println("Please Enter the number of the camp you would like to withdraw for or if you would like to return please input " + ++count);
+                userChoice = sc.nextInt();
+            }
             if(userChoice == count){
 
             }
