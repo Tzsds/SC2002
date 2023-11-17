@@ -43,13 +43,13 @@ public class StudentManager {
                 if (!detail.getVisibility()) {
                     continue;
                 } else {
-                    if (detail.getUserGroup().equals("Everyone")) {
+                    if (detail.getUserGroup().equals("Everyone") || c.getCampDetails().getTotalSlots()>0 || c.getCampDetails().getCampCommitteeSlots()>0) {
                         // print
                         System.out.println("Camp " + ++count);
                         CampManager.printCampRegistrationForStudents(detail);
                         list.add(c);
                     } else {
-                        if (detail.getUserGroup().equals(faculty)) {
+                        if (detail.getUserGroup().equals(faculty) || c.getCampDetails().getTotalSlots()>0 || c.getCampDetails().getCampCommitteeSlots()>0) {
                             // print
                             System.out.println("Camp " + ++count);
                             CampManager.printCampRegistrationForStudents(detail);
@@ -95,6 +95,7 @@ public class StudentManager {
                         FileWriting.FileWriteCampStudentList();
                         tempStudent.addRegisteredCamp(registeredCamp);
                         registeredCamp.editCampCommitteeSlots(registeredCamp.getCampDetails().getCampCommitteeSlots() - 1);
+                        registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
                         System.out.println("Camp Successfully Registered as Camp Committee!");
                     }else {
                         registeredCamp.addParticipants(s);
