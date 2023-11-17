@@ -12,10 +12,10 @@ import Repository.CampRepository;
 import Repository.EnquiryRepository;
 import UI.InputScanner;
 
-public class StaffEnquiryManager {
-    // functions to be used by staff
+public class CampCommitteeEnquiryManager {
+    // functions to be used by camp com
 
-    // View all enquiries for staff but can only view camps created by them.
+    // Only can view enquiries for their own camp
     public static void viewAllEnquiriesStaff(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
         // System.out.println("Staff ID: " + staffID);
