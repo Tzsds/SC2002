@@ -23,8 +23,8 @@ public class LoginManager {
             System.out.println("First time in the system, please change your password.");
             ChangeAccountPassword.changePassword();
             Display.firstTimeLogin();
-            Login();
             FileWriting.FileWriteUser();
+            Login();
         }
     }
 
