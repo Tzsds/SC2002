@@ -97,6 +97,7 @@ public class Staff extends User {
             int reportType = ReportManager.promptCampReportType();
             CampReport report = new CampReport(campChosen, reportType);
             report.generate();
+            report.printInTerminal();
         }
     }
 
@@ -108,6 +109,7 @@ public class Staff extends User {
             Camp campChosen = ReportManager.promptWhichCampForStaff();
             PerformanceReport report = new PerformanceReport(campChosen);
             report.generate();
+            report.printInTerminal();
         }
     }
 

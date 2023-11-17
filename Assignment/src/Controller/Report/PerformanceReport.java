@@ -7,10 +7,10 @@ import Entity.CampDetails;
 import Entity.Student;
 
 public class PerformanceReport extends Report{
-    Camp camp;
-    CampDetails campDetails;
-    String reportHeader;
-    String reportBody;
+    protected Camp camp;
+    protected CampDetails campDetails;
+    protected String reportHeader;
+    protected String reportBody;
 
     public PerformanceReport(Camp camp) {
         this.camp = camp;

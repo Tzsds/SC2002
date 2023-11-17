@@ -17,4 +17,9 @@ public class Report {
             System.out.println("An error occurred while generating the report: " + e.getMessage());
         }
     }
+
+    public void printInTerminal() {
+        System.out.println();
+        System.out.println(content);
+    }
 }

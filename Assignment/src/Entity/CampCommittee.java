@@ -52,5 +52,6 @@ public class CampCommittee extends Student {
         int reportType = ReportManager.promptCampReportType();
         CampReport report = new CampReport(committeeOf, reportType);
         report.generate();
+        report.printInTerminal();
     }
 }

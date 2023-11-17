@@ -10,10 +10,10 @@ import Entity.Student;
 import Repository.UserRepository.StaffRepository;
 
 public class CampReport extends Report{
-    Camp camp;
-    CampDetails campDetails;
-    String reportHeader;
-    String reportBody;
+    protected Camp camp;
+    protected CampDetails campDetails;
+    protected String reportHeader;
+    protected String reportBody;
 
     public CampReport(Camp camp, int reportType) {
         this.camp = camp;
@@ -30,7 +30,6 @@ public class CampReport extends Report{
     }
 
     public void setHeader() {
-
         String staffId = campDetails.getStaffInCharge();
         Staff staff = StaffRepository.getStaffByID(staffId);
         String staffName = staff.getName();
