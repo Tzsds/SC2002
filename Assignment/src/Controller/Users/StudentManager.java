@@ -79,7 +79,7 @@ public class StudentManager {
                 Camp registeredCamp = list.get(userChoice - 1);
                 System.out.println(
                         "The camp you are registering for is " + registeredCamp.getCampDetails().getCampName());
-                if (registeredCamp.getCampDetails().getCampCommitteeSlots() > 0) {
+                if (registeredCamp.getCampDetails().getCampCommitteeSlots() > 0 && !(s instanceof CampCommittee)) {
                     System.out.println("Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No");
                     int committeeDecision = 0;
                     committeeDecision = sc.nextInt();
