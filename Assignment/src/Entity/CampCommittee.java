@@ -2,6 +2,7 @@ package Entity;
 
 import java.util.ArrayList;
 
+import Controller.Camp.CampManager;
 import Controller.Report.CampReport;
 import Controller.Report.ReportManager;
 
@@ -10,6 +11,7 @@ public class CampCommittee extends Student {
     private ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
     private Camp committeeOf;
 
+    //Constructor
     public CampCommittee(String userID, String name, String faculty, String password){
         super(userID, name, faculty, password);
         points = 0;
@@ -20,38 +22,57 @@ public class CampCommittee extends Student {
         this.points = points;
     }
 
+    //Accessor
     public int getPoints(){
         return points;
-    }
-    
-    public void setPoints(int points){
-        this.points = points;
-    }
-
-    public void addPoints(){
-        points += 1;
     }
 
     public ArrayList<Suggestion> getSuggestions(){
         return suggestions;
     }
 
-    public void addSuggestion(Suggestion s){
-        suggestions.add(s);
+    public Camp getCommitteeOf(){
+        return committeeOf;
     }
     
+
+    //Mutators
+    public void setPoints(int points){
+        this.points = points;
+    }
+
     public void setCommitteeOf(Camp camp){
         committeeOf = camp; //Need this function when a Student registers for Camp Committee
     }
 
-    public Camp getCommitteeOf(){
-        return committeeOf;
+    public void addPoints(){
+        points += 1;
     }
 
+    public void addSuggestion(Suggestion s){
+        suggestions.add(s);
+    }
+    
+    //Functions
     public void generateCampReport() {
         int reportType = ReportManager.promptCampReportType();
         CampReport report = new CampReport(committeeOf, reportType);
         report.generate();
         report.printInTerminal();
+    }
+
+    public void viewRegisteredCamps(){
+        System.out.println("Camp registered as camp committeee: ");
+        System.out.println("----------------------------------");
+        CampManager.printCampDetailsForStudents(committeeOf.getCampDetails());
+        System.out.println();
+        System.out.println("Camps regsitered as camp attendee:");
+        System.out.println("----------------------------------");
+        for (Camp camps : getRegisteredCamps()){
+            if (camps != committeeOf){
+                CampManager.printCampDetailsForStudents(camps.getCampDetails());
+                System.out.println("=================================");
+            }
+        }
     }
 }

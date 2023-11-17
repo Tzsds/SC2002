@@ -27,6 +27,7 @@ public class SuggestionManager {
         CampManager.addSuggestion(User.getCommitteeOf(), temp);
         User.addPoints(); //Add one point for a suggestion given
         WriteSuggestion.writeSuggestion();
+        System.out.println("Suggestion successfully added");
     }
 
     public static void editSuggestion(ArrayList<Suggestion> suggestions){
@@ -106,6 +107,7 @@ public class SuggestionManager {
     }
 
     public static void printSuggestions(ArrayList<Suggestion> suggestions){
+        System.out.println("=================================");
         if (suggestions.size() == 0){
             System.out.println("No suggestions found!");
             return;
@@ -119,10 +121,9 @@ public class SuggestionManager {
         }
         else{
             for (Suggestion temp : suggestions){
-                System.out.println("===========================");
                 System.out.println(temp.getContent() + " (" + temp.getStatus() +")");
+                System.out.println("=================================");
             }
-            System.out.println("===========================");
         }
     }
 

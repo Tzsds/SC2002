@@ -48,6 +48,7 @@ public class SuggestionMainPage {
                     default:
                         System.out.println("Invalid option. Please enter a valid option");
                 }
+                System.out.println();
             }
             catch(InputMismatchException e){
                 System.out.println("Invalid option. Please enter a valid option");

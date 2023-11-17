@@ -82,6 +82,7 @@ public class StaffMainPage {
                     System.out.println("Invalid option. Please enter a valid option.");
                     break;
             }
+            System.out.println();
         }
     }
 }
