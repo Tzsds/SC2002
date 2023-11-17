@@ -1,0 +1,5 @@
+Camp Name: NTU
+Number of Committee Members: 1
+
+Committee Member     Points
+KOH                  0

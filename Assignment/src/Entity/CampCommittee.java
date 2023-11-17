@@ -2,6 +2,9 @@ package Entity;
 
 import java.util.ArrayList;
 
+import Controller.Report.CampReport;
+import Controller.Report.ReportManager;
+
 public class CampCommittee extends Student {
     private int points;
     private ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
@@ -43,5 +46,11 @@ public class CampCommittee extends Student {
 
     public Camp getCommitteeOf(){
         return committeeOf;
+    }
+
+    public void generateCampReport() {
+        int reportType = ReportManager.promptCampReportType();
+        CampReport report = new CampReport(committeeOf, reportType);
+        report.generate();
     }
 }

@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import Controller.File.FileWriting;
+import Controller.Report.CampReport;
+import Controller.Report.PerformanceReport;
+import Controller.Report.ReportManager;
 import Repository.CampRepository;
 import UI.InputScanner;
 
@@ -83,6 +86,29 @@ public class Staff extends User {
 
         FileWriting.FileWriteCampDetails(); //update csv
         System.out.println("Camp Created!");
+    }
+
+    public void generateCampReport() {
+        if (campsCreatedList.size() == 0) {
+            System.out.println("You have not created any camp yet!");
+            return;
+        } else {
+            Camp campChosen = ReportManager.promptWhichCampForStaff();
+            int reportType = ReportManager.promptCampReportType();
+            CampReport report = new CampReport(campChosen, reportType);
+            report.generate();
+        }
+    }
+
+    public void generatePerformanceReport() {
+        if (campsCreatedList.size() == 0) {
+            System.out.println("You have not created any camp yet!");
+            return;
+        } else {
+            Camp campChosen = ReportManager.promptWhichCampForStaff();
+            PerformanceReport report = new PerformanceReport(campChosen);
+            report.generate();
+        }
     }
 
     public void deleteCamp(){

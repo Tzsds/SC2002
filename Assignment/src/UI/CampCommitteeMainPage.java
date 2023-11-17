@@ -15,6 +15,7 @@ public class CampCommitteeMainPage {
             System.out.println("Welcome " + User.getName());
             CampCommitteeMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-10): ");
+            System.out.println();
             switch (option) {
                 case 1:
                     // Display list of camps available
@@ -47,6 +48,8 @@ public class CampCommitteeMainPage {
                     break;
                 case 7:
                     //Generate Report
+                    System.out.println("Navigating to generate camp report...");
+                    User.generateCampReport();
                     break;
                 case 8:
                     //Change Password

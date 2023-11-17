@@ -15,6 +15,7 @@ public class StaffMainPage {
             System.out.println("Welcome " + currentStaff.getName());
             StaffMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-12): ");
+            System.out.println();
             switch (option) {
 
                 case 1:
@@ -52,13 +53,13 @@ public class StaffMainPage {
                     break;
                 case 8:
                     // Generate camp report
-                    System.out.println("Generating camp report...");
-                    // generateCampReport();
+                    System.out.println("Listing camps created by you...");
+                    currentStaff.generateCampReport();
                     break;
                 case 9:
                     // Generate performance report
                     System.out.println("Generating performance report of camp committee members...");
-                    // generatePerformanceReport();
+                    currentStaff.generatePerformanceReport();
                     break;
                 case 10:
                     // Change Password
