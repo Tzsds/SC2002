@@ -85,6 +85,10 @@ public class Camp {
         campCommittee.add(student);
     }
 
+    public void addWithdrawnStudent(Student student){
+        withdrawnStudents.add(student);
+    }
+
     public void withdrawStudent(Student student){
         participants.remove(student);
         withdrawnStudents.add(student);

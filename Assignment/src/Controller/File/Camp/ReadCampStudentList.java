@@ -39,6 +39,9 @@ public class ReadCampStudentList {
                         CampCommittee committee = CampCommitteeRepository.getCommitteeByID(userID);
                         committee.setCommitteeOf(camp);
                     }
+                    if (role.equals("Withdrawn")) {
+                        camp.addWithdrawnStudent(student);
+                    }
                     else {
                         camp.addParticipants(student);
                     }
