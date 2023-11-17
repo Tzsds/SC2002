@@ -15,7 +15,7 @@ public class Enquiry {
     public Enquiry(String sender, String content, String campName) {
         this.sender = sender;
         this.content = content;
-        this.campName = campName.toUpperCase();
+        this.campName = campName;
         this.status = Status.PENDING;
     }
 

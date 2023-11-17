@@ -62,7 +62,7 @@ public class CampManager {
             CampDetails campDetails = camp.getCampDetails();
             String staffInChargeID = campDetails.getStaffInCharge();
 
-            System.out.println("StaffID:" + staffInChargeID);
+           // System.out.println("StaffID:" + staffInChargeID);
             // Compare the staff ID of the camp creator with the given staff ID
             return staffInChargeID.equals(staffID);
         }
