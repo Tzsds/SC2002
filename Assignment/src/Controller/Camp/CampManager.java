@@ -89,22 +89,23 @@ public class CampManager {
         System.out.println("Total Camp Committee Slots: " + detail.getCampCommitteeSlots());
     }
 
-    public static void printCampRegistrationForStudents(CampDetails detail){
+    public static void printCampRegistrationForStudents(CampDetails detail) {
         System.out.println("Camp: " + detail.getCampName());
     }
 
     public static boolean isCampCreatedByStaff(String campName, String staffID) {
-        Camp camp = CampRepository.getCampByCampName(campName.toLowerCase()); // or toUpperCase()
-
+        Camp camp = CampRepository.getCampByCampName(campName); // .toLowerCase() or toUpperCase()
+        
         if (camp != null) {
             CampDetails campDetails = camp.getCampDetails();
             String staffInChargeID = campDetails.getStaffInCharge();
 
+            System.out.println("StaffID:" + staffInChargeID);
             // Compare the staff ID of the camp creator with the given staff ID
             return staffInChargeID.equals(staffID);
         }
-
         return false;
+
     }
 
 }

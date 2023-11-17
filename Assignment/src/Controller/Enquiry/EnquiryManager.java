@@ -21,8 +21,8 @@ public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {
         System.out.println("Which Camp do you want to enquiry on?");
         StudentManager.viewAvailableCamps();
-        InputScanner.promptForString("Choose a camp(Enter Camp Name): ");
-        String campChoice = InputScanner.waitForUserInputString();
+        String campChoice = InputScanner.promptForString("Choose a camp(Enter Camp Name): ");
+        //String campChoice = InputScanner.waitForUserInputString();
         // Validate if the chosen camp name exists in the available camps
         if (!CampDetails.campExists(campChoice)) {
             System.out.println("Invalid camp name. Please choose a valid camp.");
@@ -121,8 +121,8 @@ public class EnquiryManager {
                 if (selectedEnquiry.getStatus() != Enquiry.Status.REPLIED) {
                     String oldContent = selectedEnquiry.getContent(); // Keep a copy of the original content
 
-                    InputScanner.promptForString("Enter the new Enquiry content: ");
-                    String newContent = InputScanner.waitForUserInputString();
+                    String newContent = InputScanner.promptForString("Enter the new Enquiry content: ");
+                   // String newContent = InputScanner.waitForUserInputString();
 
                     // Update the selected enquiry
                     Enquiry updatedSelectedEnquiry = new Enquiry(

@@ -18,44 +18,43 @@ public class StaffEnquiryManager {
     // View all enquiries for staff but can only view camps created by them.
     public static void viewAllEnquiriesStaff(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
+        System.out.println("Staff ID: " + staffID);
 
         // Check if there are any enquiries for the specific staff
         boolean hasEnquiriesForStaff = allEnquiries.stream()
-                .anyMatch(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName().toLowerCase(), staffID));
+                .anyMatch(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName(),
+                        staffID));
 
         if (!hasEnquiriesForStaff) {
             System.out.println("No Enquiries!");
             return;
         }
+
         int index = 1;
         for (Enquiry enquiry : allEnquiries) {
-            // Debug lines to check the camp name and staff ID
-            /*
-             * System.out.println("Enquiry Camp Name: " + enquiry.getCampName());
-             * System.out.println("Staff ID: " + staffID);
-             */
+            // Start of Debug lines to check the camp name and staff ID
+            System.out.println("Enquiry Camp Name: " + enquiry.getCampName());
+            System.out.println("Staff ID: " + staffID);
 
-            /*
-             * System.out.println("Original Camp Name from EnquiryCSV: " +
-             * enquiry.getCampName());
-             * System.out.println("LowerCase Camp Name from EnquiryCSV: " +
-             * enquiry.getCampName().toLowerCase());
-             */
+            System.out.println("Original Camp Name from EnquiryCSV: " +
+                    enquiry.getCampName());
+            System.out.println("LowerCase Camp Name from EnquiryCSV: " +
+                    enquiry.getCampName().toLowerCase());
 
-            Camp camp = CampRepository.getCampByCampName(enquiry.getCampName().toLowerCase());
+            Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
 
-            /*
-             * // Print the camp names from the Camp CSV
-             * if (camp != null) {
-             * System.out.println("Camp Name from CampCSV: " +
-             * camp.getCampDetails().getCampName());
-             * } else {
-             * System.out.println("Camp not found in CampCSV");
-             * }
-             */
+            // Print the camp names from the Camp CSV
+            if (camp != null) {
+                System.out.println("Camp Name from CampCSV: " +
+                        camp.getCampDetails().getCampName());
+            } else {
+                System.out.println("Camp not found in CampCSV");
+            }
 
             // Check if the camp of the enquiry is created by the staff
-            if (camp != null && CampManager.isCampCreatedByStaff(enquiry.getCampName().toLowerCase(), staffID)) {
+            if (camp != null &&
+                    CampManager.isCampCreatedByStaff(enquiry.getCampName(),
+                            staffID)) {
                 System.out.println(index + ":");
                 System.out.println("Camp: " + enquiry.getCampName());
                 System.out.println("Sender: " + enquiry.getSender());
@@ -88,16 +87,16 @@ public class StaffEnquiryManager {
             System.out.println("Status: " + selectedEnquiry.getStatus());
 
             // Prompt staff to enter the reply content
-            InputScanner.promptForString("Enter your reply: ");
+            String replyContent = InputScanner.promptForString("Enter your reply: ");
 
-            String replyContent = InputScanner.waitForUserInput();
+            // String replyContent = InputScanner.waitForUserInput();
             // Update the selected enquiry
             selectedEnquiry.setRepliedContent(replyContent);
             selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
             selectedEnquiry.setReplier(staffID);
 
             // Update the Enquiry CSV
-            WriteEnquiry.FileWriteEnquiry(selectedEnquiry);
+            WriteEnquiry.replyEnquiryInCSV(selectedEnquiry );
 
             System.out.println("Enquiry replied successfully!");
         } else {
@@ -106,8 +105,9 @@ public class StaffEnquiryManager {
     }
 
     public static Enquiry getEnquiryByIndex(String staffID, int selectedIndex) {
+        System.out.println("selected index: " + selectedIndex);
         List<Enquiry> staffEnquiries = EnquiryRepository.getListOfEnquiries().stream()
-                .filter(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName().toLowerCase(), staffID))
+                .filter(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName(), staffID))
                 .collect(Collectors.toList());
 
         // Check if the index is within the valid range

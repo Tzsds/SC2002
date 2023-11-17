@@ -36,25 +36,6 @@ public class WriteEnquiry {
         }
     }
 
-    public static void editEnquiries(ArrayList<Enquiry> enquiries, ArrayList<Enquiry> enquiriesFromCSV)
-            throws IOException {
-        // Iterate over the enquiries that you want to edit and update the content of
-        // each enquiry in the list of enquiries from the CSV file.
-        for (Enquiry enquiry : enquiries) {
-            for (int i = 0; i < enquiriesFromCSV.size(); i++) {
-                Enquiry enquiryFromCSV = enquiriesFromCSV.get(i);
-                if (enquiryFromCSV.equals(enquiry)) {
-                    enquiryFromCSV.setContent(enquiry.getContent());
-                    break;
-                }
-            }
-        }
-
-        for (Enquiry enquiry : enquiriesFromCSV) {
-            FileWriteEnquiry(enquiry);
-        }
-    }
-
     public static void deleteEnquiryFromCSV(Enquiry selectedEnquiry) {
         String enquiryCSV = "Assignment/database/enquiries.csv";
         List<String[]> rows = new ArrayList<>();
@@ -138,6 +119,44 @@ public class WriteEnquiry {
         return selectedEnquiry.getSender().equals(sender) &&
                 selectedEnquiry.getCampName().equals(campName) &&
                 selectedEnquiry.getContent().equals(content);
+    }
+
+    public static void replyEnquiryInCSV(Enquiry selectedEnquiry) {
+        String enquiryCSV = "Assignment/database/enquiries.csv";
+        List<String[]> rows = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(enquiryCSV))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] columns = line.split(",");
+                if (areEnquiriesEqualVerbose(selectedEnquiry, columns)
+                        && columns[1].equals(selectedEnquiry.getContent())) {
+                    columns[4] = selectedEnquiry.getStatus().toString();
+                    columns[5] = selectedEnquiry.getRepliedContent();
+                    columns[6] = selectedEnquiry.getReplier();
+                }
+                rows.add(columns);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(enquiryCSV))) {
+            for (String[] row : rows) {
+                StringBuilder line = new StringBuilder();
+                for (int i = 0; i < row.length; i++) {
+                    line.append(row[i]);
+                    if (i < row.length - 1) {
+                        line.append(",");
+                    }
+                }
+
+                bw.write(line.toString());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
