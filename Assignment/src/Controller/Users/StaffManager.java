@@ -19,28 +19,28 @@ import UI.InputScanner;
 public class StaffManager {
 
     public static void viewAllCamps() {
+        System.out.println("=================================");
         ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
         if (listOfCamps.size() == 0) {
             System.out.println("There is no existing camps.");
         } else {
             for (Camp c : listOfCamps) {
-                System.out.println("==========================");
                 CampDetails detail = c.getCampDetails();
                 CampManager.printCampDetails(detail);
+                System.out.println("=================================");
             }
-            System.out.println("==========================");
         }
     }
 
     public static void viewCampsCreated(ArrayList<Camp> campCreated) {
+        System.out.println("=================================");
         if (campCreated.size() == 0)
             System.out.println("You have not created any camps");
         for (Camp c : campCreated) {
-            System.out.println("==========================");
             CampDetails detail = c.getCampDetails();
             CampManager.printCampDetails(detail);
+            System.out.println("=================================");
         }
-        System.out.println("==========================");
     }
 
     public static void editCamp(ArrayList<Camp> campCreated) {

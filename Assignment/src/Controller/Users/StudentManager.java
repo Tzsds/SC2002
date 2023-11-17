@@ -18,6 +18,7 @@ public class StudentManager {
     //WITHDRAW FROM CAMP
 
     public static void registerForCamps(){
+        System.out.println("=================================");
         Scanner sc = new Scanner(System.in);
         ArrayList <Camp> list = new ArrayList<>();
         Student s = (Student)LoginManager.getCurrentUser();
@@ -44,7 +45,6 @@ public class StudentManager {
                     continue;
                 }
                 else{
-                    System.out.println("==========================");
                     if (detail.getUserGroup().equals("Everyone")){
                         //print
                         System.out.println("Camp " + ++count);
@@ -60,7 +60,7 @@ public class StudentManager {
                             list.add(c);
                         }
                     }
-                    System.out.println("==========================");
+                    System.out.println("=================================");
                     
                 }
             }
@@ -181,6 +181,7 @@ public class StudentManager {
         //System.out.println(faculty);
         ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
         int count = 0; //list of available camps to the student
+        System.out.println("=================================");
         for (Camp c : listOfCamps){
             CampDetails detail = c.getCampDetails();
             if (!detail.getVisibility()){
@@ -189,18 +190,16 @@ public class StudentManager {
             else{
                 if (detail.getUserGroup().equals("Everyone")){
                     //print
-                    System.out.println("==========================");
                     CampManager.printCampDetailsForStudents(detail);
-                    System.out.println("==========================");
+                    System.out.println("=================================");
                     list.add(c);
                     count ++;
                 }
                 else{
                     if (detail.getUserGroup().equals(faculty)){
                         //print
-                        System.out.println("==========================");
                         CampManager.printCampDetailsForStudents(detail);
-                        System.out.println("==========================");
+                        System.out.println("=================================");
                         list.add(c);
                         count ++;
                     }

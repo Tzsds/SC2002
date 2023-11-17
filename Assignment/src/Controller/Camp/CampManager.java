@@ -20,44 +20,6 @@ public class CampManager {
         temp.remove(tempSuggestion);
     }
 
-    public static void printCampsForStudent(ArrayList<Camp> campList) {
-        if (campList.size() != 0) {
-            for (Camp camp : campList) {
-                CampDetails campDetails = camp.getCampDetails();
-                System.out.println("Camp: " + campDetails.getCampName());
-                System.out.println("Camp Description: " + campDetails.getDescription());
-                System.out.println("Start Date: " + campDetails.getStartDate());
-                System.out.println("End Date: " + campDetails.getEndDate());
-                System.out.println("Registration Close Date: " + campDetails.getCloseDate());
-                System.out.println("Open To: " + campDetails.getUserGroup());
-                System.out.println("Location: " + campDetails.getLocation());
-                System.out.println("Total Slots: " + campDetails.getTotalSlots());
-                System.out.println("Total Camp Committee Slots: " + campDetails.getCampCommitteeSlots());
-                System.out.println("=====================================");
-            }
-        }
-    }
-
-    // public static void printCampsForStaff(ArrayList<Camp> campList) {
-    // if (campList.size() != 0) {
-    // for (Camp camp : campList) {
-    // CampDetails campDetails = camp.getCampDetails();
-    // System.out.println("Camp: " + campDetails.getCampName());
-    // System.out.println("Camp Description: " + campDetails.getDescription());
-    // System.out.println("Start Date: " + campDetails.getStartDate());
-    // System.out.println("End Date: " + campDetails.getEndDate());
-    // System.out.println("Registration Close Date: " + campDetails.getCloseDate());
-    // System.out.println("Open To: " + campDetails.getUserGroup());
-    // System.out.println("Location: " + campDetails.getLocation());
-    // System.out.println("Total Slots: " + campDetails.getTotalSlots());
-    // System.out.println("Total Camp Committee Slots: " +
-    // campDetails.getCampComitteeSlots());
-    // System.out.println("Visibility: " + campDetails.getVisibility());
-    // System.out.println("=====================================");
-    // }
-    // }
-    // }
-
     public static void printCampDetails(CampDetails detail) {
         Staff s = StaffRepository.getStaffByID(detail.getStaffInCharge());
         String name = s.getName();

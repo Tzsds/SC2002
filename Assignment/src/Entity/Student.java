@@ -43,7 +43,10 @@ public class Student extends User{
         else {
             System.out.println("Registered Camps:");
             System.out.println("====================================");
-            CampManager.printCampsForStudent(registeredCamps);
+            for (Camp camps : registeredCamps){
+                CampManager.printCampDetails(camps.getCampDetails());
+                System.out.println("====================================");
+            }
         }
     }
 }
