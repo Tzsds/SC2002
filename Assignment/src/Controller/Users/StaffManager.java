@@ -86,12 +86,12 @@ public class StaffManager {
                         String newName = InputScanner.promptForString("Enter Camp New Name: ");
                         temp.editCampName(newName);
                         System.out.println("Camp successfully edited");
-                        continue;
+                        break;
                     case 2:
                         String newLocation = InputScanner.promptForString("Enter New Camp Location: ");
                         temp.editLocation(newLocation);
                         System.out.println("Camp successfully edited");
-                        continue;
+                        break;
                     case 3:
                         int a = InputScanner.promptForInt("Enter New User Group: (Enter \"1\" for Everyone or \"0\" for "
                                                        + staff.getFaculty() + "): ");
@@ -101,22 +101,22 @@ public class StaffManager {
                         else
                             newUserGroup = staff.getFaculty();
                         temp.editUserGroup(newUserGroup);
-                        continue;
+                        break;
                     case 4:
                         int newTotalSlots = InputScanner.promptForInt("Enter New Total Slots: ");
                         temp.editTotalSlots(newTotalSlots);
                         System.out.println("Camp successfully edited");
-                        continue;
+                        break;
                     case 5:
                         int newCommitteeSlots = InputScanner.promptForInt("Enter New Camp Committee Slots: ");
                         temp.editCampCommitteeSlots(newCommitteeSlots);
                         System.out.println("Camp successfully edited");
-                        continue;
+                        break;
                     case 6:
                         String newDescription = InputScanner.promptForString("Enter New Camp Description: ");
                         temp.editDecsription(newDescription);
                         System.out.println("Camp successfully edited");
-                        continue;
+                        break;
                     case 7:
                         int visible = InputScanner.promptForInt("Visibility of camp (Enter \"1\" for On | \"0\" for Off):");
                         boolean newVisibility = false;
@@ -124,7 +124,7 @@ public class StaffManager {
                             newVisibility = true;
                         temp.editVisibility(newVisibility);
                         System.out.println("Camp successfully edited");
-                        continue;
+                        break;
                     case 8:
                         System.out.println("Navigating back to Main Menu");
                         break;
