@@ -26,27 +26,33 @@ public class InputScanner {
     public static LocalDate promptForDate(String prompt) {
         while (true){
             try{
-            String dateString = InputScanner.promptForString("Enter camp start date in format (dd/mm/yyyy): ");
+            String dateString = InputScanner.promptForString(prompt);
             String[] parts = dateString.split("/");
 
-            if (parts.length != 3){
-                throw new IllegalArgumentException ("Invalid date format. Please use (dd/mm/yyyy) ");
-            }
+            if(parts.length != 3)
+                throw new ArrayIndexOutOfBoundsException("Invalid input. Please enter valid date in specified format");
+
             int day = Integer.parseInt(parts[0]);
             int month = Integer.parseInt(parts[1]);
             int year = Integer.parseInt(parts[2]);
             LocalDate date = LocalDate.of(year, month, day);
             LocalDate currenDate = LocalDate.now();
             if (date.isBefore(currenDate)){
-                throw new IllegalArgumentException ("The date you input has already past. Please enter again");
+                throw new IllegalArgumentException ("The date entered has already passed. Please enter again");
             }
             return date;
-            }catch (InputMismatchException e){
-                System.out.println("Invalid input. Please enter valid date in specified format");
-            }catch (ArrayIndexOutOfBoundsException | IllegalArgumentException e){
+            }catch (ArrayIndexOutOfBoundsException e){
                 System.out.println("Invalid input. Please enter valid date in specified format");
             }catch(DateTimeException e){
-                System.out.println((e.getMessage()));
+                System.out.println("Date does not exist in calendar");
+            }
+            catch(NumberFormatException e){
+                System.out.println("Please key in the dates numerically");
+            }
+            catch(IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }catch (InputMismatchException e){
+                System.out.println("Invalid input. Please enter valid date in specified format");
             }
         }
     }
