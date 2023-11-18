@@ -10,17 +10,18 @@ public class StudentMainPage {
 
     public static void run() {
         boolean continueMenu = true;
+        Student currentStudent = (Student)LoginManager.getCurrentUser();
+        System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+        StudentMainMenu.displayMainMenu();
         while (continueMenu) {
-            System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
-            Student currentStudent = (Student)LoginManager.getCurrentUser();
-            StudentMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-8): ");
             switch (option) {
-
                 case 1:
                     // Display list of camps available
                     System.out.println("Retrieving list of available camps...");
                     StudentManager.viewAvailableCamps();
+                    System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+                    StudentMainMenu.displayMainMenu();
                     break;
 
                 case 2:
@@ -31,22 +32,30 @@ public class StudentMainPage {
                         continueMenu = false;
                         CampCommitteeMainPage.run();
                     }
+                    System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+                    StudentMainMenu.displayMainMenu();
                     break;
                 case 3:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
                     EnquiryMainPage enquiryPage = new EnquiryMainPage(LoginManager.getCurrentUser());
                     enquiryPage.run();
+                    System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+                    StudentMainMenu.displayMainMenu();
                     break;
                 case 4:
                     // Display registered camps
                     System.out.println("Retrieving registered camps...");
                     currentStudent.viewRegisteredCamps();
+                    System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+                    StudentMainMenu.displayMainMenu();
                     break;
                 case 5:
                     // Display registered camps
                     System.out.println("Retrieving registered camps...");
                     StudentManager.withdrawFromCamp();
+                    System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
+                    StudentMainMenu.displayMainMenu();
                     break;
                 case 6:
                     // Initiate password change process
@@ -69,7 +78,6 @@ public class StudentMainPage {
                     System.out.println("Invalid option. Please enter a valid option.");
                     break;
             }
-            System.out.println();
         }
 
     }

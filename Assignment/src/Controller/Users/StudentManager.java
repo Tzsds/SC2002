@@ -11,6 +11,7 @@ import Entity.CampCommittee;
 import Entity.CampDetails;
 import Entity.Student;
 import Repository.CampRepository;
+import UI.InputScanner;
 
 public class StudentManager {
 
@@ -18,7 +19,6 @@ public class StudentManager {
 
     public static void registerForCamps() {
         System.out.println("=================================");
-        Scanner sc = new Scanner(System.in);
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
         String faculty = s.getFaculty();
@@ -62,16 +62,17 @@ public class StudentManager {
 
         }
         if (count == 0) {
-            System.out.println("There is currently no available camps.");
+            System.out.println("There is currently no available camps for you to register.");
         } else {
             System.out.println("If you want to exit please type " + ++count);
-            System.out.println("Please input the number of the camp you would like to register for");
-            userChoice = sc.nextInt();
-            while (userChoice<=0 ||userChoice>count) {
-                System.out.println("Please input a valid number");
-                System.out.println("Please input the number of the camp you would like to register for");
-                userChoice = sc.nextInt();
+            while(true){
+                userChoice = InputScanner.promptForInt("Please input the number of the camp you would like to register for \n");
+                if(userChoice<=0 ||userChoice>count)
+                    System.out.println("Invalid Input");
+                else    
+                    break;
             }
+            
             if (userChoice == count) {
 
             } else {
@@ -79,13 +80,10 @@ public class StudentManager {
                 System.out.println(
                         "The camp you are registering for is " + registeredCamp.getCampDetails().getCampName());
                 if (registeredCamp.getCampDetails().getCampCommitteeSlots() > 0 && !(s instanceof CampCommittee)) {
-                    System.out.println("Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No");
-                    int committeeDecision = 0;
-                    committeeDecision = sc.nextInt();
-                    while(committeeDecision <=0 || committeeDecision>2){
+                    int committeeDecision =0 ;
+                    while(committeeDecision<=0 ||committeeDecision>2){
+                        committeeDecision = InputScanner.promptForInt("Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No\n");
                         System.out.println("Enter a valid option");
-                        System.out.println("Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No");
-                        committeeDecision = sc.nextInt();
                     }
                      if (committeeDecision == 1) {
                         CampCommittee tempStudent = CampCommitteeManager.toCampCommittee(s);
@@ -117,10 +115,9 @@ public class StudentManager {
     }
 
     public static void withdrawFromCamp() {
-        Scanner sc = new Scanner(System.in);
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
-        int userChoice = 0;
+        int userChoice ;
         int userConfirm = 0;
         int count = 0;
         ArrayList<Camp> registeredCampList = s.getRegisteredCamps();
@@ -163,26 +160,26 @@ public class StudentManager {
         if (count == 0) {
             System.out.println("You have not registered for any camps yet.");
         } else {
-            System.out.println(
-                        "Please Enter the number of the camp you would like to withdraw for or if you would like to return please input "
-                                + ++count);
-                userChoice = sc.nextInt();
-            while (userChoice <= 0 || userChoice > count) {
-                System.out.println("Please enter either 1 for Yes or 2 for No only");
-                System.out.println(
-                        "Please Enter the number of the camp you would like to withdraw for or if you would like to return please input "
-                                + ++count);
-                userChoice = sc.nextInt();
+            System.out.println("If you would like to return please input " + ++count);
+            while (true) {
+                userChoice = InputScanner.promptForInt("Please input the number of the camp you would like to withdraw from \n");
+                if(userChoice <= 0 || userChoice > count)
+                    System.out.println("Invalid Input");
+                else 
+                    break;
             }
             if (userChoice == count) {
 
             } else {
                 Camp registeredCamp = list.get(userChoice - 1);
-                while (userConfirm > 2 || userConfirm <= 0) {
-                    System.out.println(
-                            "The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName()
-                                    + ". Are you sure you want to withdrawn enter 1 for Yes or 2 for No");
-                    userConfirm = sc.nextInt();
+                System.out.println("The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName()+ 
+                                    ". Are you sure you want to withdraw? Enter 1 for Yes or 2 for No ");
+                while (true) {
+                    userConfirm = InputScanner.promptForInt("Enter 1 for Yes or 2 for No \n");
+                    if (userConfirm > 2 || userConfirm <= 0)
+                        System.out.println("Invalid input. ");
+                    else 
+                        break;
                 }
                 if (userConfirm == 1) {
                     registeredCamp.withdrawStudent(s);

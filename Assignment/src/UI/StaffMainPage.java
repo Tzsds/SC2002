@@ -16,7 +16,6 @@ public class StaffMainPage {
         while (continueMenu) {
             int option = InputScanner.promptForInt("Input your choice of action (1-12): ");
             switch (option) {
-
                 case 1:
                     // Show all Camps
                     System.out.println("Showing all camps created...");
@@ -28,46 +27,54 @@ public class StaffMainPage {
                     // Create new camp
                     System.out.println("Navigating to create camp page...");
                     currentStaff.createNewCamp();
+                    System.out.println("Welcome " + currentStaff.getName());
                     StaffMainMenu.displayMainMenu();
                     break;
                 case 3:
                     // View camps created by the staff
                     System.out.println("Showing camps created by you...");
                     StaffManager.viewCampsCreated(currentStaff.getListOfCampsCreated());
+                    System.out.println("Welcome " + currentStaff.getName());
                     StaffMainMenu.displayMainMenu();
                     break;
                 case 4:
                     // Edit camp
                     StaffManager.editCamp(currentStaff.getListOfCampsCreated());
+                    System.out.println("Welcome " + currentStaff.getName());
                     StaffMainMenu.displayMainMenu();
                     break;
                 case 5:
                     // Delete camps created by staff
                     currentStaff.deleteCamp();
+                    System.out.println("Welcome " + currentStaff.getName());
                     StaffMainMenu.displayMainMenu();
                     break;
                 case 6:
                     // Show Enqueries asked by students
                     StaffEnquiryPage enquiryPage = new StaffEnquiryPage();
                     enquiryPage.run();
+                    System.out.println("Welcome " + currentStaff.getName());
                     StaffMainMenu.displayMainMenu();
                     break;
                 case 7:
                     // View suggestions given by camp committee members
                     System.out.println("Navigating to suggestion page...");
                     StaffSuggestionMainPage.run();
+                    System.out.println("Welcome " + currentStaff.getName());
                     StaffMainMenu.displayMainMenu();
                     break;
                 case 8:
                     // Generate camp report
                     System.out.println("Listing camps created by you...");
                     currentStaff.generateCampReport();
+                    System.out.println("Welcome " + currentStaff.getName());
                     StaffMainMenu.displayMainMenu();
                     break;
                 case 9:
                     // Generate performance report
                     System.out.println("Generating performance report of camp committee members...");
                     currentStaff.generatePerformanceReport();
+                    System.out.println("Welcome " + currentStaff.getName());
                     StaffMainMenu.displayMainMenu();
                     break;
                 case 10:
@@ -91,7 +98,6 @@ public class StaffMainPage {
                     System.out.println("Invalid option. Please enter a valid option.");
                     break;
             }
-            System.out.println();
         }
     }
 }
