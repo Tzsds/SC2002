@@ -141,8 +141,6 @@ public class ReadUser {
                     String password = words[3].trim();
                     int points = Integer.parseInt(words[4].trim());
                     CampCommitteeRepository.addCampCommittee(new CampCommittee(userID, name, faculty, password, points));
-                    Student student = (Student)CampCommitteeRepository.getCommitteeByID(userID);
-                    StudentRepository.addStudent(student);
                 }
             }
         }

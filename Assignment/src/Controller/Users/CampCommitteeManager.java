@@ -22,6 +22,11 @@ public class CampCommitteeManager {
         CampCommittee tempStudent = new CampCommittee(userID, name, faculty, password);
         tempStudent.setEnquiries(listOfEnquiry);
         tempStudent.setRegisteredCamps(listOfCamp);
+        for (Camp c : listOfCamp){
+            ArrayList <Student> listOfParticipants = c.getParticipants();
+            listOfParticipants.remove(s);
+            listOfParticipants.add(tempStudent);
+        }
         LoginManager.setUser(tempStudent);
         LoginManager.setCurrentRole("CampCommittee");
         StudentRepository.removeStudent(s);

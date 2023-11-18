@@ -19,9 +19,9 @@ public class Start {
             String userRole = LoginManager.getUserRole();
             // the following 3 codes below are just for testing purposes
             // System.out.println("Current user: " + currentUser.getName());
-            // System.out.println("user id:" + currentUser.getUserID());
             // System.out.println("user role: " + userRole);
             Display.clearScreen();
+            System.out.println("user id:" + currentUser.getUserID());
 
             // entering main pages
             if (userRole == "Student") {
