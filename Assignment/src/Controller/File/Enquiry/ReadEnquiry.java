@@ -38,8 +38,12 @@ public class ReadEnquiry {
                         enquiry.setStatus(status);
                     }
 
-                    if (words.length >= 5) {
-                        String replier = words[4].trim();
+                    if (words.length >= 4) {
+                        String repliedContent= words[4].trim();
+                        enquiry.setRepliedContent(repliedContent);
+                    }
+                     if (words.length >= 4) {
+                        String replier= words[5].trim();
                         enquiry.setReplier(replier);
                     }
 
@@ -58,7 +62,7 @@ public class ReadEnquiry {
         ArrayList<Enquiry> listOfEnquiries = new ArrayList<>();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-            String header = "sender,content,camp,status,replier\n";
+            String header = "Sender, Content, Camp, Status, RepliedContent, Replier\n";
             writer.write(header);
         } catch (IOException e) {
             e.printStackTrace();
