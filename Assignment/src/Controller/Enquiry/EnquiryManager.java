@@ -19,51 +19,66 @@ import UI.InputScanner;
 
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {
-        /* System.out.println("Which Camp do you want to enquiry on?");
-        StudentManager.viewAvailableCamps();
-        String campChoice = InputScanner.promptForString("Choose a camp(Enter Camp Name): ");
-        //String campChoice = InputScanner.waitForUserInputString();
-        // Validate if the chosen camp name exists in the available camps
-        if (!CampDetails.campExists(campChoice)) {
-            System.out.println("Invalid camp name. Please choose a valid camp.");
-            return null; // Return null to indicate an error
-        }
-        String content = InputScanner.promptForString("What enquiries do you have?: ");
-        String sender = LoginManager.getCurrentUser().getUserID();
-        System.out.println("This is the content written: " + content);
-        return new Enquiry(sender, content, campChoice); */
+        /*
+         * System.out.println("Which Camp do you want to enquiry on?");
+         * StudentManager.viewAvailableCamps();
+         * String campChoice =
+         * InputScanner.promptForString("Choose a camp(Enter Camp Name): ");
+         * //String campChoice = InputScanner.waitForUserInputString();
+         * // Validate if the chosen camp name exists in the available camps
+         * if (!CampDetails.campExists(campChoice)) {
+         * System.out.println("Invalid camp name. Please choose a valid camp.");
+         * return null; // Return null to indicate an error
+         * }
+         * String content =
+         * InputScanner.promptForString("What enquiries do you have?: ");
+         * String sender = LoginManager.getCurrentUser().getUserID();
+         * System.out.println("This is the content written: " + content);
+         * return new Enquiry(sender, content, campChoice);
+         */
 
         System.out.println("Which Camp do you want to enquiry on?");
-    
-        // Display available camps with indices
-        List<Camp> allAvailCamps = CampRepository.getListOfCamps();
-        
+
+        // CHANGE THIS TO ONLY LIST CAMPS AVAIL TO THE USER - aka they can only enquire
+        // on camps that is opened to them rather than all the camps
+        // maybe can use StudentManager.viewAvailableCamps(); (once they fix it)
+        List<Camp> allAvailCamps = CampRepository.getAvailableCampsForStudent(student);
+
         for (int i = 0; i < allAvailCamps.size(); i++) {
             System.out.println((i + 1) + ": " + allAvailCamps.get(i).getCampDetails().getCampName());
         }
-        
+
         // Prompt for camp index
-        int campIndex = InputScanner.promptForInt("Choose a camp (Enter the index): ");
-        
-        // Validate if the chosen index is valid
-        if (campIndex < 1 || campIndex > allAvailCamps.size()) {
-            System.out.println("Invalid index. Please choose a valid index.");
-            return null; // Return null to indicate an error
+        int campIndex = InputScanner.promptForInt("Choose a camp (Enter the index, 0 to cancel): ");
+
+        while (campIndex == -1 || campIndex < 1 || campIndex > allAvailCamps.size()) {
+            if (campIndex == 0) {
+                return null;
+            } else if (campIndex < 1 || campIndex > allAvailCamps.size()) {
+                System.out.println("Invalid index. Please choose a valid index.");
+                campIndex = InputScanner.promptForInt("Choose a camp (Enter the index, 0 to cancel): ");
+            }
         }
-    
+
         // Get the selected camp name based on the index
         String campChoice = allAvailCamps.get(campIndex - 1).getCampDetails().getCampName();
-    
+
         String content = InputScanner.promptForString("What enquiries do you have?: ");
         String sender = LoginManager.getCurrentUser().getUserID();
         System.out.println("This is the content written: " + content);
-        
+
         return new Enquiry(sender, content, campChoice);
     }
 
     public static void addEnquiry() {
         Student User = (Student) LoginManager.getCurrentUser();
         Enquiry enquiry = createEnquiry(User);
+
+        if (enquiry == null) {
+            System.out.println("Enquiry creation cancelled!");
+            return; // Exit the method without adding the enquiry
+        }
+
         User.getEnquiries().add(enquiry);
         EnquiryRepository.addEnquiryToRepo(enquiry);
 
@@ -149,7 +164,7 @@ public class EnquiryManager {
                     String oldContent = selectedEnquiry.getContent(); // Keep a copy of the original content
 
                     String newContent = InputScanner.promptForString("Enter the new Enquiry content: ");
-                   // String newContent = InputScanner.waitForUserInputString();
+                    // String newContent = InputScanner.waitForUserInputString();
 
                     // Update the selected enquiry
                     Enquiry updatedSelectedEnquiry = new Enquiry(
@@ -176,7 +191,7 @@ public class EnquiryManager {
 
     public static void viewStudentEnquiries(User currentUser) {
         List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
-        if(studentEnquiries.size()==0){
+        if (studentEnquiries.size() == 0) {
             System.out.println("No Enquiries!");
         }
         for (int i = 0; i < studentEnquiries.size(); i++) {

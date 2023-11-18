@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Entity.Camp;
 import Entity.CampDetails;
+import Entity.Student;
 
 public class CampRepository {
     private static ArrayList<Camp> listOfCamps = new ArrayList<Camp>();
@@ -24,10 +25,10 @@ public class CampRepository {
         listOfCamps.add(camp);
     }
 
-    public static void removeCamp(Camp camp){
+    public static void removeCamp(Camp camp) {
         listOfCamps.remove(camp);
     }
-    
+
     public static Camp getCampByCampName(String campName) {
         for (int j = 0; j < getSizeOfCamps(); j++) {
             Camp tempCamp = get(j);
@@ -38,5 +39,25 @@ public class CampRepository {
             }
         }
         return null;
+    }
+
+    public static ArrayList<Camp> getAvailableCampsForStudent(Student student) {
+        ArrayList<Camp> availableCamps = new ArrayList<>();
+
+        for (Camp camp : listOfCamps) {
+            CampDetails campDetails = camp.getCampDetails();
+
+            if (!campDetails.getVisibility()) {
+                continue;
+            } else {
+                if (campDetails.getUserGroup().equals("Everyone")
+                        || (campDetails.getUserGroup().equals(student.getFaculty())
+                                && (campDetails.getTotalSlots() > 0 || campDetails.getCampCommitteeSlots() > 0))) {
+                    availableCamps.add(camp);
+                }
+            }
+        }
+
+        return availableCamps;
     }
 }

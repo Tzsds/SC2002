@@ -11,7 +11,7 @@ public class CampCommitteeMainPage {
     public static void run() {
         boolean continueMenu = true;
         while (continueMenu) {
-            CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
+            CampCommittee User = (CampCommittee) LoginManager.getCurrentUser();
             System.out.println("Welcome " + User.getName());
             CampCommitteeMainMenu.displayMainMenu();
             int option = InputScanner.promptForInt("Input your choice of action (1-10): ");
@@ -23,14 +23,14 @@ public class CampCommitteeMainPage {
                     StudentManager.viewAvailableCamps();
                     break;
                 case 2:
-                    //Register for camp under Student Manager
+                    // Register for camp under Student Manager
                     System.out.println("Navigating to camp registration page");
                     StudentManager.registerForCamps();
                     break;
                 case 3:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
-                    EnquiryMainPage enquiryPage = new EnquiryMainPage(LoginManager.getCurrentUser());
+                    CampCommitteeEnquiryPage enquiryPage = new CampCommitteeEnquiryPage();
                     enquiryPage.run();
                     break;
                 case 4:
@@ -39,26 +39,26 @@ public class CampCommitteeMainPage {
                     SuggestionMainPage.run();
                     break;
                 case 5:
-                    //View Registered Camps
+                    // View Registered Camps
                     User.viewRegisteredCamps();
                     break;
                 case 6:
-                    //View and Reply to Enquiries
+                    // View and Reply to Enquiries
                     System.out.println("Viewing Enquiries...");
                     continueMenu = false;
                     break;
                 case 7:
-                    //Generate Report
+                    // Generate Report
                     System.out.println("Navigating to generate camp report...");
                     User.generateCampReport();
                     break;
                 case 8:
-                    //Generate Report
+                    // Generate Report
                     System.out.println("Withdrawing From Camps...");
                     StudentManager.withdrawFromCamp();
                     break;
                 case 9:
-                    //Change Password
+                    // Change Password
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteCampCommittee();
@@ -66,12 +66,12 @@ public class CampCommitteeMainPage {
                     continueMenu = false;
                     break;
                 case 10:
-                    //Log out
+                    // Log out
                     Display.LogOut();
                     continueMenu = false;
                     break;
                 case 11:
-                    //Quit Program
+                    // Quit Program
                     Display.ExitMessage();
                     System.exit(0);
                 default:
