@@ -58,13 +58,7 @@ public class StaffManager {
                 String campName = campCreated.get(i).getCampDetails().getCampName();
                 System.out.println(i + 1 + ". " + campName);
             }
-            try {
-                choice = InputScanner.promptForInt("Which camp do you want to edit?: ");
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input! Please try again.");
-                InputScanner.clear();
-                continue;
-            }
+            choice = InputScanner.promptForInt("Which camp do you want to edit?: ");
             if (choice <= 0 || choice > size) {
                 System.out.println("Invalid input! Please try again.");
                 continue;
@@ -93,13 +87,25 @@ public class StaffManager {
                         System.out.println("Camp successfully edited");
                         break;
                     case 3:
-                        int a = InputScanner.promptForInt("Enter New User Group: (Enter \"1\" for Everyone or \"0\" for "
-                                                       + staff.getFaculty() + "): ");
                         String newUserGroup;
-                        if (a == 1)
-                            newUserGroup = "Everyone";
-                        else
-                            newUserGroup = staff.getFaculty();
+                        while(true){
+                            int a = InputScanner.promptForInt("Enter New User Group: (Enter \"1\" for Everyone or \"0\" for "
+                                                        + staff.getFaculty() + "): ");
+                            if(a < 0 || a > 1){
+                                System.out.println("Invalid input. Please try again");
+                            }
+                            else{
+                                if (a == 1){
+                                    newUserGroup = "Everyone";
+                                    break;
+                                }
+                                else{
+                                    newUserGroup = staff.getFaculty();
+                                    break;
+                                }
+                            }
+                        }
+                        System.out.println("Camp successfully edited");
                         temp.editUserGroup(newUserGroup);
                         break;
                     case 4:
@@ -118,12 +124,25 @@ public class StaffManager {
                         System.out.println("Camp successfully edited");
                         break;
                     case 7:
+                        boolean newVisibility;  
+                        while(true){
                         int visible = InputScanner.promptForInt("Visibility of camp (Enter \"1\" for On | \"0\" for Off):");
-                        boolean newVisibility = false;
-                        if (visible == 1)
-                            newVisibility = true;
-                        temp.editVisibility(newVisibility);
+                        if(visible < 0 || visible > 1){
+                                System.out.println("Invalid input. Please try again");
+                            }
+                            else{
+                                if (visible == 1){
+                                    newVisibility = true;
+                                    break;
+                                }
+                                else{
+                                    newVisibility = false;
+                                    break;
+                                }
+                            }
+                        }
                         System.out.println("Camp successfully edited");
+                        temp.editVisibility(newVisibility);
                         break;
                     case 8:
                         System.out.println("Navigating back to Main Menu");

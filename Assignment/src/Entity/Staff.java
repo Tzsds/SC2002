@@ -52,25 +52,45 @@ public class Staff extends User {
         year = Integer.parseInt(parts[2]);
         LocalDate registrationClosingDate = LocalDate.of(year, month, day);
 
-        int a = InputScanner.promptForInt("Which user group is this camp open to? (Enter \"1\" for Everyone or \"0\" for " + getFaculty() + "): ");
         String userGroup;
-        if(a == 1)
-            userGroup = "Everyone";
-        else
-            userGroup = getFaculty();
-
+        while (true){
+            int a = InputScanner.promptForInt("Which user group is this camp open to? (Enter \"1\" for Everyone or \"0\" for " + getFaculty() + "): ");
+            if (a <0 || a > 1)
+                System.out.println("Invalid input. Please try again");
+            else{
+                if(a == 1){
+                    userGroup = "Everyone";
+                    break;
+                }
+                else{
+                    userGroup = getFaculty();
+                    break ;
+                }
+            }
+        }
+        
         String location = InputScanner.promptForString("Enter location of the camp: ");
 
         int totalSlots = InputScanner.promptForInt("Enter the total number of slots open for the camp: ");
         
         int campCommitteeSlots = InputScanner.promptForInt("Enter the number of camp committee slots open for the camp: ");   
-
-        int visibility = InputScanner.promptForInt("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
         
-        boolean bool = false;
-        if (visibility == 1) {
-            bool = true;
-        }
+        boolean bool;
+        while(true){
+            int visibility = InputScanner.promptForInt("Visibility of camp to the targetted students? (Enter \"1\" for On, or \"0\" for Off): ");
+            if (visibility <0 || visibility > 1)
+                System.out.println("Invalid input. Please try again");
+            else{
+                if(visibility == 1){
+                    bool = true;
+                    break;
+                }
+                else{
+                    bool = false;
+                    break ;
+                }
+            }
+        }   
 
         String id = getUserID();
 
