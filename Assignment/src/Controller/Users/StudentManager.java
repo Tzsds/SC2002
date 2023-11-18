@@ -42,13 +42,13 @@ public class StudentManager {
                 if (!detail.getVisibility()) {
                     continue;
                 } else {
-                    if (detail.getUserGroup().equals("Everyone") || c.getCampDetails().getTotalSlots()>0 || c.getCampDetails().getCampCommitteeSlots()>0) {
+                    if (detail.getUserGroup().equals("Everyone") && c.getCampDetails().getTotalSlots()>0 && c.getCampDetails().getCampCommitteeSlots()>0) {
                         // print
                         System.out.println("Camp " + ++count);
                         CampManager.printCampRegistrationForStudents(detail);
                         list.add(c);
                     } else {
-                        if (detail.getUserGroup().equals(faculty) || c.getCampDetails().getTotalSlots()>0 || c.getCampDetails().getCampCommitteeSlots()>0) {
+                        if (detail.getUserGroup().equals(faculty) && c.getCampDetails().getTotalSlots()>0 && c.getCampDetails().getCampCommitteeSlots()>0) {
                             // print
                             System.out.println("Camp " + ++count);
                             CampManager.printCampRegistrationForStudents(detail);
@@ -138,6 +138,7 @@ public class StudentManager {
                                     System.out.println("Camp " + ++count);
                                     CampManager.printCampRegistrationForStudents(detail);
                                     list.add(c);
+                                    break;
                                 }
                             }
                         } else {
@@ -146,15 +147,32 @@ public class StudentManager {
                             System.out.println("Camp " + ++count);
                             CampManager.printCampRegistrationForStudents(detail);
                             list.add(c);
+                            break;
                         }
                     }
                 }
             } else {
-                CampDetails detail = c.getCampDetails();
-                System.out.println("==========================");
-                System.out.println("Camp " + ++count);
-                CampManager.printCampRegistrationForStudents(detail);
-                list.add(c);
+                if (!c.getWithdrawnStudents().isEmpty()) {
+                            for (Student withdrawn : c.getWithdrawnStudents()) {
+                                if (s == withdrawn) {
+
+                                } else {
+                                    CampDetails detail = c.getCampDetails();
+                                    System.out.println("==========================");
+                                    System.out.println("Camp " + ++count);
+                                    CampManager.printCampRegistrationForStudents(detail);
+                                    list.add(c);
+                                    break;
+                                }
+                            }
+                        } else {
+                            CampDetails detail = c.getCampDetails();
+                            System.out.println("==========================");
+                            System.out.println("Camp " + ++count);
+                            CampManager.printCampRegistrationForStudents(detail);
+                            list.add(c);
+                            break;
+                        }
             }
         }
 
