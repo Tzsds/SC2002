@@ -1,2 +1,7 @@
 campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
-NTU,2001-12-10,2001-12-10,2001-12-10,Everyone,NTU,10,10,NTU,ARVI,true
+AA,0001-01-01,0001-01-01,0001-01-01,Everyone,d,31,5,c,ARVI,true
+BB,2025-01-01,0001-01-01,0001-01-01,Everyone,fds,42,5,f,ARVI,true
+CC,2024-01-01,0001-01-01,0001-01-01,Everyone,f,321,22,f,ARVI,true
+DD,2040-01-01,0001-01-01,0001-01-01,Everyone,d,31,5,c,ARVI,true
+EE,2023-12-20,0001-01-01,0001-01-01,Everyone,fds,42,5,f,ARVI,true
+GG,1000-01-01,0001-01-01,0001-01-01,Everyone,f,321,22,f,ARVI,true

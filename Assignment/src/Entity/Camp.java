@@ -1,7 +1,8 @@
 package Entity;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Camp {
+public class Camp implements Comparable {
     private CampDetails campDetails;
     private ArrayList<Student> participants = new ArrayList<>();
     private ArrayList<Student> campCommittee = new ArrayList<>();;
@@ -92,5 +93,20 @@ public class Camp {
     public void withdrawStudent(Student student){
         participants.remove(student);
         withdrawnStudents.add(student);
+    }
+
+    public int compareTo(Object object) {
+        Camp camp = (Camp)object;
+        LocalDate startDate = camp.getCampDetails().getStartDate();
+        LocalDate now = LocalDate.now();
+        System.out.println(startDate);
+        if ((startDate).compareTo(now) < 0) {
+            return -1;
+        }
+        else if ((startDate).compareTo(now) > 0) {
+            return 1;
+        }
+        // same date
+        return 0;
     }
 }

@@ -1,11 +1,13 @@
 package Controller.Users;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Iterator;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
+import Controller.Utilities.Sort;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.CampDetails;
@@ -213,6 +215,8 @@ public class StudentManager {
         }
     }
 
+
+    // still can use this function to generate list of camps available, then put this list to sort
     public static ArrayList<Camp> viewAvailableCamps() {
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
@@ -250,4 +254,136 @@ public class StudentManager {
         return list;
     }
 
+
+    ///////////////////////////////////////////////// from here onwards new code for filter
+    // 
+    // but still cannot work at getCampsFilteredByDate() cos of the sorting Comparable (maybe cos i changed from list to Arraylist)
+
+    // can work
+    // new viewAvailableCamps (to change name agn)
+    public static void newviewAvailableCamps() {
+        int filterType = promptForCampFilterType();
+        printAvailableCamps(filterType);
+    }
+
+    // can work
+    // same as the previous viewAvailableCamps() but removed all the print lines
+    public static ArrayList<Object> getCampsAvailable() {
+        ArrayList<Object> list = new ArrayList<>();
+        Student s = (Student) LoginManager.getCurrentUser();
+        String faculty = s.getFaculty();
+        ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
+        for (Camp c : listOfCamps) {
+            CampDetails detail = c.getCampDetails();
+            if (!detail.getVisibility()) {
+                continue;
+            } else {
+                if (detail.getUserGroup().equals("Everyone")) {
+                    list.add(c);
+                } else {
+                    if (detail.getUserGroup().equals(faculty)) {
+                        list.add(c);
+                    }
+                }
+            }
+        }
+        return list;
+    }
+
+    // can work
+    public static int promptForCampFilterType() {
+        System.out.println("How do you want to view the camps?\n"
+                        + "1. No filter\n"
+                        + "2. View by filter\n\n");
+
+        int filterType;
+        do {
+            filterType = InputScanner.promptForInt("Enter your option (1/2): ");
+        } while (filterType != 1 && filterType != 2);
+
+        if (filterType == 1) {
+            return 0;
+        }
+
+        System.out.println("How do you want to filter by?\n"
+                        + "1. Camp Name\n"
+                        + "2. Location\n"
+                        + "3. After a certain date\n");
+
+        do {
+            filterType = InputScanner.promptForInt("Enter your option (1/2/3): ");
+        } while (filterType != 1 && filterType != 2 && filterType != 3);
+
+        return filterType;       
+    }
+
+    // can work
+    public static void printAvailableCamps(int filterType) {
+
+        ArrayList<Object> campsAvailable = getCampsAvailable();
+        ArrayList<Object> campListToPrint;
+
+        // no filter
+        if (filterType == 0) {
+            // display all camps in default alphabetical order
+        }
+
+        // filter by camp name
+        else if (filterType == 1) {
+            
+        }
+
+        // filter by location
+        else if (filterType == 2) {
+
+        }
+
+        // filter by date
+        else {
+            // input date
+            //campListToPrint = getCampsFilteredByDate(campsAvailable);
+        }
+
+        campListToPrint = getCampsFilteredByDate(campsAvailable);
+        printCamps(campListToPrint);
+    }
+
+    // cannot work
+    public static ArrayList<Object> getCampsFilteredByDate(ArrayList<Object> campList) {
+        // the sorting of date is wrong currently
+        ArrayList<Object> sortedCampList = Sort.insertionSort(new ArrayList<>(campList));
+
+        // to remove camps which are over
+        // this part is working
+        // LocalDate now = LocalDate.now();
+        // Iterator<Object> iterator = sortedCampList.iterator();
+        // while (iterator.hasNext()) {
+        //     Camp c = (Camp) iterator.next();
+        //     LocalDate startDate = c.getCampDetails().getStartDate();
+        //     System.out.println(startDate);
+    
+        //     if (startDate.compareTo(now) <= 0) {
+        //         iterator.remove(); // Safely remove elements using iterator
+        //     }
+        // }
+    
+        return sortedCampList;
+    }
+
+    // can work
+    public static void printCamps(ArrayList<Object> campListToPrint) {
+        System.out.println("ff");
+        if (campListToPrint.size() == 0) {
+            System.out.println("There is currently no available camps.");
+            return;
+        }
+        else {
+            for (Object c : campListToPrint) {
+                Camp camp = (Camp)c;
+                CampDetails detail = camp.getCampDetails();
+                CampManager.printCampDetailsForStudents(detail);
+                System.out.println("=================================");
+            }
+        }
+    }
 }
