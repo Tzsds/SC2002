@@ -43,21 +43,16 @@ public class CampCommitteeMainPage {
                     User.viewRegisteredCamps();
                     break;
                 case 6:
-                    // View and Reply to Enquiries
-                    System.out.println("Viewing Enquiries...");
-                    continueMenu = false;
-                    break;
-                case 7:
                     // Generate Report
                     System.out.println("Navigating to generate camp report...");
                     User.generateCampReport();
                     break;
-                case 8:
+                case 7:
                     // Generate Report
                     System.out.println("Withdrawing From Camps...");
                     StudentManager.withdrawFromCamp();
                     break;
-                case 9:
+                case 8:
                     // Change Password
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
@@ -65,12 +60,12 @@ public class CampCommitteeMainPage {
                     Display.LogOut();
                     continueMenu = false;
                     break;
-                case 10:
+                case 9:
                     // Log out
                     Display.LogOut();
                     continueMenu = false;
                     break;
-                case 11:
+                case 10:
                     // Quit Program
                     Display.ExitMessage();
                     System.exit(0);
