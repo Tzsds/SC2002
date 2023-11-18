@@ -38,12 +38,15 @@ public class ReadCampStudentList {
                         camp.addCampCommittee(student);
                         CampCommittee committee = CampCommitteeRepository.getCommitteeByID(userID);
                         committee.setCommitteeOf(camp);
+                        //System.out.println(student.getUserID() + " add to Camp Comm");
                     }
-                    if (role.equals("Withdrawn")) {
+                    else if (role.equals("Withdrawn")) {
                         camp.addWithdrawnStudent(student);
+                        //System.out.println(student.getUserID() + " add to Withdrawn");
                     }
                     else {
                         camp.addParticipants(student);
+                        //System.out.println(student.getUserID() + " add to Participants");
                     }
                 }
             }

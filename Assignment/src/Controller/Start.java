@@ -17,12 +17,7 @@ public class Start {
             LoginManager.Login();
             User currentUser = LoginManager.getCurrentUser();
             String userRole = LoginManager.getUserRole();
-            // the following 3 codes below are just for testing purposes
-            // System.out.println("Current user: " + currentUser.getName());
-            // System.out.println("user role: " + userRole);
             Display.clearScreen();
-            System.out.println("user id:" + currentUser.getUserID());
-
             // entering main pages
             if (userRole == "Student") {
                 System.out.println("Redirecting to student menu");
@@ -38,7 +33,8 @@ public class Start {
             }
 
             System.out.println(currentUser.getName() + " logged out");
-            System.out.println("Wecome to NTU CAMS System!");
+            Display.WelcomeMessage();
+            System.out.println();
         }
     }
 }

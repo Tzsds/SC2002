@@ -102,7 +102,8 @@ public class StudentManager {
                         System.out.println("Camp Successfully Registered as Camp Attendee!");
                     }
                     
-                } else {
+                } 
+                else {
                     registeredCamp.addParticipants(s);
                     FileWriting.FileWriteCampStudentList();
                     registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
