@@ -124,13 +124,14 @@ public class WriteEnquiry {
     public static void replyEnquiryInCSV(Enquiry selectedEnquiry) {
         String enquiryCSV = "Assignment/database/enquiries.csv";
         List<String[]> rows = new ArrayList<>();
-
+    
         try (BufferedReader br = new BufferedReader(new FileReader(enquiryCSV))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] columns = line.split(",");
                 if (areEnquiriesEqualVerbose(selectedEnquiry, columns)
-                        && columns[1].equals(selectedEnquiry.getContent())) {
+                        && columns[1].equals(selectedEnquiry.getContent())
+                        && Enquiry.Status.PENDING.toString().equals(columns[3])) {
                     columns[3] = selectedEnquiry.getStatus().toString();
                     columns[4] = selectedEnquiry.getRepliedContent();
                     columns[5] = selectedEnquiry.getReplier();
@@ -140,7 +141,7 @@ public class WriteEnquiry {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+    
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(enquiryCSV))) {
             for (String[] row : rows) {
                 StringBuilder line = new StringBuilder();
@@ -150,7 +151,7 @@ public class WriteEnquiry {
                         line.append(",");
                     }
                 }
-
+    
                 bw.write(line.toString());
                 bw.newLine();
             }
@@ -158,5 +159,6 @@ public class WriteEnquiry {
             e.printStackTrace();
         }
     }
+    
 
 }
