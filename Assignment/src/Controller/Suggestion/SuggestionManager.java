@@ -7,6 +7,7 @@ import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
 import Controller.File.Suggestion.WriteSuggestion;
+import Controller.File.User.WriteUser;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
@@ -26,7 +27,8 @@ public class SuggestionManager {
         SuggestionRepository.addSuggestionToRepo(temp);
         CampManager.addSuggestion(User.getCommitteeOf(), temp);
         User.addPoints(); //Add one point for a suggestion given
-        WriteSuggestion.writeSuggestion();
+        WriteSuggestion.writeSuggestion(); //Add Suggestion to the CSV
+        WriteUser.FileWriteCampCommittee(); //To reflect the points in the CampComm CSV
         System.out.println("Suggestion successfully added");
     }
 

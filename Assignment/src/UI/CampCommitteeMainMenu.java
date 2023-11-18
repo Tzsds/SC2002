@@ -9,7 +9,7 @@ public class CampCommitteeMainMenu {
         System.out.println("3. Enquiry Page");
         System.out.println("4. Suggestion Page");
         System.out.println("5. View Registered Camps");
-        System.out.println("6. View And Reply To Enquiries");
+        System.out.println("6. Status as Camp Committee");
         System.out.println("7. Generate Report For Camp");
         System.out.println("8. Withdraw from Camp");
         System.out.println("9. Change Password");

@@ -23,7 +23,6 @@ public class StudentManager {
         Student s = (Student) LoginManager.getCurrentUser();
         String faculty = s.getFaculty();
         int userChoice;
-        // System.out.println(faculty);
         ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
         int count = 0; // list of available camps to the student
         for (Camp c : listOfCamps) {
