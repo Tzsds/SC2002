@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Controller.File.Enquiry.ReadEnquiry;
+import Entity.Camp;
 import Entity.Enquiry;
 
 public class EnquiryRepository {
@@ -66,4 +67,15 @@ public class EnquiryRepository {
         return false;
     }
 
+    public static ArrayList<Enquiry> getEnquiriesByCamp(Camp camp) {
+        String campName = camp.getCampDetails().getCampName();
+        ArrayList<Enquiry> allEnquiries = getListOfEnquiries();
+        ArrayList<Enquiry> enquiriesForSpecificCamp = new ArrayList<>();
+        for (Enquiry enquiry : allEnquiries) {
+            if (enquiry.getCampName().equals(campName)) {
+                enquiriesForSpecificCamp.add(enquiry);
+            }
+        }
+        return enquiriesForSpecificCamp;
+    }
 }

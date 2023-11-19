@@ -1,75 +1,82 @@
-// package Controller.Report;
+package Controller.Report;
 
-// import java.util.ArrayList;
+import java.util.ArrayList;
 
-// import Entity.Camp;
-// import Entity.CampDetails;
-// import Entity.Staff;
-// import Entity.Student;
-// import Repository.UserRepository.StaffRepository;
+import Entity.Camp;
+import Entity.CampDetails;
+import Entity.Enquiry;
+import Repository.EnquiryRepository;
 
-// public class EnquiryReport extends Report {
-//     protected Camp camp;
-//     protected CampDetails campDetails;
-//     protected String reportHeader;
-//     protected String reportBody;
+public class EnquiryReport extends Report {
+    protected Camp camp;
+    protected CampDetails campDetails;
+    protected String reportHeader;
+    protected String reportBody;
+    protected ArrayList<Enquiry> enquiries;
 
-//     public EnquiryReport(Camp camp, int reportType) {
-//         this.camp = camp;
-//         this.campDetails = camp.getCampDetails();
-//         setFilePath();
-//         setHeader();
-//         setBody(reportType);
-//         this.content = reportHeader + reportBody;
-//     }
+    public EnquiryReport(Camp camp) {
+        this.camp = camp;
+        this.campDetails = camp.getCampDetails();
+        setFilePath();
+        setEnquiries();
+        setHeader();
+        setBody();
+        this.content = reportHeader + reportBody;
+    }
 
-//     public void setFilePath() {
-//         String fileName = campDetails.getCampName() + "CampReport.txt";
-//         this.filePath = filePath.concat(fileName);
-//     }
+    public void setFilePath() {
+        String fileName = campDetails.getCampName() + "CampEnquiryReport.txt";
+        this.filePath = filePath.concat(fileName);
+    }
 
-//     public void setHeader() {
-//         String staffId = campDetails.getStaffInCharge();
-//         Staff staff = StaffRepository.getStaffByID(staffId);
-//         String staffName = staff.getName();
-//         int totalAttendees = camp.getParticipants().size() + camp.getCampCommittee().size();
+    public void setEnquiries() {
+        ArrayList<Enquiry> enquiries = EnquiryRepository.getEnquiriesByCamp(camp);
+        this.enquiries = enquiries;
+    }
 
-//         this.reportHeader =
-//             "Camp Name: " + campDetails.getCampName() + "\n" +
-//             "Description: " + campDetails.getDescription() + "\n" +
-//             "Camp Dates: " + formatDate(campDetails.getStartDate()) + " - " +
-//                             formatDate(campDetails.getEndDate()) + "\n" +
-//             "Registration Close Date: " + formatDate(campDetails.getCloseDate()) + "\n" +
-//             "Open To: " + campDetails.getUserGroup() + "\n" +
-//             "Location: " + campDetails.getLocation() + "\n" +
-//             "Staff In Charge: " + staffName + "\n" +
-//             "Total Slots Available: " + campDetails.getTotalSlots() + "\n" +
-//             "Total Camp Committee Slots Available: " + campDetails.getCampCommitteeSlots() + "\n" +
-//             "Current Number of Attendees: " + totalAttendees + "\n" +
-//             "Current Number of Committee Members: " + camp.getCampCommittee().size() + "\n\n";
-//     }
+    public void setHeader() {
+        this.reportHeader = "Camp Name: " + campDetails.getCampName() + "\n" +
+                            "Number of Enquiries: " + enquiries.size() + "\n\n";
+    }
 
-//     public void setBody(int reportType) {
-//         String reportBody = String.format("%-15s Role\n", "Name");
+    public void setBody() {
+        String reportBody = String.format("%-3s Enquiry Details\n", "No.");
+        // String reportBody = "";
 
-//         if (reportType == 1 || reportType == 2) {
-//             // print committee members
-//             ArrayList<Student> committeeList = camp.getCampCommittee();
-//             for (Student committee : committeeList) {
-//                 String name = committee.getName();
-//                 reportBody += String.format("%-15s Committee Member\n", name);
-//             }
-//         }
+        int i = 1;
+        for (Enquiry enquiry : enquiries) {
+            String question = enquiry.getContent();
+            String reply = enquiry.getRepliedContent();
+            String sender = enquiry.getSender();
+            String replier = enquiry.getSender();
+            reportBody += String.format("%-3s " + "Enquiry: " + question + "\n", i);
+            reportBody += String.format("%-3s " + "Replied Content: " + reply + "\n", "");
+            reportBody += String.format("%-3s " + "Sender: " + sender + "\n", "");
+            reportBody += String.format("%-3s " + "Replier: " + replier + "\n\n", "");
+            i++;
+        }
+        this.reportBody = reportBody;
+    }
+}
 
-//         if (reportType == 1 || reportType == 3) {
-//             // print non-committee members
-//             ArrayList<Student> participantList = camp.getParticipants();
-//             for (Student participant : participantList) {
-//                 String name = participant.getName();
-//                 reportBody += String.format("%-15s Participant\n", name);
-//             }
+
+// different format
+
+// public void setBody() {
+//         // String reportBody = String.format("%-20s Details\n", "Enquiry No.");
+//         String reportBody = "";
+
+//         int i = 1;
+//         for (Enquiry enquiry : enquiries) {
+//             String question = enquiry.getContent();
+//             String reply = enquiry.getRepliedContent();
+//             String sender = enquiry.getSender();
+//             String replier = enquiry.getSender();
+//             reportBody += ("Enquiry " + i + ":" + question + "\n");
+//             reportBody += ("Replied Content: " + reply + "\n");
+//             reportBody += ("Sender: " + sender + "\n");
+//             reportBody += ("Replier: " + replier + "\n\n");
+//             i++;
 //         }
 //         this.reportBody = reportBody;
 //     }
-
-// }

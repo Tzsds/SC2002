@@ -2,7 +2,6 @@ package UI;
 
 import Controller.Account.LoginManager;
 import Controller.Enquiry.CampCommitteeEnquiryManager;
-import Controller.Users.StaffManager;
 import Entity.CampCommittee;
 
 public class CampCommitteeEnquiryPage {

@@ -1,0 +1,34 @@
+Camp Name: AA
+Number of Enquiries: 6
+
+No. Enquiry Details
+1   Enquiry: ff
+    Replied Content: y5rey
+    Sender: KOH1
+    Replier: KOH1
+
+2   Enquiry: rf
+    Replied Content: null
+    Sender: KOH1
+    Replier: KOH1
+
+3   Enquiry: ffvsdv
+    Replied Content: y5rey
+    Sender: KOH1
+    Replier: KOH1
+
+4   Enquiry: ff d
+    Replied Content: y5rey
+    Sender: KOH1
+    Replier: KOH1
+
+5   Enquiry: ffffds
+    Replied Content: y5rey
+    Sender: KOH1
+    Replier: KOH1
+
+6   Enquiry: fff
+    Replied Content: y5rey
+    Sender: KOH1
+    Replier: KOH1
+

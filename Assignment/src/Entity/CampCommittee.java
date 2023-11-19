@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Controller.Camp.CampManager;
 import Controller.Report.CampReport;
+import Controller.Report.EnquiryReport;
 import Controller.Report.ReportManager;
 
 public class CampCommittee extends Student {
@@ -57,6 +58,12 @@ public class CampCommittee extends Student {
     public void generateCampReport() {
         int reportType = ReportManager.promptCampReportType();
         CampReport report = new CampReport(committeeOf, reportType);
+        report.generate();
+        report.printInTerminal();
+    }
+
+    public void generateEnquiryReport() {
+        EnquiryReport report = new EnquiryReport(committeeOf);
         report.generate();
         report.printInTerminal();
     }
