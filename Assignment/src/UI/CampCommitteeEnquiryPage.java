@@ -14,14 +14,18 @@ public class CampCommitteeEnquiryPage {
 
     public void run() {
         boolean continueMenu = true;
-          CampCommittee currentUser = (CampCommittee)LoginManager.getCurrentUser();
+        boolean error = false;
+        CampCommittee currentUser = (CampCommittee)LoginManager.getCurrentUser();
         while (continueMenu) {
-            mainMenu.displayMainMenu();
-            System.out.println("1. View Enquiries");
-            System.out.println("2. Create Your Enquiries");
-            System.out.println("3. Reply to Camp's Enquiry");
-            System.out.println("4. Back to main menu");
-            System.out.println("----------------------------------------");
+            if(!error){
+                mainMenu.displayMainMenu();
+                System.out.println("1. View Enquiries");
+                System.out.println("2. Create Your Enquiries");
+                System.out.println("3. Reply to Camp's Enquiry");
+                System.out.println("4. Back to main menu");
+                System.out.println("----------------------------------------");
+            }
+            error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-4):");
             switch (option) {
 
@@ -42,9 +46,12 @@ public class CampCommitteeEnquiryPage {
                     return;
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
+                    error = true;
                     break;
             }
+            if(!error){
+                System.out.println();
+            }
         }
-
     }
 }
