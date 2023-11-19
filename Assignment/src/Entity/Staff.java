@@ -31,11 +31,11 @@ public class Staff extends User {
         
         String description = InputScanner.promptForString("Write in your camp description: ");
         
-        LocalDate startDate = InputScanner.promptForDate("Enter camp start date in format (dd/mm/yyyy): ");
+        LocalDate startDate = InputScanner.promptForDate("Enter camp start date in format (dd/mm/yyyy): ", 0);
 
-        LocalDate endDate = InputScanner.promptForDate("Enter camp end date in format (dd/mm/yyyy): ");
+        LocalDate endDate = InputScanner.promptForDate("Enter camp end date in format (dd/mm/yyyy): ", 0);
 
-        LocalDate registrationClosingDate = InputScanner.promptForDate("Enter camp registration closing date in format (dd/mm/yyyy): ");
+        LocalDate registrationClosingDate = InputScanner.promptForDate("Enter camp registration closing date in format (dd/mm/yyyy): ", 0);
 
         String userGroup;
         while (true){

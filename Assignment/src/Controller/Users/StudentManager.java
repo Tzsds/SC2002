@@ -240,6 +240,8 @@ public class StudentManager {
                 listOfCamps = Filter.filterByLocation(listOfCamps, filterLocation);
                 break;
             case 3: //date
+                LocalDate filterDate = InputScanner.promptForDate("What date do you want to filter by in format (dd/mm/yyyy)? : ", 1);
+                listOfCamps = Filter.filterByDate(listOfCamps, filterDate);
                 break;
         }
         System.out.println();

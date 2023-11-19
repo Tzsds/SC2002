@@ -23,7 +23,7 @@ public class InputScanner {
         }
     }
 
-    public static LocalDate promptForDate(String prompt) {
+    public static LocalDate promptForDate(String prompt, int filter) {
         while (true){
             try{
             String dateString = InputScanner.promptForString(prompt);
@@ -37,7 +37,7 @@ public class InputScanner {
             int year = Integer.parseInt(parts[2]);
             LocalDate date = LocalDate.of(year, month, day);
             LocalDate currenDate = LocalDate.now();
-            if (date.isBefore(currenDate)){
+            if (date.isBefore(currenDate) && filter == 0){
                 throw new IllegalArgumentException ("The date entered has already passed. Please enter again");
             }
             return date;

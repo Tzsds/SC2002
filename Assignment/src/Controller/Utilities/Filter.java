@@ -1,5 +1,6 @@
 package Controller.Utilities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Entity.Camp;
@@ -53,6 +54,17 @@ public class Filter {
         for (Camp c : listOfCamps){
             String campName = c.getCampDetails().getCampName();
             if (campName.contains(filterName)){
+                camps.add(c);
+            }
+        }
+        return camps;
+    }
+
+    public static ArrayList<Camp> filterByDate(ArrayList<Camp> listOfCamps, LocalDate filterDate){
+        ArrayList <Camp> camps = new ArrayList<>();
+        for (Camp c : listOfCamps){
+            LocalDate campDate = c.getCampDetails().getStartDate();
+            if (campDate.isAfter(filterDate)){
                 camps.add(c);
             }
         }
