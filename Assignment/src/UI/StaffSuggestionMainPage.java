@@ -16,7 +16,6 @@ public class StaffSuggestionMainPage {
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-3): ");
-            System.out.println();
             switch(option){
                 case 1:
                     //View Suggestion
@@ -39,6 +38,7 @@ public class StaffSuggestionMainPage {
                 default:
                     System.out.println("Invalid option. Please enter a valid option");
                     error = true;
+                    break;
             }
             if (!error){
                 System.out.println();

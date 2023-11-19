@@ -11,12 +11,16 @@ public class StaffEnquiryPage {
 
     public void run() {
         boolean continueMenu = true;
+        boolean error = false;
         while (continueMenu) {
-            mainMenu.displayMainMenu();
-            System.out.println("1. View Enquiries");
-            System.out.println("2. Reply to Enquiry");
-            System.out.println("3. Back to main menu");
-            System.out.println("----------------------------------------");
+            if (!error){
+                mainMenu.displayMainMenu();
+                System.out.println("1. View Enquiries");
+                System.out.println("2. Reply to Enquiry");
+                System.out.println("3. Back to main menu");
+                System.out.println("----------------------------------------");
+            }
+            error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-3):");
             switch (option) {
 
@@ -34,9 +38,12 @@ public class StaffEnquiryPage {
                     return;
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
+                    error = true;
                     break;
             }
+            if(!error){
+                System.out.println();
+            }
         }
-
     }
 }

@@ -14,8 +14,12 @@ public class EnquiryMainPage {
 
     public void run() {
         boolean continueMenu = true;
+        boolean error = false;
         while (continueMenu) {
-            mainMenu.displayMainMenu();
+            if(!error){
+                mainMenu.displayMainMenu();
+            }
+            error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-4):");
             switch (option) {
 
@@ -42,9 +46,12 @@ public class EnquiryMainPage {
                     return;
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
+                    error = true;
                     break;
             }
+            if(!error){
+                System.out.println();
+            }
         }
-
     }
 }
