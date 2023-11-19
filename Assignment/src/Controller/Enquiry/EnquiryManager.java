@@ -192,7 +192,7 @@ public class EnquiryManager {
    public static void viewStudentEnquiries(User currentUser) {
     List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
     if (studentEnquiries.size() == 0) {
-        System.out.println("No Enquiries!");
+        //System.out.println("No Enquiries!");
     }
     for (int i = 0; i < studentEnquiries.size(); i++) {
         System.out.println((i + 1) + ":");
