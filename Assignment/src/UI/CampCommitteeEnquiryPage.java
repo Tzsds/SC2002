@@ -18,10 +18,11 @@ public class CampCommitteeEnquiryPage {
         while (continueMenu) {
             mainMenu.displayMainMenu();
             System.out.println("1. View Enquiries");
-            System.out.println("2. Reply to Enquiry");
-            System.out.println("3. Back to main menu");
+            System.out.println("2. Create Your Enquiries");
+            System.out.println("3. Reply to Camp's Enquiry");
+            System.out.println("4. Back to main menu");
             System.out.println("----------------------------------------");
-            int option = InputScanner.promptForInt("Input your choice of action (1-3):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-4):");
             switch (option) {
 
                 case 1:
@@ -30,9 +31,12 @@ public class CampCommitteeEnquiryPage {
                     CampCommitteeEnquiryManager.viewAllEnquiriesCampCommittee(currentUser);
                     break;
                 case 2:
-                    CampCommitteeEnquiryManager.replyEnquiry(currentUser);
+                    CampCommitteeEnquiryManager.addEnquiry();
                     break;
                 case 3:
+                    CampCommitteeEnquiryManager.replyEnquiry(currentUser);
+                    break;
+                case 4:
                     System.out.println("Returning to main menu");
                     continueMenu = false;
                     return;

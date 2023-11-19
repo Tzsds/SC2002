@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
+import Controller.File.User.WriteUser;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Enquiry;
+import Entity.Student;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
 import UI.InputScanner;
@@ -18,17 +20,75 @@ public class CampCommitteeEnquiryManager {
     // functions to be used by camp com
 
     // Only can view enquiries for their own camp
+    // only can create enquiries that they are not a camp comittee for.
     // get user object ->committeeOf
+
+    public static Enquiry createEnquiryCampCommittee(CampCommittee campCommittee) {
+
+        System.out.println("Which Camp do you want to enquiry on?");
+
+        List<Camp> allAvailCamps = CampRepository.getAvailableCampsForStudent(campCommittee);
+
+        // Display the list of camps only once
+        for (int i = 0; i < allAvailCamps.size(); i++) {
+            System.out.println((i + 1) + ": " + allAvailCamps.get(i).getCampDetails().getCampName());
+        }
+
+        while (true) {
+            // Prompt for camp index
+            int campIndex = InputScanner.promptForInt("Choose a camp (Enter the index, 0 to cancel): ");
+
+            if (campIndex == 0) {
+                return null; // Cancelled
+            } else if (campIndex < 1 || campIndex > allAvailCamps.size()) {
+                System.out.println("Invalid index. Please choose a valid index.");
+                continue;
+            }
+
+            // Get the selected camp
+            Camp selectedCamp = allAvailCamps.get(campIndex - 1);
+            String campChoice = selectedCamp.getCampDetails().getCampName();
+
+            // Check if the current camp committee member is a camp committee member for the
+            // selected camp
+            if (campCommittee.getCommitteeOf() != null && campCommittee.getCommitteeOf().equals(selectedCamp)) {
+                System.out.println("You cannot submit an enquiry for a camp you are a committee member of.");
+                continue;
+            }
+
+            String content = InputScanner.promptForString("What enquiries do you have?: ");
+            String sender = campCommittee.getUserID();
+            System.out.println("This is the content written: " + content);
+
+            return new Enquiry(sender, content, campChoice);
+        }
+    }
+
+    public static void addEnquiry() {
+        CampCommittee User = (CampCommittee) LoginManager.getCurrentUser();
+        Enquiry enquiry = createEnquiryCampCommittee(User);
+
+        if (enquiry == null) {
+            System.out.println("Enquiry creation cancelled!");
+            return; // Exit the method without adding the enquiry
+        }
+
+        User.getEnquiries().add(enquiry);
+        EnquiryRepository.addEnquiryToRepo(enquiry);
+
+        // Write the new enquiry to CSV
+        WriteEnquiry.FileWriteEnquiry(enquiry);
+        System.out.println("Enquiry added successfully!");
+    }
 
     public static void viewAllEnquiriesCampCommittee(CampCommittee campCommittee) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
 
-        if (campCommittee.getCommitteeOf() == null) {
-            System.out.println("Camp Committee not assigned to a camp.");
-            return;
-        }
+        int indexCC = 1;
+        int indexMem = 1;
 
-        int index = 1;
+        // Display camp committee's camp's enquiries
+        System.out.println("Enquiries from Other Users on Your Camps:");
         for (Enquiry enquiry : allEnquiries) {
             Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
 
@@ -39,15 +99,31 @@ public class CampCommitteeEnquiryManager {
 
             // Check if the CampCommittee is associated with the camp
             if (campCommittee.getCommitteeOf().equals(camp)) {
-                System.out.println(index + ":");
+                System.out.println(indexCC + ":");
                 System.out.println("Camp: " + enquiry.getCampName());
                 System.out.println("Sender: " + enquiry.getSender());
                 System.out.println("Content: " + enquiry.getContent());
                 System.out.println("Status: " + enquiry.getStatus());
-                System.out.println("------------------------------");
-                index++;
+                System.out.println("------------------------------\n");
+                indexCC++;
             }
         }
+
+        // Display the camp committee's own enquiries
+        System.out.println("Your Enquiries for Other Camps:");
+        List<Enquiry> campCommitteeEnquiries = EnquiryRepository.getEnquiriesBySender(campCommittee.getUserID());
+        if(campCommitteeEnquiries.size() ==0){
+            System.out.println("No enquiries!");
+        }
+        for (Enquiry enquiry : campCommitteeEnquiries) {
+            System.out.println(indexMem + ":");
+            System.out.println("Camp: " + enquiry.getCampName());
+            System.out.println("Content: " + enquiry.getContent());
+            System.out.println("Status: " + enquiry.getStatus());
+            System.out.println("------------------------------");
+            indexMem++;
+        }
+        System.out.println( "\n");
     }
 
     public static void replyEnquiry(CampCommittee campCommittee) {
@@ -103,8 +179,9 @@ public class CampCommitteeEnquiryManager {
                 WriteEnquiry.replyEnquiryInCSV(selectedEnquiry);
 
                 // Add points for the camp committee
-                CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
+                CampCommittee User = (CampCommittee) LoginManager.getCurrentUser();
                 User.addPoints();
+                WriteUser.FileWriteCampCommittee(); // To reflect the points in the CampComm CSV
 
                 System.out.println("Enquiry replied successfully!");
             } else {
