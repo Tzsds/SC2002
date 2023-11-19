@@ -314,17 +314,27 @@ public class StudentManager {
             } else {
                 if (detail.getUserGroup().equals("Everyone")) {
                     // print
-                    CampManager.printCampDetailsForStudents(detail);
-                    System.out.println("=================================");
-                    list.add(c);
-                    count++;
-                } else {
-                    if (detail.getUserGroup().equals(faculty)) {
-                        // print
+                    if(LocalDate.now().isAfter(c.getCampDetails().getCloseDate())){
+
+                    }
+                    else{
                         CampManager.printCampDetailsForStudents(detail);
                         System.out.println("=================================");
                         list.add(c);
                         count++;
+                    }
+                } else {
+                    if (detail.getUserGroup().equals(faculty)) {
+                        // print
+                        if(LocalDate.now().isAfter(c.getCampDetails().getCloseDate())){
+
+                        }
+                        else{
+                            CampManager.printCampDetailsForStudents(detail);
+                            System.out.println("=================================");
+                            list.add(c);
+                            count++;
+                        }
                     }
                 }
             }

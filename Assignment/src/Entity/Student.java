@@ -1,5 +1,6 @@
 package Entity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Controller.Camp.CampManager;
@@ -44,8 +45,14 @@ public class Student extends User{
             System.out.println("Registered Camps:");
             System.out.println("====================================");
             for (Camp camps : registeredCamps){
-                CampManager.printCampDetails(camps.getCampDetails());
-                System.out.println("====================================");
+                if(LocalDate.now().isAfter(camps.getCampDetails().getCloseDate())){
+
+                }
+                else{
+                    CampManager.printCampDetails(camps.getCampDetails());
+                    System.out.println("====================================");
+                }
+                
             }
         }
     }
