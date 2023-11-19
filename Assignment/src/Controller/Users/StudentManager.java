@@ -49,12 +49,19 @@ public class StudentManager {
                         // print
                         if(!s.getRegisteredCamps().isEmpty()){
                             for(Camp ca : s.getRegisteredCamps()){
-                                LocalDate campCloseDate = c.getCampDetails().getCloseDate();
+                                LocalDate campEndDate = c.getCampDetails().getEndDate();
                                 LocalDate campStartDate = c.getCampDetails().getStartDate();
-                                LocalDate registeredCloseDate = ca.getCampDetails().getCloseDate();
+                                LocalDate campCloseDate = c.getCampDetails().getCloseDate();
+                                LocalDate registeredEndDate = ca.getCampDetails().getEndDate();
                                 LocalDate registeredStartDate = ca.getCampDetails().getStartDate();
-                                if(campStartDate.isAfter(registeredStartDate) || campStartDate.isBefore(registeredCloseDate) || campCloseDate.isAfter(registeredStartDate)|| campCloseDate.isBefore(registeredCloseDate)){
+                                if(!campStartDate.isBefore(registeredStartDate) && !campStartDate.isAfter(registeredEndDate)){
                                         
+                                }
+                                else if(!campEndDate.isBefore(registeredStartDate) && !campEndDate.isAfter(registeredEndDate)){
+
+                                }
+                                else if(LocalDate.now().isAfter(campCloseDate)){
+
                                 }
                                 else{
                                     System.out.println("Camp " + ++count);
@@ -76,12 +83,19 @@ public class StudentManager {
                         if (detail.getUserGroup().equals(faculty) && c.getCampDetails().getTotalSlots()>0 && c.getCampDetails().getCampCommitteeSlots()>0) {
                             if(!s.getRegisteredCamps().isEmpty()){
                             for(Camp ca : s.getRegisteredCamps()){
-                                LocalDate campCloseDate = c.getCampDetails().getCloseDate();
+                                LocalDate campEndDate = c.getCampDetails().getEndDate();
                                 LocalDate campStartDate = c.getCampDetails().getStartDate();
-                                LocalDate registeredCloseDate = ca.getCampDetails().getCloseDate();
+                                LocalDate campCloseDate = c.getCampDetails().getCloseDate();
+                                LocalDate registeredEndDate = ca.getCampDetails().getEndDate();
                                 LocalDate registeredStartDate = ca.getCampDetails().getStartDate();
-                                if(campStartDate.isAfter(registeredStartDate) || campStartDate.isBefore(registeredCloseDate) || campCloseDate.isAfter(registeredStartDate)|| campCloseDate.isBefore(registeredCloseDate)){
+                                if(!campStartDate.isBefore(registeredStartDate) && !campStartDate.isAfter(registeredEndDate)){
                                         
+                                }
+                                else if(!campEndDate.isBefore(registeredStartDate) && !campEndDate.isAfter(registeredEndDate)){
+
+                                }
+                                else if(LocalDate.now().isAfter(campCloseDate)){
+                                    
                                 }
                                 else{
                                     System.out.println("Camp " + ++count);
