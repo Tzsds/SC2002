@@ -1,4 +1,4 @@
 Sender, Content, Camp, Status, RepliedContent, Replier
-YCHERN,testing,scse top,REPLIED,testing points system,LE51
-YCHERN,testing staff,NTU,REPLIED,works?,ARVI
-LE51,testing camp com enquiry creation,NTU,PENDING,null,null
+YCHERN,testing,scse top,PENDING, null, null
+YCHERN,testing staff,NTU,REPLIED,TEST2,ARVI
+LE51,testing camp com enquiry creation,NTU,REPLIED,TEST,ARVI

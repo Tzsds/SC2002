@@ -72,7 +72,6 @@ public class StaffEnquiryManager {
 
     public static void replyEnquiry(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
-        // System.out.println("Staff ID: " + staffID);
 
         // Filter pending enquiries (status is not "REPLIED")
         List<Enquiry> pendingEnquiries = allEnquiries.stream()
@@ -88,16 +87,6 @@ public class StaffEnquiryManager {
 
         int index = 1;
         for (Enquiry enquiry : pendingEnquiries) {
-            // Start of Debug lines to check the camp name and staff ID
-            /*
-             * System.out.println("Enquiry Camp Name: " + enquiry.getCampName());
-             * System.out.println("Staff ID: " + staffID);
-             * 
-             * System.out.println("Original Camp Name from EnquiryCSV: " +
-             * enquiry.getCampName());
-             * System.out.println("LowerCase Camp Name from EnquiryCSV: " +
-             * enquiry.getCampName().toLowerCase());
-             */
             Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
 
             // Print the camp names from the Camp CSV
@@ -150,16 +139,20 @@ public class StaffEnquiryManager {
 
     public static Enquiry getEnquiryByIndex(String staffID, int selectedIndex) {
         System.out.println("selected index: " + selectedIndex);
+    
         List<Enquiry> staffEnquiries = EnquiryRepository.getListOfEnquiries().stream()
-                .filter(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName(), staffID))
+                .filter(enquiry ->
+                        CampManager.isCampCreatedByStaff(enquiry.getCampName(), staffID)
+                                && enquiry.getStatus() == Enquiry.Status.PENDING)
                 .collect(Collectors.toList());
-
+    
         // Check if the index is within the valid range
-        if (selectedIndex > 0 && selectedIndex <= staffEnquiries.size()) {
+        if (selectedIndex >= 1 && selectedIndex <= staffEnquiries.size()) {
             return staffEnquiries.get(selectedIndex - 1);
         } else {
-            return null; // Invalid index
+            return null; // Invalid index or no PENDING enquiries
         }
     }
+    
 
 }
