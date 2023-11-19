@@ -10,10 +10,14 @@ public class CampCommitteeMainPage {
 
     public static void run() {
         boolean continueMenu = true;
+        boolean error = false;
+        CampCommittee User = (CampCommittee) LoginManager.getCurrentUser();
         while (continueMenu) {
-            CampCommittee User = (CampCommittee) LoginManager.getCurrentUser();
-            System.out.println("Welcome " + User.getName());
-            CampCommitteeMainMenu.displayMainMenu();
+            if (!error){
+                System.out.println("Welcome " + User.getName());
+                CampCommitteeMainMenu.displayMainMenu();
+            }
+            error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-10): ");
             System.out.println();
             switch (option) {
@@ -72,9 +76,12 @@ public class CampCommitteeMainPage {
                     System.exit(0);
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
+                    error = true;
                     break;
             }
-            System.out.println();
+            if (!error){
+                System.out.println();
+            }
         }
 
     }

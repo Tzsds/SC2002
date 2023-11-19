@@ -7,14 +7,19 @@ import Entity.CampCommittee;
 public class SuggestionMainPage {
     public static void run(){
         boolean continueMenu = true;
+        boolean error = false;
         CampCommittee currentUser = (CampCommittee)LoginManager.getCurrentUser();
         while (continueMenu){
-            SuggestionMainMenu.displaySuggestionMenu();
-            int option = InputScanner.promptForInt("Input your choice of action (1-4): ");
+            if (!error){
+                SuggestionMainMenu.displaySuggestionMenu();
+            }
+            error = false;
+            int option = InputScanner.promptForInt("Input your choice of action (1-6): ");
+            System.out.println();
             switch(option){
                 case 1:
                     //View Suggestion
-                    System.out.println("Viewing Suggestions...");
+                    System.out.println("Viewing pending Suggestions...");
                     SuggestionManager.printSuggestions(SuggestionManager.getSuggestions(currentUser.getSuggestions(), true));
                     break;
 
@@ -34,6 +39,7 @@ public class SuggestionMainPage {
                     break;
                 case 5:
                     //View processed suggestions
+                    System.out.println("Viewing processed Suggestions...");
                     SuggestionManager.printSuggestions(SuggestionManager.getSuggestions(currentUser.getSuggestions(), false));
                     break;
                 case 6:
@@ -44,8 +50,11 @@ public class SuggestionMainPage {
 
                 default:
                     System.out.println("Invalid option. Please enter a valid option");
+                    error = true;
             }
-            System.out.println();
+            if (!error){
+                System.out.println();
+            }
         }
     }
 }
