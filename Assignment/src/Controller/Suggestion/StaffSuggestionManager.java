@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import Controller.File.FileWriting;
+import Controller.File.User.WriteUser;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
@@ -56,6 +57,7 @@ public class StaffSuggestionManager {
                 System.out.println("There is no existing suggestions");
             }
             else{
+                System.out.println("=================================");
                 int choice = 0;
                 while (true){
                     int count = 1;
@@ -64,20 +66,17 @@ public class StaffSuggestionManager {
                         System.out.println("Suggestion " + count);
                         System.out.println("Camp: " + camp.getCampDetails().getCampName());
                         System.out.println("Content: " + s.getContent());
+                        System.out.println("=================================");
                         count += 1;
                     }
-                    try{
+                    choice = InputScanner.promptForInt("Which suggestion do you want to process?: ");
+                    
+                    
+                    while (choice <= 0 || choice > pendingSuggestions.size()){
+                        System.out.println("Wrong value entered. Please try again");
                         choice = InputScanner.promptForInt("Which suggestion do you want to process?: ");
                     }
-                    catch(InputMismatchException e){
-                        System.out.println("Wrong input entered. Please try again");
-                        InputScanner.clear();
-                        continue;
-                    }
-                    if (choice <= 0 || choice > pendingSuggestions.size()){
-                        System.out.println("Wrong value entered. Please try again");
-                        continue;
-                    }
+
                     break;
                 }
                 int reject = 0;
@@ -119,6 +118,7 @@ public class StaffSuggestionManager {
         CampCommittee member = temp.getProposer();
         member.addPoints(); //Additional points for accepted Suggestion
         FileWriting.FileWriteSuggestion();
+        WriteUser.FileWriteCampCommittee(); //Reflect the additional points given in CSV
         removeSuggestionFromCamp(temp);
         System.out.println("Suggestion accepted!");
     }

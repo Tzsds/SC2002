@@ -8,6 +8,8 @@ import Controller.Camp.CampManager;
 import Controller.Enquiry.StaffEnquiryManager;
 import Controller.File.FileWriting;
 import Controller.Suggestion.StaffSuggestionManager;
+import Controller.Utilities.Filter;
+import Controller.Utilities.Sort;
 import Entity.Camp;
 import Entity.CampDetails;
 
@@ -19,10 +21,29 @@ import UI.InputScanner;
 public class StaffManager {
 
     public static void viewAllCamps() {
-        System.out.println("=================================");
+        
         ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
+        listOfCamps = Sort.insertionSortByName(listOfCamps);
+        CampRepository.setListOfCamps(listOfCamps); //So that subsequent sort is faster
+
+        //Choosing filter method
+        int filter = Filter.promptForFilter();
+        switch(filter){
+            case 1: //name
+                String filterName = InputScanner.promptForString("What name do you want to filter by?: ");
+                listOfCamps = Filter.filterByCampName(listOfCamps, filterName);
+                break;
+            case 2: //location
+                String filterLocation = InputScanner.promptForString("What location do you want to filter by?: ");
+                listOfCamps = Filter.filterByLocation(listOfCamps, filterLocation);
+                break;
+            case 3: //date
+                break;
+        }
+        System.out.println();
+        System.out.println("=================================");
         if (listOfCamps.size() == 0) {
-            System.out.println("There is no existing camps.");
+            System.out.println("No available camps found.");
         } else {
             for (Camp c : listOfCamps) {
                 CampDetails detail = c.getCampDetails();

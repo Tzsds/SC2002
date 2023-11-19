@@ -31,10 +31,7 @@ public class Start {
                 System.out.println("Redirecting to Camp Committee menu");
                 CampCommitteeMainPage.run();
             }
-
-            System.out.println(currentUser.getName() + " logged out");
             Display.WelcomeMessage();
-            System.out.println();
         }
     }
 }

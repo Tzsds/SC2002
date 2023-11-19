@@ -61,6 +61,7 @@ public class StudentMainPage {
                 case 7:
                     //Log Out
                     Display.LogOut();
+                    System.out.println(currentStudent.getName() + " logged out");
                     continueMenu = false;
                     break;
                 case 8:

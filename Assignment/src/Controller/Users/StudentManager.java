@@ -7,6 +7,7 @@ import java.util.Iterator;
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
+import Controller.Utilities.Filter;
 import Controller.Utilities.Sort;
 import Entity.Camp;
 import Entity.CampCommittee;
@@ -217,12 +218,36 @@ public class StudentManager {
 
 
     // still can use this function to generate list of camps available, then put this list to sort
-    public static ArrayList<Camp> viewAvailableCamps() {
+    public static void viewAvailableCamps() {
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
         String faculty = s.getFaculty();
-        // System.out.println(faculty);
+        
+        //Default alphabetically sorted
         ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
+        listOfCamps = Sort.insertionSortByName(listOfCamps);
+        CampRepository.setListOfCamps(listOfCamps); //So that subsequent sort is faster
+
+        //Choosing filter method
+        int filter = Filter.promptForFilter();
+        switch(filter){
+            case 1: //name
+                String filterName = InputScanner.promptForString("What name do you want to filter by?: ");
+                listOfCamps = Filter.filterByCampName(listOfCamps, filterName);
+                break;
+            case 2: //location
+                String filterLocation = InputScanner.promptForString("What location do you want to filter by?: ");
+                listOfCamps = Filter.filterByLocation(listOfCamps, filterLocation);
+                break;
+            case 3: //date
+                break;
+        }
+        System.out.println();
+        if (listOfCamps.size() == 0){
+            System.out.println("No available camps found.");
+            return;
+        }
+
         int count = 0; // list of available camps to the student
         System.out.println("=================================");
         for (Camp c : listOfCamps) {
@@ -245,13 +270,13 @@ public class StudentManager {
                         count++;
                     }
                 }
-
             }
         }
+
         if (count == 0) {
             System.out.println("There is currently no available camps.");
         }
-        return list;
+    
     }
 
 

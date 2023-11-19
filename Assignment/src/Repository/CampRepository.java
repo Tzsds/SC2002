@@ -13,6 +13,10 @@ public class CampRepository {
         return listOfCamps;
     }
 
+    public static void setListOfCamps(ArrayList<Camp> newListOfCamps){
+        listOfCamps = newListOfCamps;
+    }
+
     public static int getSizeOfCamps() {
         return listOfCamps.size();
     }

@@ -23,8 +23,7 @@ public class CampManager {
     public static void printCampDetails(CampDetails detail) {
         Staff s = StaffRepository.getStaffByID(detail.getStaffInCharge());
         String name = s.getName();
-        System.out.println("Staff in charge: " + name);
-        System.out.println("Camp: " + detail.getCampName());
+        System.out.println("Camp Name: " + detail.getCampName());
         System.out.println("Camp Description: " + detail.getDescription());
         System.out.println("Start Date: " + detail.getStartDate());
         System.out.println("End Date: " + detail.getEndDate());
@@ -38,6 +37,7 @@ public class CampManager {
             visibility = "Open";
         }
         System.out.println("Visibility: " + visibility);
+        System.out.println("Staff in charge: " + name);
     }
 
     public static void printCampDetailsForStudents(CampDetails detail) {
@@ -52,7 +52,7 @@ public class CampManager {
     }
 
     public static void printCampRegistrationForStudents(CampDetails detail) {
-        System.out.println("Camp: " + detail.getCampName());
+        System.out.println("Camp Name: " + detail.getCampName());
     }
 
     public static boolean isCampCreatedByStaff(String campName, String staffID) {

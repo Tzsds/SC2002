@@ -74,6 +74,7 @@ public class StaffMainPage {
                 case 11:
                     // Log Out
                     Display.LogOut();
+                    System.out.println(currentStaff.getName() + " logged out");
                     continueMenu = false;
                     break;
                 case 12:

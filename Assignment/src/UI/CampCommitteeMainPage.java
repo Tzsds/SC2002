@@ -64,6 +64,7 @@ public class CampCommitteeMainPage {
                     // Log out
                     Display.LogOut();
                     continueMenu = false;
+                    System.out.println(User.getName() + " logged out");
                     break;
                 case 10:
                     // Quit Program
