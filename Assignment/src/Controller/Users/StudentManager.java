@@ -47,22 +47,63 @@ public class StudentManager {
                 } else {
                     if (detail.getUserGroup().equals("Everyone") && c.getCampDetails().getTotalSlots()>0 && c.getCampDetails().getCampCommitteeSlots()>0) {
                         // print
-                        System.out.println("Camp " + ++count);
-                        CampManager.printCampRegistrationForStudents(detail);
-                        list.add(c);
-                    } else {
-                        if (detail.getUserGroup().equals(faculty) && c.getCampDetails().getTotalSlots()>0 && c.getCampDetails().getCampCommitteeSlots()>0) {
-                            // print
+                        if(!s.getRegisteredCamps().isEmpty()){
+                            for(Camp ca : s.getRegisteredCamps()){
+                                LocalDate campCloseDate = c.getCampDetails().getCloseDate();
+                                LocalDate campStartDate = c.getCampDetails().getStartDate();
+                                LocalDate registeredCloseDate = ca.getCampDetails().getCloseDate();
+                                LocalDate registeredStartDate = ca.getCampDetails().getStartDate();
+                                if(campStartDate.isAfter(registeredStartDate) || campStartDate.isBefore(registeredCloseDate) || campCloseDate.isAfter(registeredStartDate)|| campCloseDate.isBefore(registeredCloseDate)){
+                                        
+                                }
+                                else{
+                                    System.out.println("Camp " + ++count);
+                                    CampManager.printCampRegistrationForStudents(detail);
+                                    list.add(c);
+                                    System.out.println("=================================");
+                                }
+                            }
+                        }
+                        else{
                             System.out.println("Camp " + ++count);
                             CampManager.printCampRegistrationForStudents(detail);
                             list.add(c);
+                            System.out.println("=================================");
+                        }
+                        
+                    } 
+                        else {
+                        if (detail.getUserGroup().equals(faculty) && c.getCampDetails().getTotalSlots()>0 && c.getCampDetails().getCampCommitteeSlots()>0) {
+                            if(!s.getRegisteredCamps().isEmpty()){
+                            for(Camp ca : s.getRegisteredCamps()){
+                                LocalDate campCloseDate = c.getCampDetails().getCloseDate();
+                                LocalDate campStartDate = c.getCampDetails().getStartDate();
+                                LocalDate registeredCloseDate = ca.getCampDetails().getCloseDate();
+                                LocalDate registeredStartDate = ca.getCampDetails().getStartDate();
+                                if(campStartDate.isAfter(registeredStartDate) || campStartDate.isBefore(registeredCloseDate) || campCloseDate.isAfter(registeredStartDate)|| campCloseDate.isBefore(registeredCloseDate)){
+                                        
+                                }
+                                else{
+                                    System.out.println("Camp " + ++count);
+                                    CampManager.printCampRegistrationForStudents(detail);
+                                    list.add(c);
+                                    System.out.println("=================================");
+                                }
+                            }
+                        }
+                        else{
+                            System.out.println("Camp " + ++count);
+                            CampManager.printCampRegistrationForStudents(detail);
+                            list.add(c);
+                            System.out.println("=================================");
+                        }
                         }
                     }
-                    System.out.println("=================================");
+                    
 
                 }
+                
             }
-
         }
         if (count == 0) {
             System.out.println("There is currently no available camps for you to register.");
