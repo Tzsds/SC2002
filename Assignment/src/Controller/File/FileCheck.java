@@ -15,7 +15,7 @@ public class FileCheck {
     private static String campStudentListCSV = "Assignment/database/camp_student_list.csv";
 
 
-    public static boolean FileCheck(){
+    public static boolean FileExist(){
         String [] files = {studentCSV, staffCSV, campCommitteeCSV, suggestionCSV, enquiryCSV,
                             campDetailCSV, campStudentListCSV};
         for (String s : files){

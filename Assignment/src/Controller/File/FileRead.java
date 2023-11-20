@@ -27,7 +27,7 @@ public class FileRead {
     }
 
     private static void readWithoutReset(){ 
-        if (!FileCheck.FileCheck()){
+        if (!FileCheck.FileExist()){
             System.out.println("First time entering the system. Using reset instead");
             readWithReset();
             return;
