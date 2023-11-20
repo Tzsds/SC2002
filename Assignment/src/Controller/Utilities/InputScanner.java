@@ -56,6 +56,7 @@ public class InputScanner {
             }
         }
     }
+   
     public static LocalDate promptForEndDate(String prompt, LocalDate startdate) {
         while (true){
             try{
@@ -93,6 +94,7 @@ public class InputScanner {
             }
         }
     }
+
     public static LocalDate promptForCloseDate(String prompt, LocalDate startdate) {
         while (true){
             try{
@@ -133,21 +135,10 @@ public class InputScanner {
             }
         }
     }
+
     public static String promptForString(String prompt) {
         System.out.print(prompt);
         return scanner.nextLine();
-    }
-
-    public static String waitForUserInput() {
-        return scanner.nextLine();
-    }
-
-    public static String waitForUserInputString() {
-        return scanner.nextLine();
-    }
-
-    public static int waitForUserInputInt() {
-        return scanner.nextInt();
     }
 
     public static void clear(){

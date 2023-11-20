@@ -102,8 +102,7 @@ public class EnquiryManager {
                 return;
 
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input! Please enter a valid number.");
-                InputScanner.waitForUserInput();
+                InputScanner.promptForInt("Invalid input! Please enter a valid number.");
             }
         }
     }
@@ -159,32 +158,30 @@ public class EnquiryManager {
                 return;
 
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input! Please enter a valid number.");
-                InputScanner.waitForUserInput();
+                InputScanner.promptForInt("Invalid input! Please enter a valid number.");
             }
         }
     }
 
-   public static void viewStudentEnquiries(User currentUser) {
-    List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
-    if (studentEnquiries.size() == 0) {
-        System.out.println("No Enquiries!");
-    }
-    for (int i = 0; i < studentEnquiries.size(); i++) {
-        System.out.println((i + 1) + ":");
-        Enquiry enquiry = studentEnquiries.get(i);
-        System.out.println("Camp: " + enquiry.getCampName());
-        System.out.println("Content: " + enquiry.getContent());
-        System.out.println("Status: " + enquiry.getStatus());
-        
-        // Check if the status is "REPLIED"
-        if (enquiry.getStatus() == Enquiry.Status.REPLIED) {
-            System.out.println("Reply: " + enquiry.getRepliedContent());
-            System.out.println("Replier: " + enquiry.getReplier());
+    public static void viewStudentEnquiries(User currentUser) {
+        List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
+        if (studentEnquiries.size() == 0) {
+            System.out.println("No Enquiries!");
         }
-        System.out.println("================================");
-    }
-}
+        for (int i = 0; i < studentEnquiries.size(); i++) {
+            System.out.println((i + 1) + ":");
+            Enquiry enquiry = studentEnquiries.get(i);
+            System.out.println("Camp: " + enquiry.getCampName());
+            System.out.println("Content: " + enquiry.getContent());
+            System.out.println("Status: " + enquiry.getStatus());
 
+            // Check if the status is "REPLIED"
+            if (enquiry.getStatus() == Enquiry.Status.REPLIED) {
+                System.out.println("Reply: " + enquiry.getRepliedContent());
+                System.out.println("Replier: " + enquiry.getReplier());
+            }
+            System.out.println("================================");
+        }
+    }
 
 }

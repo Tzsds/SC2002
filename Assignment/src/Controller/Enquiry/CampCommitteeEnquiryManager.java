@@ -11,7 +11,6 @@ import Controller.Utilities.InputScanner;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Enquiry;
-import Entity.User;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
 
@@ -119,8 +118,7 @@ public class CampCommitteeEnquiryManager {
                 return;
 
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input! Please enter a valid number.");
-                InputScanner.waitForUserInput();
+               InputScanner.promptForInt("Invalid input! Please enter a valid number.");
             }
         }
     }
@@ -176,11 +174,11 @@ public class CampCommitteeEnquiryManager {
                 return;
 
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input! Please enter a valid number.");
-                InputScanner.waitForUserInput();
+                InputScanner.promptForInt("Invalid input! Please enter a valid number.");
             }
         }
     }
+
     public static void viewAllEnquiriesCampCommittee(CampCommittee campCommittee) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
 
