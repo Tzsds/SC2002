@@ -37,18 +37,20 @@ public class EnquiryReport extends Report {
     public void setHeader() {
         this.reportHeader = "Camp Name: " + campDetails.getCampName() + "\n" +
                             "Number of Enquiries: " + enquiries.size() + "\n\n";
+        if (enquiries.size() != 0) {
+            this.reportHeader += String.format("%-3s Enquiry Details\n", "No.");
+        }
     }
 
     public void setBody() {
-        String reportBody = String.format("%-3s Enquiry Details\n", "No.");
-        // String reportBody = "";
+        String reportBody = "";
 
         int i = 1;
         for (Enquiry enquiry : enquiries) {
             String question = enquiry.getContent();
             String reply = enquiry.getRepliedContent();
             String sender = enquiry.getSender();
-            String replier = enquiry.getSender();
+            String replier = enquiry.getReplier();
             reportBody += String.format("%-3s " + "Enquiry: " + question + "\n", i);
             reportBody += String.format("%-3s " + "Replied Content: " + reply + "\n", "");
             reportBody += String.format("%-3s " + "Sender: " + sender + "\n", "");

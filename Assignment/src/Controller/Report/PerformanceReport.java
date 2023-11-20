@@ -5,6 +5,7 @@ import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.CampDetails;
 import Entity.Student;
+import Repository.UserRepository.CampCommitteeRepository;
 
 public class PerformanceReport extends Report{
     protected Camp camp;
@@ -29,15 +30,20 @@ public class PerformanceReport extends Report{
     public void setHeader() {
         this.reportHeader = "Camp Name: " + campDetails.getCampName() + "\n" +
                             "Number of Committee Members: " + camp.getCampCommittee().size() + "\n\n";
+
+        if (camp.getCampCommittee().size() != 0) {
+            this.reportHeader += String.format("%-20s Points\n", "Committee Member");
+        }
     }
 
     public void setBody() {
-        String reportBody = String.format("%-20s Points\n", "Committee Member");
+        String reportBody = "";
 
         ArrayList<Student> committeeList = camp.getCampCommittee();
         for (Student student : committeeList) {
             String name = student.getName();
-            CampCommittee campCommittee = (CampCommittee)student;
+            String id = student.getUserID();
+            CampCommittee campCommittee = CampCommitteeRepository.getCommitteeByID(id);
             int points = campCommittee.getPoints();
             reportBody += String.format("%-20s " + points + "\n", name);
         }

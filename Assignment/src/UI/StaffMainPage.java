@@ -3,6 +3,7 @@ package UI;
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
+import Controller.Report.ReportManager;
 import Controller.Users.StaffManager;
 import Entity.Staff;
 
@@ -56,17 +57,17 @@ public class StaffMainPage {
                 case 8:
                     // Generate camp report
                     System.out.println("Listing camps created by you...");
-                    currentStaff.generateCampReport();
+                    ReportManager.generateCampReportForStaff();
                     break;
                 case 9:
                     // Generate enquiry list report
-                    System.out.println("Generating performance report of camp committee members...");
-                    currentStaff.generateEnquiryReport();
+                    System.out.println("Generating enquiry report of camp...");
+                    ReportManager.generateEnquiryReportForStaff();
                     break;    
                 case 10:
                     // Generate performance report
                     System.out.println("Generating performance report of camp committee members...");
-                    currentStaff.generatePerformanceReport();
+                    ReportManager.generatePerformanceReportForStaff();
                     break;
                 case 11:
                     // Change Password

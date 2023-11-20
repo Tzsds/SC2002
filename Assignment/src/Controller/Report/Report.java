@@ -3,6 +3,8 @@ package Controller.Report;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import UI.InputScanner;
+
 public class Report {
     protected String content;
     protected String filePath = "Assignment/output/";
@@ -13,6 +15,7 @@ public class Report {
             fileWriter.write(content);
             fileWriter.close();
             System.out.println("Report generated successfully!");
+            printInTerminal();
         } catch (IOException e) {
             System.out.println("An error occurred while generating the report: " + e.getMessage());
         }
@@ -21,5 +24,18 @@ public class Report {
     public void printInTerminal() {
         System.out.println();
         System.out.println(content);
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+    
+    public void inputAndSetFilePath() {
+        String filename = InputScanner.promptForString("Input your filename: ");
+        filePath += filename + ".txt";
     }
 }

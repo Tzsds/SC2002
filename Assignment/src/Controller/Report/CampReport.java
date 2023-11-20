@@ -14,13 +14,15 @@ public class CampReport extends Report{
     protected CampDetails campDetails;
     protected String reportHeader;
     protected String reportBody;
+    protected int reportType;
 
     public CampReport(Camp camp, int reportType) {
         this.camp = camp;
         this.campDetails = camp.getCampDetails();
+        this.reportType = reportType;
         setFilePath();
         setHeader();
-        setBody(reportType);
+        setBody();
         this.content = reportHeader + reportBody;
     }
 
@@ -48,11 +50,17 @@ public class CampReport extends Report{
             "Total Camp Committee Slots Available: " + campDetails.getCampCommitteeSlots() + "\n" +
             "Current Number of Attendees: " + totalAttendees + "\n" +
             "Current Number of Committee Members: " + camp.getCampCommittee().size() + "\n\n";
+
+        if ((reportType == 2 && camp.getCampCommittee().size() == 0)
+        || (reportType == 3 && camp.getParticipants().size() == 0) || totalAttendees == 0)  {
+            return;
+        }
+
+        this.reportHeader += String.format("%-15s Role\n", "Name");
     }
 
-    public void setBody(int reportType) {
-        String reportBody = String.format("%-15s Role\n", "Name");
-
+    public void setBody() {
+        String reportBody = "";
         if (reportType == 1 || reportType == 2) {
             // print committee members
             ArrayList<Student> committeeList = camp.getCampCommittee();

@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Entity.Camp;
+import Entity.Enquiry;
+import Entity.Student;
+import Entity.User;
+import Repository.EnquiryRepository;
 import UI.InputScanner;
 
 public class Filter {
@@ -66,6 +70,68 @@ public class Filter {
             LocalDate campDate = c.getCampDetails().getStartDate();
             if (campDate.isAfter(filterDate)){
                 camps.add(c);
+            }
+        }
+        return camps;
+    }
+
+    public static ArrayList<Camp> filterByStudent(ArrayList<Camp> listOfCamps, String name){
+        ArrayList <Camp> camps = new ArrayList<>();
+        for (Camp c : listOfCamps){
+            ArrayList<Student> committeeList = c.getCampCommittee();
+            ArrayList<Student> participantList = c.getParticipants();
+
+            int i=0;
+            for (Student committee :committeeList) {
+                String studentName = committee.getName();
+                if (studentName.contains(name)) {
+                    camps.add(c);
+                    i=1;
+                    break;
+                }
+            }
+
+            if (i!=0) {continue;};
+            for (Student participant :participantList) {
+                String studentName = participant.getName();
+                if (studentName.contains(name)) {
+                    camps.add(c);
+                    break;
+                }
+            }
+        }
+        return camps;
+    }
+
+    public static ArrayList<Camp> filterByCommitteeMember(ArrayList<Camp> listOfCamps, String name){
+        ArrayList <Camp> camps = new ArrayList<>();
+        for (Camp c : listOfCamps){
+            ArrayList<Student> committeeList = c.getCampCommittee();
+            for (Student committee :committeeList) {
+                String studentName = committee.getName();
+                if (studentName.contains(name)) {
+                    camps.add(c);
+                    break;
+                }
+            }
+        }
+        return camps;
+    }
+
+    public static ArrayList<Camp> filterByEnquiryReplier(ArrayList<Camp> listOfCamps, String name){
+        ArrayList <Camp> camps = new ArrayList<>();
+        for (Camp c : listOfCamps){
+            ArrayList<Enquiry> enquiries = EnquiryRepository.getEnquiriesByCamp(c);
+            if (enquiries.size() == 0) {
+                continue;
+            }
+
+            for (Enquiry e : enquiries) {
+                String replier = e.getReplier();
+                if (replier.contains(name)) {
+                    camps.add(c);
+                    break;
+                }
             }
         }
         return camps;

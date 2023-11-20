@@ -94,19 +94,6 @@ public class Staff extends User {
         System.out.println("Camp Created!");
     }
 
-    public void generateCampReport() {
-        if (campsCreatedList.size() == 0) {
-            System.out.println("You have not created any camp yet!");
-            return;
-        } else {
-            Camp campChosen = ReportManager.promptWhichCampForStaff();
-            int reportType = ReportManager.promptCampReportType();
-            CampReport report = new CampReport(campChosen, reportType);
-            report.generate();
-            report.printInTerminal();
-        }
-    }
-
     public void generateEnquiryReport() {
         if (campsCreatedList.size() == 0) {
             System.out.println("You have not created any camp yet!");
@@ -115,7 +102,6 @@ public class Staff extends User {
             Camp campChosen = ReportManager.promptWhichCampForStaff();
             EnquiryReport report = new EnquiryReport(campChosen);
             report.generate();
-            report.printInTerminal();
         }
     }
 
@@ -127,7 +113,6 @@ public class Staff extends User {
             Camp campChosen = ReportManager.promptWhichCampForStaff();
             PerformanceReport report = new PerformanceReport(campChosen);
             report.generate();
-            report.printInTerminal();
         }
     }
 
