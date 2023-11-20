@@ -36,14 +36,16 @@ public class StudentManager {
                     break;
                 }
             }
+            if(c.getCampDetails().getTotalSlots()<=0){
+                printCamp = false;
+            }
             if (studentRegistered) {
                 printCamp = false;
             } else {
                 if (!detail.getVisibility()) {
                     continue;
                 } else {
-                    if (detail.getUserGroup().equals("Everyone") && c.getCampDetails().getTotalSlots()>0 && c.getCampDetails().getCampCommitteeSlots()>0) {
-                        // print
+                    if (detail.getUserGroup().equals("Everyone")) {
                         if(!s.getRegisteredCamps().isEmpty()){
                             for(Camp ca : s.getRegisteredCamps()){
                                 LocalDate campEndDate = c.getCampDetails().getEndDate();
@@ -74,7 +76,7 @@ public class StudentManager {
                         
                     } 
                         else {
-                        if (detail.getUserGroup().equals(faculty) && c.getCampDetails().getTotalSlots()>0 && c.getCampDetails().getCampCommitteeSlots()>0) {
+                        if (detail.getUserGroup().equals(faculty) && !(c.getCampDetails().getTotalSlots()<=0) && !(c.getCampDetails().getCampCommitteeSlots()>0)) {
                             if(!s.getRegisteredCamps().isEmpty()){
                             for(Camp ca : s.getRegisteredCamps()){
                                 LocalDate campEndDate = c.getCampDetails().getEndDate();
@@ -185,6 +187,7 @@ public class StudentManager {
     }
 
     public static void withdrawFromCamp() {
+        System.out.println("=================================");
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
         int userChoice ;
@@ -226,10 +229,10 @@ public class StudentManager {
                         }
             }
             if(printCamp){
-                System.out.println("==========================");
                 System.out.println("Camp " + ++count);
                 CampManager.printCampRegistrationForStudents(detail);
                 list.add(c);
+                System.out.println("=================================");
             }
         }
 
@@ -248,10 +251,9 @@ public class StudentManager {
 
             } else {
                 Camp registeredCamp = list.get(userChoice - 1);
-                System.out.println("The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName()+ 
-                                    ". Are you sure you want to withdraw? Enter 1 for Yes or 2 for No ");
+                System.out.println("The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName());
                 while (true) {
-                    userConfirm = InputScanner.promptForInt("Enter 1 for Yes or 2 for No \n");
+                    userConfirm = InputScanner.promptForInt(" Are you sure you want to withdraw? Enter 1 for Yes or 2 for No\n");
                     if (userConfirm > 2 || userConfirm <= 0)
                         System.out.println("Invalid input. ");
                     else 
