@@ -19,7 +19,6 @@ public class CampCommitteeMainPage {
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-10): ");
-            System.out.println();
             switch (option) {
                 case 1:
                     // Display list of camps available
