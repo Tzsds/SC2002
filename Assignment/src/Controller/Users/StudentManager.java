@@ -37,7 +37,7 @@ public class StudentManager {
                 }
             }
             if (studentRegistered) {
-
+                printCamp = false;
             } else {
                 if (!detail.getVisibility()) {
                     continue;
@@ -60,8 +60,11 @@ public class StudentManager {
                                 else if(LocalDate.now().isAfter(campCloseDate)){
                                     printCamp = false;
                                 }
+                                else if(!registeredStartDate.isBefore(campStartDate) && !registeredEndDate.isAfter(campEndDate)){
+                                    printCamp = false;
+                                }
                                 else{
-                                
+                                    
                                 }
                             }
                         }
@@ -88,8 +91,11 @@ public class StudentManager {
                                 else if(LocalDate.now().isAfter(campCloseDate)){
                                     printCamp = false;
                                 }
+                                else if(!registeredStartDate.isBefore(campStartDate) && !registeredEndDate.isAfter(campEndDate)){
+                                    printCamp = false;
+                                }
                                 else{
-                                    
+
                                 }
                             }
                         }
@@ -114,7 +120,7 @@ public class StudentManager {
                         } else {
     
                         }
-            if(printCamp && !studentRegistered){
+            if(printCamp){
                 System.out.println("Camp " + ++count);
                 CampManager.printCampRegistrationForStudents(detail);
                 list.add(c);
