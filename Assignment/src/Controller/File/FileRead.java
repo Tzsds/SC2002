@@ -26,7 +26,12 @@ public class FileRead {
         ReadEnquiry.readWithReset();
     }
 
-    private static void readWithoutReset(){
+    private static void readWithoutReset(){ 
+        if (!FileCheck.FileCheck()){
+            System.out.println("First time entering the system. Using reset instead");
+            readWithReset();
+            return;
+        }
         ReadUser.readUserWithoutReset();
         ReadCampDetails.readCampWithoutReset();
         ReadCampStudentList.readCampStudentListWithoutReset();

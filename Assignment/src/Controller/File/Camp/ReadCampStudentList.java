@@ -14,10 +14,10 @@ import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StudentRepository;
 
 public class ReadCampStudentList {
-    private static String campStudentListSV = "Assignment/database/camp_student_list.csv";
+    private static String campStudentListCSV = "Assignment/database/camp_student_list.csv";
 
     public static void readCampStudentListWithoutReset(){
-        try (BufferedReader br = new BufferedReader(new FileReader(campStudentListSV))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(campStudentListCSV))) {
             String line;
             br.readLine();
             while ((line = br.readLine()) != null){
@@ -57,7 +57,7 @@ public class ReadCampStudentList {
     }
 
     public static void readCampStudentListWithReset(){
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campStudentListSV))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(campStudentListCSV))) {
             String header = "campName,userID,role\n";
             writer.write(header);
         }
