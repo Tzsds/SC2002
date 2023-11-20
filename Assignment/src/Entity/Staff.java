@@ -128,26 +128,24 @@ public class Staff extends User {
             System.out.println(i+1 + ". " + campName);
         }
         while (true){
-            try{
-                choice = InputScanner.promptForInt("Which camp do you want to delete?: ");
-            }
-            catch (InputMismatchException e){
-                System.out.println("Invalid input! Please try again.");
-                InputScanner.clear();
+            choice = InputScanner.promptForInt("Which camp do you want to delete (Enter " + (size+1) + " to exit)?: ");
+            
+            if (choice <= 0 || choice > size + 1){
+                System.out.println("Invalid number! Please try again.");
                 continue;
             }
-            if (choice <= 0 || choice > size){
-                System.out.println("Invalid input! Please try again.");
-                continue;
+            if (choice == (size + 1)){
+                System.out.println("Back to main menu...");
+                return;
             }
             Camp temp = campsCreatedList.get(choice-1);
             //Check if there are any Students or Camp Committee registered
             size = temp.getCampCommittee().size();
-            if (size < 0){
+            if (size > 0){
                 break;
             }
             size = temp.getParticipants().size();
-            if (size < 0){
+            if (size > 0){
                 break;
             }
             CampRepository.removeCamp(temp);
