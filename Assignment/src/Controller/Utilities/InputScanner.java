@@ -111,8 +111,11 @@ public class InputScanner {
             if (date.isBefore(currentDate)){
                 throw new IllegalArgumentException ("The date entered has already passed. Please enter again");
             }
-            if (date.isAfter(startDate) || date.isEqual(startdate)){
-                throw new IllegalArgumentException ("The registration date cannot be after or same as start date. Please enter again");
+            if (date.isAfter(startDate)){
+                throw new IllegalArgumentException ("The registration date cannot be after start date. Please enter again");
+            }
+            if (date.isEqual(startDate)){
+                throw new IllegalArgumentException("The registration date cannot be same as start date. Please enter again");
             }
             return date;
             }catch (ArrayIndexOutOfBoundsException e){

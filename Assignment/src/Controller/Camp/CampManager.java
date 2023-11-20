@@ -41,7 +41,7 @@ public class CampManager {
     }
 
     public static void printCampDetailsForStudents(CampDetails detail) {
-        System.out.println("Camp: " + detail.getCampName());
+        System.out.println("Camp Name: " + detail.getCampName());
         System.out.println("Camp Description: " + detail.getDescription());
         System.out.println("Start Date: " + detail.getStartDate());
         System.out.println("End Date: " + detail.getEndDate());
