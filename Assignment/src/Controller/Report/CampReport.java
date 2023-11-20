@@ -10,11 +10,11 @@ import Entity.Student;
 import Repository.UserRepository.StaffRepository;
 
 public class CampReport extends Report{
-    protected Camp camp;
-    protected CampDetails campDetails;
-    protected String reportHeader;
-    protected String reportBody;
-    protected int reportType;
+    private Camp camp;
+    private CampDetails campDetails;
+    private String reportHeader;
+    private String reportBody;
+    private int reportType;
 
     public CampReport(Camp camp, int reportType) {
         this.camp = camp;

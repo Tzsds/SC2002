@@ -8,11 +8,11 @@ import Entity.Enquiry;
 import Repository.EnquiryRepository;
 
 public class EnquiryReport extends Report {
-    protected Camp camp;
-    protected CampDetails campDetails;
-    protected String reportHeader;
-    protected String reportBody;
-    protected ArrayList<Enquiry> enquiries;
+    private Camp camp;
+    private CampDetails campDetails;
+    private String reportHeader;
+    private String reportBody;
+    private ArrayList<Enquiry> enquiries;
 
     public EnquiryReport(Camp camp) {
         this.camp = camp;

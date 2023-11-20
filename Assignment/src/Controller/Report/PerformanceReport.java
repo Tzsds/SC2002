@@ -8,10 +8,10 @@ import Entity.Student;
 import Repository.UserRepository.CampCommitteeRepository;
 
 public class PerformanceReport extends Report{
-    protected Camp camp;
-    protected CampDetails campDetails;
-    protected String reportHeader;
-    protected String reportBody;
+    private Camp camp;
+    private CampDetails campDetails;
+    private String reportHeader;
+    private String reportBody;
 
     public PerformanceReport(Camp camp) {
         this.camp = camp;
