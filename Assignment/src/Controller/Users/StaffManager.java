@@ -73,29 +73,35 @@ public class StaffManager {
             System.out.println("You have not created any camp yet!");
             return;
         }
-
+        boolean error1 = false;
         while (true) {
-            for (int i = 0; i < size; i++) {
-                String campName = campCreated.get(i).getCampDetails().getCampName();
-                System.out.println(i + 1 + ". " + campName);
+            if(!error1){
+                for (int i = 0; i < size; i++) {
+                    String campName = campCreated.get(i).getCampDetails().getCampName();
+                    System.out.println(i + 1 + ". " + campName);
+                }
             }
             choice = InputScanner.promptForInt("Which camp do you want to edit?: ");
             if (choice <= 0 || choice > size) {
-                System.out.println("Invalid input! Please try again.");
+                System.out.println("Invalid input! Please try again");
+                error1 = true;
                 continue;
             }
             Camp temp = campCreated.get(choice - 1);
+            boolean error2 = false;
             while (true) {
-                System.out.println("What do you want to edit?");
-                option = InputScanner.promptForInt("1. Camp Name\n"
-                                                 + "2. Location\n"
-                                                 + "3. User Group\n"
-                                                 + "4. Total Slots\n"
-                                                 + "5. Camp Comittee Slots\n"
-                                                 + "6. Description\n"
-                                                 + "7. Visibility\n"
-                                                 + "8. Return to Main Menu\n"
-                                                 + "Choice: ");
+                if(!error2){
+                    System.out.println("1. Camp Name\n"
+                                        + "2. Location\n"
+                                        + "3. User Group\n"
+                                        + "4. Total Slots\n"
+                                        + "5. Camp Comittee Slots\n"
+                                        + "6. Description\n"
+                                        + "7. Visibility\n"
+                                        + "8. Return to Main Menu");
+                }
+                error2 = false;
+                option = InputScanner.promptForInt("What do you want to edit? ");
                 switch (option) {
                     case 1:
                         String newName = InputScanner.promptForString("Enter Camp New Name: ");
@@ -170,8 +176,11 @@ public class StaffManager {
                         break;
                     default:
                         System.out.println("Invalid option. Please enter a valid option.");
-                        System.out.println();
+                        error2 = true;
                         continue;
+                }
+                if(!error2){
+                    System.out.println();
                 }
                 FileWriting.FileWriteCampDetails(); // update to csv
                 return;
