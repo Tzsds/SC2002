@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import Entity.Camp;
 import Entity.Enquiry;
 import Entity.Student;
-import Entity.User;
 import Repository.EnquiryRepository;
 
 public class Filter {

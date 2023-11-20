@@ -5,16 +5,12 @@ public class Camp {
     private CampDetails campDetails;
     private ArrayList<Student> participants = new ArrayList<>();
     private ArrayList<Student> campCommittee = new ArrayList<>();;
-    private Enquiry enquiries;
     private ArrayList<Student> withdrawnStudents = new ArrayList<>();;
     private ArrayList<Suggestion> listOfSuggestions = new ArrayList<Suggestion>();
 
     //constructor
     public Camp(CampDetails CampDetails) {
         this.campDetails = CampDetails;
-    }
-
-    public Camp() {
     }
 
     //set functions
@@ -39,20 +35,7 @@ public class Camp {
     public ArrayList<Suggestion> getListOfSuggestions(){
         return listOfSuggestions;
     }
-    public String convertToString(){
-        return campDetails.getCampName() + "," +
-        campDetails.getStartDate() + "," +
-        campDetails.getEndDate() + "," +
-        campDetails.getCloseDate() + "," +
-        campDetails.getUserGroup() + "," +
-        campDetails.getLocation() + "," +
-        campDetails.getTotalSlots() + "," +
-        campDetails.getCampCommitteeSlots() + "," +
-        campDetails.getDescription() + "," +
-        campDetails.getStaffInCharge() + "," +
-        campDetails.getVisibility();
-
-    }
+    
     //edit functions
     public void editCampName(String newName){
         campDetails.setCampName(newName);
@@ -76,7 +59,7 @@ public class Camp {
         campDetails.setVisibility(newVisibility);
     }
     
-
+    //functions
     public void addParticipants(Student student) {
         participants.add(student);
     }

@@ -1,8 +1,6 @@
 package Controller.Users;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.Enquiry.StaffEnquiryManager;

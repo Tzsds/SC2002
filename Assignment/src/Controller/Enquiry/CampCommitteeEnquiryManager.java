@@ -1,18 +1,15 @@
 package Controller.Enquiry;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import Controller.Account.LoginManager;
-import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
 import Controller.File.User.WriteUser;
 import Controller.Utilities.InputScanner;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Enquiry;
-import Entity.Student;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
 

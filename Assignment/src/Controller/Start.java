@@ -1,7 +1,6 @@
 package Controller;
 import Controller.Account.LoginManager;
 import Controller.File.FileRead;
-import Entity.User;
 import UI.CampCommitteeMainPage;
 import UI.StaffMainPage;
 import UI.StudentMainPage;
@@ -15,7 +14,6 @@ public class Start {
 
         while (true) {
             LoginManager.Login();
-            User currentUser = LoginManager.getCurrentUser();
             String userRole = LoginManager.getUserRole();
             Display.clearScreen();
             // entering main pages

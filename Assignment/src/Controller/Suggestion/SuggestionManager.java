@@ -1,7 +1,6 @@
 package Controller.Suggestion;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;

@@ -1,7 +1,6 @@
 package Controller.Enquiry;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import Controller.Camp.CampManager;

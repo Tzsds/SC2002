@@ -4,12 +4,9 @@ import java.util.InputMismatchException;
 import java.util.List;
 
 import Controller.Account.LoginManager;
-import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
-import Controller.Users.StudentManager;
 import Controller.Utilities.InputScanner;
 import Entity.Camp;
-import Entity.CampDetails;
 import Entity.Enquiry;
 import Entity.Student;
 import Entity.User;

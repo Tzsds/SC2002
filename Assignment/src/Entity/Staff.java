@@ -85,8 +85,7 @@ public class Staff extends User {
                                     totalSlots, campCommitteeSlots, description, 
                                     id, bool);
     
-        Camp newCamp = new Camp();
-        newCamp.setCampDetails(newCampDetails);
+        Camp newCamp = new Camp(newCampDetails);
         campsCreatedList.add(newCamp);
         CampRepository.addCampToRepo(newCamp); //NEED TO ADD TO REPOSITORY
 
