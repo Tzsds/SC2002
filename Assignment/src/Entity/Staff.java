@@ -34,9 +34,9 @@ public class Staff extends User {
         
         LocalDate startDate = InputScanner.promptForDate("Enter camp start date in format (dd/mm/yyyy): ", 0);
 
-        LocalDate endDate = InputScanner.promptForDate("Enter camp end date in format (dd/mm/yyyy): ", 0);
+        LocalDate endDate = InputScanner.promptForEndDate("Enter camp end date in format (dd/mm/yyyy): ", startDate);
 
-        LocalDate registrationClosingDate = InputScanner.promptForDate("Enter camp registration closing date in format (dd/mm/yyyy): ", 0);
+        LocalDate registrationClosingDate = InputScanner.promptForCloseDate("Enter camp registration closing date in format (dd/mm/yyyy): ", startDate);
 
         String userGroup;
         while (true){
