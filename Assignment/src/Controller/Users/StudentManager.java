@@ -30,13 +30,16 @@ public class StudentManager {
             boolean printCamp = true;
             boolean studentRegistered = false;
             CampDetails detail = c.getCampDetails();
+            LocalDate campEndDate = c.getCampDetails().getEndDate();
+            LocalDate campStartDate = c.getCampDetails().getStartDate();
+            LocalDate campCloseDate = c.getCampDetails().getCloseDate();
             for (Camp camp : s.getRegisteredCamps()) {
                 if (camp == c) {
                     studentRegistered = true;
                     break;
                 }
             }
-            if(c.getCampDetails().getTotalSlots()<=0){
+            if (c.getCampDetails().getTotalSlots() <= 0) {
                 printCamp = false;
             }
             if (studentRegistered) {
@@ -46,83 +49,70 @@ public class StudentManager {
                     continue;
                 } else {
                     if (detail.getUserGroup().equals("Everyone")) {
-                        if(!s.getRegisteredCamps().isEmpty()){
-                            for(Camp ca : s.getRegisteredCamps()){
-                                LocalDate campEndDate = c.getCampDetails().getEndDate();
-                                LocalDate campStartDate = c.getCampDetails().getStartDate();
-                                LocalDate campCloseDate = c.getCampDetails().getCloseDate();
+                        if (!s.getRegisteredCamps().isEmpty()) {
+                            for (Camp ca : s.getRegisteredCamps()) {
                                 LocalDate registeredEndDate = ca.getCampDetails().getEndDate();
                                 LocalDate registeredStartDate = ca.getCampDetails().getStartDate();
-                                if(!campStartDate.isBefore(registeredStartDate) && !campStartDate.isAfter(registeredEndDate)){
-                                    printCamp = false;    
-                                }
-                                else if(!campEndDate.isBefore(registeredStartDate) && !campEndDate.isAfter(registeredEndDate)){
+                                if (!campStartDate.isBefore(registeredStartDate) && !campStartDate.isAfter(registeredEndDate)) {
                                     printCamp = false;
-                                }
-                                else if(LocalDate.now().isAfter(campCloseDate)){
+                                } else if (!campEndDate.isBefore(registeredStartDate) && !campEndDate.isAfter(registeredEndDate)) {
                                     printCamp = false;
-                                }
-                                else if(!registeredStartDate.isBefore(campStartDate) && !registeredEndDate.isAfter(campEndDate)){
+                                } else if (LocalDate.now().isAfter(campCloseDate)) {
                                     printCamp = false;
-                                }
-                                else{
-                                    
-                                }
-                            }
-                        }
-                        else{
-                           
-                        }
-                        
-                    } 
-                        else {
-                        if (detail.getUserGroup().equals(faculty) && !(c.getCampDetails().getTotalSlots()<=0) && !(c.getCampDetails().getCampCommitteeSlots()>0)) {
-                            if(!s.getRegisteredCamps().isEmpty()){
-                            for(Camp ca : s.getRegisteredCamps()){
-                                LocalDate campEndDate = c.getCampDetails().getEndDate();
-                                LocalDate campStartDate = c.getCampDetails().getStartDate();
-                                LocalDate campCloseDate = c.getCampDetails().getCloseDate();
-                                LocalDate registeredEndDate = ca.getCampDetails().getEndDate();
-                                LocalDate registeredStartDate = ca.getCampDetails().getStartDate();
-                                if(!campStartDate.isBefore(registeredStartDate) && !campStartDate.isAfter(registeredEndDate)){
-                                    printCamp = false;
-                                }
-                                else if(!campEndDate.isBefore(registeredStartDate) && !campEndDate.isAfter(registeredEndDate)){
-                                    printCamp = false;
-                                }
-                                else if(LocalDate.now().isAfter(campCloseDate)){
-                                    printCamp = false;
-                                }
-                                else if(!registeredStartDate.isBefore(campStartDate) && !registeredEndDate.isAfter(campEndDate)){
-                                    printCamp = false;
-                                }
-                                else{
-
-                                }
-                            }
-                        }
-                        else{
-                            
-                        }
-                        }
-                    }
-                    
-
-                }
-                
-            }
-            if (!c.getWithdrawnStudents().isEmpty()) {
-                            for (Student withdrawn : c.getWithdrawnStudents()) {
-                                if (s == withdrawn) {
+                                } else if (!registeredStartDate.isBefore(campStartDate) && !registeredEndDate.isAfter(campEndDate)) {
                                     printCamp = false;
                                 } else {
-                                   
+                                    System.out.println(campCloseDate);
                                 }
                             }
                         } else {
-    
+                            if (LocalDate.now().isAfter(campCloseDate)) {
+                                    printCamp = false;
+                                }
                         }
-            if(printCamp){
+
+                    } else if (detail.getUserGroup().equals(faculty)) {
+                        if (!s.getRegisteredCamps().isEmpty()) {
+                            for (Camp ca : s.getRegisteredCamps()) {
+                                LocalDate registeredEndDate = ca.getCampDetails().getEndDate();
+                                LocalDate registeredStartDate = ca.getCampDetails().getStartDate();
+                                if (!campStartDate.isBefore(registeredStartDate)
+                                        && !campStartDate.isAfter(registeredEndDate)) {
+                                    printCamp = false;
+                                } else if (!campEndDate.isBefore(registeredStartDate)
+                                        && !campEndDate.isAfter(registeredEndDate)) {
+                                    printCamp = false;
+                                } else if (LocalDate.now().isAfter(campCloseDate)) {
+                                    printCamp = false;
+                                } else if (!registeredStartDate.isBefore(campStartDate)
+                                        && !registeredEndDate.isAfter(campEndDate)) {
+                                    printCamp = false;
+                                } else {
+                                    System.out.println(campCloseDate);
+                                }
+                            }
+                        } else {
+                            if (LocalDate.now().isAfter(campCloseDate)) {
+                                    printCamp = false;
+                                }
+                        }
+                    }
+
+                }
+
+            }
+            if (!c.getWithdrawnStudents().isEmpty()) {
+                for (Student withdrawn : c.getWithdrawnStudents()) {
+                    if (s == withdrawn) {
+                        printCamp = false;
+                    } else {
+
+                    }
+                }
+            } else {
+
+            }
+            if (printCamp) {
                 System.out.println("Camp " + ++count);
                 CampManager.printCampRegistrationForStudents(detail);
                 list.add(c);
@@ -133,14 +123,15 @@ public class StudentManager {
             System.out.println("There is currently no available camps for you to register.");
         } else {
             System.out.println("If you want to exit please type " + ++count);
-            while(true){
-                userChoice = InputScanner.promptForInt("Please input the number of the camp you would like to register for \n");
-                if(userChoice<=0 ||userChoice>count)
+            while (true) {
+                userChoice = InputScanner
+                        .promptForInt("Please input the number of the camp you would like to register for \n");
+                if (userChoice <= 0 || userChoice > count)
                     System.out.println("Invalid Input");
-                else    
+                else
                     break;
             }
-            
+
             if (userChoice == count) {
 
             } else {
@@ -148,22 +139,24 @@ public class StudentManager {
                 System.out.println(
                         "The camp you are registering for is " + registeredCamp.getCampDetails().getCampName());
                 if (registeredCamp.getCampDetails().getCampCommitteeSlots() > 0 && !(s instanceof CampCommittee)) {
-                    int committeeDecision =0 ;
-                    while(committeeDecision<=0 ||committeeDecision>2){
-                        committeeDecision = InputScanner.promptForInt("Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No\n");
+                    int committeeDecision = 0;
+                    while (committeeDecision <= 0 || committeeDecision > 2) {
+                        committeeDecision = InputScanner.promptForInt(
+                                "Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No\n");
                         System.out.println("Enter a valid option");
                     }
-                     if (committeeDecision == 1) {
+                    if (committeeDecision == 1) {
                         CampCommittee tempStudent = CampCommitteeManager.toCampCommittee(s);
                         tempStudent.setCommitteeOf(registeredCamp);
                         registeredCamp.addCampCommittee(tempStudent);
                         FileWriting.FileWriteCampStudentList();
                         tempStudent.addRegisteredCamp(registeredCamp);
-                        registeredCamp.editCampCommitteeSlots(registeredCamp.getCampDetails().getCampCommitteeSlots() - 1);
+                        registeredCamp
+                                .editCampCommitteeSlots(registeredCamp.getCampDetails().getCampCommitteeSlots() - 1);
                         registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
                         FileWriting.FileWriteCampDetails();
                         System.out.println("Camp Successfully Registered as Camp Committee!");
-                    }else {
+                    } else {
                         registeredCamp.addParticipants(s);
                         FileWriting.FileWriteCampStudentList();
                         registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
@@ -171,9 +164,8 @@ public class StudentManager {
                         FileWriting.FileWriteCampDetails();
                         System.out.println("Camp Successfully Registered as Camp Attendee!");
                     }
-                    
-                } 
-                else {
+
+                } else {
                     registeredCamp.addParticipants(s);
                     FileWriting.FileWriteCampStudentList();
                     registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
@@ -190,7 +182,7 @@ public class StudentManager {
         System.out.println("=================================");
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
-        int userChoice ;
+        int userChoice;
         int userConfirm = 0;
         int count = 0;
         ArrayList<Camp> registeredCampList = s.getRegisteredCamps();
@@ -207,28 +199,28 @@ public class StudentManager {
                                 if (s == withdrawn) {
                                     printCamp = false;
                                 } else {
-                                    
+
                                 }
                             }
                         } else {
-                            
+
                         }
                     }
                 }
             } else {
                 if (!c.getWithdrawnStudents().isEmpty()) {
-                            for (Student withdrawn : c.getWithdrawnStudents()) {
-                                if (s == withdrawn) {
-                                    printCamp = false;
-                                } else {
-                                    
-                                }
-                            }
+                    for (Student withdrawn : c.getWithdrawnStudents()) {
+                        if (s == withdrawn) {
+                            printCamp = false;
                         } else {
-                            
+
                         }
+                    }
+                } else {
+
+                }
             }
-            if(printCamp){
+            if (printCamp) {
                 System.out.println("Camp " + ++count);
                 CampManager.printCampRegistrationForStudents(detail);
                 list.add(c);
@@ -241,22 +233,25 @@ public class StudentManager {
         } else {
             System.out.println("If you would like to return please input " + ++count);
             while (true) {
-                userChoice = InputScanner.promptForInt("Please input the number of the camp you would like to withdraw from \n");
-                if(userChoice <= 0 || userChoice > count)
+                userChoice = InputScanner
+                        .promptForInt("Please input the number of the camp you would like to withdraw from \n");
+                if (userChoice <= 0 || userChoice > count)
                     System.out.println("Invalid Input");
-                else 
+                else
                     break;
             }
             if (userChoice == count) {
 
             } else {
                 Camp registeredCamp = list.get(userChoice - 1);
-                System.out.println("The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName());
+                System.out.println(
+                        "The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName());
                 while (true) {
-                    userConfirm = InputScanner.promptForInt(" Are you sure you want to withdraw? Enter 1 for Yes or 2 for No\n");
+                    userConfirm = InputScanner
+                            .promptForInt(" Are you sure you want to withdraw? Enter 1 for Yes or 2 for No\n");
                     if (userConfirm > 2 || userConfirm <= 0)
                         System.out.println("Invalid input. ");
-                    else 
+                    else
                         break;
                 }
                 if (userConfirm == 1) {
@@ -277,30 +272,31 @@ public class StudentManager {
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
         String faculty = s.getFaculty();
-        
-        //Default alphabetically sorted
+
+        // Default alphabetically sorted
         ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
         listOfCamps = Sort.insertionSortByName(listOfCamps);
-        CampRepository.setListOfCamps(listOfCamps); //So that subsequent sort is faster
+        CampRepository.setListOfCamps(listOfCamps); // So that subsequent sort is faster
 
-        //Choosing filter method
+        // Choosing filter method
         int filter = Filter.promptForFilter();
-        switch(filter){
-            case 1: //name
+        switch (filter) {
+            case 1: // name
                 String filterName = InputScanner.promptForString("What name do you want to filter by?: ");
                 listOfCamps = Filter.filterByCampName(listOfCamps, filterName);
                 break;
-            case 2: //location
+            case 2: // location
                 String filterLocation = InputScanner.promptForString("What location do you want to filter by?: ");
                 listOfCamps = Filter.filterByLocation(listOfCamps, filterLocation);
                 break;
-            case 3: //date
-                LocalDate filterDate = InputScanner.promptForDate("What date do you want to filter by in format (dd/mm/yyyy)? : ", 1);
+            case 3: // date
+                LocalDate filterDate = InputScanner
+                        .promptForDate("What date do you want to filter by in format (dd/mm/yyyy)? : ", 1);
                 listOfCamps = Filter.filterByDate(listOfCamps, filterDate);
                 break;
         }
         System.out.println();
-        if (listOfCamps.size() == 0){
+        if (listOfCamps.size() == 0) {
             System.out.println("No available camps found.");
             return;
         }
@@ -314,10 +310,9 @@ public class StudentManager {
             } else {
                 if (detail.getUserGroup().equals("Everyone")) {
                     // print
-                    if(LocalDate.now().isAfter(c.getCampDetails().getCloseDate())){
+                    if (LocalDate.now().isAfter(c.getCampDetails().getCloseDate())) {
 
-                    }
-                    else{
+                    } else {
                         CampManager.printCampDetailsForStudents(detail);
                         System.out.println("=================================");
                         list.add(c);
@@ -326,10 +321,9 @@ public class StudentManager {
                 } else {
                     if (detail.getUserGroup().equals(faculty)) {
                         // print
-                        if(LocalDate.now().isAfter(c.getCampDetails().getCloseDate())){
+                        if (LocalDate.now().isAfter(c.getCampDetails().getCloseDate())) {
 
-                        }
-                        else{
+                        } else {
                             CampManager.printCampDetailsForStudents(detail);
                             System.out.println("=================================");
                             list.add(c);
