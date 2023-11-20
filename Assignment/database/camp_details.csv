@@ -1,1 +1,6 @@
 campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
+NTU,2023-11-23,2023-11-23,2023-11-20,Everyone,ntu,23,2,ntu,ARVI,true
+sbs,2023-12-23,2023-12-24,2023-12-20,NBS,ntu,23,1,sbs,ARVI,true
+EEE,2024-09-23,2024-09-24,2024-09-12,EEE,ntu,23,9,eee,UPAM,false
+scse,2024-09-23,2024-09-24,2024-09-20,SCSE,ntu,98,30,scse,HUKUMAR,true
+freef,2023-12-29,2023-12-30,2023-12-28,Everyone,ntu,23,3,free,OURIN,true

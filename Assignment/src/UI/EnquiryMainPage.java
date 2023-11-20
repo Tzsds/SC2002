@@ -20,7 +20,7 @@ public class EnquiryMainPage {
                 mainMenu.displayMainMenu();
             }
             error = false;
-            int option = InputScanner.promptForInt("Input your choice of action (1-4):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-5): ");
             switch (option) {
 
                 case 1:
