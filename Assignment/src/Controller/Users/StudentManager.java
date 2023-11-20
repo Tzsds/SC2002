@@ -159,12 +159,14 @@ public class StudentManager {
                         tempStudent.addRegisteredCamp(registeredCamp);
                         registeredCamp.editCampCommitteeSlots(registeredCamp.getCampDetails().getCampCommitteeSlots() - 1);
                         registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
+                        FileWriting.FileWriteCampDetails();
                         System.out.println("Camp Successfully Registered as Camp Committee!");
                     }else {
                         registeredCamp.addParticipants(s);
                         FileWriting.FileWriteCampStudentList();
                         registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
                         s.addRegisteredCamp(registeredCamp);
+                        FileWriting.FileWriteCampDetails();
                         System.out.println("Camp Successfully Registered as Camp Attendee!");
                     }
                     
@@ -174,6 +176,7 @@ public class StudentManager {
                     FileWriting.FileWriteCampStudentList();
                     registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() - 1);
                     s.addRegisteredCamp(registeredCamp);
+                    FileWriting.FileWriteCampDetails();
                     System.out.println("Camp Successfully Registered as Camp Attendee!");
                 }
 
@@ -259,6 +262,7 @@ public class StudentManager {
                     FileWriting.FileWriteCampStudentList();
                     registeredCamp.editTotalSlots(registeredCamp.getCampDetails().getTotalSlots() + 1);
                     s.removeRegisteredCamp(registeredCamp);
+                    FileWriting.FileWriteCampDetails();
                     System.out.println("Camp Successfully Withdrawn!");
                 } else {
 
