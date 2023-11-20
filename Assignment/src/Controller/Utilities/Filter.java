@@ -8,7 +8,6 @@ import Entity.Enquiry;
 import Entity.Student;
 import Entity.User;
 import Repository.EnquiryRepository;
-import UI.InputScanner;
 
 public class Filter {
     public static int promptForFilter(){

@@ -4,6 +4,7 @@ import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Controller.Users.StudentManager;
+import Controller.Utilities.InputScanner;
 import Entity.CampCommittee;
 
 public class CampCommitteeMainPage {

@@ -8,13 +8,13 @@ import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
 import Controller.File.User.WriteUser;
+import Controller.Utilities.InputScanner;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Enquiry;
 import Entity.Student;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
-import UI.InputScanner;
 
 public class CampCommitteeEnquiryManager {
     // functions to be used by camp com
@@ -89,6 +89,7 @@ public class CampCommitteeEnquiryManager {
 
         // Display camp committee's camp's enquiries
         System.out.println("Enquiries from Other Users on Your Camps:");
+        boolean foundCCEnquiry = false;
         for (Enquiry enquiry : allEnquiries) {
             Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
 
@@ -104,26 +105,32 @@ public class CampCommitteeEnquiryManager {
                 System.out.println("Sender: " + enquiry.getSender());
                 System.out.println("Content: " + enquiry.getContent());
                 System.out.println("Status: " + enquiry.getStatus());
-                System.out.println("------------------------------\n");
+                System.out.println("===========================\n");
                 indexCC++;
+                foundCCEnquiry = true;
             }
+        }
+
+        if (!foundCCEnquiry) {
+            System.out.println("No Enquiries!\n");
         }
 
         // Display the camp committee's own enquiries
         System.out.println("Your Enquiries for Other Camps:");
         List<Enquiry> campCommitteeEnquiries = EnquiryRepository.getEnquiriesBySender(campCommittee.getUserID());
-        if(campCommitteeEnquiries.size() ==0){
-            System.out.println("No enquiries!");
-        }
+        boolean foundMemEnquiry = false;
         for (Enquiry enquiry : campCommitteeEnquiries) {
             System.out.println(indexMem + ":");
             System.out.println("Camp: " + enquiry.getCampName());
             System.out.println("Content: " + enquiry.getContent());
             System.out.println("Status: " + enquiry.getStatus());
-            System.out.println("------------------------------");
+            System.out.println("================================");
             indexMem++;
+            foundMemEnquiry = true;
         }
-        System.out.println( "\n");
+        if (!foundMemEnquiry) {
+            System.out.println("No Enquiries!");
+        }
     }
 
     public static void replyEnquiry(CampCommittee campCommittee) {
@@ -152,21 +159,22 @@ public class CampCommitteeEnquiryManager {
             System.out.println("------------------------------");
             index++;
         }
-        
+
         // Prompt camp committee to select an enquiry to reply
         int selectedIndex;
         do {
-            selectedIndex = InputScanner.promptForInt("Enter the index of the enquiry you want to reply to (0 to cancel): ");
-        
+            selectedIndex = InputScanner
+                    .promptForInt("Enter the index of the enquiry you want to reply to (0 to cancel): ");
+
             if (selectedIndex < 0 || selectedIndex > pendingEnquiries.size()) {
                 System.out.println("Invalid index. Please enter a valid index.");
             }
-        
+
         } while (selectedIndex < 0 || selectedIndex > pendingEnquiries.size());
-        
+
         // Retrieve the selected enquiry
         Enquiry selectedEnquiry = getEnquiryByIndex(campCommittee, selectedIndex);
-        
+
         if (selectedEnquiry != null) {
             // Display details of the selected enquiry
             System.out.println("Selected Enquiry:");
@@ -174,28 +182,28 @@ public class CampCommitteeEnquiryManager {
             System.out.println("Sender: " + selectedEnquiry.getSender());
             System.out.println("Content: " + selectedEnquiry.getContent());
             System.out.println("Status: " + selectedEnquiry.getStatus());
-        
+
             // Prompt camp committee to enter the reply content
             String replyContent = InputScanner.promptForString("Enter your reply: ");
-        
+
             // Update the selected enquiry
             selectedEnquiry.setRepliedContent(replyContent);
             selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
             selectedEnquiry.setReplier(campCommittee.getUserID());
-        
+
             // Update the Enquiry CSV
             WriteEnquiry.replyEnquiryInCSV(selectedEnquiry);
-        
+
             // Add points for the camp committee
             CampCommittee User = (CampCommittee) LoginManager.getCurrentUser();
             User.addPoints();
             WriteUser.FileWriteCampCommittee(); // To reflect the points in the CampComm CSV
-        
+
             System.out.println("Enquiry replied successfully!");
         } else {
             System.out.println("Invalid index. No enquiry selected.");
         }
-        
+
     }
 
     public static Enquiry getEnquiryByIndex(CampCommittee campCommittee, int selectedIndex) {

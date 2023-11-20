@@ -18,7 +18,7 @@ public class StaffEnquiryPage {
                 System.out.println("1. View Enquiries");
                 System.out.println("2. Reply to Enquiry");
                 System.out.println("3. Back to main menu");
-                System.out.println("----------------------------------------");
+                System.out.println("================================");
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-3):");

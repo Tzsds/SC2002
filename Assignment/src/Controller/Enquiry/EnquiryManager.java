@@ -19,29 +19,9 @@ import UI.InputScanner;
 
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {
-        /*
-         * System.out.println("Which Camp do you want to enquiry on?");
-         * StudentManager.viewAvailableCamps();
-         * String campChoice =
-         * InputScanner.promptForString("Choose a camp(Enter Camp Name): ");
-         * //String campChoice = InputScanner.waitForUserInputString();
-         * // Validate if the chosen camp name exists in the available camps
-         * if (!CampDetails.campExists(campChoice)) {
-         * System.out.println("Invalid camp name. Please choose a valid camp.");
-         * return null; // Return null to indicate an error
-         * }
-         * String content =
-         * InputScanner.promptForString("What enquiries do you have?: ");
-         * String sender = LoginManager.getCurrentUser().getUserID();
-         * System.out.println("This is the content written: " + content);
-         * return new Enquiry(sender, content, campChoice);
-         */
 
         System.out.println("Which Camp do you want to enquiry on?");
 
-        // CHANGE THIS TO ONLY LIST CAMPS AVAIL TO THE USER - aka they can only enquire
-        // on camps that is opened to them rather than all the camps
-        // maybe can use StudentManager.viewAvailableCamps(); (once they fix it)
         List<Camp> allAvailCamps = CampRepository.getAvailableCampsForStudent(student);
 
         for (int i = 0; i < allAvailCamps.size(); i++) {
@@ -192,7 +172,7 @@ public class EnquiryManager {
    public static void viewStudentEnquiries(User currentUser) {
     List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
     if (studentEnquiries.size() == 0) {
-        //System.out.println("No Enquiries!");
+        System.out.println("No Enquiries!");
     }
     for (int i = 0; i < studentEnquiries.size(); i++) {
         System.out.println((i + 1) + ":");
@@ -206,7 +186,7 @@ public class EnquiryManager {
             System.out.println("Reply: " + enquiry.getRepliedContent());
             System.out.println("Replier: " + enquiry.getReplier());
         }
-        System.out.println("-------------------------------");
+        System.out.println("================================");
     }
 }
 

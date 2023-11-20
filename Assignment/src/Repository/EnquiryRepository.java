@@ -13,10 +13,6 @@ public class EnquiryRepository {
     public static ArrayList<Enquiry> getListOfEnquiries() {
         // Read enquiries from CSV
         listOfEnquiries = ReadEnquiry.readEnquiriesFromCSV();
-        // Check if the list is empty
-        if (listOfEnquiries.isEmpty()) {
-            System.out.println("No Enquiries!");
-        }
         return listOfEnquiries;
     }
 
@@ -29,7 +25,7 @@ public class EnquiryRepository {
         listOfEnquiries = ReadEnquiry.readEnquiriesFromCSV();
         // Check if the list is empty
         if (listOfEnquiries.isEmpty()) {
-            System.out.println("No Enquiries!");
+            //System.out.println("No Enquiries!");
             return new ArrayList<>(); // Return an empty list
         }
         List<Enquiry> enquiriesBySender = new ArrayList<>();
