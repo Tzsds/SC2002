@@ -20,6 +20,8 @@ public class StaffSuggestionManager {
             System.out.println("You have not created any camp yet.");
         }
         else{
+            
+            System.out.println("========================================");
             boolean empty = true;
             for (Camp camp : listOfCampsCreated){
                 ArrayList<Suggestion> listOfSuggestions = camp.getListOfSuggestions();
@@ -29,7 +31,7 @@ public class StaffSuggestionManager {
                         System.out.println("Camp: " + camp.getCampDetails().getCampName());
                         System.out.println("Proposer: " + suggestion.getProposer().getName());
                         System.out.println("Content: " + suggestion.getContent());
-                        System.out.println("---------------------------------------------");
+                        System.out.println("========================================");
                     }
                 }
             }
