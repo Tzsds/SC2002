@@ -30,30 +30,7 @@ public class StaffEnquiryManager {
 
         int index = 1;
         for (Enquiry enquiry : allEnquiries) {
-            // Start of Debug lines to check the camp name and staff ID
-            /*
-             * System.out.println("Enquiry Camp Name: " + enquiry.getCampName());
-             * System.out.println("Staff ID: " + staffID);
-             * 
-             * System.out.println("Original Camp Name from EnquiryCSV: " +
-             * enquiry.getCampName());
-             * System.out.println("LowerCase Camp Name from EnquiryCSV: " +
-             * enquiry.getCampName().toLowerCase());
-             */
-            //
-
             Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
-
-            /*
-             * // Print the camp names from the Camp CSV - FOR DEBUGGING!
-             * if (camp != null) {
-             * System.out.println("Camp Name from CampCSV: " +
-             * camp.getCampDetails().getCampName());
-             * 
-             * } else {
-             * System.out.println("Camp not found in CampCSV");
-             * }
-             */
             // Check if the camp of the enquiry is created by the staff
             if (camp != null &&
                     CampManager.isCampCreatedByStaff(enquiry.getCampName(),
