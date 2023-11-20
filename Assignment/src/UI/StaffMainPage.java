@@ -56,21 +56,26 @@ public class StaffMainPage {
                     StaffSuggestionMainPage.run();
                     break;
                 case 8:
+                    // View suggestions given by camp committee members
+                    System.out.println("Listing camps created by you...");
+                    ReportManager.viewCampReportForStaff();
+                    break;
+                case 9:
                     // Generate camp report
                     System.out.println("Listing camps created by you...");
                     ReportManager.generateCampReportForStaff();
                     break;
-                case 9:
+                case 10:
                     // Generate enquiry list report
                     System.out.println("Generating enquiry report of camp...");
                     ReportManager.generateEnquiryReportForStaff();
                     break;    
-                case 10:
+                case 11:
                     // Generate performance report
                     System.out.println("Generating performance report of camp committee members...");
                     ReportManager.generatePerformanceReportForStaff();
                     break;
-                case 11:
+                case 12:
                     // Change Password
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
@@ -78,13 +83,13 @@ public class StaffMainPage {
                     Display.LogOut();
                     continueMenu = false;
                     break;
-                case 12:
+                case 13:
                     // Log Out
                     Display.LogOut();
                     System.out.println(currentStaff.getName() + " logged out");
                     continueMenu = false;
                     break;
-                case 13:
+                case 14:
                     // Quit Program
                     Display.ExitMessage();
                     System.exit(0);

@@ -11,12 +11,13 @@ public class StaffMainMenu{
                          + "5. Delete Camp\n"
                          + "6. View Enquiries\n"
                          + "7. Suggestion Page\n"
-                         + "8. Generate Camp Attendee List Report\n"
-                         + "9. Generate Enquiry List Report\n"
-                         + "10. Generate Performance Report\n"
-                         + "11. Change Password\n"
-                         + "12. Log Out\n"
-                         + "13. Quit Program\n"
+                         + "8. View list registered students for each camp\n"
+                         + "9. Generate Camp Attendee List Report\n"
+                         + "10. Generate Enquiry List Report\n"
+                         + "11. Generate Performance Report\n"
+                         + "12. Change Password\n"
+                         + "13. Log Out\n"
+                         + "14. Quit Program\n"
                          + "----------------------------------------");
     }
 }

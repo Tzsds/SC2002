@@ -3,6 +3,7 @@ package UI;
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
+import Controller.Report.ReportManager;
 import Controller.Users.StudentManager;
 import Controller.Utilities.InputScanner;
 import Entity.CampCommittee;
@@ -19,7 +20,7 @@ public class CampCommitteeMainPage {
                 CampCommitteeMainMenu.displayMainMenu();
             }
             error = false;
-            int option = InputScanner.promptForInt("Input your choice of action (1-10): ");
+            int option = InputScanner.promptForInt("Input your choice of action (1-12): ");
             switch (option) {
                 case 1:
                     // Display list of camps available
@@ -47,21 +48,25 @@ public class CampCommitteeMainPage {
                     User.viewRegisteredCamps();
                     break;
                 case 6:
+                    // View Camp Attendee Report
+                    System.out.println("Navigating to print camp attendee list report...");
+                    ReportManager.viewCampReportForCampCommittee();
+                case 7:
                     // Generate Camp Attendee Report
                     System.out.println("Navigating to generate camp attendee list report...");
                     User.generateCampReport();
                     break;
-                case 7:
+                case 8:
                     // Generate Enquiry Report
                     System.out.println("Navigating to generate camp enquiry report...");
                     User.generateEnquiryReport();
                     break;
-                case 8:
+                case 9:
                     // Generate Report
                     System.out.println("Withdrawing From Camps...");
                     StudentManager.withdrawFromCamp();
                     break;
-                case 9:
+                case 10:
                     // Change Password
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
@@ -69,13 +74,13 @@ public class CampCommitteeMainPage {
                     Display.LogOut();
                     continueMenu = false;
                     break;
-                case 10:
+                case 11:
                     // Log out
                     Display.LogOut();
                     continueMenu = false;
                     System.out.println(User.getName() + " logged out");
                     break;
-                case 11:
+                case 12:
                     // Quit Program
                     Display.ExitMessage();
                     System.exit(0);

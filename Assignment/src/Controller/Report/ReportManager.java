@@ -8,6 +8,7 @@ import Controller.Utilities.Filter;
 import Controller.Utilities.InputScanner;
 import Controller.Utilities.Sort;
 import Entity.Camp;
+import Entity.CampCommittee;
 import Entity.Staff;
 
 public class ReportManager {
@@ -277,5 +278,18 @@ public class ReportManager {
         filteredReport.setContent(filteredContent);
         filteredReport.inputAndSetFilePath();
         filteredReport.generate();
+    }
+
+    public static void viewCampReportForStaff() {
+        Camp campChosen = promptWhichCampForStaff();
+        CampReport report = new CampReport(campChosen, 1);
+        report.printInTerminal();
+    }
+
+    public static void viewCampReportForCampCommittee() {
+        CampCommittee committee = (CampCommittee)LoginManager.getCurrentUser();
+        Camp camp = committee.getCommitteeOf();
+        CampReport report = new CampReport(camp, 1);
+        report.printInTerminal();
     }
 }
