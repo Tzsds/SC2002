@@ -47,7 +47,7 @@ public class CampManager {
         System.out.println("End Date: " + detail.getEndDate());
         System.out.println("Registration Close Date: " + detail.getCloseDate());
         System.out.println("Location: " + detail.getLocation());
-        System.out.println("Total Slots: " + detail.getTotalSlots());
+        System.out.println("Remaining Slots: " + detail.getTotalSlots());
         System.out.println("Total Camp Committee Slots: " + detail.getCampCommitteeSlots());
     }
 
