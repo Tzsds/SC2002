@@ -15,18 +15,20 @@ public class CampCommitteeEnquiryPage {
     public void run() {
         boolean continueMenu = true;
         boolean error = false;
-        CampCommittee currentUser = (CampCommittee)LoginManager.getCurrentUser();
+        CampCommittee currentUser = (CampCommittee) LoginManager.getCurrentUser();
         while (continueMenu) {
-            if(!error){
+            if (!error) {
                 mainMenu.displayMainMenu();
                 System.out.println("1. View Enquiries");
                 System.out.println("2. Create Your Enquiries");
-                System.out.println("3. Reply to Camp's Enquiry");
-                System.out.println("4. Back to main menu");
+                System.out.println("3. Edit Your Enquiries");
+                System.out.println("4. Delete Your Enquiries");
+                System.out.println("5. Reply to Camp's Enquiry");
+                System.out.println("6. Back to main menu");
                 System.out.println("----------------------------------------");
             }
             error = false;
-            int option = InputScanner.promptForInt("Input your choice of action (1-4):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-6):");
             switch (option) {
 
                 case 1:
@@ -38,9 +40,15 @@ public class CampCommitteeEnquiryPage {
                     CampCommitteeEnquiryManager.addEnquiry();
                     break;
                 case 3:
-                    CampCommitteeEnquiryManager.replyEnquiry(currentUser);
+                    CampCommitteeEnquiryManager.editEnquiry(currentUser);
                     break;
                 case 4:
+                    CampCommitteeEnquiryManager.deleteEnquiry(currentUser);
+                    break;
+                case 5:
+                    CampCommitteeEnquiryManager.replyEnquiry(currentUser);
+                    break;
+                case 6:
                     System.out.println("Returning to main menu");
                     continueMenu = false;
                     return;
@@ -49,7 +57,7 @@ public class CampCommitteeEnquiryPage {
                     error = true;
                     break;
             }
-            if(!error){
+            if (!error) {
                 System.out.println();
             }
         }

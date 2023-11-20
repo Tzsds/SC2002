@@ -1,5 +1,6 @@
 package Controller.Enquiry;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,7 @@ import Controller.Utilities.InputScanner;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Enquiry;
+import Entity.User;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
 
@@ -78,6 +80,107 @@ public class CampCommitteeEnquiryManager {
         System.out.println("Enquiry added successfully!");
     }
 
+        public static void deleteEnquiry(CampCommittee currentUser) {
+        List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
+
+        if (studentEnquiries.isEmpty()) {
+            System.out.println("No enquiries to remove!");
+            return;
+        }
+
+        System.out.println("Your Enquiries:");
+        viewAllEnquiriesCampCommittee(currentUser);
+
+        while (true) {
+            try {
+                int choice = InputScanner.promptForInt("Enter the number of the enquiry to DELETE (0 to cancel): ");
+
+                if (choice == 0) {
+                    System.out.println("Deletion cancelled.");
+                    return;
+                }
+
+                if (choice < 1 || choice > studentEnquiries.size()) {
+                    System.out.println("Invalid choice. Please try again.");
+                    continue;
+                }
+
+                Enquiry selectedEnquiry = studentEnquiries.get(choice - 1);
+
+                if (selectedEnquiry.getStatus() != Enquiry.Status.REPLIED) {
+                    // Perform the deletion logic here
+                    WriteEnquiry.deleteEnquiryFromCSV(selectedEnquiry);
+                    studentEnquiries.remove(selectedEnquiry);
+                    System.out.println("Enquiry deleted successfully.");
+                } else {
+                    System.out.println("You cannot delete a replied enquiry.");
+                }
+
+                return;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input! Please enter a valid number.");
+                InputScanner.waitForUserInput();
+            }
+        }
+    }
+
+    public static void editEnquiry(CampCommittee currentUser) {
+
+        List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
+
+        if (studentEnquiries.isEmpty()) {
+            System.out.println("No enquiries to edit!");
+            return;
+        }
+
+        System.out.println("Your Enquiries:");
+        viewAllEnquiriesCampCommittee(currentUser);
+
+        while (true) {
+            try {
+                int choice = InputScanner.promptForInt("Enter the number of the enquiry to edit (0 to cancel): ");
+
+                if (choice == 0) {
+                    System.out.println("Editing cancelled.");
+                    return;
+                }
+
+                if (choice < 1 || choice > studentEnquiries.size()) {
+                    System.out.println("Invalid choice. Please try again.");
+                    continue;
+                }
+
+                Enquiry selectedEnquiry = studentEnquiries.get(choice - 1);
+
+                if (selectedEnquiry.getStatus() != Enquiry.Status.REPLIED) {
+                    String oldContent = selectedEnquiry.getContent(); // Keep a copy of the original content
+
+                    String newContent = InputScanner.promptForString("Enter the new Enquiry content: ");
+                    // String newContent = InputScanner.waitForUserInputString();
+
+                    // Update the selected enquiry
+                    Enquiry updatedSelectedEnquiry = new Enquiry(
+                            selectedEnquiry.getSender(),
+                            newContent,
+                            selectedEnquiry.getCampName());
+
+                    // Update the enquiry in the CSV file
+                    WriteEnquiry.updateEnquiryInCSV(selectedEnquiry, updatedSelectedEnquiry, oldContent);
+
+                    System.out.println("Enquiry edited successfully.");
+                } else {
+                    System.out.println("You cannot edit a replied enquiry.");
+                }
+
+                return;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input! Please enter a valid number.");
+                InputScanner.waitForUserInput();
+            }
+        }
+    }
     public static void viewAllEnquiriesCampCommittee(CampCommittee campCommittee) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
 
