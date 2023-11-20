@@ -1,6 +1,7 @@
 package UI;
 
 import Controller.Enquiry.EnquiryManager;
+import Controller.Utilities.InputScanner;
 import Entity.User;
 
 public class EnquiryMainPage {
