@@ -51,6 +51,7 @@ public class CampCommitteeMainPage {
                     // View Camp Attendee Report
                     System.out.println("Navigating to print camp attendee list report...");
                     ReportManager.viewCampReportForCampCommittee();
+                    break;
                 case 7:
                     // Generate Camp Attendee Report
                     System.out.println("Navigating to generate camp attendee list report...");

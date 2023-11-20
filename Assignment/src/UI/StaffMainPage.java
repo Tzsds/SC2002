@@ -20,7 +20,7 @@ public class StaffMainPage {
                 StaffMainMenu.displayMainMenu();
             }
             error = false;
-            int option = InputScanner.promptForInt("Input your choice of action (1-12): ");
+            int option = InputScanner.promptForInt("Input your choice of action (1-14): ");
             switch (option) {
                 case 1:
                     // Show all Camps
