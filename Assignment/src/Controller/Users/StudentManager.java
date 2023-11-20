@@ -6,13 +6,13 @@ import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
 import Controller.Utilities.Filter;
+import Controller.Utilities.InputScanner;
 import Controller.Utilities.Sort;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.CampDetails;
 import Entity.Student;
 import Repository.CampRepository;
-import UI.InputScanner;
 
 public class StudentManager {
 

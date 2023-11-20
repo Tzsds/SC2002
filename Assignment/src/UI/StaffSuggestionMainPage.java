@@ -3,6 +3,7 @@ package UI;
 import Controller.Account.LoginManager;
 import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Users.StaffManager;
+import Controller.Utilities.InputScanner;
 import Entity.Staff;
 
 public class StaffSuggestionMainPage {

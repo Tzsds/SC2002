@@ -5,6 +5,7 @@ import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Controller.Report.ReportManager;
 import Controller.Users.StaffManager;
+import Controller.Utilities.InputScanner;
 import Entity.Staff;
 
 public class StaffMainPage {

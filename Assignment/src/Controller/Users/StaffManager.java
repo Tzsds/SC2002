@@ -9,13 +9,13 @@ import Controller.Enquiry.StaffEnquiryManager;
 import Controller.File.FileWriting;
 import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Utilities.Filter;
+import Controller.Utilities.InputScanner;
 import Controller.Utilities.Sort;
 import Entity.Camp;
 import Entity.CampDetails;
 
 import Entity.Staff;
 import Repository.CampRepository;
-import UI.InputScanner;
 
 
 public class StaffManager {

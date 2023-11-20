@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 import Controller.Account.LoginManager;
 import Controller.Utilities.Filter;
+import Controller.Utilities.InputScanner;
 import Controller.Utilities.Sort;
 import Entity.Camp;
 import Entity.Staff;
-import UI.InputScanner;
 
 public class ReportManager {
 

@@ -5,11 +5,11 @@ import java.util.InputMismatchException;
 
 import Controller.File.FileWriting;
 import Controller.File.User.WriteUser;
+import Controller.Utilities.InputScanner;
 import Entity.Camp;
 import Entity.CampCommittee;
 import Entity.Suggestion;
 import Entity.Suggestion.Status;
-import UI.InputScanner;
 
 public class StaffSuggestionManager {
 

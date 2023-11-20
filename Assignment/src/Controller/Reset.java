@@ -1,7 +1,7 @@
 package Controller;
 import java.util.InputMismatchException;
 
-import UI.InputScanner;
+import Controller.Utilities.InputScanner;
 
 public class Reset {
     public static int PromptForReset(){

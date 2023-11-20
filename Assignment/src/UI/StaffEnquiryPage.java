@@ -1,6 +1,7 @@
 package UI;
 
 import Controller.Users.StaffManager;
+import Controller.Utilities.InputScanner;
 
 public class StaffEnquiryPage {
     private MainMenu mainMenu;
