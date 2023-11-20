@@ -39,26 +39,29 @@ public class SuggestionManager {
             System.out.println("You have no pending suggestions.");
             return;
         }
+        System.out.println("========================================");
         for (Suggestion s : temporaryList){
             System.out.println(count + ". " + s.getContent());
             count += 1;
         }
-        System.out.println("----------------------------------------");
+        System.out.println("========================================");
         while (true){
             int prompt = 0;
-            try{
-                prompt = InputScanner.promptForInt("Enter the suggestion no. you wish to edit: ");
-            }
-            catch (InputMismatchException e){
-                System.out.println("Invalid input! Please try again");
-                InputScanner.waitForUserInput();
-                continue;
-            }
-            if (prompt <= 0 || prompt > temporaryList.size()){
+            int size = temporaryList.size();
+            prompt = InputScanner.promptForInt("Enter the suggestion no. you wish to edit (Enter " 
+                                                + (size+1) + " to exit): ");
+            
+            if (prompt <= 0 || prompt > size+1){
                 System.out.println("Invalid number! Please try again");
                 continue;
             }
-            String content = InputScanner.promptForString("What is your editted Suggestion?: ");
+
+            if (prompt == size + 1){
+                System.out.println("Returning to Suggestion main menu...");
+                return;
+            }
+
+            String content = InputScanner.promptForString("What is your editted Suggestion? : ");
             Suggestion temp = temporaryList.get(prompt-1);
             temp.setContent(content);
             WriteSuggestion.writeSuggestion();
@@ -74,24 +77,25 @@ public class SuggestionManager {
             System.out.println("You have no pending suggestions.");
             return;
         }
+        System.out.println("========================================");
         for (Suggestion s : temporaryList){
             System.out.println(count + ". " + s.getContent());
             count += 1;
         }
-        System.out.println("----------------------------------------");
+        System.out.println("========================================");
         while (true){
             int prompt = 0;
-            try{
-                prompt = InputScanner.promptForInt("Enter the suggestion no. you wish to delete: ");
-            }
-            catch (InputMismatchException e){
-                System.out.println("Invalid input! Please try again");
-                InputScanner.waitForUserInput();
-                continue;
-            }
-            if (prompt <= 0 || prompt > temporaryList.size()){
+            int size = temporaryList.size();
+            prompt = InputScanner.promptForInt("Enter the suggestion no. you wish to delete (Input " +
+                                                (size+1) + " to exit): ");
+        
+            if (prompt <= 0 || prompt > size + 1){
                 System.out.println("Invalid number! Please try again");
                 continue;
+            }
+            if (prompt == size+1){
+                System.out.println("Returning to Suggestion main menu...");
+                return;
             }
             Suggestion temp = suggestions.get(prompt-1);
             CampCommittee User = temp.getProposer();
@@ -109,7 +113,7 @@ public class SuggestionManager {
     }
 
     public static void printSuggestions(ArrayList<Suggestion> suggestions){
-        System.out.println("=================================");
+        System.out.println("========================================");
         if (suggestions.size() == 0){
             System.out.println("No suggestions found!");
             return;
@@ -124,9 +128,10 @@ public class SuggestionManager {
         else{
             for (Suggestion temp : suggestions){
                 System.out.println(temp.getContent() + " (" + temp.getStatus() +")");
-                System.out.println("=================================");
+                // System.out.println("=================================");
             }
         }
+        System.out.println("========================================");
     }
 
     public static ArrayList<Suggestion> getSuggestions(ArrayList<Suggestion> suggestion, boolean pending){

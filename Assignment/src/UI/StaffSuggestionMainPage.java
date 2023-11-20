@@ -19,7 +19,7 @@ public class StaffSuggestionMainPage {
             switch(option){
                 case 1:
                     //View Suggestion
-                    System.out.println("Viewing Suggestions...");
+                    System.out.println("Showing list of suggestions...");
                     StaffManager.viewSuggestions();
                     break;
 
