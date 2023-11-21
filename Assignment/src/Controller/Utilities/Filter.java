@@ -42,9 +42,8 @@ public class Filter {
     public static ArrayList<Camp> filterByLocation(ArrayList<Camp> listOfCamps, String filterLocation){
         ArrayList <Camp> camps = new ArrayList<>();
         for (Camp c : listOfCamps){
-            String location = c.getCampDetails().getLocation();
-            //System.out.println(location + ", " + filterLocation);
-            if (location.equals(filterLocation)){
+            String location = c.getCampDetails().getLocation().toLowerCase();
+            if (location.equals(filterLocation.toLowerCase())){
                 camps.add(c);
             }
         }
@@ -54,8 +53,8 @@ public class Filter {
     public static ArrayList<Camp> filterByCampName(ArrayList<Camp> listOfCamps, String filterName){
         ArrayList <Camp> camps = new ArrayList<>();
         for (Camp c : listOfCamps){
-            String campName = c.getCampDetails().getCampName();
-            if (campName.contains(filterName)){
+            String campName = c.getCampDetails().getCampName().toLowerCase();
+            if (campName.contains(filterName.toLowerCase())){
                 camps.add(c);
             }
         }
