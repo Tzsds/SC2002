@@ -56,8 +56,27 @@ public class Staff extends User {
         String location = InputScanner.promptForString("Enter location of the camp: ");
 
         int totalSlots = InputScanner.promptForInt("Enter the total number of slots open for the camp: ");
+        while (totalSlots < 0){
+            System.out.println("Total slots of a camp cannot be a negative integer. Please try again.");
+            totalSlots = InputScanner.promptForInt("Enter the total number of slots open for the camp: ");
+        }
         
-        int campCommitteeSlots = InputScanner.promptForInt("Enter the number of camp committee slots open for the camp: ");   
+        int campCommitteeSlots;
+        while (true){
+            campCommitteeSlots = InputScanner.promptForInt("Enter the number of camp committee slots open for the camp: ");
+            if (campCommitteeSlots < 0){
+                System.out.println("Camp Committee slots cannot be a negative integer. Please try again");
+            }
+            else if (campCommitteeSlots > 10){
+                System.out.println("Camp Committee slots is limited to 10 slots only. Please try again");
+            }
+            else if (campCommitteeSlots > totalSlots){
+                System.out.println("Camp Committee slots cannot be more than total slots of camp. Please try again");
+            }
+            else{
+                break;
+            }
+        }   
         
         boolean bool;
         while(true){

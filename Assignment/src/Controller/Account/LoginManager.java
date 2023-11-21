@@ -1,6 +1,7 @@
 package Controller.Account;
 
 import Controller.File.FileWriting;
+import Controller.Utilities.InputScanner;
 import Entity.CampCommittee;
 import Entity.Staff;
 import Entity.Student;
@@ -8,7 +9,6 @@ import Entity.User;
 import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StaffRepository;
 import Repository.UserRepository.StudentRepository;
-import UI.AccountInput;
 import UI.Display;
 
 public class LoginManager {
@@ -31,7 +31,7 @@ public class LoginManager {
     private static void checkID(){
         User temp;
         while (true){
-            String id = AccountInput.inputID();
+            String id = InputScanner.promptForString("Enter your User ID: ");
             
             for (CampCommittee s : CampCommitteeRepository.getListOfCampCommittee()){
                 temp = s;
@@ -64,7 +64,7 @@ public class LoginManager {
 
     private static void checkPassword(User person){
         while (true){
-            String pw = AccountInput.inputPW();
+            String pw = InputScanner.promptForString("Enter your password: ");
             if (pw.equals(person.getPassword())){
                 return;
             }
