@@ -72,12 +72,12 @@ public class CampCommitteeMainPage {
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteCampCommittee();
-                    Display.LogOut();
+                    Display.logOut();
                     continueMenu = false;
                     break;
                 case 11:
                     // Log out
-                    Display.LogOut();
+                    Display.logOut();
                     continueMenu = false;
                     System.out.println(User.getName() + " logged out");
                     break;

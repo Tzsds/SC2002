@@ -80,12 +80,12 @@ public class StaffMainPage {
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteStaff();
-                    Display.LogOut();
+                    Display.logOut();
                     continueMenu = false;
                     break;
                 case 13:
                     // Log Out
-                    Display.LogOut();
+                    Display.logOut();
                     System.out.println(currentStaff.getName() + " logged out");
                     continueMenu = false;
                     break;

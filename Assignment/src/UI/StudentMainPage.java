@@ -56,12 +56,12 @@ public class StudentMainPage {
                     Display.changePassword();
                     ChangeAccountPassword.changePassword();
                     WriteUser.FileWriteStudent();
-                    Display.LogOut();
+                    Display.logOut();
                     continueMenu = false;
                     break;
                 case 7:
                     //Log Out
-                    Display.LogOut();
+                    Display.logOut();
                     System.out.println(currentStudent.getName() + " logged out");
                     continueMenu = false;
                     break;

@@ -10,7 +10,7 @@ public class Display {
         System.out.println("Exiting Program ...");
     }
 
-    public static void LogOut(){
+    public static void logOut(){
         System.out.println("Logging out ...");
     }
 
