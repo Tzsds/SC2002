@@ -1,11 +1,11 @@
 package UI;
 
 public class Display {
-    public static void WelcomeMessage(){
+    public static void welcomeMessage(){
         System.out.println("Welcome to NTU CAMS System!");
     }
 
-    public static void ExitMessage(){
+    public static void exitMessage(){
         System.out.println("Thanks for using NTU CAMS System.");
         System.out.println("Exiting Program ...");
     }

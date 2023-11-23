@@ -67,7 +67,7 @@ public class StudentMainPage {
                     break;
                 case 8:
                     //Quit Program
-                    Display.ExitMessage();
+                    Display.exitMessage();
                     System.exit(0);
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");

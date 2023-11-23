@@ -83,7 +83,7 @@ public class CampCommitteeMainPage {
                     break;
                 case 12:
                     // Quit Program
-                    Display.ExitMessage();
+                    Display.exitMessage();
                     System.exit(0);
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
