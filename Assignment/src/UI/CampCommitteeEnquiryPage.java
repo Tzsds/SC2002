@@ -5,7 +5,7 @@ import Controller.Enquiry.CampCommitteeEnquiryManager;
 import Controller.Utilities.InputScanner;
 import Entity.CampCommittee;
 
-public class CampCommitteeEnquiryPage {
+public class CampCommitteeEnquiryPage implements MainPage{
     private MainMenu mainMenu;
 
     public CampCommitteeEnquiryPage() {

@@ -3,7 +3,7 @@ package UI;
 import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;
 
-public class StaffEnquiryPage {
+public class StaffEnquiryPage implements MainPage {
     private MainMenu mainMenu;
 
     public StaffEnquiryPage() {

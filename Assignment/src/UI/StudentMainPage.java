@@ -7,9 +7,9 @@ import Controller.Users.StudentManager;
 import Controller.Utilities.InputScanner;
 import Entity.Student;
 
-public class StudentMainPage {
+public class StudentMainPage implements MainPage {
 
-    public static void run() {
+    public void run() {
         boolean continueMenu = true;
         Student currentStudent = (Student)LoginManager.getCurrentUser();
         boolean error = false;
@@ -32,7 +32,9 @@ public class StudentMainPage {
                     StudentManager.registerForCamps();
                     if (LoginManager.getUserRole() == "CampCommittee"){
                         continueMenu = false;
-                        CampCommitteeMainPage.run();
+                        Display.clearScreen();
+                        CampCommitteeMainPage page = new CampCommitteeMainPage();
+                        page.run();
                     }
                     break;
                 case 3:

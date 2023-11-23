@@ -8,9 +8,9 @@ import Controller.Users.StudentManager;
 import Controller.Utilities.InputScanner;
 import Entity.CampCommittee;
 
-public class CampCommitteeMainPage {
+public class CampCommitteeMainPage implements MainPage{
 
-    public static void run() {
+    public void run() {
         boolean continueMenu = true;
         boolean error = false;
         CampCommittee User = (CampCommittee) LoginManager.getCurrentUser();
@@ -41,7 +41,8 @@ public class CampCommitteeMainPage {
                 case 4:
                     // Navigate to Suggestion Page
                     System.out.println("Navigating to Suggestion Page");
-                    SuggestionMainPage.run();
+                    MainPage page = new SuggestionMainPage();
+                    page.run();
                     break;
                 case 5:
                     // View Registered Camps

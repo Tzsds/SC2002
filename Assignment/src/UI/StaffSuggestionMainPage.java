@@ -6,8 +6,8 @@ import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;
 import Entity.Staff;
 
-public class StaffSuggestionMainPage {
-    public static void run(){
+public class StaffSuggestionMainPage implements MainPage{
+    public void run(){
         boolean continueMenu = true;
         Staff currentUser = (Staff)LoginManager.getCurrentUser();
         boolean error = false;

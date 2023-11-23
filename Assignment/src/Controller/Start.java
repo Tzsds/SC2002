@@ -1,10 +1,12 @@
 package Controller;
 import Controller.Account.LoginManager;
 import Controller.File.FileRead;
+import Entity.Student;
 import UI.CampCommitteeMainPage;
 import UI.StaffMainPage;
 import UI.StudentMainPage;
 import UI.Display;
+import UI.MainPage;
 
 public class Start {
     public static void main(String[] args) {
@@ -16,19 +18,21 @@ public class Start {
             LoginManager.Login();
             String userRole = LoginManager.getUserRole();
             Display.clearScreen();
-            // entering main pages
+            MainPage page;
+            // entering main page
             if (userRole == "Student") {
                 System.out.println("Redirecting to student menu");
-                StudentMainPage.run();
+                page = new StudentMainPage();
             }
             else if (userRole == "Staff") {
                 System.out.println("Redirecting to staff menu");
-                StaffMainPage.run();
+                page = new StaffMainPage();
             }
             else{
                 System.out.println("Redirecting to Camp Committee menu");
-                CampCommitteeMainPage.run();
+                page = new CampCommitteeMainPage();
             }
+            page.run();
             Display.welcomeMessage();
         }
     }

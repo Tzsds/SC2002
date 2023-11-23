@@ -4,7 +4,7 @@ import Controller.Enquiry.EnquiryManager;
 import Controller.Utilities.InputScanner;
 import Entity.User;
 
-public class EnquiryMainPage {
+public class EnquiryMainPage implements MainPage {
     private MainMenu mainMenu;
     private User currentUser;
 

@@ -5,8 +5,8 @@ import Controller.Suggestion.SuggestionManager;
 import Controller.Utilities.InputScanner;
 import Entity.CampCommittee;
 
-public class SuggestionMainPage {
-    public static void run(){
+public class SuggestionMainPage implements MainPage {
+    public void run(){
         boolean continueMenu = true;
         boolean error = false;
         CampCommittee currentUser = (CampCommittee)LoginManager.getCurrentUser();

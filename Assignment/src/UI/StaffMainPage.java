@@ -8,9 +8,9 @@ import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;
 import Entity.Staff;
 
-public class StaffMainPage {
+public class StaffMainPage implements MainPage {
 
-    public static void run() {
+    public void run() {
         boolean continueMenu = true;
         Staff currentStaff = (Staff) LoginManager.getCurrentUser();
         boolean error = false;
@@ -53,7 +53,8 @@ public class StaffMainPage {
                 case 7:
                     // View suggestions given by camp committee members
                     System.out.println("Navigating to suggestion page...");
-                    StaffSuggestionMainPage.run();
+                    StaffSuggestionMainPage page = new StaffSuggestionMainPage();
+                    page.run();
                     break;
                 case 8:
                     // View suggestions given by camp committee members
