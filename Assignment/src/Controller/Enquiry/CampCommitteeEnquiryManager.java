@@ -10,9 +10,9 @@ import Controller.File.User.WriteUser;
 import Controller.Utilities.InputScanner;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
-import entities.Camp;
-import entities.CampCommittee;
-import entities.Enquiry;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.Enquiry;
 
 public class CampCommitteeEnquiryManager {
     // functions to be used by camp com

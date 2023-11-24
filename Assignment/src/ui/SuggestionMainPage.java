@@ -3,7 +3,7 @@ package ui;
 import Controller.Account.LoginManager;
 import Controller.Suggestion.SuggestionManager;
 import Controller.Utilities.InputScanner;
-import entities.CampCommittee;
+import entity.CampCommittee;
 
 public class SuggestionMainPage implements MainPage {
     public void run(){

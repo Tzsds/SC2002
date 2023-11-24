@@ -5,8 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import Repository.CampRepository;
-import entities.Camp;
-import entities.CampDetails;
+import entity.Camp;
+import entity.CampDetails;
 
 import java.util.ArrayList;
 

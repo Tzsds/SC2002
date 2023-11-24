@@ -8,10 +8,10 @@ import Controller.File.Enquiry.WriteEnquiry;
 import Controller.Utilities.InputScanner;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
-import entities.Camp;
-import entities.Enquiry;
-import entities.Student;
-import entities.User;
+import entity.Camp;
+import entity.Enquiry;
+import entity.Student;
+import entity.User;
 
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {

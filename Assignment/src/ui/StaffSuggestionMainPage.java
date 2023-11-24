@@ -4,7 +4,7 @@ import Controller.Account.LoginManager;
 import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;
-import entities.Staff;
+import entity.Staff;
 
 public class StaffSuggestionMainPage implements MainPage{
     public void run(){

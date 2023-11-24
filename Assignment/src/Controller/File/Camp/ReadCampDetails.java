@@ -9,10 +9,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import Repository.CampRepository;
-import Repository.UserRepository.StaffRepository;
-import entities.Camp;
-import entities.CampDetails;
-import entities.Staff;
+import Repository.userrepo.StaffRepository;
+import entity.Camp;
+import entity.CampDetails;
+import entity.Staff;
 
 public class ReadCampDetails {
     private static String path = "Assignment/database/camp_details.csv";

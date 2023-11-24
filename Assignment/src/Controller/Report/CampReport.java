@@ -4,11 +4,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import Repository.UserRepository.StaffRepository;
-import entities.Camp;
-import entities.CampDetails;
-import entities.Staff;
-import entities.Student;
+import Repository.userrepo.StaffRepository;
+import entity.Camp;
+import entity.CampDetails;
+import entity.Staff;
+import entity.Student;
 
 public class CampReport extends Report{
     private Camp camp;

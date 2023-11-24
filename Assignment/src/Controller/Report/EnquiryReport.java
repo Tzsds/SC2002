@@ -3,9 +3,9 @@ package Controller.Report;
 import java.util.ArrayList;
 
 import Repository.EnquiryRepository;
-import entities.Camp;
-import entities.CampDetails;
-import entities.Enquiry;
+import entity.Camp;
+import entity.CampDetails;
+import entity.Enquiry;
 
 public class EnquiryReport extends Report {
     private Camp camp;

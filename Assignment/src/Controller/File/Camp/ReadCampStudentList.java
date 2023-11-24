@@ -7,11 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import Repository.CampRepository;
-import Repository.UserRepository.CampCommitteeRepository;
-import Repository.UserRepository.StudentRepository;
-import entities.Camp;
-import entities.CampCommittee;
-import entities.Student;
+import Repository.userrepo.CampCommitteeRepository;
+import Repository.userrepo.StudentRepository;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.Student;
 
 public class ReadCampStudentList {
     private static String campStudentListCSV = "Assignment/database/camp_student_list.csv";

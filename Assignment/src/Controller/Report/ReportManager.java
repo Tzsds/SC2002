@@ -7,9 +7,9 @@ import Controller.Account.LoginManager;
 import Controller.Utilities.Filter;
 import Controller.Utilities.InputScanner;
 import Controller.Utilities.Sort;
-import entities.Camp;
-import entities.CampCommittee;
-import entities.Staff;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.Staff;
 
 public class ReportManager {
 

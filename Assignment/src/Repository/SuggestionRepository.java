@@ -2,7 +2,7 @@ package Repository;
 
 import java.util.ArrayList;
 
-import entities.Suggestion;
+import entity.Suggestion;
 
 public class SuggestionRepository {
     private static ArrayList<Suggestion> listOfSuggestions = new ArrayList<Suggestion> ();

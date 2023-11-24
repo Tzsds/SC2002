@@ -10,9 +10,9 @@ import Controller.Utilities.Filter;
 import Controller.Utilities.InputScanner;
 import Controller.Utilities.Sort;
 import Repository.CampRepository;
-import entities.Camp;
-import entities.CampDetails;
-import entities.Staff;
+import entity.Camp;
+import entity.CampDetails;
+import entity.Staff;
 
 
 public class StaffManager {

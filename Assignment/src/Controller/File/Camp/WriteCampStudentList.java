@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import Repository.CampRepository;
-import entities.Camp;
-import entities.CampDetails;
-import entities.Student;
+import entity.Camp;
+import entity.CampDetails;
+import entity.Student;
 
 public class WriteCampStudentList {
     

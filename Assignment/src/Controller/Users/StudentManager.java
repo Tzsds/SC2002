@@ -8,10 +8,10 @@ import Controller.File.FileWriting;
 import Controller.Utilities.Filter;
 import Controller.Utilities.Sort;
 import Repository.CampRepository;
-import entities.Camp;
-import entities.CampCommittee;
-import entities.CampDetails;
-import entities.Student;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.CampDetails;
+import entity.Student;
 import Controller.Utilities.InputScanner;
 
 public class StudentManager {

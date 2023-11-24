@@ -1,8 +1,8 @@
-package Repository.UserRepository;
+package Repository.userrepo;
 
 import java.util.ArrayList;
 
-import entities.Staff;
+import entity.Staff;
 
 public class StaffRepository {
     private static ArrayList<Staff> listOfStaff = new ArrayList<Staff>();

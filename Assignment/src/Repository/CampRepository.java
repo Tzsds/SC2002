@@ -2,9 +2,9 @@ package Repository;
 
 import java.util.ArrayList;
 
-import entities.Camp;
-import entities.CampDetails;
-import entities.Student;
+import entity.Camp;
+import entity.CampDetails;
+import entity.Student;
 
 public class CampRepository {
     private static ArrayList<Camp> listOfCamps = new ArrayList<Camp>();

@@ -8,8 +8,8 @@ import Controller.File.Enquiry.WriteEnquiry;
 import Controller.Utilities.InputScanner;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
-import entities.Camp;
-import entities.Enquiry;
+import entity.Camp;
+import entity.Enquiry;
 
 public class StaffEnquiryManager {
     // functions to be used by staff

@@ -5,7 +5,7 @@ import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Controller.Users.StudentManager;
 import Controller.Utilities.InputScanner;
-import entities.Student;
+import entity.Student;
 
 public class StudentMainPage implements MainPage {
 

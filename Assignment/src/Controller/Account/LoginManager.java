@@ -2,13 +2,13 @@ package Controller.Account;
 
 import Controller.File.FileWriting;
 import Controller.Utilities.InputScanner;
-import Repository.UserRepository.CampCommitteeRepository;
-import Repository.UserRepository.StaffRepository;
-import Repository.UserRepository.StudentRepository;
-import entities.CampCommittee;
-import entities.Staff;
-import entities.Student;
-import entities.User;
+import Repository.userrepo.CampCommitteeRepository;
+import Repository.userrepo.StaffRepository;
+import Repository.userrepo.StudentRepository;
+import entity.CampCommittee;
+import entity.Staff;
+import entity.Student;
+import entity.User;
 import ui.Display;
 
 public class LoginManager {

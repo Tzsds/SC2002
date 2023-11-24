@@ -7,11 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import Repository.SuggestionRepository;
-import Repository.UserRepository.CampCommitteeRepository;
-import entities.Camp;
-import entities.CampCommittee;
-import entities.Suggestion;
-import entities.Suggestion.Status;
+import Repository.userrepo.CampCommitteeRepository;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.Suggestion;
+import entity.Suggestion.Status;
 
 public class ReadSuggestion {
 

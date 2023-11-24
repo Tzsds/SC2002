@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Repository.EnquiryRepository;
-import entities.Camp;
-import entities.Enquiry;
-import entities.Student;
+import entity.Camp;
+import entity.Enquiry;
+import entity.Student;
 
 public class Filter {
     public static int promptForFilter(){

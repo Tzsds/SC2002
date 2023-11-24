@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import Repository.SuggestionRepository;
-import entities.Suggestion;
+import entity.Suggestion;
 
 
 public class WriteSuggestion {

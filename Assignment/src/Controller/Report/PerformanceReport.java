@@ -2,11 +2,11 @@ package Controller.Report;
 
 import java.util.ArrayList;
 
-import Repository.UserRepository.CampCommitteeRepository;
-import entities.Camp;
-import entities.CampCommittee;
-import entities.CampDetails;
-import entities.Student;
+import Repository.userrepo.CampCommitteeRepository;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.CampDetails;
+import entity.Student;
 
 public class PerformanceReport extends Report{
     private Camp camp;

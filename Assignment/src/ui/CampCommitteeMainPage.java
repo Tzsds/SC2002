@@ -6,7 +6,7 @@ import Controller.File.User.WriteUser;
 import Controller.Report.ReportManager;
 import Controller.Users.StudentManager;
 import Controller.Utilities.InputScanner;
-import entities.CampCommittee;
+import entity.CampCommittee;
 
 public class CampCommitteeMainPage implements MainPage{
 

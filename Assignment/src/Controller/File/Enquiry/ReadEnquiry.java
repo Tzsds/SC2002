@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import entities.Enquiry;
+import entity.Enquiry;
 
 public class ReadEnquiry {
 

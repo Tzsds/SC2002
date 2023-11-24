@@ -6,7 +6,7 @@ import Controller.File.User.WriteUser;
 import Controller.Report.ReportManager;
 import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;
-import entities.Staff;
+import entity.Staff;
 
 public class StaffMainPage implements MainPage {
 

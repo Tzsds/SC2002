@@ -6,12 +6,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Repository.UserRepository.CampCommitteeRepository;
-import Repository.UserRepository.StaffRepository;
-import Repository.UserRepository.StudentRepository;
-import entities.CampCommittee;
-import entities.Staff;
-import entities.Student;
+import Repository.userrepo.CampCommitteeRepository;
+import Repository.userrepo.StaffRepository;
+import Repository.userrepo.StudentRepository;
+import entity.CampCommittee;
+import entity.Staff;
+import entity.Student;
 
 public class ReadUser {
 

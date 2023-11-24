@@ -9,10 +9,10 @@ import Controller.File.Suggestion.WriteSuggestion;
 import Controller.File.User.WriteUser;
 import Controller.Utilities.InputScanner;
 import Repository.SuggestionRepository;
-import entities.Camp;
-import entities.CampCommittee;
-import entities.Suggestion;
-import entities.Suggestion.Status;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.Suggestion;
+import entity.Suggestion.Status;
 
 public class SuggestionManager {
 
