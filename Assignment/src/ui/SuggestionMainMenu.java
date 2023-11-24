@@ -1,4 +1,4 @@
-package UserInterface;
+package ui;
 
 public class SuggestionMainMenu {
     public static void displaySuggestionMenu(){

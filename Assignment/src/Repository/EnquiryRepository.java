@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Controller.File.Enquiry.ReadEnquiry;
-import Entity.Camp;
-import Entity.Enquiry;
+import entities.Camp;
+import entities.Enquiry;
 
 public class EnquiryRepository {
     private static ArrayList<Enquiry> listOfEnquiries = new ArrayList<Enquiry>();

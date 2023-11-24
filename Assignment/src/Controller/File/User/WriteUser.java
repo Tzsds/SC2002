@@ -4,12 +4,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Entity.CampCommittee;
-import Entity.Staff;
-import Entity.Student;
 import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StaffRepository;
 import Repository.UserRepository.StudentRepository;
+import entities.CampCommittee;
+import entities.Staff;
+import entities.Student;
 
 
 public class WriteUser {

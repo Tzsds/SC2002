@@ -1,4 +1,4 @@
-package UserInterface;
+package ui;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
@@ -6,7 +6,7 @@ import Controller.File.User.WriteUser;
 import Controller.Report.ReportManager;
 import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;
-import Entity.Staff;
+import entities.Staff;
 
 public class StaffMainPage implements MainPage {
 

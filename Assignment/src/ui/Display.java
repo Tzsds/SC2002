@@ -1,4 +1,4 @@
-package UserInterface;
+package ui;
 
 public class Display {
     public static void welcomeMessage(){

@@ -1,4 +1,4 @@
-package UserInterface;
+package ui;
 
 import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;

@@ -1,4 +1,4 @@
-package UserInterface;
+package ui;
 public class CampCommitteeMainMenu {
     public static void displayMainMenu(){
         System.out.println("----------------------------------------");

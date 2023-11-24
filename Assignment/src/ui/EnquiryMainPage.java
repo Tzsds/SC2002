@@ -1,8 +1,8 @@
-package UserInterface;
+package ui;
 
 import Controller.Enquiry.EnquiryManager;
 import Controller.Utilities.InputScanner;
-import Entity.User;
+import entities.User;
 
 public class EnquiryMainPage implements MainPage {
     private MainMenu mainMenu;

@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import Entity.Camp;
-import Entity.CampDetails;
-import Entity.Staff;
 import Repository.CampRepository;
 import Repository.UserRepository.StaffRepository;
+import entities.Camp;
+import entities.CampDetails;
+import entities.Staff;
 
 public class ReadCampDetails {
     private static String path = "Assignment/database/camp_details.csv";

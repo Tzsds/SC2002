@@ -4,8 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Entity.Suggestion;
 import Repository.SuggestionRepository;
+import entities.Suggestion;
 
 
 public class WriteSuggestion {

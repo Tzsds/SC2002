@@ -8,11 +8,11 @@ import Controller.Account.LoginManager;
 import Controller.File.Enquiry.WriteEnquiry;
 import Controller.File.User.WriteUser;
 import Controller.Utilities.InputScanner;
-import Entity.Camp;
-import Entity.CampCommittee;
-import Entity.Enquiry;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
+import entities.Camp;
+import entities.CampCommittee;
+import entities.Enquiry;
 
 public class CampCommitteeEnquiryManager {
     // functions to be used by camp com

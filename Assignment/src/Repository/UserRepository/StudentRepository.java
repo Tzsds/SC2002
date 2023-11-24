@@ -2,7 +2,7 @@ package Repository.UserRepository;
 
 import java.util.ArrayList;
 
-import Entity.Student;
+import entities.Student;
 
 public class StudentRepository {
     private static ArrayList<Student> listOfStudents = new ArrayList<Student>();

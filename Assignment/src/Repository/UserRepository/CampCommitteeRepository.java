@@ -2,7 +2,7 @@ package Repository.UserRepository;
 
 import java.util.ArrayList;
 
-import Entity.CampCommittee;
+import entities.CampCommittee;
 
 public class CampCommitteeRepository {
     private static ArrayList<CampCommittee> listOfCampCommittee = new ArrayList<CampCommittee>();

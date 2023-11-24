@@ -2,12 +2,12 @@ package Controller.Camp;
 
 import java.util.ArrayList;
 
-import Entity.Camp;
-import Entity.CampDetails;
-import Entity.Staff;
-import Entity.Suggestion;
 import Repository.CampRepository;
 import Repository.UserRepository.StaffRepository;
+import entities.Camp;
+import entities.CampDetails;
+import entities.Staff;
+import entities.Suggestion;
 
 public class CampManager {
     public static void addSuggestion(Camp tempCamp, Suggestion tempSuggestion) {

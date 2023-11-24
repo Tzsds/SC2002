@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
-import Entity.Camp;
-import Entity.CampCommittee;
-import Entity.Enquiry;
-import Entity.Student;
 import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StudentRepository;
+import entities.Camp;
+import entities.CampCommittee;
+import entities.Enquiry;
+import entities.Student;
 
 public class CampCommitteeManager {
     public static CampCommittee toCampCommittee(Student s){

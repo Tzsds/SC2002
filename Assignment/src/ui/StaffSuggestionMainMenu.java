@@ -1,4 +1,4 @@
-package UserInterface;
+package ui;
 
 public class StaffSuggestionMainMenu {
     public static void displayStaffSuggestionMenu(){

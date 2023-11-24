@@ -6,10 +6,10 @@ import java.util.stream.Collectors;
 import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
 import Controller.Utilities.InputScanner;
-import Entity.Camp;
-import Entity.Enquiry;
 import Repository.CampRepository;
 import Repository.EnquiryRepository;
+import entities.Camp;
+import entities.Enquiry;
 
 public class StaffEnquiryManager {
     // functions to be used by staff

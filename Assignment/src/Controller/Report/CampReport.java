@@ -3,11 +3,12 @@ package Controller.Report;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import Entity.Camp;
-import Entity.CampDetails;
-import Entity.Staff;
-import Entity.Student;
+
 import Repository.UserRepository.StaffRepository;
+import entities.Camp;
+import entities.CampDetails;
+import entities.Staff;
+import entities.Student;
 
 public class CampReport extends Report{
     private Camp camp;

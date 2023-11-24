@@ -1,11 +1,11 @@
-package UserInterface;
+package ui;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Controller.Users.StudentManager;
 import Controller.Utilities.InputScanner;
-import Entity.Student;
+import entities.Student;
 
 public class StudentMainPage implements MainPage {
 

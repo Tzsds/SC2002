@@ -1,10 +1,10 @@
-package UserInterface;
+package ui;
 
 import Controller.Account.LoginManager;
 import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;
-import Entity.Staff;
+import entities.Staff;
 
 public class StaffSuggestionMainPage implements MainPage{
     public void run(){

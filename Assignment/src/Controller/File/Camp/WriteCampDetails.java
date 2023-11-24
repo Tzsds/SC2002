@@ -4,10 +4,10 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
-import Entity.Camp;
-import Entity.CampDetails;
 import Repository.CampRepository;
+import entities.Camp;
+import entities.CampDetails;
+
 import java.util.ArrayList;
 
 public class WriteCampDetails {

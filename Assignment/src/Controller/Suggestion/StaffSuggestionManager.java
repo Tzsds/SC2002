@@ -6,10 +6,10 @@ import java.util.InputMismatchException;
 import Controller.File.FileWriting;
 import Controller.File.User.WriteUser;
 import Controller.Utilities.InputScanner;
-import Entity.Camp;
-import Entity.CampCommittee;
-import Entity.Suggestion;
-import Entity.Suggestion.Status;
+import entities.Camp;
+import entities.CampCommittee;
+import entities.Suggestion;
+import entities.Suggestion.Status;
 
 public class StaffSuggestionManager {
 

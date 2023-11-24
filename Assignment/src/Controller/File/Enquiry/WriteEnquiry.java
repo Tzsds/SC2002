@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import Entity.Enquiry;
+import entities.Enquiry;
 
 public class WriteEnquiry {
     public static void FileWriteEnquiry(Enquiry enquiry) {
