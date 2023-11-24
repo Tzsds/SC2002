@@ -1,11 +1,11 @@
 package ui;
 
-import Controller.File.user.WriteUser;
-import Controller.account.ChangeAccountPassword;
-import Controller.account.LoginManager;
-import Controller.report.ReportManager;
-import Controller.user.StaffManager;
-import Controller.utils.InputScanner;
+import controllers.File.user.WriteUser;
+import controllers.account.ChangeAccountPassword;
+import controllers.account.LoginManager;
+import controllers.report.ReportManager;
+import controllers.user.StaffManager;
+import controllers.utils.InputScanner;
 import entity.Staff;
 
 public class StaffMainPage implements MainPage {

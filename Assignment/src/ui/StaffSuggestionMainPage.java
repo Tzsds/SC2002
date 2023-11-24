@@ -1,9 +1,9 @@
 package ui;
 
-import Controller.account.LoginManager;
-import Controller.suggestion.StaffSuggestionManager;
-import Controller.user.StaffManager;
-import Controller.utils.InputScanner;
+import controllers.account.LoginManager;
+import controllers.suggestion.StaffSuggestionManager;
+import controllers.user.StaffManager;
+import controllers.utils.InputScanner;
 import entity.Staff;
 
 public class StaffSuggestionMainPage implements MainPage{

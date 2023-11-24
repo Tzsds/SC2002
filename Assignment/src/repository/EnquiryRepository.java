@@ -3,7 +3,7 @@ package repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controller.File.enquiry.ReadEnquiry;
+import controllers.File.enquiry.ReadEnquiry;
 import entity.Camp;
 import entity.Enquiry;
 

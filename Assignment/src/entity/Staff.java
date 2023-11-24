@@ -3,11 +3,11 @@ package entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import Controller.File.FileWriting;
-import Controller.report.EnquiryReport;
-import Controller.report.PerformanceReport;
-import Controller.report.ReportManager;
-import Controller.utils.InputScanner;
+import controllers.File.FileWriting;
+import controllers.report.EnquiryReport;
+import controllers.report.PerformanceReport;
+import controllers.report.ReportManager;
+import controllers.utils.InputScanner;
 import repository.CampRepository;
 
 public class Staff extends User {

@@ -1,8 +1,8 @@
 package ui;
 
-import Controller.account.LoginManager;
-import Controller.enquiry.CampCommitteeEnquiryManager;
-import Controller.utils.InputScanner;
+import controllers.account.LoginManager;
+import controllers.enquiry.CampCommitteeEnquiryManager;
+import controllers.utils.InputScanner;
 import entity.CampCommittee;
 
 public class CampCommitteeEnquiryPage implements MainPage{
