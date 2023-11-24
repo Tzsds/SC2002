@@ -1,7 +1,6 @@
 package controller;
 import controller.File.FileRead;
 import controller.account.LoginManager;
-import entity.Student;
 import ui.CampCommitteeMainPage;
 import ui.Display;
 import ui.MainPage;

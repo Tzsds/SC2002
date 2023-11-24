@@ -17,11 +17,16 @@ public class ChangeAccountPassword {
     }
 
     private static String passwordInput(){
+        String oldpassword = LoginManager.getCurrentUser().getPassword();
         String input1, input2;
         while (true){
             input1 = InputScanner.promptForString("Enter your new password: ");
             if (input1.equals("password")){
                 System.out.println("Cannot use \"password\" as new password");
+                continue;
+            }
+            if (input1.equals(oldpassword)){
+                System.out.println("Cannot use old password as new password");
                 continue;
             }
             input2 = InputScanner.promptForString("Please re-enter you new password: ");
