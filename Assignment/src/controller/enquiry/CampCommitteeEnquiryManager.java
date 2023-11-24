@@ -79,7 +79,7 @@ public class CampCommitteeEnquiryManager {
         System.out.println("Enquiry added successfully!");
     }
 
-        public static void deleteEnquiry(CampCommittee currentUser) {
+    public static void deleteEnquiry(CampCommittee currentUser) {
         List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
 
         if (studentEnquiries.isEmpty()) {
@@ -118,7 +118,7 @@ public class CampCommitteeEnquiryManager {
                 return;
 
             } catch (InputMismatchException e) {
-               InputScanner.promptForInt("Invalid input! Please enter a valid number.");
+                InputScanner.promptForInt("Invalid input! Please enter a valid number.");
             }
         }
     }
@@ -222,6 +222,13 @@ public class CampCommitteeEnquiryManager {
             System.out.println("Camp: " + enquiry.getCampName());
             System.out.println("Content: " + enquiry.getContent());
             System.out.println("Status: " + enquiry.getStatus());
+
+            // Check if the status is "REPLIED"
+            if (enquiry.getStatus() == Enquiry.Status.REPLIED) {
+                System.out.println("Reply: " + enquiry.getRepliedContent());
+                System.out.println("Replier: " + enquiry.getReplier());
+            }
+
             System.out.println("================================");
             indexMem++;
             foundMemEnquiry = true;
