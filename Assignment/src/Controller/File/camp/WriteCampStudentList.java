@@ -1,4 +1,4 @@
-package Controller.File.camps;
+package Controller.File.camp;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

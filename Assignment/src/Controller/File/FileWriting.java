@@ -1,7 +1,7 @@
 package Controller.File;
 
-import Controller.File.camps.WriteCampDetails;
-import Controller.File.camps.WriteCampStudentList;
+import Controller.File.camp.WriteCampDetails;
+import Controller.File.camp.WriteCampStudentList;
 import Controller.File.suggestion.WriteSuggestion;
 import Controller.File.user.WriteUser;
 
