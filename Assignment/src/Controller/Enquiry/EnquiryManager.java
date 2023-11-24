@@ -10,8 +10,8 @@ import entity.Camp;
 import entity.Enquiry;
 import entity.Student;
 import entity.User;
-import repos.CampRepository;
-import repos.EnquiryRepository;
+import repository.CampRepository;
+import repository.EnquiryRepository;
 
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {

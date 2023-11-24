@@ -11,7 +11,7 @@ import entity.Camp;
 import entity.CampCommittee;
 import entity.CampDetails;
 import entity.Student;
-import repos.CampRepository;
+import repository.CampRepository;
 import Controller.Utilities.InputScanner;
 
 public class StudentManager {

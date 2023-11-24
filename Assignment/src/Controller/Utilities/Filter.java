@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import entity.Camp;
 import entity.Enquiry;
 import entity.Student;
-import repos.EnquiryRepository;
+import repository.EnquiryRepository;
 
 public class Filter {
     public static int promptForFilter(){

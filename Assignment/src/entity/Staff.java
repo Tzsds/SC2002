@@ -8,7 +8,7 @@ import Controller.Report.EnquiryReport;
 import Controller.Report.PerformanceReport;
 import Controller.Report.ReportManager;
 import Controller.Utilities.InputScanner;
-import repos.CampRepository;
+import repository.CampRepository;
 
 public class Staff extends User {
     private ArrayList<Camp> campsCreatedList = new ArrayList<>();

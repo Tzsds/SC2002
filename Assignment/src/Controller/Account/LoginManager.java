@@ -6,9 +6,9 @@ import entity.CampCommittee;
 import entity.Staff;
 import entity.Student;
 import entity.User;
-import repos.userrepository.CampCommitteeRepository;
-import repos.userrepository.StaffRepository;
-import repos.userrepository.StudentRepository;
+import repository.userrepository.CampCommitteeRepository;
+import repository.userrepository.StaffRepository;
+import repository.userrepository.StudentRepository;
 import ui.Display;
 
 public class LoginManager {

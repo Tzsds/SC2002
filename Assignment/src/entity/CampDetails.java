@@ -2,7 +2,7 @@ package entity;
 
 import java.time.LocalDate;
 
-import repos.CampRepository;
+import repository.CampRepository;
 
 public class CampDetails {
     private String name;

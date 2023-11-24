@@ -11,8 +11,8 @@ import Controller.Utilities.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Enquiry;
-import repos.CampRepository;
-import repos.EnquiryRepository;
+import repository.CampRepository;
+import repository.EnquiryRepository;
 
 public class CampCommitteeEnquiryManager {
     // functions to be used by camp com

@@ -6,7 +6,7 @@ import entity.Camp;
 import entity.CampCommittee;
 import entity.CampDetails;
 import entity.Student;
-import repos.userrepository.CampCommitteeRepository;
+import repository.userrepository.CampCommitteeRepository;
 
 public class PerformanceReport extends Report{
     private Camp camp;

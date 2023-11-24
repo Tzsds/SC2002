@@ -8,7 +8,7 @@ import entity.Camp;
 import entity.CampDetails;
 import entity.Staff;
 import entity.Student;
-import repos.userrepository.StaffRepository;
+import repository.userrepository.StaffRepository;
 
 public class CampReport extends Report{
     private Camp camp;

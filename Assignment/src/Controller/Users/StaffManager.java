@@ -12,7 +12,7 @@ import Controller.Utilities.Sort;
 import entity.Camp;
 import entity.CampDetails;
 import entity.Staff;
-import repos.CampRepository;
+import repository.CampRepository;
 
 
 public class StaffManager {

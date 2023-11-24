@@ -10,8 +10,8 @@ import entity.Camp;
 import entity.CampCommittee;
 import entity.Suggestion;
 import entity.Suggestion.Status;
-import repos.SuggestionRepository;
-import repos.userrepository.CampCommitteeRepository;
+import repository.SuggestionRepository;
+import repository.userrepository.CampCommitteeRepository;
 
 public class ReadSuggestion {
 

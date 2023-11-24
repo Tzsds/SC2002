@@ -12,7 +12,7 @@ import entity.Camp;
 import entity.CampCommittee;
 import entity.Suggestion;
 import entity.Suggestion.Status;
-import repos.SuggestionRepository;
+import repository.SuggestionRepository;
 
 public class SuggestionManager {
 

@@ -9,9 +9,9 @@ import java.io.IOException;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Student;
-import repos.CampRepository;
-import repos.userrepository.CampCommitteeRepository;
-import repos.userrepository.StudentRepository;
+import repository.CampRepository;
+import repository.userrepository.CampCommitteeRepository;
+import repository.userrepository.StudentRepository;
 
 public class ReadCampStudentList {
     private static String campStudentListCSV = "Assignment/database/camp_student_list.csv";

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import entity.Camp;
 import entity.CampDetails;
 import entity.Enquiry;
-import repos.EnquiryRepository;
+import repository.EnquiryRepository;
 
 public class EnquiryReport extends Report {
     private Camp camp;

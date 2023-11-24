@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import entity.Camp;
 import entity.CampDetails;
 import entity.Student;
-import repos.CampRepository;
+import repository.CampRepository;
 
 public class WriteCampStudentList {
     

@@ -8,8 +8,8 @@ import entity.Camp;
 import entity.CampCommittee;
 import entity.Enquiry;
 import entity.Student;
-import repos.userrepository.CampCommitteeRepository;
-import repos.userrepository.StudentRepository;
+import repository.userrepository.CampCommitteeRepository;
+import repository.userrepository.StudentRepository;
 
 public class CampCommitteeManager {
     public static CampCommittee toCampCommittee(Student s){

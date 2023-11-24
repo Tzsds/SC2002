@@ -6,8 +6,8 @@ import entity.Camp;
 import entity.CampDetails;
 import entity.Staff;
 import entity.Suggestion;
-import repos.CampRepository;
-import repos.userrepository.StaffRepository;
+import repository.CampRepository;
+import repository.userrepository.StaffRepository;
 
 public class CampManager {
     public static void addSuggestion(Camp tempCamp, Suggestion tempSuggestion) {
