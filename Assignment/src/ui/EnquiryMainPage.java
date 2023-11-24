@@ -1,7 +1,7 @@
 package ui;
 
-import controllers.enquiry.EnquiryManager;
-import controllers.utils.InputScanner;
+import controller.enquiry.EnquiryManager;
+import controller.utils.InputScanner;
 import entity.User;
 
 public class EnquiryMainPage implements MainPage {

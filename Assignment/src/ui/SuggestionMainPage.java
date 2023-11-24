@@ -1,8 +1,8 @@
 package ui;
 
-import controllers.account.LoginManager;
-import controllers.suggestion.SuggestionManager;
-import controllers.utils.InputScanner;
+import controller.account.LoginManager;
+import controller.suggestion.SuggestionManager;
+import controller.utils.InputScanner;
 import entity.CampCommittee;
 
 public class SuggestionMainPage implements MainPage {

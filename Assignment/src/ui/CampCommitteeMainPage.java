@@ -1,11 +1,11 @@
 package ui;
 
-import controllers.File.user.WriteUser;
-import controllers.account.ChangeAccountPassword;
-import controllers.account.LoginManager;
-import controllers.report.ReportManager;
-import controllers.user.StudentManager;
-import controllers.utils.InputScanner;
+import controller.File.user.WriteUser;
+import controller.account.ChangeAccountPassword;
+import controller.account.LoginManager;
+import controller.report.ReportManager;
+import controller.user.StudentManager;
+import controller.utils.InputScanner;
 import entity.CampCommittee;
 
 public class CampCommitteeMainPage implements MainPage{
