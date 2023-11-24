@@ -1,4 +1,4 @@
-package Controller.File.User;
+package Controller.File.users;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

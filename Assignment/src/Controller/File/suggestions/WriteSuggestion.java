@@ -1,4 +1,4 @@
-package Controller.File.Suggestion;
+package Controller.File.suggestions;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

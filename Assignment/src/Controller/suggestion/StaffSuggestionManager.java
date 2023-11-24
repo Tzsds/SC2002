@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import Controller.File.FileWriting;
-import Controller.File.User.WriteUser;
+import Controller.File.users.WriteUser;
 import Controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;

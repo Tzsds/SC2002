@@ -3,8 +3,8 @@ package Controller.suggestion;
 import java.util.ArrayList;
 
 import Controller.File.FileWriting;
-import Controller.File.Suggestion.WriteSuggestion;
-import Controller.File.User.WriteUser;
+import Controller.File.suggestions.WriteSuggestion;
+import Controller.File.users.WriteUser;
 import Controller.account.LoginManager;
 import Controller.camp.CampManager;
 import Controller.utils.InputScanner;
