@@ -2,7 +2,7 @@ package Controller.File;
 
 import Controller.File.camp.ReadCampDetails;
 import Controller.File.camp.ReadCampStudentList;
-import Controller.File.enquiries.ReadEnquiry;
+import Controller.File.enquiry.ReadEnquiry;
 import Controller.File.suggestion.ReadSuggestion;
 import Controller.File.user.ReadUser;
 

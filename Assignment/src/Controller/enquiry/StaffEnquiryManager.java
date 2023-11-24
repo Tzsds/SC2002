@@ -3,7 +3,7 @@ package Controller.enquiry;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import Controller.File.enquiries.WriteEnquiry;
+import Controller.File.enquiry.WriteEnquiry;
 import Controller.camp.CampManager;
 import Controller.utils.InputScanner;
 import entity.Camp;
