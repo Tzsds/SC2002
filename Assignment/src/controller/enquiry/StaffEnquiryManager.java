@@ -3,8 +3,8 @@ package controller.enquiry;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import controller.File.enquiry.WriteEnquiry;
 import controller.camp.CampManager;
+import controller.files.enquiry.WriteEnquiry;
 import controller.utils.InputScanner;
 import entity.Camp;
 import entity.Enquiry;

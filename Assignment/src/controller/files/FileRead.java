@@ -1,10 +1,10 @@
-package controller.File;
+package controller.files;
 
-import controller.File.camp.ReadCampDetails;
-import controller.File.camp.ReadCampStudentList;
-import controller.File.enquiry.ReadEnquiry;
-import controller.File.suggestion.ReadSuggestion;
-import controller.File.user.ReadUser;
+import controller.files.camp.ReadCampDetails;
+import controller.files.camp.ReadCampStudentList;
+import controller.files.enquiry.ReadEnquiry;
+import controller.files.suggestion.ReadSuggestion;
+import controller.files.user.ReadUser;
 
 public class FileRead {
 

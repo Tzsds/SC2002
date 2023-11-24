@@ -1,4 +1,4 @@
-package controller.File.enquiry;
+package controller.files.enquiry;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

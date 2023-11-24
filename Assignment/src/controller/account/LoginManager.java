@@ -1,6 +1,6 @@
 package controller.account;
 
-import controller.File.FileWriting;
+import controller.files.FileWriting;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
 import entity.Staff;

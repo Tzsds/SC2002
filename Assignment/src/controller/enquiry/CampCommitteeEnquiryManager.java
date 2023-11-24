@@ -4,9 +4,9 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import controller.File.enquiry.WriteEnquiry;
-import controller.File.user.WriteUser;
 import controller.account.LoginManager;
+import controller.files.enquiry.WriteEnquiry;
+import controller.files.user.WriteUser;
 import controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;

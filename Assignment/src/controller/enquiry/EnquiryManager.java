@@ -3,8 +3,8 @@ package controller.enquiry;
 import java.util.InputMismatchException;
 import java.util.List;
 
-import controller.File.enquiry.WriteEnquiry;
 import controller.account.LoginManager;
+import controller.files.enquiry.WriteEnquiry;
 import controller.utils.InputScanner;
 import entity.Camp;
 import entity.Enquiry;

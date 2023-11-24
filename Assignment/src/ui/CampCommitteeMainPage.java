@@ -1,8 +1,8 @@
 package ui;
 
-import controller.File.user.WriteUser;
 import controller.account.ChangeAccountPassword;
 import controller.account.LoginManager;
+import controller.files.user.WriteUser;
 import controller.report.ReportManager;
 import controller.user.StudentManager;
 import controller.utils.InputScanner;

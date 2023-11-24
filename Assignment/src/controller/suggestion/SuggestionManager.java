@@ -2,11 +2,11 @@ package controller.suggestion;
 
 import java.util.ArrayList;
 
-import controller.File.FileWriting;
-import controller.File.suggestion.WriteSuggestion;
-import controller.File.user.WriteUser;
 import controller.account.LoginManager;
 import controller.camp.CampManager;
+import controller.files.FileWriting;
+import controller.files.suggestion.WriteSuggestion;
+import controller.files.user.WriteUser;
 import controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;
