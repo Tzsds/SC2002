@@ -1,15 +1,15 @@
-Camp Name: NTU
-Description: NTU
-Camp Dates: 10 Dec 2001 - 10 Dec 2001
-Registration Close Date: 10 Dec 2001
+Camp Name: ntu
+Description: ntu
+Camp Dates: 10 Dec 2023 - 10 Dec 2023
+Registration Close Date: 09 Dec 2023
 Open To: Everyone
-Location: NTU
+Location: ntu
 Staff In Charge: Arvind
-Total Slots Available: 10
-Total Camp Committee Slots Available: 10
+Total Slots Available: 48
+Total Camp Committee Slots Available: 9
 Current Number of Attendees: 2
 Current Number of Committee Members: 1
 
 Name            Role
-KOH             Committee Member
-LIU             Participant
+LIU             Committee Member
+KOH             Participant
