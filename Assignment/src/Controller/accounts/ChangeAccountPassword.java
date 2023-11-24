@@ -1,4 +1,4 @@
-package Controller.Account;
+package Controller.accounts;
 
 import Controller.utils.InputScanner;
 import entity.User;

@@ -2,8 +2,8 @@ package Controller.user;
 
 import java.util.ArrayList;
 
-import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
+import Controller.accounts.LoginManager;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Enquiry;

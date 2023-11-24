@@ -1,11 +1,12 @@
 package Controller.user;
 
 import java.util.ArrayList;
-import Controller.Account.LoginManager;
-import Controller.Camp.CampManager;
+
 import Controller.Enquiry.StaffEnquiryManager;
 import Controller.File.FileWriting;
-import Controller.Suggestion.StaffSuggestionManager;
+import Controller.accounts.LoginManager;
+import Controller.camps.CampManager;
+import Controller.suggestions.StaffSuggestionManager;
 import Controller.utils.Filter;
 import Controller.utils.InputScanner;
 import Controller.utils.Sort;

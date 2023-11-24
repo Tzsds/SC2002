@@ -1,12 +1,12 @@
-package Controller.Suggestion;
+package Controller.suggestions;
 
 import java.util.ArrayList;
 
-import Controller.Account.LoginManager;
-import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
 import Controller.File.Suggestion.WriteSuggestion;
 import Controller.File.User.WriteUser;
+import Controller.accounts.LoginManager;
+import Controller.camps.CampManager;
 import Controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;

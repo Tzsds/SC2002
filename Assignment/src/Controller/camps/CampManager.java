@@ -1,4 +1,4 @@
-package Controller.Camp;
+package Controller.camps;
 
 import java.util.ArrayList;
 
