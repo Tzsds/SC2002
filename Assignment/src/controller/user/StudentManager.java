@@ -230,7 +230,7 @@ public class StudentManager {
         }
 
         if (count == 0) {
-            System.out.println("You have not registered for any camps yet.");
+            System.out.println("There are no camps for you to withdraw from.");
         } else {
             System.out.println("If you would like to return please input " + ++count);
             while (true) {
