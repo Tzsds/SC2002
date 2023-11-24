@@ -3,8 +3,8 @@ package controller.suggestion;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
-import controller.files.FileWriting;
-import controller.files.user.WriteUser;
+import controller.file.FileWriting;
+import controller.file.user.WriteUser;
 import controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;

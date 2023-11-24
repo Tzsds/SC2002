@@ -3,7 +3,7 @@ package controller.user;
 import java.util.ArrayList;
 
 import controller.account.LoginManager;
-import controller.files.user.WriteUser;
+import controller.file.user.WriteUser;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Enquiry;

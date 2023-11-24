@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import controller.account.LoginManager;
 import controller.camp.CampManager;
-import controller.files.FileWriting;
-import controller.files.suggestion.WriteSuggestion;
-import controller.files.user.WriteUser;
+import controller.file.FileWriting;
+import controller.file.suggestion.WriteSuggestion;
+import controller.file.user.WriteUser;
 import controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;

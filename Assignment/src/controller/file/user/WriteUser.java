@@ -1,4 +1,4 @@
-package controller.files.user;
+package controller.file.user;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

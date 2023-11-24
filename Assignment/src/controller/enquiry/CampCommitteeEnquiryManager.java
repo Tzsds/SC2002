@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import controller.account.LoginManager;
-import controller.files.enquiry.WriteEnquiry;
-import controller.files.user.WriteUser;
+import controller.file.enquiry.WriteEnquiry;
+import controller.file.user.WriteUser;
 import controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;

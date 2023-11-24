@@ -1,6 +1,6 @@
 package controller;
 import controller.account.LoginManager;
-import controller.files.FileRead;
+import controller.file.FileRead;
 import ui.CampCommitteeMainPage;
 import ui.Display;
 import ui.MainPage;
