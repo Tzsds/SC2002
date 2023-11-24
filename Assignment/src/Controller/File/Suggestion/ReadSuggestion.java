@@ -1,4 +1,4 @@
-package controller.file.suggestion;
+package Controller.File.Suggestion;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,12 +6,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import entity.Camp;
-import entity.CampCommittee;
-import entity.Suggestion;
-import entity.Suggestion.Status;
-import repository.SuggestionRepository;
-import repository.userrepository.CampCommitteeRepository;
+import Entity.Camp;
+import Entity.CampCommittee;
+import Entity.Suggestion;
+import Entity.Suggestion.Status;
+import Repository.SuggestionRepository;
+import Repository.UserRepository.CampCommitteeRepository;
 
 public class ReadSuggestion {
 

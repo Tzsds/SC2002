@@ -1,4 +1,4 @@
-package controller.file.camp;
+package Controller.File.Camp;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import entity.Camp;
-import entity.CampDetails;
-import entity.Staff;
-import repository.CampRepository;
-import repository.userrepository.StaffRepository;
+import Entity.Camp;
+import Entity.CampDetails;
+import Entity.Staff;
+import Repository.CampRepository;
+import Repository.UserRepository.StaffRepository;
 
 public class ReadCampDetails {
     private static String path = "Assignment/database/camp_details.csv";

@@ -1,4 +1,4 @@
-package controller.file.user;
+package Controller.File.User;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,12 +6,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import entity.CampCommittee;
-import entity.Staff;
-import entity.Student;
-import repository.userrepository.CampCommitteeRepository;
-import repository.userrepository.StaffRepository;
-import repository.userrepository.StudentRepository;
+import Entity.CampCommittee;
+import Entity.Staff;
+import Entity.Student;
+import Repository.UserRepository.CampCommitteeRepository;
+import Repository.UserRepository.StaffRepository;
+import Repository.UserRepository.StudentRepository;
 
 public class ReadUser {
 

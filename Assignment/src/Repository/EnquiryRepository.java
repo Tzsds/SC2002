@@ -1,11 +1,11 @@
-package repository;
+package Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.file.enquiry.ReadEnquiry;
-import entity.Camp;
-import entity.Enquiry;
+import Controller.File.Enquiry.ReadEnquiry;
+import Entity.Camp;
+import Entity.Enquiry;
 
 public class EnquiryRepository {
     private static ArrayList<Enquiry> listOfEnquiries = new ArrayList<Enquiry>();

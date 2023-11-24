@@ -1,14 +1,13 @@
-package controller.report;
+package Controller.Report;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
-import entity.Camp;
-import entity.CampDetails;
-import entity.Staff;
-import entity.Student;
-import repository.userrepository.StaffRepository;
+import Entity.Camp;
+import Entity.CampDetails;
+import Entity.Staff;
+import Entity.Student;
+import Repository.UserRepository.StaffRepository;
 
 public class CampReport extends Report{
     private Camp camp;

@@ -1,8 +1,8 @@
-package repository.userrepository;
+package Repository.UserRepository;
 
 import java.util.ArrayList;
 
-import entity.Student;
+import Entity.Student;
 
 public class StudentRepository {
     private static ArrayList<Student> listOfStudents = new ArrayList<Student>();

@@ -1,15 +1,15 @@
-package controller.suggestion;
+package Controller.Suggestion;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
-import controller.file.FileWriting;
-import controller.file.user.WriteUser;
-import controller.utils.InputScanner;
-import entity.Camp;
-import entity.CampCommittee;
-import entity.Suggestion;
-import entity.Suggestion.Status;
+import Controller.File.FileWriting;
+import Controller.File.User.WriteUser;
+import Controller.Utilities.InputScanner;
+import Entity.Camp;
+import Entity.CampCommittee;
+import Entity.Suggestion;
+import Entity.Suggestion.Status;
 
 public class StaffSuggestionManager {
 

@@ -1,12 +1,12 @@
-package ui;
+package UI;
 
-import controller.account.ChangeAccountPassword;
-import controller.account.LoginManager;
-import controller.file.user.WriteUser;
-import controller.report.ReportManager;
-import controller.users.StaffManager;
-import controller.utils.InputScanner;
-import entity.Staff;
+import Controller.Account.ChangeAccountPassword;
+import Controller.Account.LoginManager;
+import Controller.File.User.WriteUser;
+import Controller.Report.ReportManager;
+import Controller.Users.StaffManager;
+import Controller.Utilities.InputScanner;
+import Entity.Staff;
 
 public class StaffMainPage implements MainPage {
 

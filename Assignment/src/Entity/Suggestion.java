@@ -1,4 +1,4 @@
-package entity;
+package Entity;
 
 public class Suggestion {
     public enum Status {APPROVED, PENDING, REJECTED};

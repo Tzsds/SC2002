@@ -1,9 +1,9 @@
-package controller.file;
+package Controller.File;
 
-import controller.file.camp.WriteCampDetails;
-import controller.file.camp.WriteCampStudentList;
-import controller.file.suggestion.WriteSuggestion;
-import controller.file.user.WriteUser;
+import Controller.File.Camp.WriteCampDetails;
+import Controller.File.Camp.WriteCampStudentList;
+import Controller.File.Suggestion.WriteSuggestion;
+import Controller.File.User.WriteUser;
 
 
 public class FileWriting {

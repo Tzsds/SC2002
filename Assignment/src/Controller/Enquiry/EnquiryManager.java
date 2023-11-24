@@ -1,17 +1,17 @@
-package controller.enquiry;
+package Controller.Enquiry;
 
 import java.util.InputMismatchException;
 import java.util.List;
 
-import controller.account.LoginManager;
-import controller.file.enquiry.WriteEnquiry;
-import controller.utils.InputScanner;
-import entity.Camp;
-import entity.Enquiry;
-import entity.Student;
-import entity.User;
-import repository.CampRepository;
-import repository.EnquiryRepository;
+import Controller.Account.LoginManager;
+import Controller.File.Enquiry.WriteEnquiry;
+import Controller.Utilities.InputScanner;
+import Entity.Camp;
+import Entity.Enquiry;
+import Entity.Student;
+import Entity.User;
+import Repository.CampRepository;
+import Repository.EnquiryRepository;
 
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {

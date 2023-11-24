@@ -1,19 +1,19 @@
-package controller.users;
+package Controller.Users;
 
 import java.util.ArrayList;
+import Controller.Account.LoginManager;
+import Controller.Camp.CampManager;
+import Controller.Enquiry.StaffEnquiryManager;
+import Controller.File.FileWriting;
+import Controller.Suggestion.StaffSuggestionManager;
+import Controller.Utilities.Filter;
+import Controller.Utilities.InputScanner;
+import Controller.Utilities.Sort;
+import Entity.Camp;
+import Entity.CampDetails;
 
-import controller.account.LoginManager;
-import controller.camp.CampManager;
-import controller.enquiry.StaffEnquiryManager;
-import controller.file.FileWriting;
-import controller.suggestion.StaffSuggestionManager;
-import controller.utils.Filter;
-import controller.utils.InputScanner;
-import controller.utils.Sort;
-import entity.Camp;
-import entity.CampDetails;
-import entity.Staff;
-import repository.CampRepository;
+import Entity.Staff;
+import Repository.CampRepository;
 
 
 public class StaffManager {

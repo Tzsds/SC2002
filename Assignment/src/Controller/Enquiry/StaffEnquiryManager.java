@@ -1,15 +1,15 @@
-package controller.enquiry;
+package Controller.Enquiry;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import controller.camp.CampManager;
-import controller.file.enquiry.WriteEnquiry;
-import controller.utils.InputScanner;
-import entity.Camp;
-import entity.Enquiry;
-import repository.CampRepository;
-import repository.EnquiryRepository;
+import Controller.Camp.CampManager;
+import Controller.File.Enquiry.WriteEnquiry;
+import Controller.Utilities.InputScanner;
+import Entity.Camp;
+import Entity.Enquiry;
+import Repository.CampRepository;
+import Repository.EnquiryRepository;
 
 public class StaffEnquiryManager {
     // functions to be used by staff

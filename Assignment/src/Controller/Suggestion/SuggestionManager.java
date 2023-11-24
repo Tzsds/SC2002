@@ -1,18 +1,18 @@
-package controller.suggestion;
+package Controller.Suggestion;
 
 import java.util.ArrayList;
 
-import controller.account.LoginManager;
-import controller.camp.CampManager;
-import controller.file.FileWriting;
-import controller.file.suggestion.WriteSuggestion;
-import controller.file.user.WriteUser;
-import controller.utils.InputScanner;
-import entity.Camp;
-import entity.CampCommittee;
-import entity.Suggestion;
-import entity.Suggestion.Status;
-import repository.SuggestionRepository;
+import Controller.Account.LoginManager;
+import Controller.Camp.CampManager;
+import Controller.File.FileWriting;
+import Controller.File.Suggestion.WriteSuggestion;
+import Controller.File.User.WriteUser;
+import Controller.Utilities.InputScanner;
+import Entity.Camp;
+import Entity.CampCommittee;
+import Entity.Suggestion;
+import Entity.Suggestion.Status;
+import Repository.SuggestionRepository;
 
 public class SuggestionManager {
 

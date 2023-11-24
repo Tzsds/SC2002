@@ -1,8 +1,8 @@
-package repository;
+package Repository;
 
 import java.util.ArrayList;
 
-import entity.Suggestion;
+import Entity.Suggestion;
 
 public class SuggestionRepository {
     private static ArrayList<Suggestion> listOfSuggestions = new ArrayList<Suggestion> ();

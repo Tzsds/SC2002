@@ -1,15 +1,15 @@
-package controller.users;
+package Controller.Users;
 
 import java.util.ArrayList;
 
-import controller.account.LoginManager;
-import controller.file.user.WriteUser;
-import entity.Camp;
-import entity.CampCommittee;
-import entity.Enquiry;
-import entity.Student;
-import repository.userrepository.CampCommitteeRepository;
-import repository.userrepository.StudentRepository;
+import Controller.Account.LoginManager;
+import Controller.File.User.WriteUser;
+import Entity.Camp;
+import Entity.CampCommittee;
+import Entity.Enquiry;
+import Entity.Student;
+import Repository.UserRepository.CampCommitteeRepository;
+import Repository.UserRepository.StudentRepository;
 
 public class CampCommitteeManager {
     public static CampCommittee toCampCommittee(Student s){

@@ -1,7 +1,7 @@
-package controller.account;
+package Controller.Account;
 
-import controller.utils.InputScanner;
-import entity.User;
+import Controller.Utilities.InputScanner;
+import Entity.User;
 
 public class ChangeAccountPassword {
 

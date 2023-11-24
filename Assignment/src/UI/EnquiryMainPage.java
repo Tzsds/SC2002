@@ -1,8 +1,8 @@
-package ui;
+package UI;
 
-import controller.enquiry.EnquiryManager;
-import controller.utils.InputScanner;
-import entity.User;
+import Controller.Enquiry.EnquiryManager;
+import Controller.Utilities.InputScanner;
+import Entity.User;
 
 public class EnquiryMainPage implements MainPage {
     private MainMenu mainMenu;

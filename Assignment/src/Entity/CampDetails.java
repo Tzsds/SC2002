@@ -1,8 +1,8 @@
-package entity;
+package Entity;
 
 import java.time.LocalDate;
 
-import repository.CampRepository;
+import Repository.CampRepository;
 
 public class CampDetails {
     private String name;

@@ -1,12 +1,12 @@
-package controller.utils;
+package Controller.Utilities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import entity.Camp;
-import entity.Enquiry;
-import entity.Student;
-import repository.EnquiryRepository;
+import Entity.Camp;
+import Entity.Enquiry;
+import Entity.Student;
+import Repository.EnquiryRepository;
 
 public class Filter {
     public static int promptForFilter(){

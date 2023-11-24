@@ -1,15 +1,15 @@
-package controller.account;
+package Controller.Account;
 
-import controller.file.FileWriting;
-import controller.utils.InputScanner;
-import entity.CampCommittee;
-import entity.Staff;
-import entity.Student;
-import entity.User;
-import repository.userrepository.CampCommitteeRepository;
-import repository.userrepository.StaffRepository;
-import repository.userrepository.StudentRepository;
-import ui.Display;
+import Controller.File.FileWriting;
+import Controller.Utilities.InputScanner;
+import Entity.CampCommittee;
+import Entity.Staff;
+import Entity.Student;
+import Entity.User;
+import Repository.UserRepository.CampCommitteeRepository;
+import Repository.UserRepository.StaffRepository;
+import Repository.UserRepository.StudentRepository;
+import UI.Display;
 
 public class LoginManager {
 

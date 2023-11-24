@@ -1,11 +1,11 @@
-package ui;
+package UI;
 
-import controller.account.ChangeAccountPassword;
-import controller.account.LoginManager;
-import controller.file.user.WriteUser;
-import controller.users.StudentManager;
-import controller.utils.InputScanner;
-import entity.Student;
+import Controller.Account.ChangeAccountPassword;
+import Controller.Account.LoginManager;
+import Controller.File.User.WriteUser;
+import Controller.Users.StudentManager;
+import Controller.Utilities.InputScanner;
+import Entity.Student;
 
 public class StudentMainPage implements MainPage {
 

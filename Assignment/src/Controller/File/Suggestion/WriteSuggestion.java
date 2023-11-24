@@ -1,11 +1,11 @@
-package controller.file.suggestion;
+package Controller.File.Suggestion;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import entity.Suggestion;
-import repository.SuggestionRepository;
+import Entity.Suggestion;
+import Repository.SuggestionRepository;
 
 
 public class WriteSuggestion {
