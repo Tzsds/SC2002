@@ -1,6 +1,6 @@
 package ui;
 
-import Controller.enquiries.EnquiryManager;
+import Controller.enquiry.EnquiryManager;
 import Controller.utils.InputScanner;
 import entity.User;
 

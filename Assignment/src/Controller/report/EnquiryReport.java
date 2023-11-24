@@ -1,4 +1,4 @@
-package Controller.reports;
+package Controller.report;
 
 import java.util.ArrayList;
 

@@ -3,7 +3,7 @@ package ui;
 import Controller.File.User.WriteUser;
 import Controller.account.ChangeAccountPassword;
 import Controller.account.LoginManager;
-import Controller.reports.ReportManager;
+import Controller.report.ReportManager;
 import Controller.user.StaffManager;
 import Controller.utils.InputScanner;
 import entity.Staff;

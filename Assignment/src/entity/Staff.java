@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Controller.File.FileWriting;
-import Controller.reports.EnquiryReport;
-import Controller.reports.PerformanceReport;
-import Controller.reports.ReportManager;
+import Controller.report.EnquiryReport;
+import Controller.report.PerformanceReport;
+import Controller.report.ReportManager;
 import Controller.utils.InputScanner;
 import repository.CampRepository;
 
