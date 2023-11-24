@@ -3,8 +3,8 @@ package ui;
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
-import Controller.Users.StudentManager;
-import Controller.Utilities.InputScanner;
+import Controller.user.StudentManager;
+import Controller.utils.InputScanner;
 import entity.Student;
 
 public class StudentMainPage implements MainPage {

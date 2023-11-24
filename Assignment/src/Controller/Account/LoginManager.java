@@ -1,7 +1,7 @@
 package Controller.Account;
 
 import Controller.File.FileWriting;
-import Controller.Utilities.InputScanner;
+import Controller.utils.InputScanner;
 import entity.CampCommittee;
 import entity.Staff;
 import entity.Student;

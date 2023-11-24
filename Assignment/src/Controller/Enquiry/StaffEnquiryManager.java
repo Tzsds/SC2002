@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import Controller.Camp.CampManager;
 import Controller.File.Enquiry.WriteEnquiry;
-import Controller.Utilities.InputScanner;
+import Controller.utils.InputScanner;
 import entity.Camp;
 import entity.Enquiry;
 import repository.CampRepository;

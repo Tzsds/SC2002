@@ -1,4 +1,4 @@
-package Controller.Users;
+package Controller.user;
 
 import java.util.ArrayList;
 

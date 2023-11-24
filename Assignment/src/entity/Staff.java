@@ -7,7 +7,7 @@ import Controller.File.FileWriting;
 import Controller.Report.EnquiryReport;
 import Controller.Report.PerformanceReport;
 import Controller.Report.ReportManager;
-import Controller.Utilities.InputScanner;
+import Controller.utils.InputScanner;
 import repository.CampRepository;
 
 public class Staff extends User {

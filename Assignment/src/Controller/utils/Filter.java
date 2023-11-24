@@ -1,4 +1,4 @@
-package Controller.Utilities;
+package Controller.utils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

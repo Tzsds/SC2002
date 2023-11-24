@@ -1,4 +1,4 @@
-package Controller.Users;
+package Controller.user;
 
 import java.util.ArrayList;
 import Controller.Account.LoginManager;
@@ -6,9 +6,9 @@ import Controller.Camp.CampManager;
 import Controller.Enquiry.StaffEnquiryManager;
 import Controller.File.FileWriting;
 import Controller.Suggestion.StaffSuggestionManager;
-import Controller.Utilities.Filter;
-import Controller.Utilities.InputScanner;
-import Controller.Utilities.Sort;
+import Controller.utils.Filter;
+import Controller.utils.InputScanner;
+import Controller.utils.Sort;
 import entity.Camp;
 import entity.CampDetails;
 import entity.Staff;

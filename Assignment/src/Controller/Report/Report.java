@@ -3,7 +3,7 @@ package Controller.Report;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Controller.Utilities.InputScanner;
+import Controller.utils.InputScanner;
 
 public class Report {
     protected String content;

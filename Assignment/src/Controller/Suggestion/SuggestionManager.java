@@ -7,7 +7,7 @@ import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
 import Controller.File.Suggestion.WriteSuggestion;
 import Controller.File.User.WriteUser;
-import Controller.Utilities.InputScanner;
+import Controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Suggestion;

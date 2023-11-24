@@ -1,18 +1,18 @@
-package Controller.Users;
+package Controller.user;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import Controller.Account.LoginManager;
 import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
-import Controller.Utilities.Filter;
-import Controller.Utilities.Sort;
+import Controller.utils.Filter;
+import Controller.utils.InputScanner;
+import Controller.utils.Sort;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.CampDetails;
 import entity.Student;
 import repository.CampRepository;
-import Controller.Utilities.InputScanner;
 
 public class StudentManager {
 

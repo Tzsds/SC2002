@@ -1,4 +1,4 @@
-package Controller.Utilities;
+package Controller.utils;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;

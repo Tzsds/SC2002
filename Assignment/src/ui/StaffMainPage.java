@@ -4,8 +4,8 @@ import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Controller.Report.ReportManager;
-import Controller.Users.StaffManager;
-import Controller.Utilities.InputScanner;
+import Controller.user.StaffManager;
+import Controller.utils.InputScanner;
 import entity.Staff;
 
 public class StaffMainPage implements MainPage {

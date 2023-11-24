@@ -4,8 +4,8 @@ import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;
 import Controller.File.User.WriteUser;
 import Controller.Report.ReportManager;
-import Controller.Users.StudentManager;
-import Controller.Utilities.InputScanner;
+import Controller.user.StudentManager;
+import Controller.utils.InputScanner;
 import entity.CampCommittee;
 
 public class CampCommitteeMainPage implements MainPage{

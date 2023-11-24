@@ -1,6 +1,6 @@
 package Controller;
 
-import Controller.Utilities.InputScanner;
+import Controller.utils.InputScanner;
 
 public class Reset {
     public static int PromptForReset(){
