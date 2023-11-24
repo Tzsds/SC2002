@@ -2,10 +2,10 @@ package Controller.user;
 
 import java.util.ArrayList;
 
-import Controller.Enquiry.StaffEnquiryManager;
 import Controller.File.FileWriting;
 import Controller.account.LoginManager;
 import Controller.camp.CampManager;
+import Controller.enquiries.StaffEnquiryManager;
 import Controller.suggestion.StaffSuggestionManager;
 import Controller.utils.Filter;
 import Controller.utils.InputScanner;

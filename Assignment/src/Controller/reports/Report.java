@@ -1,4 +1,4 @@
-package Controller.Report;
+package Controller.reports;
 
 import java.io.FileWriter;
 import java.io.IOException;

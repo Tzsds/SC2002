@@ -1,4 +1,4 @@
-package Controller.Enquiry;
+package Controller.enquiries;
 
 import java.util.List;
 import java.util.stream.Collectors;

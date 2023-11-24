@@ -1,9 +1,9 @@
 package ui;
 
 import Controller.File.User.WriteUser;
-import Controller.Report.ReportManager;
 import Controller.account.ChangeAccountPassword;
 import Controller.account.LoginManager;
+import Controller.reports.ReportManager;
 import Controller.user.StaffManager;
 import Controller.utils.InputScanner;
 import entity.Staff;
