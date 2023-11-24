@@ -8,11 +8,11 @@ import Controller.File.FileWriting;
 import Controller.File.Suggestion.WriteSuggestion;
 import Controller.File.User.WriteUser;
 import Controller.Utilities.InputScanner;
-import Repository.SuggestionRepository;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Suggestion;
 import entity.Suggestion.Status;
+import repos.SuggestionRepository;
 
 public class SuggestionManager {
 

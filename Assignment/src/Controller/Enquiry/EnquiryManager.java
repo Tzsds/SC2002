@@ -6,12 +6,12 @@ import java.util.List;
 import Controller.Account.LoginManager;
 import Controller.File.Enquiry.WriteEnquiry;
 import Controller.Utilities.InputScanner;
-import Repository.CampRepository;
-import Repository.EnquiryRepository;
 import entity.Camp;
 import entity.Enquiry;
 import entity.Student;
 import entity.User;
+import repos.CampRepository;
+import repos.EnquiryRepository;
 
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {

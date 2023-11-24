@@ -6,12 +6,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Repository.SuggestionRepository;
-import Repository.userrepo.CampCommitteeRepository;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Suggestion;
 import entity.Suggestion.Status;
+import repos.SuggestionRepository;
+import repos.userrepository.CampCommitteeRepository;
 
 public class ReadSuggestion {
 

@@ -9,10 +9,10 @@ import Controller.Suggestion.StaffSuggestionManager;
 import Controller.Utilities.Filter;
 import Controller.Utilities.InputScanner;
 import Controller.Utilities.Sort;
-import Repository.CampRepository;
 import entity.Camp;
 import entity.CampDetails;
 import entity.Staff;
+import repos.CampRepository;
 
 
 public class StaffManager {

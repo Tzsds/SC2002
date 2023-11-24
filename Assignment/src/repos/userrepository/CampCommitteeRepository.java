@@ -1,4 +1,4 @@
-package Repository.userrepo;
+package repos.userrepository;
 
 import java.util.ArrayList;
 

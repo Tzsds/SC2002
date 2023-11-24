@@ -7,11 +7,11 @@ import Controller.Camp.CampManager;
 import Controller.File.FileWriting;
 import Controller.Utilities.Filter;
 import Controller.Utilities.Sort;
-import Repository.CampRepository;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.CampDetails;
 import entity.Student;
+import repos.CampRepository;
 import Controller.Utilities.InputScanner;
 
 public class StudentManager {

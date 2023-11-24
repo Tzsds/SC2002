@@ -3,10 +3,10 @@ package Controller.Utilities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import Repository.EnquiryRepository;
 import entity.Camp;
 import entity.Enquiry;
 import entity.Student;
+import repos.EnquiryRepository;
 
 public class Filter {
     public static int promptForFilter(){

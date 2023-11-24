@@ -2,10 +2,10 @@ package Controller.Report;
 
 import java.util.ArrayList;
 
-import Repository.EnquiryRepository;
 import entity.Camp;
 import entity.CampDetails;
 import entity.Enquiry;
+import repos.EnquiryRepository;
 
 public class EnquiryReport extends Report {
     private Camp camp;

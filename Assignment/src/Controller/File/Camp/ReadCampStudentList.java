@@ -6,12 +6,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Repository.CampRepository;
-import Repository.userrepo.CampCommitteeRepository;
-import Repository.userrepo.StudentRepository;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Student;
+import repos.CampRepository;
+import repos.userrepository.CampCommitteeRepository;
+import repos.userrepository.StudentRepository;
 
 public class ReadCampStudentList {
     private static String campStudentListCSV = "Assignment/database/camp_student_list.csv";

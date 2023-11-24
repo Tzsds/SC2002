@@ -5,10 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Repository.CampRepository;
 import entity.Camp;
 import entity.CampDetails;
 import entity.Student;
+import repos.CampRepository;
 
 public class WriteCampStudentList {
     
