@@ -17,21 +17,27 @@ public class ReportManager {
         Staff staff = (Staff)LoginManager.getCurrentUser();
         ArrayList<Camp> campsCreated = staff.getListOfCampsCreated();
 
-        int i = 1;
-        for (Camp camp : campsCreated) {
-            System.out.println(i + ". " + camp.getCampDetails().getCampName());
-            i++;
-        }
-        int campNumber;
-        while (true){
-            campNumber = InputScanner.promptForInt("Enter number of the camp for report to be generated: ");
-            if(campNumber <= 0 || campNumber > campsCreated.size())
-                System.out.println("Invalid input. Please try again.");
-            else 
-                break;
-        }
-        Camp campChosen = campsCreated.get(campNumber-1);
-        return campChosen;
+        if (campsCreated.size() == 0) {
+            System.out.println("No camps created yet.");
+            return null;
+        } 
+        else {
+            int i = 1;
+            for (Camp camp : campsCreated) {
+                System.out.println(i + ". " + camp.getCampDetails().getCampName());
+                i++;
+            }
+            int campNumber;
+            while (true){
+                campNumber = InputScanner.promptForInt("Enter number of the camp for report to be generated: ");
+                if(campNumber <= 0 || campNumber > campsCreated.size())
+                    System.out.println("Invalid input. Please try again.");
+                else 
+                    break;
+            }
+            Camp campChosen = campsCreated.get(campNumber-1);
+            return campChosen;
+        }   
     }
 
     public static int promptCampReportType() {
@@ -141,6 +147,7 @@ public class ReportManager {
 
         //Default alphabetically sorted
         ArrayList<Camp> listOfCamps = s.getListOfCampsCreated();
+        if (listOfCamps.size() == 0) {return;}
         listOfCamps = Sort.insertionSortByName(listOfCamps);
 
         //Choosing filter method
@@ -186,6 +193,7 @@ public class ReportManager {
 
         //Default alphabetically sorted
         ArrayList<Camp> listOfCamps = s.getListOfCampsCreated();
+        if (listOfCamps.size() == 0) {return;}
         listOfCamps = Sort.insertionSortByName(listOfCamps);
 
         //Choosing filter method
@@ -249,6 +257,7 @@ public class ReportManager {
 
         //Default alphabetically sorted
         ArrayList<Camp> listOfCamps = s.getListOfCampsCreated();
+        if (listOfCamps.size() == 0) {return;}
         listOfCamps = Sort.insertionSortByName(listOfCamps);
 
         //Choosing filter method
@@ -282,6 +291,9 @@ public class ReportManager {
 
     public static void viewCampReportForStaff() {
         Camp campChosen = promptWhichCampForStaff();
+        if (campChosen == null) {
+            return;
+        }
         CampReport report = new CampReport(campChosen, 1);
         report.printInTerminal();
     }

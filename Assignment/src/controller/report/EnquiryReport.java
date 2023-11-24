@@ -36,9 +36,9 @@ public class EnquiryReport extends Report {
 
     public void setHeader() {
         this.reportHeader = "Camp Name: " + campDetails.getCampName() + "\n" +
-                            "Number of Enquiries: " + enquiries.size() + "\n\n";
+                            "Number of Enquiries: " + enquiries.size();
         if (enquiries.size() != 0) {
-            this.reportHeader += String.format("%-3s Enquiry Details\n", "No.");
+            this.reportHeader += String.format("%-5s Enquiry Details\n", "\n\nNo.");
         }
     }
 
@@ -59,5 +59,4 @@ public class EnquiryReport extends Report {
         }
         this.reportBody = reportBody;
     }
-    
 }

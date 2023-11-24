@@ -1,7 +1,4 @@
 package controller.report;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import controller.utils.FormatDate;
@@ -51,14 +48,14 @@ public class CampReport extends Report{
             "Total Slots Available: " + campDetails.getTotalSlots() + "\n" +
             "Total Camp Committee Slots Available: " + campDetails.getCampCommitteeSlots() + "\n" +
             "Current Number of Attendees: " + totalAttendees + "\n" +
-            "Current Number of Committee Members: " + camp.getCampCommittee().size() + "\n\n";
+            "Current Number of Committee Members: " + camp.getCampCommittee().size();
 
         if ((reportType == 2 && camp.getCampCommittee().size() == 0)
         || (reportType == 3 && camp.getParticipants().size() == 0) || totalAttendees == 0)  {
             return;
         }
 
-        this.reportHeader += String.format("%-15s Role\n", "Name");
+        this.reportHeader += String.format("%-17s Role\n", "\n\nName");
     }
 
     public void setBody() {

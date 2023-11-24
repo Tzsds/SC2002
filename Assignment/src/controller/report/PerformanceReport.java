@@ -30,10 +30,10 @@ public class PerformanceReport extends Report{
 
     public void setHeader() {
         this.reportHeader = "Camp Name: " + campDetails.getCampName() + "\n" +
-                            "Number of Committee Members: " + camp.getCampCommittee().size() + "\n\n";
+                            "Number of Committee Members: " + camp.getCampCommittee().size();
 
         if (camp.getCampCommittee().size() != 0) {
-            this.reportHeader += String.format("%-20s Points\n", "Committee Member");
+            this.reportHeader += String.format("%-22s Points\n", "\n\nCommittee Member");
         }
     }
 
