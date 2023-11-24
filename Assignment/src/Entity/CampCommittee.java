@@ -1,11 +1,11 @@
-package Entity;
+package entity;
 
 import java.util.ArrayList;
 
-import Controller.Camp.CampManager;
-import Controller.Report.CampReport;
-import Controller.Report.EnquiryReport;
-import Controller.Report.ReportManager;
+import controller.camp.CampManager;
+import controller.report.CampReport;
+import controller.report.EnquiryReport;
+import controller.report.ReportManager;
 
 public class CampCommittee extends Student {
     private int points;

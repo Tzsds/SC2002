@@ -1,8 +1,8 @@
-package Repository.UserRepository;
+package repository.userrepository;
 
 import java.util.ArrayList;
 
-import Entity.CampCommittee;
+import entity.CampCommittee;
 
 public class CampCommitteeRepository {
     private static ArrayList<CampCommittee> listOfCampCommittee = new ArrayList<CampCommittee>();

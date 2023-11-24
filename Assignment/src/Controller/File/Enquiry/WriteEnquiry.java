@@ -1,4 +1,4 @@
-package Controller.File.Enquiry;
+package controller.file.enquiry;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import Entity.Enquiry;
+import entity.Enquiry;
 
 public class WriteEnquiry {
     public static void FileWriteEnquiry(Enquiry enquiry) {

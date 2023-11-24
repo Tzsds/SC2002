@@ -1,9 +1,9 @@
-package Controller.Report;
+package controller.report;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Controller.Utilities.InputScanner;
+import controller.utils.InputScanner;
 
 public class Report {
     protected String content;

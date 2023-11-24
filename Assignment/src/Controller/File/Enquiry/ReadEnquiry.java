@@ -1,6 +1,4 @@
-package Controller.File.Enquiry;
-
-import Entity.Enquiry;
+package controller.file.enquiry;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,6 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import entity.Enquiry;
 
 public class ReadEnquiry {
 

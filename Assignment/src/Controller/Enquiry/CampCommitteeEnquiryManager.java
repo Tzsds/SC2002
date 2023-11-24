@@ -1,18 +1,18 @@
-package Controller.Enquiry;
+package controller.enquiry;
 
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import Controller.Account.LoginManager;
-import Controller.File.Enquiry.WriteEnquiry;
-import Controller.File.User.WriteUser;
-import Controller.Utilities.InputScanner;
-import Entity.Camp;
-import Entity.CampCommittee;
-import Entity.Enquiry;
-import Repository.CampRepository;
-import Repository.EnquiryRepository;
+import controller.account.LoginManager;
+import controller.file.enquiry.WriteEnquiry;
+import controller.file.user.WriteUser;
+import controller.utils.InputScanner;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.Enquiry;
+import repository.CampRepository;
+import repository.EnquiryRepository;
 
 public class CampCommitteeEnquiryManager {
     // functions to be used by camp com

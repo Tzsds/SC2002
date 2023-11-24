@@ -1,7 +1,7 @@
-package UI;
+package ui;
 
-import Controller.Users.StaffManager;
-import Controller.Utilities.InputScanner;
+import controller.users.StaffManager;
+import controller.utils.InputScanner;
 
 public class StaffEnquiryPage implements MainPage {
     private MainMenu mainMenu;

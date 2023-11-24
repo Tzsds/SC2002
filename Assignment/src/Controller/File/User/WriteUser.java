@@ -1,15 +1,15 @@
-package Controller.File.User;
+package controller.file.user;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Entity.CampCommittee;
-import Entity.Staff;
-import Entity.Student;
-import Repository.UserRepository.CampCommitteeRepository;
-import Repository.UserRepository.StaffRepository;
-import Repository.UserRepository.StudentRepository;
+import entity.CampCommittee;
+import entity.Staff;
+import entity.Student;
+import repository.userrepository.CampCommitteeRepository;
+import repository.userrepository.StaffRepository;
+import repository.userrepository.StudentRepository;
 
 
 public class WriteUser {

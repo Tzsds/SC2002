@@ -1,9 +1,9 @@
-package Entity;
+package entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import Controller.Camp.CampManager;
+import controller.camp.CampManager;
 
 public class Student extends User{
     private ArrayList<Enquiry> enquiries = new ArrayList<>();

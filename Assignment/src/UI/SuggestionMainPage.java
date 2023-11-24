@@ -1,9 +1,9 @@
-package UI;
+package ui;
 
-import Controller.Account.LoginManager;
-import Controller.Suggestion.SuggestionManager;
-import Controller.Utilities.InputScanner;
-import Entity.CampCommittee;
+import controller.account.LoginManager;
+import controller.suggestion.SuggestionManager;
+import controller.utils.InputScanner;
+import entity.CampCommittee;
 
 public class SuggestionMainPage implements MainPage {
     public void run(){

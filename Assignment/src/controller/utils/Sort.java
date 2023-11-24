@@ -1,7 +1,8 @@
-package Controller.Utilities;
+package controller.utils;
 
 import java.util.ArrayList;
-import Entity.Camp;
+
+import entity.Camp;
 
 public class Sort {
     public static ArrayList<Camp> insertionSortByName(ArrayList<Camp> campList){

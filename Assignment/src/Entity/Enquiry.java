@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 public class Enquiry {
     public enum Status {

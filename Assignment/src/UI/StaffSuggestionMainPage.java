@@ -1,10 +1,10 @@
-package UI;
+package ui;
 
-import Controller.Account.LoginManager;
-import Controller.Suggestion.StaffSuggestionManager;
-import Controller.Users.StaffManager;
-import Controller.Utilities.InputScanner;
-import Entity.Staff;
+import controller.account.LoginManager;
+import controller.suggestion.StaffSuggestionManager;
+import controller.users.StaffManager;
+import controller.utils.InputScanner;
+import entity.Staff;
 
 public class StaffSuggestionMainPage implements MainPage{
     public void run(){

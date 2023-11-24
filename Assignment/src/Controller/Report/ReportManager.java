@@ -1,15 +1,15 @@
-package Controller.Report;
+package controller.report;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import Controller.Account.LoginManager;
-import Controller.Utilities.Filter;
-import Controller.Utilities.InputScanner;
-import Controller.Utilities.Sort;
-import Entity.Camp;
-import Entity.CampCommittee;
-import Entity.Staff;
+import controller.account.LoginManager;
+import controller.utils.Filter;
+import controller.utils.InputScanner;
+import controller.utils.Sort;
+import entity.Camp;
+import entity.CampCommittee;
+import entity.Staff;
 
 public class ReportManager {
 

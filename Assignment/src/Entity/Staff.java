@@ -1,14 +1,14 @@
-package Entity;
+package entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import Controller.File.FileWriting;
-import Controller.Report.EnquiryReport;
-import Controller.Report.PerformanceReport;
-import Controller.Report.ReportManager;
-import Controller.Utilities.InputScanner;
-import Repository.CampRepository;
+import controller.file.FileWriting;
+import controller.report.EnquiryReport;
+import controller.report.PerformanceReport;
+import controller.report.ReportManager;
+import controller.utils.InputScanner;
+import repository.CampRepository;
 
 public class Staff extends User {
     private ArrayList<Camp> campsCreatedList = new ArrayList<>();

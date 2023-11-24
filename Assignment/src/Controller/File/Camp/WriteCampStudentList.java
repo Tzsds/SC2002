@@ -1,14 +1,14 @@
-package Controller.File.Camp;
+package controller.file.camp;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Entity.Camp;
-import Entity.CampDetails;
-import Entity.Student;
-import Repository.CampRepository;
+import entity.Camp;
+import entity.CampDetails;
+import entity.Student;
+import repository.CampRepository;
 
 public class WriteCampStudentList {
     
