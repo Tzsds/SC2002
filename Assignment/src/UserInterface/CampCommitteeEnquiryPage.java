@@ -1,4 +1,4 @@
-package UI;
+package UserInterface;
 
 import Controller.Account.LoginManager;
 import Controller.Enquiry.CampCommitteeEnquiryManager;

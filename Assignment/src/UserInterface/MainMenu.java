@@ -1,4 +1,4 @@
-package UI;
+package UserInterface;
 public class MainMenu {
     public void displayMainMenu() {
         System.out.println("----------------------------------------");

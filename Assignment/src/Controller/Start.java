@@ -2,11 +2,11 @@ package Controller;
 import Controller.Account.LoginManager;
 import Controller.File.FileRead;
 import Entity.Student;
-import UI.CampCommitteeMainPage;
-import UI.StaffMainPage;
-import UI.StudentMainPage;
-import UI.Display;
-import UI.MainPage;
+import UserInterface.CampCommitteeMainPage;
+import UserInterface.Display;
+import UserInterface.MainPage;
+import UserInterface.StaffMainPage;
+import UserInterface.StudentMainPage;
 
 public class Start {
     public static void main(String[] args) {

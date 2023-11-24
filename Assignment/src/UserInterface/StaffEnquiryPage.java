@@ -1,47 +1,39 @@
-package UI;
+package UserInterface;
 
-import Controller.Enquiry.EnquiryManager;
+import Controller.Users.StaffManager;
 import Controller.Utilities.InputScanner;
-import Entity.User;
 
-public class EnquiryMainPage implements MainPage {
+public class StaffEnquiryPage implements MainPage {
     private MainMenu mainMenu;
-    private User currentUser;
 
-    public EnquiryMainPage(User currentUser) {
-        this.currentUser = currentUser;
-        mainMenu = new EnquiryMainMenu();
+    public StaffEnquiryPage() {
+        mainMenu = new MainMenu();
     }
 
     public void run() {
         boolean continueMenu = true;
         boolean error = false;
         while (continueMenu) {
-            if(!error){
+            if (!error){
                 mainMenu.displayMainMenu();
+                System.out.println("1. View Enquiries");
+                System.out.println("2. Reply to Enquiry");
+                System.out.println("3. Back to main menu");
+                System.out.println("================================");
             }
             error = false;
-            int option = InputScanner.promptForInt("Input your choice of action (1-5): ");
+            int option = InputScanner.promptForInt("Input your choice of action (1-3):");
             switch (option) {
 
                 case 1:
                     // Navigate to Enquiry Page
                     System.out.println("Displaying enquiries:\n");
-                    EnquiryManager.viewStudentEnquiries(currentUser);
+                    StaffManager.viewEnquiries();
                     break;
                 case 2:
-                    System.out.println("Creating a new enquiry");
-                    EnquiryManager.addEnquiry();
+                    StaffManager.replyEnquiry();
                     break;
                 case 3:
-
-                    System.out.println("Edit your enquiry...");
-                    EnquiryManager.editEnquiry(currentUser);
-                    break;
-                case 4:
-                    EnquiryManager.deleteEnquiry(currentUser);
-                    break;
-                case 5:
                     System.out.println("Returning to main menu");
                     continueMenu = false;
                     return;

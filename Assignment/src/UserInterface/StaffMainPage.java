@@ -1,4 +1,4 @@
-package UI;
+package UserInterface;
 
 import Controller.Account.ChangeAccountPassword;
 import Controller.Account.LoginManager;

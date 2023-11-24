@@ -9,7 +9,7 @@ import Entity.User;
 import Repository.UserRepository.CampCommitteeRepository;
 import Repository.UserRepository.StaffRepository;
 import Repository.UserRepository.StudentRepository;
-import UI.Display;
+import UserInterface.Display;
 
 public class LoginManager {
 
