@@ -3,7 +3,7 @@ package entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import Controller.camps.CampManager;
+import Controller.camp.CampManager;
 
 public class Student extends User{
     private ArrayList<Enquiry> enquiries = new ArrayList<>();

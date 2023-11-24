@@ -1,7 +1,7 @@
 package ui;
 
 import Controller.Enquiry.CampCommitteeEnquiryManager;
-import Controller.accounts.LoginManager;
+import Controller.account.LoginManager;
 import Controller.utils.InputScanner;
 import entity.CampCommittee;
 

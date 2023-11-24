@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 
 import Controller.File.Enquiry.WriteEnquiry;
-import Controller.accounts.LoginManager;
+import Controller.account.LoginManager;
 import Controller.utils.InputScanner;
 import entity.Camp;
 import entity.Enquiry;

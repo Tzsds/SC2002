@@ -3,7 +3,7 @@ package Controller.Report;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import Controller.accounts.LoginManager;
+import Controller.account.LoginManager;
 import Controller.utils.Filter;
 import Controller.utils.InputScanner;
 import Controller.utils.Sort;

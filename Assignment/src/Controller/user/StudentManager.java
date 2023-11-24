@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Controller.File.FileWriting;
-import Controller.accounts.LoginManager;
-import Controller.camps.CampManager;
+import Controller.account.LoginManager;
+import Controller.camp.CampManager;
 import Controller.utils.Filter;
 import Controller.utils.InputScanner;
 import Controller.utils.Sort;

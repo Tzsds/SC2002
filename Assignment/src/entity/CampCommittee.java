@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Controller.Report.CampReport;
 import Controller.Report.EnquiryReport;
 import Controller.Report.ReportManager;
-import Controller.camps.CampManager;
+import Controller.camp.CampManager;
 
 public class CampCommittee extends Student {
     private int points;

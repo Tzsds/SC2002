@@ -2,8 +2,8 @@ package ui;
 
 import Controller.File.User.WriteUser;
 import Controller.Report.ReportManager;
-import Controller.accounts.ChangeAccountPassword;
-import Controller.accounts.LoginManager;
+import Controller.account.ChangeAccountPassword;
+import Controller.account.LoginManager;
 import Controller.user.StudentManager;
 import Controller.utils.InputScanner;
 import entity.CampCommittee;

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import Controller.File.Enquiry.WriteEnquiry;
-import Controller.camps.CampManager;
+import Controller.camp.CampManager;
 import Controller.utils.InputScanner;
 import entity.Camp;
 import entity.Enquiry;

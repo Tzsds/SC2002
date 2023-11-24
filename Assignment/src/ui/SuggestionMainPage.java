@@ -1,7 +1,7 @@
 package ui;
 
-import Controller.accounts.LoginManager;
-import Controller.suggestions.SuggestionManager;
+import Controller.account.LoginManager;
+import Controller.suggestion.SuggestionManager;
 import Controller.utils.InputScanner;
 import entity.CampCommittee;
 

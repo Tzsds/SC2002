@@ -1,7 +1,7 @@
 package ui;
 
-import Controller.accounts.LoginManager;
-import Controller.suggestions.StaffSuggestionManager;
+import Controller.account.LoginManager;
+import Controller.suggestion.StaffSuggestionManager;
 import Controller.user.StaffManager;
 import Controller.utils.InputScanner;
 import entity.Staff;

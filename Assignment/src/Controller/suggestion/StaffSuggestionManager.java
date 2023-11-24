@@ -1,4 +1,4 @@
-package Controller.suggestions;
+package Controller.suggestion;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

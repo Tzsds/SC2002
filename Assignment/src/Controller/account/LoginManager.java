@@ -1,4 +1,4 @@
-package Controller.accounts;
+package Controller.account;
 
 import Controller.File.FileWriting;
 import Controller.utils.InputScanner;
