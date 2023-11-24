@@ -4,6 +4,5 @@ public class MainMenu {
         System.out.println("----------------------------------------");
         System.out.println("Welcome to the Main Page");
         System.out.println("----------------------------------------");
-       
     }
 }

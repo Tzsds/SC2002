@@ -28,7 +28,7 @@ public class CampCommitteeEnquiryPage implements MainPage{
                 System.out.println("----------------------------------------");
             }
             error = false;
-            int option = InputScanner.promptForInt("Input your choice of action (1-6):");
+            int option = InputScanner.promptForInt("Input your choice of action (1-6): ");
             switch (option) {
 
                 case 1:
