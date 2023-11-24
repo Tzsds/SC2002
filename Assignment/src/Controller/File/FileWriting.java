@@ -2,8 +2,8 @@ package Controller.File;
 
 import Controller.File.camps.WriteCampDetails;
 import Controller.File.camps.WriteCampStudentList;
-import Controller.File.suggestions.WriteSuggestion;
-import Controller.File.users.WriteUser;
+import Controller.File.suggestion.WriteSuggestion;
+import Controller.File.user.WriteUser;
 
 
 public class FileWriting {

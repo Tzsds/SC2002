@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import Controller.File.Enquiry.WriteEnquiry;
-import Controller.File.users.WriteUser;
+import Controller.File.user.WriteUser;
 import Controller.account.LoginManager;
 import Controller.utils.InputScanner;
 import entity.Camp;

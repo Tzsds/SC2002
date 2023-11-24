@@ -2,7 +2,7 @@ package Controller.user;
 
 import java.util.ArrayList;
 
-import Controller.File.users.WriteUser;
+import Controller.File.user.WriteUser;
 import Controller.account.LoginManager;
 import entity.Camp;
 import entity.CampCommittee;

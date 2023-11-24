@@ -3,8 +3,8 @@ package Controller.File;
 import Controller.File.Enquiry.ReadEnquiry;
 import Controller.File.camps.ReadCampDetails;
 import Controller.File.camps.ReadCampStudentList;
-import Controller.File.suggestions.ReadSuggestion;
-import Controller.File.users.ReadUser;
+import Controller.File.suggestion.ReadSuggestion;
+import Controller.File.user.ReadUser;
 
 public class FileRead {
 
