@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import controller.utils.FormatDate;
 import entity.Camp;
 import entity.CampDetails;
 import entity.Staff;
@@ -41,9 +42,9 @@ public class CampReport extends Report{
         this.reportHeader =
             "Camp Name: " + campDetails.getCampName() + "\n" +
             "Description: " + campDetails.getDescription() + "\n" +
-            "Camp Dates: " + formatDate(campDetails.getStartDate()) + " - " +
-                            formatDate(campDetails.getEndDate()) + "\n" +
-            "Registration Close Date: " + formatDate(campDetails.getCloseDate()) + "\n" +
+            "Camp Dates: " + FormatDate.formatDate(campDetails.getStartDate()) + " - " +
+                            FormatDate.formatDate(campDetails.getEndDate()) + "\n" +
+            "Registration Close Date: " + FormatDate.formatDate(campDetails.getCloseDate()) + "\n" +
             "Open To: " + campDetails.getUserGroup() + "\n" +
             "Location: " + campDetails.getLocation() + "\n" +
             "Staff In Charge: " + staffName + "\n" +
@@ -80,11 +81,5 @@ public class CampReport extends Report{
             }
         }
         this.reportBody = reportBody;
-    }
-
-    public String formatDate(LocalDate date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
-        String dateString = date.format(formatter);
-        return dateString;
     }
 }

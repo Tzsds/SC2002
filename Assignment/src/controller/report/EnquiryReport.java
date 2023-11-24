@@ -59,26 +59,5 @@ public class EnquiryReport extends Report {
         }
         this.reportBody = reportBody;
     }
+    
 }
-
-
-// different format
-
-// public void setBody() {
-//         // String reportBody = String.format("%-20s Details\n", "Enquiry No.");
-//         String reportBody = "";
-
-//         int i = 1;
-//         for (Enquiry enquiry : enquiries) {
-//             String question = enquiry.getContent();
-//             String reply = enquiry.getRepliedContent();
-//             String sender = enquiry.getSender();
-//             String replier = enquiry.getSender();
-//             reportBody += ("Enquiry " + i + ":" + question + "\n");
-//             reportBody += ("Replied Content: " + reply + "\n");
-//             reportBody += ("Sender: " + sender + "\n");
-//             reportBody += ("Replier: " + replier + "\n\n");
-//             i++;
-//         }
-//         this.reportBody = reportBody;
-//     }
