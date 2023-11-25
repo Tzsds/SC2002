@@ -12,7 +12,7 @@ import ui.MainMenuInterface;
 public class CampCommitteeSuggestionMainMenu implements MainMenuInterface {
 
     /**
-     * Display the Camp Committee Suggestion Main Page Menu
+     * Display the Camp Committee Suggestion Navigation Page Menu
      * Menu includes options for Camp Committee members to view, create, edit and
      * delete their suggestions
      */

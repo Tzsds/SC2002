@@ -5,13 +5,26 @@ import controller.enquiry.EnquiryManager;
 import controller.utils.InputScanner;
 import entity.User;
 import ui.NavigationPage;
-
+/**
+ * Represents a navigation page for Student to manage enquiries
+ * This class extend NavigationPage class and is sepcific to the Student user role
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class StudentEnquiryNavigationPage extends NavigationPage {
-    
+    /**
+     * Constructs a new instance of StudentEnquiryNavigationPage
+     * Initializes the main menu for Student Enquiry
+     */ 
     public StudentEnquiryNavigationPage() {
         menu = new StudentEnquiryMainMenu();
     }
-
+    /**
+     * Runs the Student Enquiry Navigation Page displaying the menu
+     * and handling user input for various actions related to enquiries
+     * The user can view , create, edit and delete enquiries
+     */
     public void run() {
         boolean continueMenu = true;
         boolean error = false;

@@ -10,9 +10,27 @@ import entity.Staff;
 import ui.Display;
 import ui.NavigationPage;
 
+/**
+ * Represents a navigation page for Staff users
+ * This class extends NavigationPage class and provide menu options
+ * for Staff to interact with the system
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class StaffNavigationPage extends NavigationPage {
+    /**
+     * Constructs a new instance of StaffNavigationPage
+     * Initializes the main menu for Staff
+     */
     public StaffNavigationPage(){
         menu = new StaffMainMenu();
+    /**
+     * Runs the Staff Navigation Page displaying the menu
+     * and handling user input for various actions related to camp management
+     * The user can view, create and edit camps, view camps created, manage enquiries,
+     * manage suggestions, manage report, change password, logging out and quitting the page
+     */
     }
     public void run() {
         boolean continueMenu = true;

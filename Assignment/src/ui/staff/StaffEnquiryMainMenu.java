@@ -15,9 +15,10 @@ import ui.MainMenuInterface;
 public class StaffEnquiryMainMenu implements MainMenuInterface {
 
     /**
-     * Displays the Staff Enquiry Main Page Menu on the console
+     * Displays the Staff Enquiry Navigation Page Menu on the console
      * This menu includes options for Staff members to view and reply to the
-     * enquiries directed to them on their respective camps
+     * enquiries directed to them on their respective camps 
+     * and return to main menu
      */
     public void displayMenu() {
         System.out.println("----------------------------------------");

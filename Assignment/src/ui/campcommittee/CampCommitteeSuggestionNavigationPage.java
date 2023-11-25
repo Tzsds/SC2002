@@ -15,7 +15,7 @@ import ui.NavigationPage;
 public class CampCommitteeSuggestionNavigationPage extends NavigationPage {
     /**
      * Constructs a new instance of CampCommitteeSuggestionNavigationPage
-     * Initializes the main menu for Camp Committee suggestions
+     * Initializes the main menu for Camp Committee suggestion
      */
     public CampCommitteeSuggestionNavigationPage(){
         menu = new CampCommitteeSuggestionMainMenu();
@@ -24,7 +24,7 @@ public class CampCommitteeSuggestionNavigationPage extends NavigationPage {
      * Runs the Camp Committee Suggestion Navigation Page displaying the menu
      * and handling user input for various actions related to suggestions
      * The user can view suggestions, give suggestions, edit suggestions
-     * delete suggestions, view processed suggestions and return to the main menu
+     * delete suggestions and view processed suggestions
      */
     public void run(){
         boolean continueMenu = true;

@@ -10,11 +10,30 @@ import ui.Display;
 import ui.NavigationPage;
 import ui.campcommittee.CampCommitteeNavigationPage;
 
+/**
+ * Represents a navigation page for Student users
+ * This class extends NavigationPage class and provide menu options
+ * for Student to interact with the system
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class StudentNavigationPage extends NavigationPage {
-
+    /**
+     * Constructs a new instance of StudentNavigationPage
+     * Initializes the main menu for student
+     */
     public StudentNavigationPage(){
         menu = new StudentMainMenu();
     }
+    /**
+     * Runs the Student Navigation Page displaying the menu
+     * and handling user input for various actions related to camp 
+     * The user can view list of available camps,
+     * register for camps, navigate to enquiry page, view registered camps,
+     * withdraw from a camp, change password,
+     * log out, and quit the program
+     */
     public void run() {
         boolean continueMenu = true;
         Student currentStudent = (Student)LoginManager.getCurrentUser();

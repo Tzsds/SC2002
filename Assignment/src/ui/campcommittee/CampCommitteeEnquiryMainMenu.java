@@ -12,7 +12,7 @@ import ui.MainMenuInterface;
 public class CampCommitteeEnquiryMainMenu implements MainMenuInterface {
 
     /**
-     * Display the Camp Committee Enquiry Main Page Menu
+     * Display the Camp Committee Enquiry Navigation Page Menu
      * Menu includes options for Camp Committee members to view, create, edit and
      * delete their own enquiries directed to other camps
      * As well as to reply to enquiries for the camp that they are in charged of

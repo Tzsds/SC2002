@@ -15,7 +15,7 @@ import ui.NavigationPage;
 public class CampCommitteeEnquiryNavigationPage extends NavigationPage{
     /**
      * Constructs a new instance of CampCommitteeEnquiryNavigationPage
-     * Initializes the main menu for Camp Committee enquiries
+     * Initializes the main menu for Camp Committee Enquiry
      */
     public CampCommitteeEnquiryNavigationPage() {
         menu = new CampCommitteeEnquiryMainMenu();

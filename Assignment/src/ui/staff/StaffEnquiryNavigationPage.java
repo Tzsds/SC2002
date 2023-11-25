@@ -3,12 +3,27 @@ package ui.staff;
 import controller.user.StaffManager;
 import controller.utils.InputScanner;
 import ui.NavigationPage;
-
+/**
+ * Represents a navigation page Staff to manage enquiries
+ * This class extend NavigationPage class and is sepcific to the Staff user role
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class StaffEnquiryNavigationPage extends NavigationPage {
+    /**
+     * Constructs a new instance of StaffEnquiryNavigationPage
+     * Initializes the main menu for Staff Enquiry
+     */
     public StaffEnquiryNavigationPage(){
         menu = new StaffEnquiryMainMenu();
     }
 
+    /**
+     * Runs the Staff Enquiry Navigation Page displaying the menu
+     * and handling user input for various actions related to enquiries
+     * The user can view enquiries and reply to enquiries
+     */
     public void run() {
         boolean continueMenu = true;
         boolean error = false;

@@ -14,7 +14,7 @@ package ui.campcommittee;
 public class CampCommitteeMainMenu {
 
     /**
-     * Displays the Camp Committee Main Page menu
+     * Displays the Camp Committee Navigation Page menu
      * The menu includes options to perform various actions related to camps and
      * committee responsibilities
      */

@@ -6,11 +6,27 @@ import controller.user.StaffManager;
 import controller.utils.InputScanner;
 import entity.Staff;
 import ui.NavigationPage;
-
+/**
+ * Represents a navigation page for Staff to manage suggestions
+ * This class extend NavigationPage class and is sepcific to Staff user role
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class StaffSuggestionNavigationPage extends NavigationPage{
+
+    /**
+     * Constructs a new instance of StaffSuggestionNavigationPage
+     * Initializes the main menu for Staff suggestion
+     */
     public StaffSuggestionNavigationPage(){
         menu = new StaffSuggestionMainMenu();
     }
+    /**
+     * Runs the Staff Suggestion Navigation Page displaying the menu
+     * and handling user input for various actions related to suggestions
+     * The user can view and process suggestions
+     */
     public void run(){
         boolean continueMenu = true;
         Staff currentUser = (Staff)LoginManager.getCurrentUser();
