@@ -90,6 +90,7 @@ public class StaffNavigationPage extends NavigationPage {
                     break;
                 case 13:
                     // Log Out
+                    Display.clearScreen();
                     Display.logOut();
                     System.out.println(currentStaff.getName() + " logged out");
                     continueMenu = false;

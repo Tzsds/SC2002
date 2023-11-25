@@ -13,6 +13,16 @@ import repository.userrepository.CampCommitteeRepository;
 import repository.userrepository.StaffRepository;
 import repository.userrepository.StudentRepository;
 
+/**
+ * The class provides methods to read user information from CSV files, initialise
+ * repositories, and reset user data if necessary. It is responsible for reading
+ * student, staff and camp committee data from CSV files and populating
+ * the respective repositories
+ * @author SCSZ Group 4
+ * @version 1.0
+ * @since 25/11/23
+ */
+
 public class ReadUser {
 
     private static String studentListCSV = "Assignment/database/student_list.csv";
@@ -20,6 +30,12 @@ public class ReadUser {
     private static String studentCSV = "Assignment/database/student.csv";
     private static String staffCSV = "Assignment/database/staff.csv";
     private static String campCommitteeCSV = "Assignment/database/camp_committee.csv";
+
+    /**
+     * Reads user information from CSV files, intialising repositories, and reset user data.
+     * This method reads student and staff data from CSV files, adds them to the corresponding 
+     * repositories, and create new CSV files for camp committees, student and staff
+     */
 
     public static void readUserWithReset(){
 
@@ -88,6 +104,12 @@ public class ReadUser {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Read user information from CSV files without resetting existing data in repositories.
+     * This method reads student, staff and camp committee data from CSV files and add them to 
+     * the corresponding repositories without resetting existing data.
+     */
 
     public static void readUserWithoutReset(){
         //Reading studentCSV

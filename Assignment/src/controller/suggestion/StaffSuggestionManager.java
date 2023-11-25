@@ -11,9 +11,20 @@ import entity.CampCommittee;
 import entity.Suggestion;
 import entity.Suggestion.Status;
 
-public class StaffSuggestionManager {
+/**
+ * This class provides functionalities specifically for staffs to manage suggestion
+ * related to the camps they have created. Staff can print, process, accept and reject
+ * suggestions, updating the system accordingly.
+ * @author SCSZ Group 4
+ * @version 1.0
+ * @since 25/11/23
+ */
 
-    //Functions to be used by the Staff
+public class StaffSuggestionManager {
+    /**
+     * Prints the suggestion associated with the list of camps created by the staff.
+     * @param listOfCampsCreated - List of camps created by the staff
+     */
 
     public static void printSuggestions(ArrayList<Camp> listOfCampsCreated){
         if (listOfCampsCreated.size() == 0){
@@ -40,6 +51,11 @@ public class StaffSuggestionManager {
             }
         }
     }
+
+    /**
+     * Processes pending suggestions, allowing staff members to accept or reject them
+     * @param listOfCampsCreated - List of camps created by the staff
+     */
 
     public static void processSuggestions(ArrayList<Camp> listOfCampsCreated){
         if (listOfCampsCreated.size() == 0){
@@ -108,12 +124,23 @@ public class StaffSuggestionManager {
         }   
     }
 
+    /**
+     * Rejects a specific suggestion, updating its status and reflecting changes in the system
+     * @param temp - The suggestion to be rejected
+     */
+
     public static void rejectSuggestion(Suggestion temp){
         temp.setStatus(Status.REJECTED);
         FileWriting.FileWriteSuggestion();
         removeSuggestionFromCamp(temp);
         System.out.println("Suggestion rejected!");
     }
+
+    /**
+     * Accepts a specific suggestion, updating its status, rewarding additional points
+     * to the proposer and reflecting the changes in the system
+     * @param temp - The suggestion to be accepted
+     */
 
     public static void acceptSuggestion(Suggestion temp){
         temp.setStatus(Status.APPROVED);
@@ -124,6 +151,11 @@ public class StaffSuggestionManager {
         removeSuggestionFromCamp(temp);
         System.out.println("Suggestion accepted!");
     }
+    
+    /**
+     * Removes a suggestion from the associated camp after it has been processed
+     * @param temp - The suggestion to be removed
+     */
 
     private static void removeSuggestionFromCamp(Suggestion temp){
         Camp camp = temp.getProposer().getCommitteeOf();

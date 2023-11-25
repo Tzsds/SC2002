@@ -93,6 +93,7 @@ public class CampCommitteeNavigationPage extends NavigationPage{
                     break;
                 case 11:
                     // Log out
+                    Display.clearScreen();
                     Display.logOut();
                     continueMenu = false;
                     System.out.println(User.getName() + " logged out");

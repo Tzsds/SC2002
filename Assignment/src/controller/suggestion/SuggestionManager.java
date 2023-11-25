@@ -13,10 +13,17 @@ import entity.CampCommittee;
 import entity.Suggestion;
 import entity.Suggestion.Status;
 import repository.SuggestionRepository;
-
+/**
+ * This class provides functionalities related to suggestions,
+ * allowing Camp Committee members to add, edit, delete and view suggestions.
+ * @author SCSZ Group 4
+ * @version 1.0
+ * @since 25/11/23
+ */
 public class SuggestionManager {
-
-    //Functions to be used by Camp Committee
+    /**
+     * Adds a new suggestion to the system
+     */
 
     public static void addSuggestion(){
         CampCommittee User = (CampCommittee)LoginManager.getCurrentUser();
@@ -30,6 +37,11 @@ public class SuggestionManager {
         WriteUser.FileWriteCampCommittee(); //To reflect the points in the CampComm CSV
         System.out.println("Suggestion successfully added");
     }
+
+    /**
+     * Edits a selected suggestion's content
+     * @param suggestions - Camp Committee User list of suggestions
+     */
 
     public static void editSuggestion(ArrayList<Suggestion> suggestions){
         int count = 1;
@@ -69,6 +81,11 @@ public class SuggestionManager {
         }   
     }
 
+    /**
+     * Deletes a Suggestion from the system
+     * @param suggestions - Camp Committee User list of suggestions
+     */
+
     public static void deleteSuggestion(ArrayList<Suggestion> suggestions){
         int count = 1;
         ArrayList<Suggestion> temporaryList = getSuggestions(suggestions, true);
@@ -99,7 +116,6 @@ public class SuggestionManager {
             Suggestion temp = suggestions.get(prompt-1);
             CampCommittee User = temp.getProposer();
             
-            //deleting from database
             Camp c1 = User.getCommitteeOf();
             User.getSuggestions().remove(temp);
             c1.getListOfSuggestions().remove(temp);
@@ -110,6 +126,11 @@ public class SuggestionManager {
             return;
         }
     }
+
+    /**
+     * Print list of suggestions, differntiating between pending and processed ones
+     * @param suggestions - The list of suggestions to display
+     */
 
     public static void printSuggestions(ArrayList<Suggestion> suggestions){
         System.out.println("========================================");
@@ -133,6 +154,13 @@ public class SuggestionManager {
         System.out.println("========================================");
     }
 
+    /**
+     * Retrives a filtered list of suggestions based on the pending status
+     * @param suggestion - The list of suggestions to filter
+     * @param pending - If true, returns list of pending instructions, else return 
+     * list of processed instructions
+     * @return - The filtered list of suggestions
+     */
     public static ArrayList<Suggestion> getSuggestions(ArrayList<Suggestion> suggestion, boolean pending){
         ArrayList<Suggestion> tempList = new ArrayList<>(); //Pending
         ArrayList<Suggestion> tempList1 = new ArrayList<>(); //Processed

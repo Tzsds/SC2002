@@ -70,6 +70,7 @@ public class StudentNavigationPage extends NavigationPage {
                     break;
                 case 7:
                     //Log Out
+                    Display.clearScreen();
                     Display.logOut();
                     System.out.println(currentStudent.getName() + " logged out");
                     continueMenu = false;
