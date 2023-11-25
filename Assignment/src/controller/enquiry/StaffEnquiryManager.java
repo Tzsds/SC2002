@@ -14,10 +14,18 @@ import repository.EnquiryRepository;
 import repository.userrepository.CampCommitteeRepository;
 import repository.userrepository.StudentRepository;
 
+/**
+ * This class manages Staff-specific interations and operations related to
+ * enquiries
+ * Provides methods for staff to view all enquiries, reply to pending enquiries,
+ * and retrieve enquiries based on selected indices
+ */
 public class StaffEnquiryManager {
-    // functions to be used by staff
-
-    // View all enquiries for staff but can only view camps created by them.
+    /**
+     * Displays all enquiries for a staff member, limited to camps created by them.
+     *
+     * @param staffID - The ID of the staff member.
+     */
     public static void viewAllEnquiriesStaff(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
 
@@ -52,6 +60,12 @@ public class StaffEnquiryManager {
         }
     }
 
+    /**
+     * Allows a staff member to reply to pending enquiries and updates the
+     * status and replied content accordingly.
+     *
+     * @param staffID - The ID of the staff member.
+     */
     public static void replyEnquiry(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
 
@@ -119,9 +133,17 @@ public class StaffEnquiryManager {
 
     }
 
+    /**
+     * Retrieves an enquiry based on the selected index requested by the staff
+     *
+     * @param staffID       - The ID of the staff member.
+     * @param selectedIndex - The index of the selected enquiry.
+     * @return - The selected enquiry or null if the index is invalid.
+     */
     public static Enquiry getEnquiryByIndex(String staffID, int selectedIndex) {
         System.out.println("selected index: " + selectedIndex);
 
+        // Fetches all pending enquiries related to camps created by the staff member.
         List<Enquiry> staffEnquiries = EnquiryRepository.getListOfEnquiries().stream()
                 .filter(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName(), staffID)
                         && enquiry.getStatus() == Enquiry.Status.PENDING)
