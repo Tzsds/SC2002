@@ -5,6 +5,9 @@ import ui.MainMenuInterface;
 /**
  * Represents the main menu for Camp Committee Suggestion
  * Implements the MainMenuInterface for standardized menu structures
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 public class CampCommitteeSuggestionMainMenu implements MainMenuInterface {
 

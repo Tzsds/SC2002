@@ -24,6 +24,7 @@ public class StudentNavigationPage extends NavigationPage {
                 System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
                 menu.displayMenu();
             }
+            error = false; 
             int option = InputScanner.promptForInt("Input your choice of action (1-8): ");
             switch (option) {
                 case 1:

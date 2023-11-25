@@ -3,22 +3,25 @@ package ui.staff;
 import ui.MainMenuInterface;
 
 /**
- * Represents the main menu for Staff members.
+ * Represents the main menu for Staff members
  * This class provides options to view, create, edit, delete camps, access
  * enquiry and suggestion pages, view registered camps, attendee lists, and
- * generate reports.
+ * generate reports
  * Additionally, includes options to withdraw from a camp, change the password,
- * log out, and quit the program.
+ * log out, and quit the program
  * 
  * This class implements the MainMenuInterface to ensure consistency in menu
  * display across different user roles
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 
 public class StaffMainMenu implements MainMenuInterface {
 
     /**
-     * Displays the Staff Main Page menu on the console.
-     * The menu includes options to perform various actions related to camps.
+     * Displays the Staff Main Page menu on the console
+     * The menu includes options to perform various actions related to camps
      */
     public void displayMenu() {
         System.out.println("----------------------------------------");

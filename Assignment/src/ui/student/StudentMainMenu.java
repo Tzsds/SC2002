@@ -3,24 +3,27 @@ package ui.student;
 import ui.MainMenuInterface;
 
 /**
- * Represents the main menu for Student.
+ * Represents the main menu for Student
  * This class provides options to view list of available camps, register for
  * camps, navigate to enquiry page, view registered camps
  * Additionally, includes options to withdraw from a camp, change the password,
- * log out, and quit the program.
+ * log out, and quit the program
  * 
  * This class implements the MainMenuInterface to ensure consistency in menu
  * display across different user roles
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 
 public class StudentMainMenu implements MainMenuInterface {
 
     /**
-     * Displays the Student Main Menu on the console.
+     * Displays the Student Main Menu on the console
      * This menu includes options for Student to view list of available camps,
      * register for camps, navigate to enquiry page, view registered camps
      * Additionally, includes options to withdraw from a camp, change the password,
-     * log out, and quit the program.
+     * log out, and quit the program
      */
 
     public void displayMenu() {

@@ -2,9 +2,12 @@ package ui;
 
 /**
  * This class provides methods for printing messages and performing
- * console-related actions.
+ * console-related actions
  * These methods are used for user interaction and system feedback in the NTU
- * CAMS System.
+ * CAMS System
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 
 public class Display {
@@ -32,7 +35,7 @@ public class Display {
     }
 
     /**
-     * Displays a message indicating the initiation of the password change process.
+     * Displays a message indicating the initiation of the password change process
      */
     public static void changePassword() {
         System.out.println("Initiating password change process...");
@@ -40,16 +43,16 @@ public class Display {
 
     /**
      * Displays a message indicating that the user needs to log in again during the
-     * first-time login.
+     * first-time login
      */
     public static void firstTimeLogin() {
         System.out.println("Please log in again");
     }
 
     /**
-     * Clears the console screen.
+     * Clears the console screen
      * Note: This method uses ANSI escape codes and may not work in all
-     * environments.
+     * environments
      */
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");

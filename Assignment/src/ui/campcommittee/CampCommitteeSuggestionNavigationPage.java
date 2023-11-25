@@ -5,11 +5,27 @@ import controller.suggestion.SuggestionManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
 import ui.NavigationPage;
-
+/**
+ * Represents a navigation page for Camp Committee to manage suggestions
+ * This class extend NavigationPage class and is sepcific to the Camp Committee user role
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class CampCommitteeSuggestionNavigationPage extends NavigationPage {
+    /**
+     * Constructs a new instance of CampCommitteeSuggestionNavigationPage
+     * Initializes the main menu for Camp Committee suggestions
+     */
     public CampCommitteeSuggestionNavigationPage(){
         menu = new CampCommitteeSuggestionMainMenu();
     }
+    /**
+     * Runs the Camp Committee Suggestion Navigation Page displaying the menu
+     * and handling user input for various actions related to suggestions
+     * The user can view suggestions, give suggestions, edit suggestions
+     * delete suggestions, view processed suggestions and return to the main menu
+     */
     public void run(){
         boolean continueMenu = true;
         boolean error = false;

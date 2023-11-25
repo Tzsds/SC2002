@@ -9,9 +9,22 @@ import controller.utils.InputScanner;
 import entity.CampCommittee;
 import ui.Display;
 import ui.NavigationPage;
-
+/**
+ * Represents a navigation page for Camp Committee users
+ * This class extends NavigationPage class and provide menu options
+ * for Camp Committee actions
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class CampCommitteeNavigationPage extends NavigationPage{
-
+    /**
+     * Runs the Camp Committee Navigation Page displaying the menu
+     * and handling user input for Camp Committee actions
+     * The user can view camps, register for camps, withdraw from camp
+     * managing enquiries, and suggestions,
+     * generating reports, changing passwords, logging out and quitting the program
+     */
     public void run() {
         boolean continueMenu = true;
         boolean error = false;

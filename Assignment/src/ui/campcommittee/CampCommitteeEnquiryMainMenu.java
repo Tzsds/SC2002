@@ -3,8 +3,11 @@ package ui.campcommittee;
 import ui.MainMenuInterface;
 
 /**
- * Represents the main menu for Camp Committee Enquiries
+ * Represents the main menu for Camp Committee to manage enquiries
  * Implements the MainMenuInterface for standardized menu structures
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 public class CampCommitteeEnquiryMainMenu implements MainMenuInterface {
 
@@ -12,7 +15,7 @@ public class CampCommitteeEnquiryMainMenu implements MainMenuInterface {
      * Display the Camp Committee Enquiry Main Page Menu
      * Menu includes options for Camp Committee members to view, create, edit and
      * delete their own enquiries directed to other camps
-     * As well as to reply to enquiries for the camp that they are in charged of.
+     * As well as to reply to enquiries for the camp that they are in charged of
      */
     public void displayMenu() {
         System.out.println("----------------------------------------");
