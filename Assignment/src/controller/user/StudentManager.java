@@ -15,10 +15,23 @@ import entity.CampDetails;
 import entity.Student;
 import repository.CampRepository;
 
+/**
+ * This class provides methods to allow Student to 
+ * perform actions related to camp such as
+ * registering for camps, withdrawing from camps and 
+ * viewing available camps based on filter
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class StudentManager {
-
-    // WITHDRAW FROM CAMP
-
+    
+    /**
+     * Displays a list of available camps to the student depending on various conditions
+     * such as whether they are already registered, if they have withdrawn, 
+     * remaining slots and date clash 
+     * The student can choose to register for a camp from the displayed list
+     */
     public static void registerForCamps() {
         System.out.println("=================================");
         ArrayList<Camp> list = new ArrayList<>();
@@ -179,6 +192,10 @@ public class StudentManager {
         }
     }
 
+    /**
+     * Displays a list of camps the student is currently registered and 
+     * allows the student to withdraw from a selected camp
+     */
     public static void withdrawFromCamp() {
         System.out.println("=================================");
         ArrayList<Camp> list = new ArrayList<>();
@@ -268,7 +285,10 @@ public class StudentManager {
             }
         }
     }
-
+    /**
+     * Displays a sorted and filtered list of availabe camps to the student based on
+     * their faculty and if the camp visibility is open
+     */
     public static void viewAvailableCamps() {
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();

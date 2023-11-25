@@ -15,9 +15,20 @@ import entity.CampDetails;
 import entity.Staff;
 import repository.CampRepository;
 
-
+/**
+ * This class provides methods to allow
+ * Staff to manage camp such as viewing camps, editing camps,
+ * viewing suggestions and handling enquiries
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class StaffManager {
 
+    /**
+     * Displays a sorted list of all available camps based on filters chosen by user
+     * The user can filter by name, location or date
+     */
     public static void viewAllCamps() {
         
         ArrayList<Camp> listOfCamps = CampRepository.getListOfCamps();
@@ -50,7 +61,12 @@ public class StaffManager {
             }
         }
     }
-
+    
+    /**
+     * Displays a list of camps created by the staff
+     * 
+     * @param campCreated List of camps created by the staff
+     */
     public static void viewCampsCreated(ArrayList<Camp> campCreated) {
         System.out.println("=================================");
         if (campCreated.size() == 0)
@@ -62,6 +78,11 @@ public class StaffManager {
         }
     }
 
+    /**
+     * Method for the staff to edit details of the camps they created
+     * 
+     * @param campCreated List of camps created by the staff
+     */
     public static void editCamp(ArrayList<Camp> campCreated) {
         Staff staff = (Staff) LoginManager.getCurrentUser();
         int choice = 0;
@@ -187,16 +208,25 @@ public class StaffManager {
         }
     }
 
+    /**
+     * Displays suggestions related to camps created by the staff
+     */
     public static void viewSuggestions() {
         Staff currentStaff = (Staff) LoginManager.getCurrentUser();
         StaffSuggestionManager.printSuggestions(currentStaff.getListOfCampsCreated());
     }
 
+    /** 
+     * Displays enquiries directed to the staff
+     */
     public static void viewEnquiries(){
         Staff currentStaff = (Staff)LoginManager.getCurrentUser();
         StaffEnquiryManager.viewAllEnquiriesStaff(currentStaff.getUserID());
     }
-
+    
+    /**
+     * Method for staff to reply to enquiries directed to them
+     */
     public static void replyEnquiry(){
         Staff currentStaff = (Staff)LoginManager.getCurrentUser();
         StaffEnquiryManager.replyEnquiry(currentStaff.getUserID());
