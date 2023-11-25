@@ -249,7 +249,7 @@ public class StudentManager {
                         "The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName());
                 while (true) {
                     userConfirm = InputScanner
-                            .promptForInt(" Are you sure you want to withdraw? Enter 1 for Yes or 2 for No\n");
+                            .promptForInt("Are you sure you want to withdraw? Enter 1 for Yes or 2 for No\n");
                     if (userConfirm > 2 || userConfirm <= 0)
                         System.out.println("Invalid input. ");
                     else
