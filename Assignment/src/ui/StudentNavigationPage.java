@@ -7,9 +7,9 @@ import controller.user.StudentManager;
 import controller.utils.InputScanner;
 import entity.Student;
 
-public class StudentMainPage extends NavigationPage {
+public class StudentNavigationPage extends NavigationPage {
 
-    public StudentMainPage(){
+    public StudentNavigationPage(){
         menu = new StudentMainMenu();
     }
     public void run() {
@@ -36,7 +36,7 @@ public class StudentMainPage extends NavigationPage {
                     if (LoginManager.getUserRole() == "CampCommittee"){
                         continueMenu = false;
                         Display.clearScreen();
-                        CampCommitteeMainPage page = new CampCommitteeMainPage();
+                        CampCommitteeNavigationPage page = new CampCommitteeNavigationPage();
                         page.run();
                     }
                     break;

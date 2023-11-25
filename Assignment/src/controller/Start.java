@@ -1,11 +1,11 @@
 package controller;
 import controller.account.LoginManager;
 import controller.file.FileRead;
-import ui.CampCommitteeMainPage;
+import ui.CampCommitteeNavigationPage;
 import ui.Display;
 import ui.NavigationPage;
-import ui.StaffMainPage;
-import ui.StudentMainPage;
+import ui.StaffNavigationPage;
+import ui.StudentNavigationPage;
 
 public class Start {
     public static void main(String[] args) {
@@ -21,15 +21,15 @@ public class Start {
             // entering main page
             if (userRole == "Student") {
                 System.out.println("Redirecting to student menu");
-                page = new StudentMainPage();
+                page = new StudentNavigationPage();
             }
             else if (userRole == "Staff") {
                 System.out.println("Redirecting to staff menu");
-                page = new StaffMainPage();
+                page = new StaffNavigationPage();
             }
             else{
                 System.out.println("Redirecting to Camp Committee menu");
-                page = new CampCommitteeMainPage();
+                page = new CampCommitteeNavigationPage();
             }
             page.run();
             Display.welcomeMessage();
