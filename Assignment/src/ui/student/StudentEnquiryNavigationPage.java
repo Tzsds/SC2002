@@ -1,46 +1,47 @@
-package ui;
+package ui.student;
 
 import controller.account.LoginManager;
-import controller.enquiry.CampCommitteeEnquiryManager;
+import controller.enquiry.EnquiryManager;
 import controller.utils.InputScanner;
-import entity.CampCommittee;
+import entity.User;
+import ui.NavigationPage;
 
-public class CampCommitteeEnquiryNavigationPage extends NavigationPage{
-
-    public CampCommitteeEnquiryNavigationPage() {
-        menu = new CampCommitteeEnquiryMainMenu();
+public class StudentEnquiryNavigationPage extends NavigationPage {
+    
+    public StudentEnquiryNavigationPage() {
+        menu = new StudentEnquiryMainMenu();
     }
 
     public void run() {
         boolean continueMenu = true;
         boolean error = false;
-        CampCommittee currentUser = (CampCommittee) LoginManager.getCurrentUser();
+        User currentUser = LoginManager.getCurrentUser();
         while (continueMenu) {
-            if (!error) {
+            if(!error){
                 menu.displayMenu();
             }
             error = false;
-            int option = InputScanner.promptForInt("Input your choice of action (1-6): ");
+            int option = InputScanner.promptForInt("Input your choice of action (1-5): ");
             switch (option) {
 
                 case 1:
                     // Navigate to Enquiry Page
                     System.out.println("Displaying enquiries:\n");
-                    CampCommitteeEnquiryManager.viewAllEnquiriesCampCommittee(currentUser);
+                    EnquiryManager.viewStudentEnquiries(currentUser);
                     break;
                 case 2:
-                    CampCommitteeEnquiryManager.addEnquiry();
+                    System.out.println("Creating a new enquiry");
+                    EnquiryManager.addEnquiry();
                     break;
                 case 3:
-                    CampCommitteeEnquiryManager.editEnquiry(currentUser);
+
+                    System.out.println("Edit your enquiry...");
+                    EnquiryManager.editEnquiry(currentUser);
                     break;
                 case 4:
-                    CampCommitteeEnquiryManager.deleteEnquiry(currentUser);
+                    EnquiryManager.deleteEnquiry(currentUser);
                     break;
                 case 5:
-                    CampCommitteeEnquiryManager.replyEnquiry(currentUser);
-                    break;
-                case 6:
                     System.out.println("Returning to main menu");
                     continueMenu = false;
                     return;
@@ -49,7 +50,7 @@ public class CampCommitteeEnquiryNavigationPage extends NavigationPage{
                     error = true;
                     break;
             }
-            if (!error) {
+            if(!error){
                 System.out.println();
             }
         }

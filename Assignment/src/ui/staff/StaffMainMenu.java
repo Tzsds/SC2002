@@ -1,4 +1,7 @@
-package ui;
+package ui.staff;
+
+import ui.MainMenuInterface;
+
 public class StaffMainMenu implements MainMenuInterface{
     public void displayMenu(){
         System.out.println("----------------------------------------");

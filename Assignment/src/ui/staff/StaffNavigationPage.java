@@ -1,4 +1,4 @@
-package ui;
+package ui.staff;
 
 import controller.account.ChangeAccountPassword;
 import controller.account.LoginManager;
@@ -7,6 +7,8 @@ import controller.report.ReportManager;
 import controller.user.StaffManager;
 import controller.utils.InputScanner;
 import entity.Staff;
+import ui.Display;
+import ui.NavigationPage;
 
 public class StaffNavigationPage extends NavigationPage {
     public StaffNavigationPage(){

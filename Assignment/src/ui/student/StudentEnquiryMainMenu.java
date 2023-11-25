@@ -1,4 +1,6 @@
-package ui;
+package ui.student;
+
+import ui.MainMenuInterface;
 
 public class StudentEnquiryMainMenu implements MainMenuInterface {
     public void displayMenu() {

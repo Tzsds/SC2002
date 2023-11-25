@@ -1,4 +1,7 @@
-package ui;
+package ui.student;
+
+import ui.MainMenuInterface;
+
 public class StudentMainMenu implements MainMenuInterface{
     public void displayMenu(){
         System.out.println("----------------------------------------");

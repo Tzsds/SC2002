@@ -1,10 +1,11 @@
-package ui;
+package ui.staff;
 
 import controller.account.LoginManager;
 import controller.suggestion.StaffSuggestionManager;
 import controller.user.StaffManager;
 import controller.utils.InputScanner;
 import entity.Staff;
+import ui.NavigationPage;
 
 public class StaffSuggestionNavigationPage extends NavigationPage{
     public StaffSuggestionNavigationPage(){

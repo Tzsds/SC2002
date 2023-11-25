@@ -1,4 +1,6 @@
-package ui;
+package ui.campcommittee;
+
+import ui.MainMenuInterface;
 
 public class CampCommitteeEnquiryMainMenu implements MainMenuInterface {
     public void displayMenu(){

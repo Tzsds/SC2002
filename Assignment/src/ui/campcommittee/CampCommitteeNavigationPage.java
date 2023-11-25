@@ -1,4 +1,4 @@
-package ui;
+package ui.campcommittee;
 
 import controller.account.ChangeAccountPassword;
 import controller.account.LoginManager;
@@ -7,6 +7,8 @@ import controller.report.ReportManager;
 import controller.user.StudentManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
+import ui.Display;
+import ui.NavigationPage;
 
 public class CampCommitteeNavigationPage extends NavigationPage{
 

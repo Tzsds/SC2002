@@ -1,4 +1,4 @@
-package ui;
+package ui.student;
 
 import controller.account.ChangeAccountPassword;
 import controller.account.LoginManager;
@@ -6,6 +6,9 @@ import controller.file.user.WriteUser;
 import controller.user.StudentManager;
 import controller.utils.InputScanner;
 import entity.Student;
+import ui.Display;
+import ui.NavigationPage;
+import ui.campcommittee.CampCommitteeNavigationPage;
 
 public class StudentNavigationPage extends NavigationPage {
 

@@ -1,11 +1,11 @@
 package controller;
 import controller.account.LoginManager;
 import controller.file.FileRead;
-import ui.CampCommitteeNavigationPage;
 import ui.Display;
 import ui.NavigationPage;
-import ui.StaffNavigationPage;
-import ui.StudentNavigationPage;
+import ui.campcommittee.CampCommitteeNavigationPage;
+import ui.staff.StaffNavigationPage;
+import ui.student.StudentNavigationPage;
 
 public class Start {
     public static void main(String[] args) {

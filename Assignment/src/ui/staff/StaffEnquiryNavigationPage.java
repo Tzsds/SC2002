@@ -1,7 +1,8 @@
-package ui;
+package ui.staff;
 
 import controller.user.StaffManager;
 import controller.utils.InputScanner;
+import ui.NavigationPage;
 
 public class StaffEnquiryNavigationPage extends NavigationPage {
     public StaffEnquiryNavigationPage(){

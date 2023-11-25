@@ -1,9 +1,10 @@
-package ui;
+package ui.campcommittee;
 
 import controller.account.LoginManager;
 import controller.suggestion.SuggestionManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
+import ui.NavigationPage;
 
 public class CampCommitteeSuggestionNavigationPage extends NavigationPage {
     public CampCommitteeSuggestionNavigationPage(){
