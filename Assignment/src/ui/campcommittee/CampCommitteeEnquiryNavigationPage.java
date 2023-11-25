@@ -8,6 +8,7 @@ import ui.NavigationPage;
 /**
  * Represents a navigation page for Camp Committee to manage enquiries
  * This class extend NavigationPage class and is sepcific to the Camp Committee user role
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

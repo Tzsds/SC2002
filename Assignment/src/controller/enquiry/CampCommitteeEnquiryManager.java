@@ -20,10 +20,14 @@ import repository.userrepository.StudentRepository;
 
 /**
  * The CampCommitteeEnquiryManager class provides functionality for Camp
- * Committee members to manage enquiries in the NTU CAMS System.
+ * Committee members to manage enquiries in the NTU CAMS System
  * It includes methods for creating, adding, deleting, and editing enquiries,
  * as well as viewing and replying to enquiries for a specific camp committee
- * member.
+ * member
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 public class CampCommitteeEnquiryManager {
 
@@ -33,7 +37,7 @@ public class CampCommitteeEnquiryManager {
      * however, the choosen camp cannot be the camp that they are a part of
      * 
      * @param campCommittee - The Camp Committee member creating the enquiry
-     * @return - The created Enquiry object, or null if the creation is canceled.
+     * @return - The created Enquiry object, or null if the creation is canceled
      */
     public static Enquiry createEnquiryCampCommittee(CampCommittee campCommittee) {
 
@@ -77,9 +81,9 @@ public class CampCommitteeEnquiryManager {
     }
 
     /**
-     * Adds a new enquiry to the system for a Camp Committee member.
+     * Adds a new enquiry to the system for a Camp Committee member
      * The method prompts the user to create a new enquiry and adds it to the
-     * repository.
+     * repository
      */
     public static void addEnquiry() {
         CampCommittee User = (CampCommittee) LoginManager.getCurrentUser();
@@ -99,12 +103,12 @@ public class CampCommitteeEnquiryManager {
     }
 
     /**
-     * Deletes an enquiry for a Camp Committee member.
+     * Deletes an enquiry for a Camp Committee member
      * The method displays the user's enquiries, prompts for the index of the
-     * enquiry to delete,
-     * and removes the selected enquiry from the repository.
+     * enquiry to delete
+     * and removes the selected enquiry from the repository
      *
-     * @param currentUser - The Camp Committee member deleting the enquiry.
+     * @param currentUser - The Camp Committee member deleting the enquiry
      */
     public static void deleteEnquiry(CampCommittee currentUser) {
         List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
@@ -151,12 +155,12 @@ public class CampCommitteeEnquiryManager {
     }
 
     /**
-     * Edits an existing enquiry for a Camp Committee member.
+     * Edits an existing enquiry for a Camp Committee member
      * The method displays the user's enquiries, prompts for the index of the
-     * enquiry to edit,
-     * and allows the user to update the content of the selected enquiry.
+     * enquiry to edit
+     * and allows the user to update the content of the selected enquiry
      *
-     * @param currentUser - The Camp Committee member editing the enquiry.
+     * @param currentUser - The Camp Committee member editing the enquiry
      */
 
     public static void editEnquiry(CampCommittee currentUser) {
@@ -218,9 +222,9 @@ public class CampCommitteeEnquiryManager {
     /**
      * Displays all enquiries for a Camp Committee member, categorized as enquiries
      * from other users on the Camp Committee member's camps and the member's own
-     * enquiries for other camps.
+     * enquiries for other camps
      *
-     * @param campCommittee - The Camp Committee member viewing the enquiries.
+     * @param campCommittee - The Camp Committee member viewing the enquiries
      */
     public static void viewAllEnquiriesCampCommittee(CampCommittee campCommittee) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
@@ -282,11 +286,11 @@ public class CampCommitteeEnquiryManager {
     }
 
     /**
-     * Allows a Camp Committee member to reply to a pending enquiry.
+     * Allows a Camp Committee member to reply to a pending enquiry
      * The method displays the pending enquiries for the Camp Committee member's
-     * associated camp and prompts the member to select an enquiry to reply to.
+     * associated camp and prompts the member to select an enquiry to reply to
      *
-     * @param campCommittee - The Camp Committee member replying to an enquiry.
+     * @param campCommittee - The Camp Committee member replying to an enquiry
      */
     public static void replyEnquiry(CampCommittee campCommittee) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
@@ -362,14 +366,14 @@ public class CampCommitteeEnquiryManager {
     }
 
     /**
-     * Retrieves an enquiry based on its index for a Camp Committee member.
+     * Retrieves an enquiry based on its index for a Camp Committee member
      * The method is used to get the selected enquiry for deletion, editing, or
-     * replying.
+     * replying
      *
-     * @param campCommittee - The Camp Committee member accessing the enquiry.
-     * @param selectedIndex - The index of the selected enquiry.
+     * @param campCommittee - The Camp Committee member accessing the enquiry
+     * @param selectedIndex - The index of the selected enquiry
      * @return The Enquiry object corresponding to the selected index, or null if
-     *         not found.
+     *         not found
      */
     public static Enquiry getEnquiryByIndex(CampCommittee campCommittee, int selectedIndex) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();

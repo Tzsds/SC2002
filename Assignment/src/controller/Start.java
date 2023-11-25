@@ -11,6 +11,7 @@ import ui.student.StudentNavigationPage;
  * The main class responsible for starting the program
  * It initializes necessary components, handles user login and redirects users based
  * on their roles to the appropriate navigation pages
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

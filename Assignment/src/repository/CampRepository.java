@@ -9,6 +9,7 @@ import entity.Student;
 /**
  * Represent a repository for storing and managing camps
  * This class provides methods to retrieve, add, remove and query camps stored in the repository
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

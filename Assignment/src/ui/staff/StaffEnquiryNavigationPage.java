@@ -6,6 +6,7 @@ import ui.NavigationPage;
 /**
  * Represents a navigation page Staff to manage enquiries
  * This class extend NavigationPage class and is sepcific to the Staff user role
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

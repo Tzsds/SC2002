@@ -7,6 +7,7 @@ import entity.Staff;
 /**
  * Represents a repository for storing and managing staff records
  * This class provides methods to retrieve, add and query staff information stored in the repository
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

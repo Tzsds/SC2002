@@ -11,11 +11,23 @@ import repository.userrepository.CampCommitteeRepository;
 import repository.userrepository.StaffRepository;
 import repository.userrepository.StudentRepository;
 
-
+/**
+ * The WriteUser class provides methods to write user data (Staff, Student, CampCommittee) to respective CSV files
+ * It also includes methods to update the CSV files with the current list of users in their respective repositories
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class WriteUser {
-
+    
+    //Header for the CSV files
     private static String header = "name,faculty,userID,password\n";
     
+    /**
+     * Writes staff data to the staff CSV file
+     * Retrieves the list of staff members from the StaffRepository and updates the CSV file accordingly
+     */
     public static void FileWriteStaff(){
         String staffCSV = "Assignment/database/staff.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(staffCSV))) {
@@ -33,6 +45,10 @@ public class WriteUser {
         }
     }
 
+    /**
+     * Writes student data to the student CSV file
+     * Retrieves the list of student members from the StudentRepository and updates the CSV file accordingly
+     */
     public static void FileWriteStudent(){
         String studentCSV = "Assignment/database/student.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(studentCSV))) {
@@ -48,6 +64,10 @@ public class WriteUser {
         }
     }
 
+    /**
+     * Writes camp committee data to the camp committee CSV file
+     * Retrieves the list of camp committee members from the CampCommitteeRepository and updates the CSV file accordingly
+     */
     public static void FileWriteCampCommittee(){
         String campCommitteeCSV = "Assignment/database/camp_committee.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(campCommitteeCSV))) {

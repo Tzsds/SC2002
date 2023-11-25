@@ -15,7 +15,8 @@ import entity.Suggestion.Status;
 import repository.SuggestionRepository;
 /**
  * This class provides functionalities related to suggestions,
- * allowing Camp Committee members to add, edit, delete and view suggestions.
+ * allowing Camp Committee members to add, edit, delete and view suggestions
+ * 
  * @author SCSZ Group 4
  * @version 1.0
  * @since 25/11/23
@@ -40,9 +41,9 @@ public class SuggestionManager {
 
     /**
      * Edits a selected suggestion's content
+     * 
      * @param suggestions - Camp Committee User list of suggestions
      */
-
     public static void editSuggestion(ArrayList<Suggestion> suggestions){
         int count = 1;
         ArrayList<Suggestion> temporaryList = getSuggestions(suggestions, true);
@@ -83,6 +84,7 @@ public class SuggestionManager {
 
     /**
      * Deletes a Suggestion from the system
+     * 
      * @param suggestions - Camp Committee User list of suggestions
      */
 
@@ -129,9 +131,9 @@ public class SuggestionManager {
 
     /**
      * Print list of suggestions, differntiating between pending and processed ones
+     * 
      * @param suggestions - The list of suggestions to display
      */
-
     public static void printSuggestions(ArrayList<Suggestion> suggestions){
         System.out.println("========================================");
         if (suggestions.size() == 0){
@@ -156,6 +158,7 @@ public class SuggestionManager {
 
     /**
      * Retrives a filtered list of suggestions based on the pending status
+     * 
      * @param suggestion - The list of suggestions to filter
      * @param pending - If true, returns list of pending instructions, else return 
      * list of processed instructions

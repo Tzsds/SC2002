@@ -7,6 +7,7 @@ package ui;
  * standardized structure
  * Subclasses must implement the 'run' method to define the behavior of the
  * navigation page
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

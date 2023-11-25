@@ -16,9 +16,10 @@ import entity.Staff;
 import repository.CampRepository;
 
 /**
- * This class provides methods to allow
- * Staff to manage camp such as viewing camps, editing camps,
+ * The StaffManager class provides methods to allow Staff to 
+ * manage camp such as viewing camps, editing camps,
  * viewing suggestions and handling enquiries
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

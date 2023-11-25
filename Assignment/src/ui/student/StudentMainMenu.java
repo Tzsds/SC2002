@@ -11,6 +11,7 @@ import ui.MainMenuInterface;
  * 
  * This class implements the MainMenuInterface to ensure consistency in menu
  * display across different user roles
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

@@ -6,6 +6,10 @@ import entity.User;
 /**
  * The ChangeAccountPassword class provides functionality to change the password
  * for the currently logged-in user
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 public class ChangeAccountPassword {
     /**
@@ -18,9 +22,9 @@ public class ChangeAccountPassword {
     }
 
     /**
-     * Updates the password for the current user.
+     * Updates the password for the current user
      * 
-     * @param password - The new password to set for the current user.
+     * @param password - The new password to set for the current user
      */
 
     private static void UpdatePassword(String password) {
@@ -30,11 +34,11 @@ public class ChangeAccountPassword {
     }
 
     /**
-     * Prompts the user for a new password and validates the input.
-     * Method ensures that the new password is not the same as the old password,
-     * and it does not allow the use of the word "password" as a password.
+     * Prompts the user for a new password and validates the input
+     * Method ensures that the new password is not the same as the old password
+     * and it does not allow the use of the word "password" as a password
      * 
-     * @return - The validated new password entered by the user.
+     * @return - The validated new password entered by the user
      */
     private static String passwordInput() {
         String oldpassword = LoginManager.getCurrentUser().getPassword();

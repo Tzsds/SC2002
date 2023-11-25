@@ -19,7 +19,8 @@ import entity.Enquiry;
  * @since 25/11/23
  */
 public class ReadEnquiry {
-
+   
+    /** The file path to the enquiries CSV file */
     private static String path = "Assignment/database/enquiries.csv";
 
     /**

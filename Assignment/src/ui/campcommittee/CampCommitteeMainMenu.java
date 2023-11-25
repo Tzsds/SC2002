@@ -7,6 +7,7 @@ package ui.campcommittee;
  * view registered camps, attendee lists, and generate reports
  * additionally, includes options to withdraw from a camp, change the password,
  * logout and quit the program
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

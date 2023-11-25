@@ -7,6 +7,7 @@ import ui.MainMenuInterface;
  * This class implements the MainMenuInterface for standardized menu structures
  * and provides options for staff members to view and reply to suggestions
  * directed to them on their respective camps
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

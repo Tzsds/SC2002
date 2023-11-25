@@ -12,9 +12,10 @@ import repository.userrepository.CampCommitteeRepository;
 import repository.userrepository.StudentRepository;
 
 /**
- * This class manages the coversion of a Student to a CampCommittee member
+ * The CampCommitteeManager class manages the coversion of a Student to a CampCommittee member
  * Provides a method to create a CampCommittee member based on a given Student 
  * and perform necessary updates
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

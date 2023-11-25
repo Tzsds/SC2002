@@ -14,6 +14,10 @@ import repository.userrepository.StaffRepository;
  * It includes methods for adding and removing suggestions, printing camp
  * details, checking if camp is created by a specific staff, and printing camp
  * information for both staff and students
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 public class CampManager {
 
@@ -84,7 +88,7 @@ public class CampManager {
     /**
      * Prints camp details for students, showing only the camp name
      * 
-     * @param detail - the CampDetails object containing information about the camp.
+     * @param detail - the CampDetails object containing information about the camp
      */
     public static void printCampRegistrationForStudents(CampDetails detail) {
         System.out.println("Camp Name: " + detail.getCampName());

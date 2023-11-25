@@ -13,6 +13,7 @@ import ui.NavigationPage;
  * Represents a navigation page for Camp Committee users
  * This class extends NavigationPage class and provide menu options
  * for Camp Committee to interact with the system
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

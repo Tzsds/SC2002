@@ -19,12 +19,16 @@ import repository.userrepository.StudentRepository;
  * enquiries
  * Provides methods for staff to view all enquiries, reply to pending enquiries,
  * and retrieve enquiries based on selected indices
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 public class StaffEnquiryManager {
     /**
-     * Displays all enquiries for a staff member, limited to camps created by them.
+     * Displays all enquiries for a staff member, limited to camps created by them
      *
-     * @param staffID - The ID of the staff member.
+     * @param staffID - The ID of the staff member
      */
     public static void viewAllEnquiriesStaff(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
@@ -63,9 +67,9 @@ public class StaffEnquiryManager {
 
     /**
      * Allows a staff member to reply to pending enquiries and updates the
-     * status and replied content accordingly.
+     * status and replied content accordingly
      *
-     * @param staffID - The ID of the staff member.
+     * @param staffID - The ID of the staff member
      */
     public static void replyEnquiry(String staffID) {
         List<Enquiry> allEnquiries = EnquiryRepository.getListOfEnquiries();
@@ -137,9 +141,9 @@ public class StaffEnquiryManager {
     /**
      * Retrieves an enquiry based on the selected index requested by the staff
      *
-     * @param staffID       - The ID of the staff member.
-     * @param selectedIndex - The index of the selected enquiry.
-     * @return - The selected enquiry or null if the index is invalid.
+     * @param staffID       - The ID of the staff member
+     * @param selectedIndex - The index of the selected enquiry
+     * @return - The selected enquiry or null if the index is invalid
      */
     public static Enquiry getEnquiryByIndex(String staffID, int selectedIndex) {
         System.out.println("selected index: " + selectedIndex);

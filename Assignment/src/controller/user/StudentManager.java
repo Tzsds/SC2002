@@ -16,10 +16,11 @@ import entity.Student;
 import repository.CampRepository;
 
 /**
- * This class provides methods to allow Student to 
+ * The StudentManager class provides methods to allow Student to 
  * perform actions related to camp such as
  * registering for camps, withdrawing from camps and 
  * viewing available camps based on filter
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

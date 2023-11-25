@@ -12,9 +12,13 @@ import repository.userrepository.StudentRepository;
 import ui.Display;
 
 /**
- * Manages login process for users in the system.
+ * Manages login process for users in the system
  * This class handles user authentication, password checks, and first-time login
- * procedures.
+ * procedures
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 public class LoginManager {
 
@@ -22,7 +26,7 @@ public class LoginManager {
     private static String role; // Role of current user in the system
 
     /**
-     * Initiates the login process by checking user ID and password.
+     * Initiates the login process by checking user ID and password
      * If its the first time in the system, prompts the user to change their
      * password
      */
@@ -40,7 +44,7 @@ public class LoginManager {
 
     /**
      * Checks the user ID entered by the user and sets the current user and role
-     * accordingly.
+     * accordingly
      */
     private static void checkID() {
         User temp;
@@ -93,7 +97,7 @@ public class LoginManager {
     }
 
     /**
-     * Sets the current user.
+     * Sets the current user
      * 
      * @param newUser - The new User to be set as the current user
      */
@@ -102,7 +106,7 @@ public class LoginManager {
     }
 
     /**
-     * Sets the current user role.
+     * Sets the current user role
      * 
      * @param newRole - The new role to be set as the current role
      */

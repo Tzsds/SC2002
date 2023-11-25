@@ -14,7 +14,8 @@ import entity.Suggestion.Status;
 /**
  * This class provides functionalities specifically for staffs to manage suggestion
  * related to the camps they have created. Staff can print, process, accept and reject
- * suggestions, updating the system accordingly.
+ * suggestions, updating the system accordingly
+ * 
  * @author SCSZ Group 4
  * @version 1.0
  * @since 25/11/23
@@ -22,7 +23,7 @@ import entity.Suggestion.Status;
 
 public class StaffSuggestionManager {
     /**
-     * Prints the suggestion associated with the list of camps created by the staff.
+     * Prints the suggestion associated with the list of camps created by the staff
      * @param listOfCampsCreated - List of camps created by the staff
      */
 

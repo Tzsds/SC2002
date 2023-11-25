@@ -6,6 +6,7 @@ import ui.MainMenuInterface;
  * Represents the main menu for Student Enquiries
  * This class implements the MainMenuInterface for standardized menu structures
  * and provides options for students to view, create, edit and delete enquiries
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

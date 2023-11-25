@@ -19,15 +19,19 @@ import repository.userrepository.StaffRepository;
  * This class manages users interaction and operations related to enquiries
  * It provides methods for creating, adding, deleting, editing, and viewing
  * enquiries, along with handling the associated user input and file operations
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
  */
 public class EnquiryManager {
 
     /**
      * Creates an enquiry for the given student, prompting them to choose a camp
-     * and input their enquiries. Returns the created enquiry.
+     * and input their enquiries. Returns the created enquiry
      *
-     * @param student - The student creating the enquiry.
-     * @return - The created enquiry or null if the creation is canceled.
+     * @param student - The student creating the enquiry
+     * @return - The created enquiry or null if the creation is canceled
      */
     public static Enquiry createEnquiry(Student student) {
         List<Camp> allAvailCamps = CampRepository.getAvailableCampsForStudent(student);
@@ -66,7 +70,7 @@ public class EnquiryManager {
 
     /**
      * Adds a new enquiry for the currently logged-in student, prompting them
-     * to create an enquiry and adding it to the repository.
+     * to create an enquiry and adding it to the repository
      */
     public static void addEnquiry() {
         Student User = (Student) LoginManager.getCurrentUser();
@@ -87,9 +91,9 @@ public class EnquiryManager {
 
     /**
      * Deletes an enquiry for the currently logged-in user, prompting them to
-     * choose an enquiry to delete and performing the deletion if possible.
+     * choose an enquiry to delete and performing the deletion if possible
      *
-     * @param currentUser - The currently logged-in user.
+     * @param currentUser - The currently logged-in user
      */
     public static void deleteEnquiry(User currentUser) {
         List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());
@@ -137,9 +141,9 @@ public class EnquiryManager {
 
     /**
      * Edits an enquiry for the currently logged-in user, prompting them to
-     * choose an enquiry to edit and performing the edit if possible.
+     * choose an enquiry to edit and performing the edit if possible
      *
-     * @param currentUser - The currently logged-in user.
+     * @param currentUser - The currently logged-in user
      */
     public static void editEnquiry(User currentUser) {
 
@@ -199,9 +203,9 @@ public class EnquiryManager {
 
     /**
      * Displays the enquiries of the currently logged-in user, showing details
-     * such as camp name, content, status, replied content and replier .
+     * such as camp name, content, status, replied content and replier 
      *
-     * @param currentUser - The currently logged-in user.
+     * @param currentUser - The currently logged-in user
      */
     public static void viewStudentEnquiries(User currentUser) {
         List<Enquiry> studentEnquiries = EnquiryRepository.getEnquiriesBySender(currentUser.getUserID());

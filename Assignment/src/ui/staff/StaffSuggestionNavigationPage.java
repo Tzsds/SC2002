@@ -9,6 +9,7 @@ import ui.NavigationPage;
 /**
  * Represents a navigation page for Staff to manage suggestions
  * This class extend NavigationPage class and is sepcific to Staff user role
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

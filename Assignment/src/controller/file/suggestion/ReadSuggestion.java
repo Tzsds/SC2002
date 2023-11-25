@@ -13,10 +13,25 @@ import entity.Suggestion.Status;
 import repository.SuggestionRepository;
 import repository.userrepository.CampCommitteeRepository;
 
+/**
+ * The ReadSuggestion class provides methods for reading and processing suggestions from a CSV file
+ * Includes methods to read suggestions from the CSV file with or without reset
+ * and update the internal repositories accordingly
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0 
+ * @since 25/11/2023
+ */
 public class ReadSuggestion {
 
+    /** The file path to the suggestions CSV file */
     private static String path = "Assignment/database/suggestions.csv";
     
+    /**
+     * Reads suggestions from the CSV file without resetting
+     * Parses each line of the file, creates Suggestion objects and updates repository
+     * If the suggestion status is PENDING, adds it to the corresponding camp's list of suggestions
+     */
     public static void readWithoutReset(){
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
             br.readLine(); // skip the header
@@ -44,7 +59,11 @@ public class ReadSuggestion {
             e.printStackTrace();
         }
     }
-    
+
+    /**
+     * Resets the content of the suggestions CSV file by overwriting it with a new header
+     * This method is used when a reset of the suggestions data is required
+     */
     public static void readWithReset(){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             String header = "senderID,content,STATUS\n";

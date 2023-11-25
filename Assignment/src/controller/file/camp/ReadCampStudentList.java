@@ -23,6 +23,8 @@ import repository.userrepository.StudentRepository;
  */
 
 public class ReadCampStudentList {
+    
+    /** The file path to the camp student list CSV file */
     private static String campStudentListCSV = "Assignment/database/camp_student_list.csv";
 
     /**

@@ -6,6 +6,7 @@ import controller.utils.InputScanner;
  * The class responsible for prompting the user for data reset options
  * It provides a method to display reset option menu and receive user input for choosing whether
  * to reset data or use previous data
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

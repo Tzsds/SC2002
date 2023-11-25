@@ -23,6 +23,8 @@ import repository.userrepository.StaffRepository;
  * @since 25/11/23
  */
 public class ReadCampDetails {
+    
+    /** The file path to the camp details CSV file */
     private static String path = "Assignment/database/camp_details.csv";
 
     /**
@@ -48,7 +50,7 @@ public class ReadCampDetails {
      * Converts a string representing an integer to an int
      *
      * @param strNumber - The string representing an integer
-     * @return - The converted integer value.
+     * @return - The converted integer value
      */
     public static int strToInt(String strNumber) {
         int intValue = Integer.parseInt(strNumber);

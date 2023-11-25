@@ -9,6 +9,7 @@ import entity.Enquiry;
 /**
  * Represents a repository for storing and managing enquiries
  * This class provides method to retrive, add and query enquiries stored in the repository
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

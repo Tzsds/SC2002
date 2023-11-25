@@ -14,6 +14,7 @@ import ui.NavigationPage;
  * Represents a navigation page for Staff users
  * This class extends NavigationPage class and provide menu options
  * for Staff to interact with the system
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

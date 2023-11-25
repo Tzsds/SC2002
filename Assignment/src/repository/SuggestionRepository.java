@@ -7,6 +7,7 @@ import entity.Suggestion;
  * Represent a repository for storing suggestions
  * This class provides methods to retrieve the list of suggestions and 
  * add a new suggestion to the repository
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023

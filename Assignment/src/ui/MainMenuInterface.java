@@ -5,6 +5,7 @@ package ui;
  * in the NTU CAMS System
  * Classes implementing this interface are expected to provide a method to
  * display the main menu
+ * 
  * @author SCSZ Group 4
  * @version 1.0 
  * @since 25/11/2023
