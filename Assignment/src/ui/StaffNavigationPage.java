@@ -49,7 +49,7 @@ public class StaffNavigationPage extends NavigationPage {
                     break;
                 case 6:
                     // Show Enqueries asked by students
-                    StaffEnquiryPage enquiryPage = new StaffEnquiryPage();
+                    StaffEnquiryNavigationPage enquiryPage = new StaffEnquiryNavigationPage();
                     enquiryPage.run();
                     break;
                 case 7:

@@ -7,7 +7,7 @@ import entity.CampCommittee;
 
 public class CampCommitteeSuggestionNavigationPage extends NavigationPage {
     public CampCommitteeSuggestionNavigationPage(){
-        menu = new SuggestionMainMenu();
+        menu = new CampCommitteeSuggestionMainMenu();
     }
     public void run(){
         boolean continueMenu = true;

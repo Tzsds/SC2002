@@ -1,6 +1,6 @@
 package ui;
 
-public class SuggestionMainMenu implements MainMenuInterface{
+public class CampCommitteeSuggestionMainMenu implements MainMenuInterface{
     public void displayMenu(){
         System.out.println("----------------------------------------");
         System.out.println("Welcome to Suggestion Main Page");

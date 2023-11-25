@@ -43,7 +43,7 @@ public class StudentNavigationPage extends NavigationPage {
                 case 3:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
-                    EnquiryMainPage enquiryPage = new EnquiryMainPage();
+                    StudentEnquiryNavigationPage enquiryPage = new StudentEnquiryNavigationPage();
                     enquiryPage.run();
                     break;
                 case 4:

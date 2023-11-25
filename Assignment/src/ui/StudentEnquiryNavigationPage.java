@@ -5,10 +5,10 @@ import controller.enquiry.EnquiryManager;
 import controller.utils.InputScanner;
 import entity.User;
 
-public class EnquiryMainPage extends NavigationPage {
+public class StudentEnquiryNavigationPage extends NavigationPage {
     
-    public EnquiryMainPage() {
-        menu = new EnquiryMainMenu();
+    public StudentEnquiryNavigationPage() {
+        menu = new StudentEnquiryMainMenu();
     }
 
     public void run() {
