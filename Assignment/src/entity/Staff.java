@@ -30,7 +30,7 @@ public class Staff extends User {
         
         String description = InputScanner.promptForString("Write in your camp description: ");
         
-        LocalDate startDate = InputScanner.promptForDate("Enter camp start date in format (dd/mm/yyyy): ", 0);
+        LocalDate startDate = InputScanner.promptForStartDate("Enter camp start date in format (dd/mm/yyyy): ");
 
         LocalDate endDate = InputScanner.promptForEndDate("Enter camp end date in format (dd/mm/yyyy): ", startDate);
 

@@ -56,6 +56,43 @@ public class InputScanner {
             }
         }
     }
+
+    public static LocalDate promptForStartDate(String prompt) {
+        while (true){
+            try{
+            String dateString = InputScanner.promptForString(prompt);
+            String[] parts = dateString.split("/");
+
+            if(parts.length != 3)
+                throw new ArrayIndexOutOfBoundsException("Invalid input. Please enter valid date in specified format");
+
+            int day = Integer.parseInt(parts[0]);
+            int month = Integer.parseInt(parts[1]);
+            int year = Integer.parseInt(parts[2]);
+            LocalDate date = LocalDate.of(year, month, day);
+            LocalDate currentDate = LocalDate.now();
+            if (date.isBefore(currentDate)){
+                throw new IllegalArgumentException ("The date has already passed. Please enter again");
+            }
+            if (date.isBefore(currentDate.plusDays(2))){
+                throw new IllegalArgumentException ("Start date must be at least 2 days after current date. Please enter again");
+            }
+            return date;
+            }catch (ArrayIndexOutOfBoundsException e){
+                System.out.println("Invalid input. Please enter valid date in specified format");
+            }catch(DateTimeException e){
+                System.out.println("Date does not exist in calendar");
+            }
+            catch(NumberFormatException e){
+                System.out.println("Please key in the dates numerically");
+            }
+            catch(IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }catch (InputMismatchException e){
+                System.out.println("Invalid input. Please enter valid date in specified format");
+            }
+        }
+    }
    
     public static LocalDate promptForEndDate(String prompt, LocalDate startdate) {
         while (true){
