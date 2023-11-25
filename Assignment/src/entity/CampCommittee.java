@@ -10,23 +10,24 @@ import controller.report.ReportManager;
 /**
  * The class represents a student who is part of the camp committee, 
  * inheriting basic student attributes. This class includes functionality to manage 
- * committee-specific information such as points, suggestions, and the camp committee they belong to.
+ * committee-specific information such as points, suggestions, and the camp committee they belong to
+ * 
  * @author SCSZ Group 4
  * @version 1.0
  * @since 25/11/23
  */
 
 public class CampCommittee extends Student {
-    /** The points earned by the camp committee member. */
+    /** The points earned by the camp committee member */
     private int points;
-    /** The list of suggestions provided by the camp committee member. */
+    /** The list of suggestions provided by the camp committee member */
     private ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
-    /** The camp in which the student is a committee of. */
+    /** The camp in which the student is a committee of */
     private Camp committeeOf;
 
     /**
-     * Constructs a new CampCommittee object with the specified user ID, name, faculty, and password.
-     * Initializes points to zero.
+     * Constructs a new CampCommittee object with the specified user ID, name, faculty, and password
+     * Initializes points to zero
      *
      * @param userID - the user ID of the camp committee member
      * @param name - the name of the camp committee member
@@ -40,7 +41,7 @@ public class CampCommittee extends Student {
 
     /**
      * Constructs a new CampCommittee object with the specified user ID, name, faculty, password, 
-     * and initial points.
+     * and initial points
      *
      * @param userID - the user ID of the camp committee member
      * @param name - the name of the camp committee member
@@ -54,7 +55,7 @@ public class CampCommittee extends Student {
     }
 
     /**
-     * Retrieves the points earned by the camp committee member.
+     * Retrieves the points earned by the camp committee member
      * @return the points earned
      */
     public int getPoints(){
@@ -62,7 +63,7 @@ public class CampCommittee extends Student {
     }
 
     /**
-     * Retrieves the list of suggestions provided by the camp committee member.
+     * Retrieves the list of suggestions provided by the camp committee member
      * @return the suggestion list
      */
     public ArrayList<Suggestion> getSuggestions(){
@@ -70,7 +71,7 @@ public class CampCommittee extends Student {
     }
 
      /**
-     * Retrieves the camp in which the student is a committee of.
+     * Retrieves the camp in which the student is a committee of
      *
      * @return the camp
      */
@@ -80,7 +81,7 @@ public class CampCommittee extends Student {
     
 
     /**
-     * Sets the points earned by the camp committee member.
+     * Sets the points earned by the camp committee member
      * @param points - the new points value
      */
     public void setPoints(int points){
@@ -88,7 +89,7 @@ public class CampCommittee extends Student {
     }
 
     /**
-     * Sets the camp in which the student is a committee of.
+     * Sets the camp in which the student is a committee of
      * @param camp - the camp
      */
     public void setCommitteeOf(Camp camp){
@@ -96,14 +97,14 @@ public class CampCommittee extends Student {
     }
 
     /**
-     * Increments the points earned by the camp committee member by one.
+     * Increments the points earned by the camp committee member by one
      */
     public void addPoints(){
         points += 1;
     }
 
     /**
-     * Adds a suggestion provided by the camp committee member to the list of suggestions.
+     * Adds a suggestion provided by the camp committee member to the list of suggestions
      * @param suggestion - the suggestion to add
      */
     public void addSuggestion(Suggestion s){
@@ -111,7 +112,7 @@ public class CampCommittee extends Student {
     }
     
     /**
-     * Generates a camp report based on the committee's preferences.
+     * Generates a camp report based on the committee's preferences
      */
     public void generateCampReport() {
         int reportType = ReportManager.promptCampReportType();
@@ -120,7 +121,7 @@ public class CampCommittee extends Student {
     }
 
     /**
-     * Generates an enquiry report related to the camp that the the student is a committee of.
+     * Generates an enquiry report related to the camp that the the student is a committee of
      */
     public void generateEnquiryReport() {
         EnquiryReport report = new EnquiryReport(committeeOf);
@@ -128,8 +129,8 @@ public class CampCommittee extends Student {
     }
 
     /**
-     * Displays information about the camps registered by the camp committee member.
-     * Differentiates between camps registered as committee members and camps registered as attendees.
+     * Displays information about the camps registered by the camp committee member
+     * Differentiates between camps registered as committee members and camps registered as attendees
      */
     public void viewRegisteredCamps(){
         System.out.println("Camp registered as camp committeee: ");

@@ -2,36 +2,37 @@ package entity;
 
 /**
  * This class represents an enquiry made by a user towards a certain camp
+ * 
  * @author SCSZ Group 4
  * @version 1.0
  * @since 25/11/23
  */
 public class Enquiry {
-     /** Status of the inquiry. */
+     /** Status of the Enquiry */
     public enum Status {
-        /** The enquiry has been replied to. */
+        /** The enquiry has been replied to */
         REPLIED,
         
-        /** The enquiry is pending and has not been replied to yet. */
+        /** The enquiry is pending and has not been replied to yet */
         PENDING
     };
 
-    /** The sender of the enquiry. */
+    /** The sender of the enquiry */
     private String sender;
-    /** The status of the enquiry (replied or pending). */
+    /** The status of the enquiry (replied or pending) */
     private Status status;
-     /** The content of the enquiry. */
+     /** The content of the enquiry */
     private String content;
-    /** The replier who replied to the enquiry. */
+    /** The replier who replied to the enquiry */
     private String replier;
-    /** The name of the camp related to the enquiry. */
+    /** The name of the camp related to the enquiry */
     private String campName;
-    /** The content of the reply to the enquiry (if replied). */
+    /** The content of the reply to the enquiry (if replied) */
     private String repliedContent;
 
 
     /**
-     * Constructs a new Enquiry object with the specified sender, content, and camp name.
+     * Constructs a new Enquiry object with the specified sender, content, and camp name
      *
      * @param sender - the sender of the enquiry
      * @param content - the content of the enquiry
@@ -46,7 +47,7 @@ public class Enquiry {
     }
 
      /**
-     * Sets the status of the enquiry.
+     * Sets the status of the enquiry
      * @param status - the new status of the enquiry
      */
     public void setStatus(Status status) {
@@ -54,7 +55,7 @@ public class Enquiry {
     }
 
     /**
-     * Retrieves the status of the enquiry.
+     * Retrieves the status of the enquiry
      * @return the status of the enquiry
      */
     public Status getStatus() {
@@ -62,7 +63,7 @@ public class Enquiry {
     }
 
     /**
-     * Sets the content of the enquiry.
+     * Sets the content of the enquiry
      * @param content - the new content of the enquiry
      */
     public void setContent(String content) {
@@ -70,7 +71,7 @@ public class Enquiry {
     }
 
     /**
-     * Retrieves the content of the enquiry.
+     * Retrieves the content of the enquiry
      * @return the content of the enquiry
      */
     public String getContent() {
@@ -78,7 +79,7 @@ public class Enquiry {
     }
 
     /**
-     * Retrieves the sender of the enquiry.
+     * Retrieves the sender of the enquiry
      * @return the sender of the enquiry
      */
     public String getSender() {
@@ -86,7 +87,7 @@ public class Enquiry {
     }
 
     /**
-     * Sets the replier of the enquiry.
+     * Sets the replier of the enquiry
      * @param replier - the new replier of the enquiry
      */
     public void setReplier(String replier) {
@@ -94,7 +95,7 @@ public class Enquiry {
     }
 
     /**
-     * Retrieves the replier of the enquiry.
+     * Retrieves the replier of the enquiry
      * @return the replier of the enquiry
      */
     public String getReplier() {
@@ -110,7 +111,7 @@ public class Enquiry {
     }
 
     /**
-     * Retrieves the camp name of the enquiry.
+     * Retrieves the camp name of the enquiry
      * @return the camp name of the enquiry
      */
     public String getCampName() {
@@ -118,7 +119,7 @@ public class Enquiry {
     }
 
     /**
-     * Sets the camp name of the enquiry.
+     * Sets the camp name of the enquiry
      * @param campName - the new camp name of the enquiry
      */
     public void setCampName(String campName) {
@@ -126,7 +127,7 @@ public class Enquiry {
     }
 
     /**
-     * Retrieves the replied content of the enquiry.
+     * Retrieves the replied content of the enquiry
      * @return the replied content of the enquiry
      */
     public String getRepliedContent(){
@@ -134,7 +135,7 @@ public class Enquiry {
     }
 
     /**
-     * Sets the replied content of the enquiry.
+     * Sets the replied content of the enquiry
      * @param repliedContent - the new replied content of the enquiry
      */
     public void setRepliedContent(String repliedContent){

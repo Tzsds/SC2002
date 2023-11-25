@@ -1,35 +1,36 @@
 package entity;
 
 /**
- * This class represents a suggestion made by a camp committee member.
+ * This class represents a suggestion made by a camp committee member
+ * 
  * @author SCSZ Group 4
  * @version 1.0
  * @since 25/11/23
  */
 
 public class Suggestion {
-    /** Enumerated type representing the status of the suggestion. */
+    /** Enumerated type representing the status of the suggestion */
     public enum Status {
-        /** The suggestion has been approved. */
+        /** The suggestion has been approved */
         APPROVED,
         
-        /** The suggestion is pending and has not been processed yet. */
+        /** The suggestion is pending and has not been processed yet */
         PENDING,
         
-        /** The suggestion has been rejected. */
+        /** The suggestion has been rejected */
         REJECTED
     };
 
-    /** The camp committee member who made the suggestion. */
+    /** The camp committee member who made the suggestion */
     private CampCommittee proposer;
-    /** The status of the suggestion (approved, pending, or rejected). */
+    /** The status of the suggestion (approved, pending, or rejected) */
     private Status status;
     /** The content of the suggestion. */
     private String content;
 
     /**
-     * Constructs a new Suggestion object with the specified proposer and content.
-     * The status is set to {@code PENDING} by default.
+     * Constructs a new Suggestion object with the specified proposer and content
+     * The status is set to {@code PENDING} by default
      *
      * @param proposer - the camp committee member who made the suggestion
      * @param content - the content of the suggestion
@@ -41,7 +42,7 @@ public class Suggestion {
     }
 
      /**
-     * Sets the status of the suggestion.
+     * Sets the status of the suggestion
      * @param status - the new status of the suggestion
      */
     public void setStatus(Status status){
@@ -49,7 +50,7 @@ public class Suggestion {
     }
 
     /**
-     * Retrieves the status of the suggestion.
+     * Retrieves the status of the suggestion
      * @return the status of the suggestion
      */
     public Status getStatus(){
@@ -57,7 +58,7 @@ public class Suggestion {
     }
 
     /**
-     * Sets the content of the suggestion.
+     * Sets the content of the suggestion
      * @param status - the new content of the suggestion
      */
     public void setContent(String content){
@@ -65,7 +66,7 @@ public class Suggestion {
     }
 
     /**
-     * Retrieves the content of the suggestion.
+     * Retrieves the content of the suggestion
      * @return the content of the suggestion
      */
     public String getContent(){
@@ -73,7 +74,7 @@ public class Suggestion {
     }
 
     /**
-     * Retrieves the camp committee member who made the suggestion.
+     * Retrieves the camp committee member who made the suggestion
      * @return the proposer of the suggestion
      */
     public CampCommittee getProposer(){

@@ -1,7 +1,8 @@
 package entity;
 
 /**
- * This class represents a generic user in the system with basic attributes.
+ * This class represents a generic user in the system with basic attributes
+ * 
  * @author SCSZ Group 4
  * @version 1.0
  * @since 25/11/23
@@ -18,7 +19,7 @@ public class User {
     private String password;
 
     /**
-     * Constructs a new User object with the specified user ID, name, faculty, and password.
+     * Constructs a new User object with the specified user ID, name, faculty, and password
      *
      * @param userID - the unique user ID of the user
      * @param name - the name of the user
@@ -33,7 +34,7 @@ public class User {
     }
 
      /**
-     * Retrieves the name of the user.
+     * Retrieves the name of the user
      * @return the name of the user
      */
     public String getName() {
@@ -41,7 +42,7 @@ public class User {
     }
 
     /**
-     * Retrieves the faculty of the user.
+     * Retrieves the faculty of the user
      * @return the faculty of the user
      */
     public String getFaculty() {
@@ -49,7 +50,7 @@ public class User {
     }
 
     /**
-     * Retrieves the user id of the user.
+     * Retrieves the user id of the user
      * @return the user id of the user
      */
     public String getUserID() {
@@ -57,7 +58,7 @@ public class User {
     }
 
     /**
-     * Retrieves the password of the user.
+     * Retrieves the password of the user
      * @return the password of the user
      */
     public String getPassword() {
@@ -65,7 +66,7 @@ public class User {
     }
 
     /**
-     * Sets or updates the password associated with the user's account.
+     * Sets or updates the password associated with the user's account
      * @param password - the new password to set
      */
     public void setPassword(String password) {

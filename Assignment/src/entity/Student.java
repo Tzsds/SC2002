@@ -6,19 +6,20 @@ import java.util.ArrayList;
 import controller.camp.CampManager;
 
 /**
- * This class represents a student in the system, inheriting basic user attributes.
+ * This class represents a student in the system, inheriting basic user attributes
+ * 
  * @author SCSZ Group 4
  * @version 1.0
  * @since 25/11/23
  */
 public class Student extends User{
-    /** The list of enquiries made by the student. */
+    /** The list of enquiries made by the student */
     private ArrayList<Enquiry> enquiries = new ArrayList<>();
-    /** The list of camps registered by the student. */
+    /** The list of camps registered by the student */
     private ArrayList<Camp> registeredCamps = new ArrayList<Camp>();
    
     /**
-     * Constructs a new Student object with the specified user ID, name, faculty, and password.
+     * Constructs a new Student object with the specified user ID, name, faculty, and password
      *
      * @param userID - the user ID of the student
      * @param name - the name of the student
@@ -30,7 +31,7 @@ public class Student extends User{
     }
     
     /**
-     * Sets the list of enquiries for the student.
+     * Sets the list of enquiries for the student
      * @param listOfEnquiry - the list of enquiries to set
      */
     public void setEnquiries(ArrayList<Enquiry> listOfEnquiry){
@@ -38,7 +39,7 @@ public class Student extends User{
     }
 
     /**
-     * Sets the list of registered camps for the student.
+     * Sets the list of registered camps for the student
      * @param listOfCamp - the list of registered camps to set
      */
     public void setRegisteredCamps(ArrayList<Camp> listOfCamp){
@@ -46,7 +47,7 @@ public class Student extends User{
     }
 
     /**
-     * Retrieves the list of enquiries made by the student.
+     * Retrieves the list of enquiries made by the student
      * @return the list of enquiries
      */
     public ArrayList<Enquiry> getEnquiries(){
@@ -54,7 +55,7 @@ public class Student extends User{
     }
 
     /**
-     * Retrieves the list of camps registered by the student.
+     * Retrieves the list of camps registered by the student
      * @return the list of registered camps
      */
     public ArrayList<Camp> getRegisteredCamps(){
@@ -62,7 +63,7 @@ public class Student extends User{
     }
 
     /**
-     * Adds a camp to the list of registered camps for the student.
+     * Adds a camp to the list of registered camps for the student
      * @param camp - the camp to add to the list
      */
     public void addRegisteredCamp(Camp camp) {
@@ -70,7 +71,7 @@ public class Student extends User{
     }
 
     /**
-     * Removes a camp from the list of registered camps for the student.
+     * Removes a camp from the list of registered camps for the student
      * @param camp - the camp to remove from the list
      */
     public void removeRegisteredCamp(Camp camp) {
@@ -78,9 +79,9 @@ public class Student extends User{
     }
  
     /**
-     * Displays the list of registered camps for the student.
-     * If there are no registered camps, a message is displayed.
-     * The method interacts with the {@code CampManager} to print camp details.
+     * Displays the list of registered camps for the student
+     * If there are no registered camps, a message is displayed
+     * The method interacts with the {@code CampManager} to print camp details
      */
     public void viewRegisteredCamps() {
         if (registeredCamps.size() == 0) {

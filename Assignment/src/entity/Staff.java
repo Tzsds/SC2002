@@ -11,18 +11,19 @@ import controller.utils.InputScanner;
 import repository.CampRepository;
 
 /**
- * This class represents a staff member in the system, inheriting basic user attributes.
+ * This class represents a staff member in the system, inheriting basic user attributes
+ * 
  * @author SCSZ Group 4
  * @version 1.0
  * @since 25/11/23
  */
 
 public class Staff extends User {
-    /** The list of camps created by the staff member. */
+    /** The list of camps created by the staff member */
     private ArrayList<Camp> campsCreatedList = new ArrayList<>();
 
     /**
-     * Constructs a new Staff object with the specified user ID, name, faculty, and password.
+     * Constructs a new Staff object with the specified user ID, name, faculty, and password
      *
      * @param userID - the user ID of the staff member
      * @param name - the name of the staff member
@@ -34,7 +35,7 @@ public class Staff extends User {
     }
 
     /**
-     * Retrieves the list of camps created by the staff member.
+     * Retrieves the list of camps created by the staff member
      * @return the list of camps created
      */
     public ArrayList<Camp> getListOfCampsCreated(){
@@ -42,7 +43,7 @@ public class Staff extends User {
     }
 
      /**
-     * Adds a camp to the list of camps created by the staff member.
+     * Adds a camp to the list of camps created by the staff member
      * @param camp - the camp to add to the list
      */
     public void addCampToList(Camp camp) {
@@ -50,8 +51,8 @@ public class Staff extends User {
     }
 
     /**
-     * Creates a new camp by prompting the staff member for various details.
-     * The new camp is added to the list of camps created by the staff member.
+     * Creates a new camp by prompting the staff member for various details
+     * The new camp is added to the list of camps created by the staff member
      */
     public void createNewCamp() {
         String campName = InputScanner.promptForString("Enter new camp name: ");
@@ -139,8 +140,8 @@ public class Staff extends User {
     }
 
     /**
-     * Generates an enquiry report for the staff member's chosen camp.
-     * If the staff member has not created any camps, a message is displayed.
+     * Generates an enquiry report for the staff member's chosen camp
+     * If the staff member has not created any camps, a message is displayed
      */
     public void generateEnquiryReport() {
         if (campsCreatedList.size() == 0) {
@@ -154,8 +155,8 @@ public class Staff extends User {
     }
 
     /**
-     * Generates a performance report for the staff member's chosen camp.
-     * If the staff member has not created any camps, a message is displayed.
+     * Generates a performance report for the staff member's chosen camp
+     * If the staff member has not created any camps, a message is displayed
      */
     public void generatePerformanceReport() {
         if (campsCreatedList.size() == 0) {
@@ -169,10 +170,10 @@ public class Staff extends User {
     }
 
     /**
-     * Deletes a camp from the list of camps created by the staff member.
-     * If the staff member has not created any camps, a message is displayed.
+     * Deletes a camp from the list of camps created by the staff member
+     * If the staff member has not created any camps, a message is displayed
      * The staff member is prompted to choose a camp to delete, and the camp is removed
-     * from the list and the repository if there are no registered participants.
+     * from the list and the repository if there are no registered participants
      */
     public void deleteCamp(){
         int size = campsCreatedList.size();
