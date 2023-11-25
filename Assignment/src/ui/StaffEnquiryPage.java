@@ -3,7 +3,7 @@ package ui;
 import controller.user.StaffManager;
 import controller.utils.InputScanner;
 
-public class StaffEnquiryPage extends MainPage {
+public class StaffEnquiryPage extends NavigationPage {
     public StaffEnquiryPage(){
         menu = new StaffEnquiryMainMenu();
     }

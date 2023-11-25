@@ -8,7 +8,7 @@ import controller.user.StaffManager;
 import controller.utils.InputScanner;
 import entity.Staff;
 
-public class StaffMainPage extends MainPage {
+public class StaffMainPage extends NavigationPage {
     public StaffMainPage(){
         menu = new StaffMainMenu();
     }

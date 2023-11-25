@@ -3,7 +3,7 @@ import controller.account.LoginManager;
 import controller.file.FileRead;
 import ui.CampCommitteeMainPage;
 import ui.Display;
-import ui.MainPage;
+import ui.NavigationPage;
 import ui.StaffMainPage;
 import ui.StudentMainPage;
 
@@ -17,7 +17,7 @@ public class Start {
             LoginManager.Login();
             String userRole = LoginManager.getUserRole();
             Display.clearScreen();
-            MainPage page;
+            NavigationPage page;
             // entering main page
             if (userRole == "Student") {
                 System.out.println("Redirecting to student menu");

@@ -8,7 +8,7 @@ import controller.user.StudentManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
 
-public class CampCommitteeMainPage extends MainPage{
+public class CampCommitteeMainPage extends NavigationPage{
 
     public void run() {
         boolean continueMenu = true;
@@ -41,7 +41,7 @@ public class CampCommitteeMainPage extends MainPage{
                 case 4:
                     // Navigate to Suggestion Page
                     System.out.println("Navigating to Suggestion Page");
-                    MainPage page = new SuggestionMainPage();
+                    NavigationPage page = new SuggestionMainPage();
                     page.run();
                     break;
                 case 5:

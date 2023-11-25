@@ -5,7 +5,7 @@ import controller.enquiry.EnquiryManager;
 import controller.utils.InputScanner;
 import entity.User;
 
-public class EnquiryMainPage extends MainPage {
+public class EnquiryMainPage extends NavigationPage {
     
     public EnquiryMainPage() {
         menu = new EnquiryMainMenu();

@@ -6,7 +6,7 @@ import controller.user.StaffManager;
 import controller.utils.InputScanner;
 import entity.Staff;
 
-public class StaffSuggestionMainPage extends MainPage{
+public class StaffSuggestionMainPage extends NavigationPage{
     public StaffSuggestionMainPage(){
         menu = new StaffSuggestionMainMenu();
     }

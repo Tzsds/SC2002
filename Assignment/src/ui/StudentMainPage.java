@@ -7,7 +7,7 @@ import controller.user.StudentManager;
 import controller.utils.InputScanner;
 import entity.Student;
 
-public class StudentMainPage extends MainPage {
+public class StudentMainPage extends NavigationPage {
 
     public StudentMainPage(){
         menu = new StudentMainMenu();
