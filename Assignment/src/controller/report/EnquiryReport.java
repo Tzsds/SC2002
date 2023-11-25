@@ -51,9 +51,9 @@ public class EnquiryReport extends Report {
             String reply = enquiry.getRepliedContent();
             String sender = enquiry.getSender();
             String replier = enquiry.getReplier();
-            reportBody += String.format("%-3s " + "Enquiry: " + question + "\n", i);
-            reportBody += String.format("%-3s " + "Replied Content: " + reply + "\n", "");
-            reportBody += String.format("%-3s " + "Sender: " + sender + "\n", "");
+            reportBody += String.format("%-3s " + "Question: " + question + "\n", i);
+            reportBody += String.format("%-3s " + "Reply: " + reply + "\n", "");
+            reportBody += String.format("%-3s " + "Enquirer: " + sender + "\n", "");
             reportBody += String.format("%-3s " + "Replier: " + replier + "\n\n", "");
             i++;
         }
