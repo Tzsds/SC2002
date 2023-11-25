@@ -5,9 +5,9 @@ import controller.enquiry.CampCommitteeEnquiryManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
 
-public class CampCommitteeEnquiryPage extends NavigationPage{
+public class CampCommitteeEnquiryNavigationPage extends NavigationPage{
 
-    public CampCommitteeEnquiryPage() {
+    public CampCommitteeEnquiryNavigationPage() {
         menu = new CampCommitteeEnquiryMainMenu();
     }
 

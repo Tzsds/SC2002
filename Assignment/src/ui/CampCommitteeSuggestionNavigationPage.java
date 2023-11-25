@@ -5,8 +5,8 @@ import controller.suggestion.SuggestionManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
 
-public class SuggestionMainPage extends NavigationPage {
-    public SuggestionMainPage(){
+public class CampCommitteeSuggestionNavigationPage extends NavigationPage {
+    public CampCommitteeSuggestionNavigationPage(){
         menu = new SuggestionMainMenu();
     }
     public void run(){

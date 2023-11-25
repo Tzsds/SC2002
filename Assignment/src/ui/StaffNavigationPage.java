@@ -55,7 +55,7 @@ public class StaffNavigationPage extends NavigationPage {
                 case 7:
                     // View suggestions given by camp committee members
                     System.out.println("Navigating to suggestion page...");
-                    StaffSuggestionMainPage page = new StaffSuggestionMainPage();
+                    StaffSuggestionNavigationPage page = new StaffSuggestionNavigationPage();
                     page.run();
                     break;
                 case 8:

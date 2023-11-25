@@ -35,13 +35,13 @@ public class CampCommitteeNavigationPage extends NavigationPage{
                 case 3:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
-                    CampCommitteeEnquiryPage enquiryPage = new CampCommitteeEnquiryPage();
+                    CampCommitteeEnquiryNavigationPage enquiryPage = new CampCommitteeEnquiryNavigationPage();
                     enquiryPage.run();
                     break;
                 case 4:
                     // Navigate to Suggestion Page
                     System.out.println("Navigating to Suggestion Page");
-                    NavigationPage page = new SuggestionMainPage();
+                    NavigationPage page = new CampCommitteeSuggestionNavigationPage();
                     page.run();
                     break;
                 case 5:
