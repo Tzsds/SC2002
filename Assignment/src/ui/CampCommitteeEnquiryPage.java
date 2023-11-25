@@ -5,11 +5,10 @@ import controller.enquiry.CampCommitteeEnquiryManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
 
-public class CampCommitteeEnquiryPage implements MainPage{
-    private MainMenu mainMenu;
+public class CampCommitteeEnquiryPage extends MainPage{
 
     public CampCommitteeEnquiryPage() {
-        mainMenu = new MainMenu();
+        menu = new CampCommitteeEnquiryMainMenu();
     }
 
     public void run() {
@@ -18,16 +17,7 @@ public class CampCommitteeEnquiryPage implements MainPage{
         CampCommittee currentUser = (CampCommittee) LoginManager.getCurrentUser();
         while (continueMenu) {
             if (!error) {
-                System.out.println("----------------------------------------");
-                System.out.println("Welcome to the Camp Committee Enquiry Main Page");
-                System.out.println("----------------------------------------");
-                System.out.println("1. View Enquiries");
-                System.out.println("2. Create Your Enquiries");
-                System.out.println("3. Edit Your Enquiries");
-                System.out.println("4. Delete Your Enquiries");
-                System.out.println("5. Reply to Camp's Enquiry");
-                System.out.println("6. Back to main menu");
-                System.out.println("----------------------------------------");
+                menu.displayMenu();
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-6): ");

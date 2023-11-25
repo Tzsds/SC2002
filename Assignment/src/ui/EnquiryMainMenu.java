@@ -1,7 +1,7 @@
 package ui;
 
-public class EnquiryMainMenu extends MainMenu {
-    public void displayMainMenu() {
+public class EnquiryMainMenu implements MainMenuInterface {
+    public void displayMenu() {
         System.out.println("----------------------------------------");
         System.out.println("Welcome to the Student Enquiry Main Page");
         System.out.println("----------------------------------------");

@@ -3,11 +3,9 @@ package ui;
 import controller.user.StaffManager;
 import controller.utils.InputScanner;
 
-public class StaffEnquiryPage implements MainPage {
-    private MainMenu mainMenu;
-
-    public StaffEnquiryPage() {
-        mainMenu = new MainMenu();
+public class StaffEnquiryPage extends MainPage {
+    public StaffEnquiryPage(){
+        menu = new StaffEnquiryMainMenu();
     }
 
     public void run() {

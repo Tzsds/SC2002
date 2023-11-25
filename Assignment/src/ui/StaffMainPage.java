@@ -8,8 +8,10 @@ import controller.user.StaffManager;
 import controller.utils.InputScanner;
 import entity.Staff;
 
-public class StaffMainPage implements MainPage {
-
+public class StaffMainPage extends MainPage {
+    public StaffMainPage(){
+        menu = new StaffMainMenu();
+    }
     public void run() {
         boolean continueMenu = true;
         Staff currentStaff = (Staff) LoginManager.getCurrentUser();
@@ -17,7 +19,7 @@ public class StaffMainPage implements MainPage {
         while (continueMenu) {
             if (!error){
                 System.out.println("Welcome " + currentStaff.getName());
-                StaffMainMenu.displayMainMenu();
+                menu.displayMenu();
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-14): ");

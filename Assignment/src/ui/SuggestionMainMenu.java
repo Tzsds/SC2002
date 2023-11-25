@@ -1,7 +1,7 @@
 package ui;
 
-public class SuggestionMainMenu {
-    public static void displaySuggestionMenu(){
+public class SuggestionMainMenu implements MainMenuInterface{
+    public void displayMenu(){
         System.out.println("----------------------------------------");
         System.out.println("Welcome to Suggestion Main Page");
         System.out.println("----------------------------------------");

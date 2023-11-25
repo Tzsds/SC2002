@@ -7,8 +7,11 @@ import controller.user.StudentManager;
 import controller.utils.InputScanner;
 import entity.Student;
 
-public class StudentMainPage implements MainPage {
+public class StudentMainPage extends MainPage {
 
+    public StudentMainPage(){
+        menu = new StudentMainMenu();
+    }
     public void run() {
         boolean continueMenu = true;
         Student currentStudent = (Student)LoginManager.getCurrentUser();
@@ -16,7 +19,7 @@ public class StudentMainPage implements MainPage {
         while (continueMenu) {
             if (!error){
                 System.out.println("Welcome " + LoginManager.getCurrentUser().getName());
-                StudentMainMenu.displayMainMenu();
+                menu.displayMenu();
             }
             int option = InputScanner.promptForInt("Input your choice of action (1-8): ");
             switch (option) {
@@ -40,7 +43,7 @@ public class StudentMainPage implements MainPage {
                 case 3:
                     // Navigate to Enquiry Page
                     System.out.println("Navigating to Enquiry Page...");
-                    EnquiryMainPage enquiryPage = new EnquiryMainPage(LoginManager.getCurrentUser());
+                    EnquiryMainPage enquiryPage = new EnquiryMainPage();
                     enquiryPage.run();
                     break;
                 case 4:

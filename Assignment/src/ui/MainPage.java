@@ -1,5 +1,6 @@
 package ui;
 
-public interface MainPage {
-    public void run();
+public abstract class MainPage {
+    protected MainMenuInterface menu;
+    public abstract void run();
 }

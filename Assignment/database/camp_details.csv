@@ -1,4 +1,4 @@
 campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
 ntu,2023-12-10,2023-12-10,2023-12-09,Everyone,ntu,48,9,ntu,ARVI,true
-nus,2023-12-10,2023-12-10,2023-12-09,Everyone,nus,50,10,nus,ARVI,true
+NUS,2023-12-10,2023-12-10,2023-12-09,Everyone,nus,50,10,nus,ARVI,true
 SMU,2023-12-10,2023-12-10,2023-12-09,Everyone,SMU,50,10,SMu,ARVI,true

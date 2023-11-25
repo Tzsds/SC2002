@@ -1,6 +1,6 @@
 package ui;
-public class StaffMainMenu{
-    public static void displayMainMenu(){
+public class StaffMainMenu implements MainMenuInterface{
+    public void displayMenu(){
         System.out.println("----------------------------------------");
         System.out.println("Welcome to the Staff Main Page");
         System.out.println("----------------------------------------");

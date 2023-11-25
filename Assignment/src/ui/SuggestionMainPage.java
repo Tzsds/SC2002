@@ -5,14 +5,17 @@ import controller.suggestion.SuggestionManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
 
-public class SuggestionMainPage implements MainPage {
+public class SuggestionMainPage extends MainPage {
+    public SuggestionMainPage(){
+        menu = new SuggestionMainMenu();
+    }
     public void run(){
         boolean continueMenu = true;
         boolean error = false;
         CampCommittee currentUser = (CampCommittee)LoginManager.getCurrentUser();
         while (continueMenu){
             if (!error){
-                SuggestionMainMenu.displaySuggestionMenu();
+                menu.displayMenu();
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-6): ");

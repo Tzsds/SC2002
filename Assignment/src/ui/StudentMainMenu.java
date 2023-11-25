@@ -1,6 +1,6 @@
 package ui;
-public class StudentMainMenu{
-    public static void displayMainMenu(){
+public class StudentMainMenu implements MainMenuInterface{
+    public void displayMenu(){
         System.out.println("----------------------------------------");
         System.out.println("Welcome to the Student Main Page");
         System.out.println("----------------------------------------");

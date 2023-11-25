@@ -8,7 +8,7 @@ import controller.user.StudentManager;
 import controller.utils.InputScanner;
 import entity.CampCommittee;
 
-public class CampCommitteeMainPage implements MainPage{
+public class CampCommitteeMainPage extends MainPage{
 
     public void run() {
         boolean continueMenu = true;

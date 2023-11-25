@@ -1,24 +1,23 @@
 package ui;
 
+import controller.account.LoginManager;
 import controller.enquiry.EnquiryManager;
 import controller.utils.InputScanner;
 import entity.User;
 
-public class EnquiryMainPage implements MainPage {
-    private MainMenu mainMenu;
-    private User currentUser;
-
-    public EnquiryMainPage(User currentUser) {
-        this.currentUser = currentUser;
-        mainMenu = new EnquiryMainMenu();
+public class EnquiryMainPage extends MainPage {
+    
+    public EnquiryMainPage() {
+        menu = new EnquiryMainMenu();
     }
 
     public void run() {
         boolean continueMenu = true;
         boolean error = false;
+        User currentUser = LoginManager.getCurrentUser();
         while (continueMenu) {
             if(!error){
-                mainMenu.displayMainMenu();
+                menu.displayMenu();
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-5): ");

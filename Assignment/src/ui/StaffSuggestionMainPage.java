@@ -6,14 +6,17 @@ import controller.user.StaffManager;
 import controller.utils.InputScanner;
 import entity.Staff;
 
-public class StaffSuggestionMainPage implements MainPage{
+public class StaffSuggestionMainPage extends MainPage{
+    public StaffSuggestionMainPage(){
+        menu = new StaffSuggestionMainMenu();
+    }
     public void run(){
         boolean continueMenu = true;
         Staff currentUser = (Staff)LoginManager.getCurrentUser();
         boolean error = false;
         while (continueMenu){
             if (!error){
-                StaffSuggestionMainMenu.displayStaffSuggestionMenu();
+                menu.displayMenu();
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-3): ");

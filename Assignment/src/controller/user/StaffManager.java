@@ -181,6 +181,7 @@ public class StaffManager {
                     System.out.println();
                 }
                 FileWriting.FileWriteCampDetails(); // update to csv
+                FileWriting.FileWriteCampStudentList();
                 return;
             }
         }
