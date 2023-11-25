@@ -8,8 +8,11 @@ import controller.file.enquiry.WriteEnquiry;
 import controller.utils.InputScanner;
 import entity.Camp;
 import entity.Enquiry;
+import entity.User;
 import repository.CampRepository;
 import repository.EnquiryRepository;
+import repository.userrepository.CampCommitteeRepository;
+import repository.userrepository.StudentRepository;
 
 public class StaffEnquiryManager {
     // functions to be used by staff
@@ -24,7 +27,6 @@ public class StaffEnquiryManager {
                         staffID));
 
         if (!hasEnquiriesForStaff) {
-            //System.out.println("No Enquiries!");
             return;
         }
 
@@ -35,9 +37,13 @@ public class StaffEnquiryManager {
             if (camp != null &&
                     CampManager.isCampCreatedByStaff(enquiry.getCampName(),
                             staffID)) {
+                User sender = StudentRepository.getStudentByID(enquiry.getSender());
+                if (sender == null) {
+                    sender = CampCommitteeRepository.getCommitteeByID(enquiry.getSender());
+                }
                 System.out.println(index + ":");
                 System.out.println("Camp: " + enquiry.getCampName());
-                System.out.println("Sender: " + enquiry.getSender());
+                System.out.println("Sender: " + sender.getName());
                 System.out.println("Content: " + enquiry.getContent());
                 System.out.println("Status: " + enquiry.getStatus());
                 System.out.println("------------------------------");
@@ -70,7 +76,7 @@ public class StaffEnquiryManager {
                 System.out.println("Camp not found in CampCSV");
                 break;
             }
-    
+
             System.out.println(index + ":");
             System.out.println("Camp: " + enquiry.getCampName());
             System.out.println("Sender: " + enquiry.getSender());
@@ -115,13 +121,12 @@ public class StaffEnquiryManager {
 
     public static Enquiry getEnquiryByIndex(String staffID, int selectedIndex) {
         System.out.println("selected index: " + selectedIndex);
-    
+
         List<Enquiry> staffEnquiries = EnquiryRepository.getListOfEnquiries().stream()
-                .filter(enquiry ->
-                        CampManager.isCampCreatedByStaff(enquiry.getCampName(), staffID)
-                                && enquiry.getStatus() == Enquiry.Status.PENDING)
+                .filter(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName(), staffID)
+                        && enquiry.getStatus() == Enquiry.Status.PENDING)
                 .collect(Collectors.toList());
-    
+
         // Check if the index is within the valid range
         if (selectedIndex >= 1 && selectedIndex <= staffEnquiries.size()) {
             return staffEnquiries.get(selectedIndex - 1);
@@ -129,6 +134,5 @@ public class StaffEnquiryManager {
             return null; // Invalid index or no PENDING enquiries
         }
     }
-    
 
 }

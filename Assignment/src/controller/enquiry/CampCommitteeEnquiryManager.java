@@ -11,8 +11,11 @@ import controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Enquiry;
+import entity.User;
 import repository.CampRepository;
 import repository.EnquiryRepository;
+import repository.userrepository.StaffRepository;
+import repository.userrepository.StudentRepository;
 
 public class CampCommitteeEnquiryManager {
     // functions to be used by camp com
@@ -190,17 +193,12 @@ public class CampCommitteeEnquiryManager {
         boolean foundCCEnquiry = false;
         for (Enquiry enquiry : allEnquiries) {
             Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
-
-            if (camp == null) {
-                System.out.println("Camp not found in CampCSV");
-                continue;
-            }
-
+            User sender = StudentRepository.getStudentByID(enquiry.getSender());
             // Check if the CampCommittee is associated with the camp
             if (campCommittee.getCommitteeOf().equals(camp)) {
                 System.out.println(indexCC + ":");
                 System.out.println("Camp: " + enquiry.getCampName());
-                System.out.println("Sender: " + enquiry.getSender());
+                System.out.println("Sender: " + sender.getName());
                 System.out.println("Content: " + enquiry.getContent());
                 System.out.println("Status: " + enquiry.getStatus());
                 System.out.println("===========================\n");
@@ -225,8 +223,9 @@ public class CampCommitteeEnquiryManager {
 
             // Check if the status is "REPLIED"
             if (enquiry.getStatus() == Enquiry.Status.REPLIED) {
+                User sender = StaffRepository.getStaffByID(enquiry.getReplier());
                 System.out.println("Reply: " + enquiry.getRepliedContent());
-                System.out.println("Replier: " + enquiry.getReplier());
+                System.out.println("Replier: " + sender.getName());
             }
 
             System.out.println("================================");

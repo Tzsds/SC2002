@@ -12,6 +12,8 @@ import entity.Student;
 import entity.User;
 import repository.CampRepository;
 import repository.EnquiryRepository;
+import repository.userrepository.CampCommitteeRepository;
+import repository.userrepository.StaffRepository;
 
 public class EnquiryManager {
     public static Enquiry createEnquiry(Student student) {
@@ -177,8 +179,12 @@ public class EnquiryManager {
 
             // Check if the status is "REPLIED"
             if (enquiry.getStatus() == Enquiry.Status.REPLIED) {
+                User sender = CampCommitteeRepository.getCommitteeByID(enquiry.getReplier());
+                if (sender == null) {
+                    sender = StaffRepository.getStaffByID(enquiry.getReplier());
+                }
                 System.out.println("Reply: " + enquiry.getRepliedContent());
-                System.out.println("Replier: " + enquiry.getReplier());
+                System.out.println("Replier: " + sender.getName());
             }
             System.out.println("================================");
         }

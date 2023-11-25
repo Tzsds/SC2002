@@ -5,3 +5,5 @@ CT113,hello,ntu,REPLIED,sup,SL22
 KOH1,another test,ntu,REPLIED,no,SL22
 SL22,yo,nus,PENDING,null,null
 CT113,HELLO,SMU,PENDING,null,null
+CT113,HELLO,nus,PENDING,null,null
+CT113,TEST,ntu,PENDING,null,null
