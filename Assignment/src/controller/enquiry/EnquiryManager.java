@@ -30,10 +30,14 @@ public class EnquiryManager {
      * @return - The created enquiry or null if the creation is canceled.
      */
     public static Enquiry createEnquiry(Student student) {
+        List<Camp> allAvailCamps = CampRepository.getAvailableCampsForStudent(student);
+
+        if(allAvailCamps.size() == 0){
+            System.out.println("\nNo available camps!");
+            return null;
+        }
 
         System.out.println("Which Camp do you want to enquiry on?");
-
-        List<Camp> allAvailCamps = CampRepository.getAvailableCampsForStudent(student);
 
         for (int i = 0; i < allAvailCamps.size(); i++) {
             System.out.println((i + 1) + ": " + allAvailCamps.get(i).getCampDetails().getCampName());

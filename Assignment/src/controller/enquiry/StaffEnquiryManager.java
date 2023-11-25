@@ -35,6 +35,7 @@ public class StaffEnquiryManager {
                         staffID));
 
         if (!hasEnquiriesForStaff) {
+            System.out.println("No Enquiries!");
             return;
         }
 

@@ -14,6 +14,7 @@ import entity.Enquiry;
 import entity.User;
 import repository.CampRepository;
 import repository.EnquiryRepository;
+import repository.userrepository.CampCommitteeRepository;
 import repository.userrepository.StaffRepository;
 import repository.userrepository.StudentRepository;
 
@@ -233,6 +234,10 @@ public class CampCommitteeEnquiryManager {
         for (Enquiry enquiry : allEnquiries) {
             Camp camp = CampRepository.getCampByCampName(enquiry.getCampName());
             User sender = StudentRepository.getStudentByID(enquiry.getSender());
+            if (sender == null) {
+                sender = CampCommitteeRepository.getCommitteeByID(enquiry.getSender());
+            }
+
             // Check if the CampCommittee is associated with the camp
             if (campCommittee.getCommitteeOf().equals(camp)) {
                 System.out.println(indexCC + ":");

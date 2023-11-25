@@ -14,9 +14,23 @@ import entity.Staff;
 import repository.CampRepository;
 import repository.userrepository.StaffRepository;
 
+/**
+ * Utility class for reading and parsing camp details from a csv file
+ * Provides methods to read camp details
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0
+ * @since 25/11/23
+ */
 public class ReadCampDetails {
     private static String path = "Assignment/database/camp_details.csv";
 
+    /**
+     * Parse a date string into a LocalDate object
+     * 
+     * @param dateString - The date string in "yyyy-MM-dd" format
+     * @return - The parsed LocalDate object or null if parsing fails
+     */
     public static LocalDate formatDate(String dateString) {
         // Define the formatter based on the pattern of the input string
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -24,31 +38,47 @@ public class ReadCampDetails {
         try {
             LocalDate localDate = LocalDate.parse(dateString, formatter);
             return localDate;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error parsing the string: " + e.getMessage());
         }
         return null;
     }
 
+    /**
+     * Converts a string representing an integer to an int
+     *
+     * @param strNumber - The string representing an integer
+     * @return - The converted integer value.
+     */
     public static int strToInt(String strNumber) {
         int intValue = Integer.parseInt(strNumber);
         return intValue;
     }
 
+    /**
+     * Converts a string representing a boolean to a boolean value
+     *
+     * @param bool - The string representing a boolean ("true" or "false")
+     * @return - The converted boolean value
+     */
     public static boolean strToBool(String bool) {
         if (bool.equals("true"))
             return true;
         return false;
     }
 
-    public static void readCampWithoutReset(){
-        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+    /**
+     * Reads camp details from the CSV file without resetting its content
+     * Updates the CampRepository and StaffRepository with the retrieved
+     * information
+     */
+    public static void readCampWithoutReset() {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             br.readLine(); // SKIP HEADER;
-            while ((line = br.readLine()) != null){
-                String [] words = line.split(",");
-                if (words.length >= 11){
+            while ((line = br.readLine()) != null) {
+                String[] words = line.split(",");
+                if (words.length >= 11) {
                     String campName = words[0].trim();
                     String startDate = words[1].trim();
                     String endDate = words[2].trim();
@@ -62,9 +92,9 @@ public class ReadCampDetails {
                     String visibility = words[10].trim();
 
                     // update camp into camp repository
-                    CampDetails newCampDetails = new CampDetails(campName, formatDate(startDate), formatDate(endDate), 
-                                                formatDate(closeDate), openTo, location, strToInt(slots), strToInt(campComitteeSlots), 
-                                                description, staffInCharge, strToBool(visibility));
+                    CampDetails newCampDetails = new CampDetails(campName, formatDate(startDate), formatDate(endDate),
+                            formatDate(closeDate), openTo, location, strToInt(slots), strToInt(campComitteeSlots),
+                            description, staffInCharge, strToBool(visibility));
                     Camp camp = new Camp(newCampDetails);
                     CampRepository.addCampToRepo(camp);
 
@@ -73,19 +103,21 @@ public class ReadCampDetails {
                     staff.addCampToList(camp);
                 }
             }
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    public static void readCampWithReset(){
-         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+    /**
+     * Resets the content of the camp details CSV file by overwriting it with a
+     * header line
+     */
+    public static void readCampWithReset() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             String header = "campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility\n";
             writer.write(header);
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

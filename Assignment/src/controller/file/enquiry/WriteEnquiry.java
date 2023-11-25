@@ -12,9 +12,26 @@ import java.util.List;
 
 import entity.Enquiry;
 
+/**
+ * Utility class for reading and writing enquires to a CSV file
+ * Provides methods for writing, deleting, updating, and replying to enquiries
+ * in the CSV file
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0
+ * @since 25/11/23
+ */
+
 public class WriteEnquiry {
+
+    /**
+     * Writes an enquiry to the CSV file.
+     *
+     * @param enquiry - The Enquiry object to be written.
+     */
     public static void FileWriteEnquiry(Enquiry enquiry) {
         String enquiryCSV = "Assignment/database/enquiries.csv";
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(enquiryCSV, true))) {
 
             // If the file is empty, write the header
@@ -36,6 +53,11 @@ public class WriteEnquiry {
         }
     }
 
+    /**
+     * Deletes an enquiry from the CSV file
+     * 
+     * @param selectedEnquiry - The Enquiry object to be deleted
+     */
     public static void deleteEnquiryFromCSV(Enquiry selectedEnquiry) {
         String enquiryCSV = "Assignment/database/enquiries.csv";
         List<String[]> rows = new ArrayList<>();
@@ -69,6 +91,13 @@ public class WriteEnquiry {
         }
     }
 
+    /**
+     * Updates an enquiry in the CSV file
+     * 
+     * @param selectedEnquiry - The enquiry object to be updated
+     * @param updatedEnquiry  - The updated Enquiry object
+     * @param oldContent      - The old content of the enquiry
+     */
     public static void updateEnquiryInCSV(Enquiry selectedEnquiry, Enquiry updatedEnquiry, String oldContent) {
         String enquiryCSV = "Assignment/database/enquiries.csv";
         List<String[]> rows = new ArrayList<>();
@@ -105,12 +134,28 @@ public class WriteEnquiry {
         }
     }
 
+    /**
+     * Checks if an Enquiry object is equal to the columns in a CSV row.
+     *
+     * @param enquiry - The Enquiry object to compare.
+     * @param columns - The CSV row columns.
+     * @return true if the Enquiry object is equal to the CSV row, false otherwise.
+     */
+
     public static boolean areEnquiriesEqual(Enquiry enquiry, String[] columns) {
         return enquiry.getSender().equals(columns[0]) &&
                 enquiry.getContent().equals(columns[1]) &&
                 enquiry.getCampName().equals(columns[2]);
     }
 
+    /**
+     * Checks if an Enquiry object is equal to the columns in a CSV row in a verbose
+     * manner.
+     *
+     * @param selectedEnquiry - The Enquiry object to compare.
+     * @param columns         - The CSV row columns.
+     * @return true if the Enquiry object is equal to the CSV row, false otherwise.
+     */
     public static boolean areEnquiriesEqualVerbose(Enquiry selectedEnquiry, String[] columns) {
         String sender = columns[0];
         String content = columns[1];
@@ -121,10 +166,15 @@ public class WriteEnquiry {
                 selectedEnquiry.getContent().equals(content);
     }
 
+    /**
+     * Replies to an enquiry in the CSV file.
+     *
+     * @param selectedEnquiry - The Enquiry object to be replied to.
+     */
     public static void replyEnquiryInCSV(Enquiry selectedEnquiry) {
         String enquiryCSV = "Assignment/database/enquiries.csv";
         List<String[]> rows = new ArrayList<>();
-    
+
         try (BufferedReader br = new BufferedReader(new FileReader(enquiryCSV))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -141,7 +191,7 @@ public class WriteEnquiry {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    
+
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(enquiryCSV))) {
             for (String[] row : rows) {
                 StringBuilder line = new StringBuilder();
@@ -151,7 +201,7 @@ public class WriteEnquiry {
                         line.append(",");
                     }
                 }
-    
+
                 bw.write(line.toString());
                 bw.newLine();
             }
@@ -159,6 +209,5 @@ public class WriteEnquiry {
             e.printStackTrace();
         }
     }
-    
 
 }
