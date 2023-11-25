@@ -2,8 +2,18 @@ package ui.campcommittee;
 
 import ui.MainMenuInterface;
 
-public class CampCommitteeSuggestionMainMenu implements MainMenuInterface{
-    public void displayMenu(){
+/**
+ * Represents the main menu for Camp Committee Suggestion
+ * Implements the MainMenuInterface for standardized menu structures
+ */
+public class CampCommitteeSuggestionMainMenu implements MainMenuInterface {
+
+    /**
+     * Display the Camp Committee Suggestion Main Page Menu
+     * Menu includes options for Camp Committee members to view, create, edit and
+     * delete their suggestions
+     */
+    public void displayMenu() {
         System.out.println("----------------------------------------");
         System.out.println("Welcome to Suggestion Main Page");
         System.out.println("----------------------------------------");

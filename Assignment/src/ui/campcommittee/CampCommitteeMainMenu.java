@@ -1,6 +1,21 @@
 package ui.campcommittee;
+
+/**
+ * Represents the main menu for the Camp Committee members
+ * Provides options to view camps, register for a camp, access enquiry and
+ * suggestion pages,
+ * view registered camps, attendee lists, and generate reports.
+ * additionally, includes options to withdraw from a camp, change the password,
+ * logout and quit the program
+ */
 public class CampCommitteeMainMenu {
-    public static void displayMainMenu(){
+
+    /**
+     * Displays the Camp Committee Main Page menu.
+     * The menu includes options to perform various actions related to camps and
+     * committee responsibilities.
+     */
+    public static void displayMainMenu() {
         System.out.println("----------------------------------------");
         System.out.println("Welcome to the Camp Committee Main Page");
         System.out.println("----------------------------------------");

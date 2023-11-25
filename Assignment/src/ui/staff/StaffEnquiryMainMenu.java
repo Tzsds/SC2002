@@ -2,8 +2,21 @@ package ui.staff;
 
 import ui.MainMenuInterface;
 
+/**
+ * Represents the main menu for Staff Enquiries
+ * This class implements the MainMenuInterface for standardized menu structures
+ * and provides options for staff members to view and reply to enquiries
+ * directed to them on their respective camps.
+ */
+
 public class StaffEnquiryMainMenu implements MainMenuInterface {
-    public void displayMenu(){
+
+    /**
+     * Displays the Staff Enquiry Main Page Menu on the console.
+     * This menu includes options for Staff members to view and reply to the
+     * enquiries directed to them on their respective camps.
+     */
+    public void displayMenu() {
         System.out.println("----------------------------------------");
         System.out.println("Welcome to the Staff Enquiry Main Page");
         System.out.println("----------------------------------------");

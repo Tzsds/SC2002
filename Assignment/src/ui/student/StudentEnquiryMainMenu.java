@@ -2,7 +2,18 @@ package ui.student;
 
 import ui.MainMenuInterface;
 
+/**
+ * Represents the main menu for Student Enquiries
+ * This class implements the MainMenuInterface for standardized menu structures
+ * and provides options for students to view, create, edit and delete enquiries
+ */
 public class StudentEnquiryMainMenu implements MainMenuInterface {
+
+    /**
+     * Displays the Student Enquiry Main Page Menu on the console.
+     * This menu includes options for Student to view , create, edit and delete
+     * enquiries
+     */
     public void displayMenu() {
         System.out.println("----------------------------------------");
         System.out.println("Welcome to the Student Enquiry Main Page");

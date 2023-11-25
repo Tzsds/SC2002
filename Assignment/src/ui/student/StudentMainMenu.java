@@ -2,8 +2,28 @@ package ui.student;
 
 import ui.MainMenuInterface;
 
-public class StudentMainMenu implements MainMenuInterface{
-    public void displayMenu(){
+/**
+ * Represents the main menu for Student.
+ * This class provides options to view list of available camps, register for
+ * camps, navigate to enquiry page, view registered camps
+ * Additionally, includes options to withdraw from a camp, change the password,
+ * log out, and quit the program.
+ * 
+ * This class implements the MainMenuInterface to ensure consistency in menu
+ * display across different user roles
+ */
+
+public class StudentMainMenu implements MainMenuInterface {
+
+    /**
+     * Displays the Student Main Menu on the console.
+     * This menu includes options for Student to view list of available camps,
+     * register for camps, navigate to enquiry page, view registered camps
+     * Additionally, includes options to withdraw from a camp, change the password,
+     * log out, and quit the program.
+     */
+
+    public void displayMenu() {
         System.out.println("----------------------------------------");
         System.out.println("Welcome to the Student Main Page");
         System.out.println("----------------------------------------");
