@@ -1,10 +1,25 @@
 package controller.utils;
-
 import java.util.ArrayList;
-
 import entity.Camp;
 
+/**
+ * Utility class for sorting camps.
+ * Provides methods to perform sorting operations on lists of camps.
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0
+ * @since 25/11/23
+ */
+
 public class Sort {
+
+    /**
+     * Performs insertion sort on a list of camps based on their camp names.
+     * 
+     * @param campList - The ArrayList of camps to be sorted.
+     * @return ArrayList<Camp> - The sorted ArrayList of camps based on camp names.
+     */
+
     public static ArrayList<Camp> insertionSortByName(ArrayList<Camp> campList){
          for (int i = 1; i < campList.size(); i++){
             for (int j = i; j > 0; j--){

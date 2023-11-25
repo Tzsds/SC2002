@@ -1,14 +1,30 @@
 package controller.utils;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import entity.Camp;
 import entity.Enquiry;
 import entity.Student;
 import repository.EnquiryRepository;
 
-public class Filter {
+/**
+ * Utility class for filtering camps based on various criteria.
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0
+ * @since 25/11/23
+ */
+
+ public class Filter {
+
+    /**
+     * Prompts the user for the filter type.
+     * @return An integer representing the chosen filter type.
+     * 0 - no filter (default alphabetical order)
+     * 1 - Camp Name
+     * 2 - location
+     * 3 - after a certain date
+     */
+
     public static int promptForFilter(){
         System.out.println("How do you want to view the camps?\n"
                         + "1. No filter\n"
@@ -34,10 +50,15 @@ public class Filter {
             System.out.println("Wrong input entered. Please try again.");
             filterType = InputScanner.promptForInt("Enter your option (1/2/3): ");
         }
-
         return filterType;
     }
 
+    /**
+     * Filters camps based on location.
+     * @param listOfCamps - The list of camps to filter.
+     * @param filterLocation - The location used as a filter criterion.
+     * @return The filtered list of camps
+     */
     
     public static ArrayList<Camp> filterByLocation(ArrayList<Camp> listOfCamps, String filterLocation){
         ArrayList <Camp> camps = new ArrayList<>();
@@ -50,6 +71,13 @@ public class Filter {
         return camps;
     }
 
+    /**
+     * Filters camps based on camp name.
+     * @param listOfCamps - The list of camps to filter.
+     * @param filterName - The camp name used as a filter criterion.
+     * @return The filtered list of camps.
+     */
+
     public static ArrayList<Camp> filterByCampName(ArrayList<Camp> listOfCamps, String filterName){
         ArrayList <Camp> camps = new ArrayList<>();
         for (Camp c : listOfCamps){
@@ -61,6 +89,13 @@ public class Filter {
         return camps;
     }
 
+    /**
+     * Filters camps based on date.
+     * @param listOfCamps - The list of camps to filter.
+     * @param filterDate - The date used as a filter criterion.
+     * @return The filtered list of camps.
+     */
+
     public static ArrayList<Camp> filterByDate(ArrayList<Camp> listOfCamps, LocalDate filterDate){
         ArrayList <Camp> camps = new ArrayList<>();
         for (Camp c : listOfCamps){
@@ -71,6 +106,13 @@ public class Filter {
         }
         return camps;
     }
+
+    /**
+     * Filters camps based on student name.
+     * @param listOfCamps - The list of camps to filter.
+     * @param name - The student name used as a filter criterion.
+     * @return The filtered list of camps.
+     */
 
     public static ArrayList<Camp> filterByStudent(ArrayList<Camp> listOfCamps, String name){
         ArrayList <Camp> camps = new ArrayList<>();
@@ -100,6 +142,13 @@ public class Filter {
         return camps;
     }
 
+    /**
+     * Filters camps based on committee member name.
+     * @param listOfCamps - The list of camps to filter.
+     * @param name - The committee member name used as a filter criterion.
+     * @return The filtered list of camps.
+     */
+
     public static ArrayList<Camp> filterByCommitteeMember(ArrayList<Camp> listOfCamps, String name){
         ArrayList <Camp> camps = new ArrayList<>();
         for (Camp c : listOfCamps){
@@ -114,6 +163,13 @@ public class Filter {
         }
         return camps;
     }
+
+    /**
+     * Filters camps based on enquiry replier name.
+     * @param listOfCamps - The list of camps to filter.
+     * @param name - The enquiry replier name used as a filter criterion.
+     * @return The filtered list of camps.
+     */
 
     public static ArrayList<Camp> filterByEnquiryReplier(ArrayList<Camp> listOfCamps, String name){
         ArrayList <Camp> camps = new ArrayList<>();

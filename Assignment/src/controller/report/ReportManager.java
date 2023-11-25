@@ -1,8 +1,6 @@
 package controller.report;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import controller.account.LoginManager;
 import controller.utils.Filter;
 import controller.utils.InputScanner;
@@ -11,7 +9,25 @@ import entity.Camp;
 import entity.CampCommittee;
 import entity.Staff;
 
+/**
+ * This class manages the generation and filtering of reports for camps.
+ * Handles various types of reports like attendee lists, performance reports, and enquiry reports.
+ * Provides methods to generate, filter, and view reports.
+ * 
+ * @author SCSZ Group 4
+ * @version 1.0
+ * @since 25/11/23
+ */
+
 public class ReportManager {
+
+    /**
+     * Prompts the staff user to choose a camp for report generation.
+     * Allows selection from camps created by the logged-in staff member.
+     * 
+     * @return camp - the chosen camp for report generation.
+     * @return null - if there is no camp
+     */
 
     public static Camp promptWhichCampForStaff() {
         Staff staff = (Staff)LoginManager.getCurrentUser();
@@ -40,6 +56,12 @@ public class ReportManager {
         }   
     }
 
+    /**
+     * Prompts the staff user to choose the type of report to generate.
+     * 
+     * @return The integer representing the chosen report type.
+     */
+
     public static int promptCampReportType() {
         System.out.println("How do want the report to be generated?\n" +
                             "1. All Attendees\n" +
@@ -55,6 +77,17 @@ public class ReportManager {
         }                
         return reportType;
     }
+
+     /**
+     * Prompts the user for the filter type for camp reports.
+     * 
+     * @return integer - the integer representing the chosen filter type.
+     * 0 - alphabetical order
+     * 1 - camp name
+     * 2 - location
+     * 3 - after a certain date
+     * 4 - student
+     */
 
     public static int promptForCampReportFilter() {
         System.out.println("How do you want to select the camp(s) for the report generated?\n"
@@ -86,6 +119,15 @@ public class ReportManager {
         return filterType;
     }
 
+    /**
+     * Prompts the user for the filter type for performance reports.
+     * 
+     * @return The integer representing the chosen filter type.
+     *         0 - select from camp list
+     *         1 - filter by camp name or 
+     *         2 - filter by student)
+     */
+
     public static int promptForPerformanceReportFilter() {
         System.out.println("How do you want to select the camp(s) for the report generated?\n"
                         + "1. Select from camp list\n"
@@ -112,6 +154,14 @@ public class ReportManager {
         }
         return filterType;
     }
+
+    /**
+     * Generates filtered report content based on the report type and list of camps.
+     * 
+     * @param reportType - The type of report to generate ("studentlist", "performance", "enquiry").
+     * @param listOfCamps - The list of camps to filter and generate the report from.
+     * @return content - The generated report content as a string.
+     */
 
     public static String getFilteredReportContent(String reportType, ArrayList<Camp> listOfCamps) {
         String content = "";
@@ -141,6 +191,11 @@ public class ReportManager {
         }
         return content;
     }
+
+    /**
+     * Generates a camp report for the staff based on various filters or specific camps.
+     * filters can be seen above
+     */
 
     public static void generateCampReportForStaff() {
         Staff s = (Staff) LoginManager.getCurrentUser();
@@ -188,6 +243,11 @@ public class ReportManager {
         filteredReport.generate();
     }
 
+    /**
+     * Generates a performance report for the staff based on various filters or specific camps.
+     * filters can be seen above
+     */
+
     public static void generatePerformanceReportForStaff() {
         Staff s = (Staff) LoginManager.getCurrentUser();
 
@@ -225,6 +285,16 @@ public class ReportManager {
         filteredReport.generate();
     }
 
+    /**
+     * Prompts the user for the filter type for enquiry reports.
+     * 
+     * @return The integer representing the chosen filter type.
+     *         0 - select from camp list
+     *         1 - filter by camp name or 
+     *         2 - filter by replier name
+     */
+
+
     public static int promptForEnquiryReportFilter() {
         System.out.println("How do you want to select the camp(s) for the report generated?\n"
                         + "1. Select from camp list\n"
@@ -251,6 +321,11 @@ public class ReportManager {
         }
         return filterType;
     }
+    
+    /**
+     * Generates a enquiry report for the staff based on various filters or specific camps.
+     * filters can be seen above
+     */
 
     public static void generateEnquiryReportForStaff() {
         Staff s = (Staff) LoginManager.getCurrentUser();
@@ -289,6 +364,11 @@ public class ReportManager {
         filteredReport.generate();
     }
 
+    /**
+     * prompt staff for camp which content are to be printed then
+     * print the content of the camp report
+     */
+
     public static void viewCampReportForStaff() {
         Camp campChosen = promptWhichCampForStaff();
         if (campChosen == null) {
@@ -298,6 +378,10 @@ public class ReportManager {
         report.printInTerminal();
     }
 
+    /**
+     * print the content of the camp report for camp committee member
+     */
+    
     public static void viewCampReportForCampCommittee() {
         CampCommittee committee = (CampCommittee)LoginManager.getCurrentUser();
         Camp camp = committee.getCommitteeOf();
