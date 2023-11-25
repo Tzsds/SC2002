@@ -18,7 +18,9 @@ public class CampCommitteeEnquiryPage implements MainPage{
         CampCommittee currentUser = (CampCommittee) LoginManager.getCurrentUser();
         while (continueMenu) {
             if (!error) {
-                mainMenu.displayMainMenu();
+                System.out.println("----------------------------------------");
+                System.out.println("Welcome to the Camp Committee Enquiry Main Page");
+                System.out.println("----------------------------------------");
                 System.out.println("1. View Enquiries");
                 System.out.println("2. Create Your Enquiries");
                 System.out.println("3. Edit Your Enquiries");
