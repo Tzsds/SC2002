@@ -3,11 +3,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import controller.account.LoginManager;
 import controller.utils.Filter;
+import controller.utils.FormatDate;
 import controller.utils.InputScanner;
 import controller.utils.Sort;
 import entity.Camp;
 import entity.CampCommittee;
+import entity.CampDetails;
 import entity.Staff;
+import entity.Student;
+import repository.userrepository.StaffRepository;
 
 /**
  * This class manages the generation and filtering of reports for camps.
@@ -365,27 +369,63 @@ public class ReportManager {
     }
 
     /**
-     * prompt staff for camp which content are to be printed then
-     * print the content of the camp report
+     * print the content of student list
+     * @param camp - the camp chosen for the student list to be printed
      */
 
-    public static void viewCampReportForStaff() {
+    public static void printStudentList(Camp campChosen) {
+        CampDetails campDetails = campChosen.getCampDetails();
+        String campName = campDetails.getCampName();
+        int totalSlots = campDetails.getTotalSlots();
+        int campComSlots = campDetails.getCampCommitteeSlots();
+        int currentTotalAttendee = campChosen.getParticipants().size() + campChosen.getCampCommittee().size();
+        int campComSize = campChosen.getCampCommittee().size();
+
+        String content = "\nCamp Name: " + campName + "\n\n" +
+                        "Total Slots Available: " + totalSlots + "\n" +
+                        "Total Camp Committee Slots Available: " + campComSlots + "\n" +
+                        "Current Number of Attendees: " + currentTotalAttendee + "\n" +
+                        "Current Number of Committee Members: " + campComSize;
+
+        if (currentTotalAttendee != 0) {
+            content += String.format("%-17s Role\n", "\n\nName");
+
+            ArrayList<Student> committeeList = campChosen.getCampCommittee();
+            for (Student committee : committeeList) {
+                String name = committee.getName();
+                content += String.format("%-15s Committee Member\n", name);
+            }
+
+            ArrayList<Student> participantList = campChosen.getParticipants();
+            for (Student participant : participantList) {
+                String name = participant.getName();
+                content += String.format("%-15s Participant\n", name);
+            }
+        }
+        System.out.println(content);
+
+    }
+
+    /**
+     * prompt which camp staff wants to view student list
+     * print the content of the camp report for staff
+     */
+
+    public static void viewCampStudentListForStaff() {
         Camp campChosen = promptWhichCampForStaff();
         if (campChosen == null) {
             return;
         }
-        CampReport report = new CampReport(campChosen, 1);
-        report.printInTerminal();
+        printStudentList(campChosen);
     }
 
     /**
      * print the content of the camp report for camp committee member
      */
     
-    public static void viewCampReportForCampCommittee() {
-        CampCommittee committee = (CampCommittee)LoginManager.getCurrentUser();
-        Camp camp = committee.getCommitteeOf();
-        CampReport report = new CampReport(camp, 1);
-        report.printInTerminal();
+    public static void viewCampStudentListForCampCommittee() {
+        CampCommittee campcom = (CampCommittee) LoginManager.getCurrentUser();
+        Camp campChosen = campcom.getCommitteeOf();
+        printStudentList(campChosen);
     }
 }

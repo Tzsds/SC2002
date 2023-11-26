@@ -80,9 +80,9 @@ public class StaffNavigationPage extends NavigationPage {
                     page.run();
                     break;
                 case 8:
-                    // View suggestions given by camp committee members
+                    // View list registered students for each camp
                     System.out.println("Listing camps created by you...");
-                    ReportManager.viewCampReportForStaff();
+                    ReportManager.viewCampStudentListForStaff();
                     break;
                 case 9:
                     // Generate camp report
