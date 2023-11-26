@@ -36,7 +36,7 @@ public class StaffEnquiryNavigationPage extends NavigationPage {
                 System.out.println("1. View Enquiries");
                 System.out.println("2. Reply to Enquiry");
                 System.out.println("3. Back to main menu");
-                System.out.println("================================");
+                System.out.println("----------------------------------------");
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-3): ");
@@ -52,7 +52,6 @@ public class StaffEnquiryNavigationPage extends NavigationPage {
                     break;
                 case 3:
                     System.out.println("Returning to main menu");
-                    continueMenu = false;
                     return;
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");

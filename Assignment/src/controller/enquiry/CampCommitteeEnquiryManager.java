@@ -249,7 +249,7 @@ public class CampCommitteeEnquiryManager {
                 System.out.println("Sender: " + sender.getName());
                 System.out.println("Content: " + enquiry.getContent());
                 System.out.println("Status: " + enquiry.getStatus());
-                System.out.println("===========================\n");
+                System.out.println("========================================");
                 indexCC++;
                 foundCCEnquiry = true;
             }
@@ -258,7 +258,7 @@ public class CampCommitteeEnquiryManager {
         if (!foundCCEnquiry) {
             System.out.println("No Enquiries!\n");
         }
-
+        System.out.println();
         // Display the camp committee's own enquiries
         System.out.println("Your Enquiries for Other Camps:");
         List<Enquiry> campCommitteeEnquiries = EnquiryRepository.getEnquiriesBySender(campCommittee.getUserID());
@@ -279,7 +279,7 @@ public class CampCommitteeEnquiryManager {
                 System.out.println("Replier: " + sender.getName());
             }
 
-            System.out.println("================================");
+            System.out.println("========================================");
             indexMem++;
             foundMemEnquiry = true;
         }
@@ -318,7 +318,7 @@ public class CampCommitteeEnquiryManager {
             System.out.println("Sender: " + enquiry.getSender());
             System.out.println("Content: " + enquiry.getContent());
             System.out.println("Status: " + enquiry.getStatus());
-            System.out.println("------------------------------");
+            System.out.println("========================================");
             index++;
         }
 

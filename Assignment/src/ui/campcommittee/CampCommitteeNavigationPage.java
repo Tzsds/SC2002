@@ -45,7 +45,7 @@ public class CampCommitteeNavigationPage extends NavigationPage{
                     break;
                 case 2:
                     // Register for camp under Student Manager
-                    System.out.println("Navigating to camp registration page");
+                    System.out.println("Navigating to camp registration page...");
                     StudentManager.registerForCamps();
                     break;
                 case 3:
@@ -56,7 +56,7 @@ public class CampCommitteeNavigationPage extends NavigationPage{
                     break;
                 case 4:
                     // Navigate to Suggestion Page
-                    System.out.println("Navigating to Suggestion Page");
+                    System.out.println("Navigating to Suggestion Page...");
                     NavigationPage page = new CampCommitteeSuggestionNavigationPage();
                     page.run();
                     break;

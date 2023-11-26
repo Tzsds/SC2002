@@ -59,7 +59,7 @@ public class StaffEnquiryManager {
                 System.out.println("Sender: " + sender.getName());
                 System.out.println("Content: " + enquiry.getContent());
                 System.out.println("Status: " + enquiry.getStatus());
-                System.out.println("------------------------------");
+                System.out.println("========================================");
                 index++;
             }
         }

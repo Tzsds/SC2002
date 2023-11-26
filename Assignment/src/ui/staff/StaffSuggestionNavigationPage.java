@@ -53,9 +53,8 @@ public class StaffSuggestionNavigationPage extends NavigationPage{
 
                 case 3:
                     //Back to MM
-                    System.out.println("Returning to main menu");
-                    continueMenu = false;
-                    break;
+                    System.out.println("Returning to main menu...");
+                    return;
 
                 default:
                     System.out.println("Invalid option. Please enter a valid option");

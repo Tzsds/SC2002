@@ -51,14 +51,14 @@ public class StaffManager {
                 break;
         }
         System.out.println();
-        System.out.println("=================================");
+        System.out.println("========================================");
         if (listOfCamps.size() == 0) {
             System.out.println("No available camps found.");
         } else {
             for (Camp c : listOfCamps) {
                 CampDetails detail = c.getCampDetails();
                 CampManager.printCampDetails(detail);
-                System.out.println("=================================");
+                System.out.println("========================================");
             }
         }
     }
@@ -69,13 +69,13 @@ public class StaffManager {
      * @param campCreated List of camps created by the staff
      */
     public static void viewCampsCreated(ArrayList<Camp> campCreated) {
-        System.out.println("=================================");
+        System.out.println("========================================");
         if (campCreated.size() == 0)
             System.out.println("You have not created any camps");
         for (Camp c : campCreated) {
             CampDetails detail = c.getCampDetails();
             CampManager.printCampDetails(detail);
-            System.out.println("=================================");
+            System.out.println("========================================");
         }
     }
 
@@ -193,15 +193,13 @@ public class StaffManager {
                         break;
                     case 8:
                         System.out.println("Navigating back to Main Menu");
-                        break;
+                        return;
                     default:
                         System.out.println("Invalid option. Please enter a valid option.");
                         error2 = true;
                         continue;
                 }
-                if(!error2){
-                    System.out.println();
-                }
+
                 FileWriting.FileWriteCampDetails(); // update to csv
                 FileWriting.FileWriteCampStudentList();
                 return;

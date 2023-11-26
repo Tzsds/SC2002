@@ -34,7 +34,7 @@ public class StudentManager {
      * The student can choose to register for a camp from the displayed list
      */
     public static void registerForCamps() {
-        System.out.println("=================================");
+        System.out.println("========================================");
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
         String faculty = s.getFaculty();
@@ -131,7 +131,7 @@ public class StudentManager {
                 System.out.println("Camp " + ++count);
                 CampManager.printCampRegistrationForStudents(detail);
                 list.add(c);
-                System.out.println("=================================");
+                System.out.println("========================================");
             }
         }
         if (count == 0) {
@@ -198,7 +198,7 @@ public class StudentManager {
      * allows the student to withdraw from a selected camp
      */
     public static void withdrawFromCamp() {
-        System.out.println("=================================");
+        System.out.println("========================================");
         ArrayList<Camp> list = new ArrayList<>();
         Student s = (Student) LoginManager.getCurrentUser();
         int userChoice;
@@ -243,7 +243,7 @@ public class StudentManager {
                 System.out.println("Camp " + ++count);
                 CampManager.printCampRegistrationForStudents(detail);
                 list.add(c);
-                System.out.println("=================================");
+                System.out.println("========================================");
             }
         }
 
@@ -324,7 +324,7 @@ public class StudentManager {
         }
 
         int count = 0; // list of available camps to the student
-        System.out.println("=================================");
+        System.out.println("========================================");
         for (Camp c : listOfCamps) {
             CampDetails detail = c.getCampDetails();
             if (!detail.getVisibility()) {
@@ -336,7 +336,7 @@ public class StudentManager {
 
                     } else {
                         CampManager.printCampDetailsForStudents(detail);
-                        System.out.println("=================================");
+                        System.out.println("========================================");
                         list.add(c);
                         count++;
                     }
@@ -347,7 +347,7 @@ public class StudentManager {
 
                         } else {
                             CampManager.printCampDetailsForStudents(detail);
-                            System.out.println("=================================");
+                            System.out.println("========================================");
                             list.add(c);
                             count++;
                         }

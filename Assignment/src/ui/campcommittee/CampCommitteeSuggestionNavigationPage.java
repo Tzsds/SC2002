@@ -37,7 +37,6 @@ public class CampCommitteeSuggestionNavigationPage extends NavigationPage {
             }
             error = false;
             int option = InputScanner.promptForInt("Input your choice of action (1-6): ");
-            System.out.println();
             switch(option){
                 case 1:
                     //View Suggestion
@@ -67,8 +66,7 @@ public class CampCommitteeSuggestionNavigationPage extends NavigationPage {
                 case 6:
                     //Back to MM
                     System.out.println("Returning to main menu");
-                    continueMenu = false;
-                    break;
+                    return;
 
                 default:
                     System.out.println("Invalid option. Please enter a valid option");

@@ -228,7 +228,7 @@ public class EnquiryManager {
                 System.out.println("Reply: " + enquiry.getRepliedContent());
                 System.out.println("Replier: " + sender.getName());
             }
-            System.out.println("================================");
+            System.out.println("========================================");
         }
     }
 

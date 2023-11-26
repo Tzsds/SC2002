@@ -55,7 +55,7 @@ public class StudentNavigationPage extends NavigationPage {
 
                 case 2:
                     //Register for camp under Student Manager
-                    System.out.println("Navigating to Camp Registration Page");
+                    System.out.println("Navigating to Camp Registration Page...");
                     StudentManager.registerForCamps();
                     if (LoginManager.getUserRole() == "CampCommittee"){
                         continueMenu = false;

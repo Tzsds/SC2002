@@ -33,7 +33,7 @@ public class StaffMainMenu implements MainMenuInterface {
                 + "3. View Camps Created\n"
                 + "4. Edit Camp\n"
                 + "5. Delete Camp\n"
-                + "6. View Enquiries\n"
+                + "6. Enquiry Page\n"
                 + "7. Suggestion Page\n"
                 + "8. View list registered students for each camp\n"
                 + "9. Generate Camp Attendee List Report\n"

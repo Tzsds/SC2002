@@ -57,7 +57,6 @@ public class StudentEnquiryNavigationPage extends NavigationPage {
                     break;
                 case 5:
                     System.out.println("Returning to main menu");
-                    continueMenu = false;
                     return;
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
