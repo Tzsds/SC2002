@@ -140,7 +140,7 @@ public class StudentManager {
             System.out.println("If you want to exit please type " + ++count);
             while (true) {
                 userChoice = InputScanner
-                        .promptForInt("Please input the number of the camp you would like to register for \n");
+                        .promptForInt("Please input the number of the camp you would like to register for : ");
                 if (userChoice <= 0 || userChoice > count)
                     System.out.println("Invalid Input");
                 else
@@ -157,7 +157,7 @@ public class StudentManager {
                     int committeeDecision = 0;
                     while (committeeDecision <= 0 || committeeDecision > 2) {
                         committeeDecision = InputScanner.promptForInt(
-                                "Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No\n");
+                                "Do you want to be part of the committee for this camp? Enter 1 for Yes or 2 for No : ");
                         System.out.println("Enter a valid option");
                     }
                     if (committeeDecision == 1) {
@@ -253,7 +253,7 @@ public class StudentManager {
             System.out.println("If you would like to return please input " + ++count);
             while (true) {
                 userChoice = InputScanner
-                        .promptForInt("Please input the number of the camp you would like to withdraw from \n");
+                        .promptForInt("Please input the number of the camp you would like to withdraw from : ");
                 if (userChoice <= 0 || userChoice > count)
                     System.out.println("Invalid Input");
                 else
@@ -267,7 +267,7 @@ public class StudentManager {
                         "The camp you are withdrawing from is " + registeredCamp.getCampDetails().getCampName());
                 while (true) {
                     userConfirm = InputScanner
-                            .promptForInt("Are you sure you want to withdraw? Enter 1 for Yes or 2 for No\n");
+                            .promptForInt("Are you sure you want to withdraw? Enter 1 for Yes or 2 for No : ");
                     if (userConfirm > 2 || userConfirm <= 0)
                         System.out.println("Invalid input. ");
                     else
