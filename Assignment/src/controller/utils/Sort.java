@@ -17,7 +17,7 @@ public class Sort {
      * Performs insertion sort on a list of camps based on their camp names.
      * 
      * @param campList - The ArrayList of camps to be sorted.
-     * @return ArrayList<Camp> - The sorted ArrayList of camps based on camp names.
+     * @return The sorted ArrayList of camps based on camp names.
      */
 
     public static ArrayList<Camp> insertionSortByName(ArrayList<Camp> campList){
