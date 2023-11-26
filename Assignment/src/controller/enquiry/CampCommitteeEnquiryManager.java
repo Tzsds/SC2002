@@ -26,7 +26,7 @@ import repository.userrepository.StudentRepository;
  * member
  * 
  * @author SCSZ Group 4
- * @version 1.0 
+ * @version 1.0
  * @since 25/11/2023
  */
 public class CampCommitteeEnquiryManager {
@@ -271,7 +271,10 @@ public class CampCommitteeEnquiryManager {
 
             // Check if the status is "REPLIED"
             if (enquiry.getStatus() == Enquiry.EnquiryStatus.REPLIED) {
-                User sender = StaffRepository.getStaffByID(enquiry.getReplier());
+                User sender = CampCommitteeRepository.getCommitteeByID(enquiry.getReplier());
+                if (sender == null) {
+                    sender = StaffRepository.getStaffByID(enquiry.getReplier());
+                }
                 System.out.println("Reply: " + enquiry.getRepliedContent());
                 System.out.println("Replier: " + sender.getName());
             }
