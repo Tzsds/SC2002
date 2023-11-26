@@ -1,4 +1,4 @@
 campName,startDate,endDate,closeDate,openTo,location,slots,campComitteeSlots,description,staffInCharge,visibility
-ntu,2023-12-10,2023-12-10,2023-12-09,Everyone,ntu,48,9,ntu,ARVI,true
-NUS,2023-12-10,2023-12-10,2023-12-09,Everyone,nus,49,9,nus,ARVI,true
-SMU,2023-12-10,2023-12-10,2023-12-09,Everyone,SMU,50,10,SMu,ARVI,true
+NBS 2023,2023-11-29,2023-11-30,2023-11-28,NBS,GAIA,88,10,NBS CAMP,ARVI,true
+NTU 2023,2023-11-29,2023-11-30,2023-11-28,Everyone,NTU,5,3,NTU CAMP,HUKUMAR,true
+NTU 2024,2024-01-01,2024-01-03,2023-12-31,Everyone,NTU ,24,8,NTU CAMP,HUKUMAR,true

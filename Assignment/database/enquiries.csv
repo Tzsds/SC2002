@@ -1,10 +1,3 @@
 Sender, Content, Camp, Status, RepliedContent, Replier
-KOH1,test,ntu,REPLIED,testinggggggggggg,SL22
-SL22,how to join?,nus,REPLIED,just join,ARVI
-CT113,hello,ntu,REPLIED,sup,SL22
-KOH1,another test,ntu,REPLIED,no,SL22
-SL22,yo,nus,PENDING,null,null
-CT113,HELLO,SMU,PENDING,null,null
-CT113,HELLO,nus,PENDING,null,null
-CT113,TEST,ntu,PENDING,null,null
-SL22,what to bring to camp?,NUS,PENDING,null,null
+CT113,what the wear?,NTU 2023,REPLIED,Sports attire,SL22
+KOH1,Do we need to bring laptops?,NTU 2023,REPLIED,No,HUKUMAR
