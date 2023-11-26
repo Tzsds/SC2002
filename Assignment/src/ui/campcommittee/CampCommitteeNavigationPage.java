@@ -80,7 +80,7 @@ public class CampCommitteeNavigationPage extends NavigationPage{
                     User.generateEnquiryReport();
                     break;
                 case 9:
-                    // Generate Report
+                    // Withdraw from camp
                     System.out.println("Withdrawing From Camps...");
                     StudentManager.withdrawFromCamp();
                     break;
