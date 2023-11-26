@@ -48,19 +48,17 @@ public class ReadCampStudentList {
                     if (student == null) {
                         student = CampCommitteeRepository.getCommitteeByID(userID);
                     }
-                    student.addRegisteredCamp(camp);
 
                     if (role.equals("CampCommittee")) {
                         camp.addCampCommittee(student);
                         CampCommittee committee = CampCommitteeRepository.getCommitteeByID(userID);
                         committee.setCommitteeOf(camp);
-                        // System.out.println(student.getUserID() + " add to Camp Comm");
+                        student.addRegisteredCamp(camp);
                     } else if (role.equals("Withdrawn")) {
                         camp.addWithdrawnStudent(student);
-                        // System.out.println(student.getUserID() + " add to Withdrawn");
                     } else {
                         camp.addParticipants(student);
-                        // System.out.println(student.getUserID() + " add to Participants");
+                        student.addRegisteredCamp(camp);
                     }
                 }
             }
