@@ -57,13 +57,15 @@ public class StudentManager {
             if (c.getCampDetails().getTotalSlots() <= 0) {
                 printCamp = false;
             }
+            if(!detail.getUserGroup().equals("Everyone") && !detail.getUserGroup().equals(faculty)){
+                printCamp = false;
+            }
             if (studentRegistered) {
                 printCamp = false;
             } else {
                 if (!detail.getVisibility()) {
                     continue;
                 } else {
-                    if (detail.getUserGroup().equals("Everyone")) {
                         if (!s.getRegisteredCamps().isEmpty()) {
                             for (Camp ca : s.getRegisteredCamps()) {
                                 LocalDate registeredEndDate = ca.getCampDetails().getEndDate();
@@ -77,7 +79,7 @@ public class StudentManager {
                                 } else if (!registeredStartDate.isBefore(campStartDate) && !registeredEndDate.isAfter(campEndDate)) {
                                     printCamp = false;
                                 } else {
-                                    System.out.println(campCloseDate);
+                                    
                                 }
                             }
                         } else {
@@ -86,36 +88,10 @@ public class StudentManager {
                                 }
                         }
 
-                    } else if (detail.getUserGroup().equals(faculty)) {
-                        if (!s.getRegisteredCamps().isEmpty()) {
-                            for (Camp ca : s.getRegisteredCamps()) {
-                                LocalDate registeredEndDate = ca.getCampDetails().getEndDate();
-                                LocalDate registeredStartDate = ca.getCampDetails().getStartDate();
-                                if (!campStartDate.isBefore(registeredStartDate)
-                                        && !campStartDate.isAfter(registeredEndDate)) {
-                                    printCamp = false;
-                                } else if (!campEndDate.isBefore(registeredStartDate)
-                                        && !campEndDate.isAfter(registeredEndDate)) {
-                                    printCamp = false;
-                                } else if (LocalDate.now().isAfter(campCloseDate)) {
-                                    printCamp = false;
-                                } else if (!registeredStartDate.isBefore(campStartDate)
-                                        && !registeredEndDate.isAfter(campEndDate)) {
-                                    printCamp = false;
-                                } else {
-                                    System.out.println(campCloseDate);
-                                }
-                            }
-                        } else {
-                            if (LocalDate.now().isAfter(campCloseDate)) {
-                                    printCamp = false;
-                                }
-                        }
+                    
                     }
 
                 }
-
-            }
             if (!c.getWithdrawnStudents().isEmpty()) {
                 for (Student withdrawn : c.getWithdrawnStudents()) {
                     if (s == withdrawn) {
