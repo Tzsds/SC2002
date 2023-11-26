@@ -77,7 +77,7 @@ public class StaffEnquiryManager {
         // Filter pending enquiries (status is not "REPLIED")
         List<Enquiry> pendingEnquiries = allEnquiries.stream()
                 .filter(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName(), staffID)
-                        && enquiry.getStatus() != Enquiry.Status.REPLIED)
+                        && enquiry.getStatus() != Enquiry.EnquiryStatus.REPLIED)
                 .collect(Collectors.toList());
 
         // Check if there are any pending enquiries for the specific staff
@@ -125,7 +125,7 @@ public class StaffEnquiryManager {
 
             // Update the selected enquiry
             selectedEnquiry.setRepliedContent(replyContent);
-            selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
+            selectedEnquiry.setStatus(Enquiry.EnquiryStatus.REPLIED);
             selectedEnquiry.setReplier(staffID);
 
             // Update the Enquiry CSV
@@ -151,7 +151,7 @@ public class StaffEnquiryManager {
         // Fetches all pending enquiries related to camps created by the staff member.
         List<Enquiry> staffEnquiries = EnquiryRepository.getListOfEnquiries().stream()
                 .filter(enquiry -> CampManager.isCampCreatedByStaff(enquiry.getCampName(), staffID)
-                        && enquiry.getStatus() == Enquiry.Status.PENDING)
+                        && enquiry.getStatus() == Enquiry.EnquiryStatus.PENDING)
                 .collect(Collectors.toList());
 
         // Check if the index is within the valid range

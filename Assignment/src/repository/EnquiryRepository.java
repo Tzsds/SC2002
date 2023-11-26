@@ -73,7 +73,7 @@ public class EnquiryRepository {
 
         for (Enquiry enquiry : enquiries) {
             if (enquiry.getCampName().equalsIgnoreCase(campName) &&
-                    enquiry.getStatus() == Enquiry.Status.PENDING) {
+                    enquiry.getStatus() == Enquiry.EnquiryStatus.PENDING) {
                 return enquiry;
             }
         }
@@ -92,7 +92,7 @@ public class EnquiryRepository {
 
         for (Enquiry enquiry : enquiries) {
             if (enquiry.getCampName().equalsIgnoreCase(campName) &&
-                    enquiry.getStatus() == Enquiry.Status.PENDING) {
+                    enquiry.getStatus() == Enquiry.EnquiryStatus.PENDING) {
                 return true;
             }
         }

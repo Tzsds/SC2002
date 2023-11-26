@@ -9,7 +9,7 @@ import controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Suggestion;
-import entity.Suggestion.Status;
+import entity.Suggestion.SuggestionStatus;
 
 /**
  * This class provides functionalities specifically for staffs to manage suggestion
@@ -67,7 +67,7 @@ public class StaffSuggestionManager {
             for (Camp c : listOfCampsCreated){
                 ArrayList<Suggestion> listOfSuggestion = c.getListOfSuggestions();
                 for (Suggestion s : listOfSuggestion){
-                    if (s.getStatus() == Status.PENDING){
+                    if (s.getStatus() == SuggestionStatus.PENDING){
                         pendingSuggestions.add(s);
                     }
                 }
@@ -131,7 +131,7 @@ public class StaffSuggestionManager {
      */
 
     public static void rejectSuggestion(Suggestion temp){
-        temp.setStatus(Status.REJECTED);
+        temp.setStatus(SuggestionStatus.REJECTED);
         FileWriting.FileWriteSuggestion();
         removeSuggestionFromCamp(temp);
         System.out.println("Suggestion rejected!");
@@ -144,7 +144,7 @@ public class StaffSuggestionManager {
      */
 
     public static void acceptSuggestion(Suggestion temp){
-        temp.setStatus(Status.APPROVED);
+        temp.setStatus(SuggestionStatus.APPROVED);
         CampCommittee member = temp.getProposer();
         member.addPoints(); //Additional points for accepted Suggestion
         FileWriting.FileWriteSuggestion();

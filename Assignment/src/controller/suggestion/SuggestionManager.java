@@ -11,7 +11,7 @@ import controller.utils.InputScanner;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Suggestion;
-import entity.Suggestion.Status;
+import entity.Suggestion.SuggestionStatus;
 import repository.SuggestionRepository;
 /**
  * This class provides functionalities related to suggestions,
@@ -141,7 +141,7 @@ public class SuggestionManager {
             return;
         }
         int i = 1;
-        if (suggestions.get(0).getStatus() == Status.PENDING){
+        if (suggestions.get(0).getStatus() == SuggestionStatus.PENDING){
             for (Suggestion temp : suggestions){
                 System.out.println(i + ". " + temp.getContent());
                 i += 1;
@@ -169,7 +169,7 @@ public class SuggestionManager {
         ArrayList<Suggestion> tempList1 = new ArrayList<>(); //Processed
 
         for (Suggestion s : suggestion){
-            if (s.getStatus() == Status.PENDING){
+            if (s.getStatus() == SuggestionStatus.PENDING){
                 tempList.add(s);
             }
             else{

@@ -137,7 +137,7 @@ public class CampCommitteeEnquiryManager {
 
                 Enquiry selectedEnquiry = studentEnquiries.get(choice - 1);
 
-                if (selectedEnquiry.getStatus() != Enquiry.Status.REPLIED) {
+                if (selectedEnquiry.getStatus() != Enquiry.EnquiryStatus.REPLIED) {
                     // Perform the deletion logic here
                     WriteEnquiry.deleteEnquiryFromCSV(selectedEnquiry);
                     studentEnquiries.remove(selectedEnquiry);
@@ -191,7 +191,7 @@ public class CampCommitteeEnquiryManager {
 
                 Enquiry selectedEnquiry = studentEnquiries.get(choice - 1);
 
-                if (selectedEnquiry.getStatus() != Enquiry.Status.REPLIED) {
+                if (selectedEnquiry.getStatus() != Enquiry.EnquiryStatus.REPLIED) {
                     String oldContent = selectedEnquiry.getContent(); // Keep a copy of the original content
 
                     String newContent = InputScanner.promptForString("Enter the new Enquiry content: ");
@@ -270,7 +270,7 @@ public class CampCommitteeEnquiryManager {
             System.out.println("Status: " + enquiry.getStatus());
 
             // Check if the status is "REPLIED"
-            if (enquiry.getStatus() == Enquiry.Status.REPLIED) {
+            if (enquiry.getStatus() == Enquiry.EnquiryStatus.REPLIED) {
                 User sender = StaffRepository.getStaffByID(enquiry.getReplier());
                 System.out.println("Reply: " + enquiry.getRepliedContent());
                 System.out.println("Replier: " + sender.getName());
@@ -299,7 +299,7 @@ public class CampCommitteeEnquiryManager {
         List<Enquiry> pendingEnquiries = allEnquiries.stream()
                 .filter(enquiry -> campCommittee.getCommitteeOf() != null &&
                         campCommittee.getCommitteeOf().equals(CampRepository.getCampByCampName(enquiry.getCampName()))
-                        && enquiry.getStatus() != Enquiry.Status.REPLIED)
+                        && enquiry.getStatus() != Enquiry.EnquiryStatus.REPLIED)
                 .collect(Collectors.toList());
 
         // Check if there are any pending enquiries for the specific camp committee
@@ -347,7 +347,7 @@ public class CampCommitteeEnquiryManager {
 
             // Update the selected enquiry
             selectedEnquiry.setRepliedContent(replyContent);
-            selectedEnquiry.setStatus(Enquiry.Status.REPLIED);
+            selectedEnquiry.setStatus(Enquiry.EnquiryStatus.REPLIED);
             selectedEnquiry.setReplier(campCommittee.getUserID());
 
             // Update the Enquiry CSV
@@ -384,7 +384,7 @@ public class CampCommitteeEnquiryManager {
 
             if (campCommittee.getCommitteeOf() != null &&
                     campCommittee.getCommitteeOf().equals(camp)
-                    && enquiry.getStatus() != Enquiry.Status.REPLIED) {
+                    && enquiry.getStatus() != Enquiry.EnquiryStatus.REPLIED) {
                 if (index == selectedIndex) {
                     return enquiry; // Found the selected enquiry
                 }

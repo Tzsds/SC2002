@@ -9,7 +9,7 @@ package entity;
  */
 public class Enquiry {
      /** Status of the Enquiry */
-    public enum Status {
+    public enum EnquiryStatus {
         /** The enquiry has been replied to */
         REPLIED,
         
@@ -20,7 +20,7 @@ public class Enquiry {
     /** The sender of the enquiry */
     private String sender;
     /** The status of the enquiry (replied or pending) */
-    private Status status;
+    private EnquiryStatus status;
      /** The content of the enquiry */
     private String content;
     /** The replier who replied to the enquiry */
@@ -43,14 +43,14 @@ public class Enquiry {
         this.sender = sender;
         this.content = content;
         this.campName = campName;
-        this.status = Status.PENDING;
+        this.status = EnquiryStatus.PENDING;
     }
 
      /**
      * Sets the status of the enquiry
      * @param status - the new status of the enquiry
      */
-    public void setStatus(Status status) {
+    public void setStatus(EnquiryStatus status) {
         this.status = status;
     }
 
@@ -58,7 +58,7 @@ public class Enquiry {
      * Retrieves the status of the enquiry
      * @return the status of the enquiry
      */
-    public Status getStatus() {
+    public EnquiryStatus getStatus() {
         return status;
     }
 
@@ -107,7 +107,7 @@ public class Enquiry {
      * @return {@code true} if the enquiry has been replied, {@code false} otherwise
      */
     public boolean hasReplied() {
-        return status == Status.REPLIED;
+        return status == EnquiryStatus.REPLIED;
     }
 
     /**

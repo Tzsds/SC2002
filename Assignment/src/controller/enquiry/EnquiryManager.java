@@ -122,7 +122,7 @@ public class EnquiryManager {
 
                 Enquiry selectedEnquiry = studentEnquiries.get(choice - 1);
 
-                if (selectedEnquiry.getStatus() != Enquiry.Status.REPLIED) {
+                if (selectedEnquiry.getStatus() != Enquiry.EnquiryStatus.REPLIED) {
                     // Perform the deletion logic here
                     WriteEnquiry.deleteEnquiryFromCSV(selectedEnquiry);
                     studentEnquiries.remove(selectedEnquiry);
@@ -173,7 +173,7 @@ public class EnquiryManager {
 
                 Enquiry selectedEnquiry = studentEnquiries.get(choice - 1);
 
-                if (selectedEnquiry.getStatus() != Enquiry.Status.REPLIED) {
+                if (selectedEnquiry.getStatus() != Enquiry.EnquiryStatus.REPLIED) {
                     String oldContent = selectedEnquiry.getContent(); // Keep a copy of the original content
 
                     String newContent = InputScanner.promptForString("Enter the new Enquiry content: ");
@@ -220,7 +220,7 @@ public class EnquiryManager {
             System.out.println("Status: " + enquiry.getStatus());
 
             // Check if the status is "REPLIED"
-            if (enquiry.getStatus() == Enquiry.Status.REPLIED) {
+            if (enquiry.getStatus() == Enquiry.EnquiryStatus.REPLIED) {
                 User sender = CampCommitteeRepository.getCommitteeByID(enquiry.getReplier());
                 if (sender == null) {
                     sender = StaffRepository.getStaffByID(enquiry.getReplier());

@@ -54,7 +54,7 @@ public class ReadEnquiry {
                     // Additional fields (status, replier) can be added based on your CSV structure
                     if (words.length >= 4) {
                         String statusString = words[3].trim();
-                        Enquiry.Status status = Enquiry.Status.valueOf(statusString.toUpperCase());
+                        Enquiry.EnquiryStatus status = Enquiry.EnquiryStatus.valueOf(statusString.toUpperCase());
                         enquiry.setStatus(status);
                     }
 

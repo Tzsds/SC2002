@@ -10,7 +10,7 @@ package entity;
 
 public class Suggestion {
     /** Enumerated type representing the status of the suggestion */
-    public enum Status {
+    public enum SuggestionStatus {
         /** The suggestion has been approved */
         APPROVED,
         
@@ -24,7 +24,7 @@ public class Suggestion {
     /** The camp committee member who made the suggestion */
     private CampCommittee proposer;
     /** The status of the suggestion (approved, pending, or rejected) */
-    private Status status;
+    private SuggestionStatus status;
     /** The content of the suggestion. */
     private String content;
 
@@ -38,14 +38,14 @@ public class Suggestion {
     public Suggestion(CampCommittee proposer, String content){
         this.proposer = proposer;
         this.content = content;
-        this.status = Status.PENDING;
+        this.status = SuggestionStatus.PENDING;
     }
 
      /**
      * Sets the status of the suggestion
      * @param status - the new status of the suggestion
      */
-    public void setStatus(Status status){
+    public void setStatus(SuggestionStatus status){
         this.status = status;
     }
 
@@ -53,7 +53,7 @@ public class Suggestion {
      * Retrieves the status of the suggestion
      * @return the status of the suggestion
      */
-    public Status getStatus(){
+    public SuggestionStatus getStatus(){
         return status;
     }
 

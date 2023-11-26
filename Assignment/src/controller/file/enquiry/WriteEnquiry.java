@@ -181,7 +181,7 @@ public class WriteEnquiry {
                 String[] columns = line.split(",");
                 if (areEnquiriesEqualVerbose(selectedEnquiry, columns)
                         && columns[1].equals(selectedEnquiry.getContent())
-                        && Enquiry.Status.PENDING.toString().equals(columns[3])) {
+                        && Enquiry.EnquiryStatus.PENDING.toString().equals(columns[3])) {
                     columns[3] = selectedEnquiry.getStatus().toString();
                     columns[4] = selectedEnquiry.getRepliedContent();
                     columns[5] = selectedEnquiry.getReplier();

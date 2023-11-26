@@ -9,7 +9,7 @@ import java.io.IOException;
 import entity.Camp;
 import entity.CampCommittee;
 import entity.Suggestion;
-import entity.Suggestion.Status;
+import entity.Suggestion.SuggestionStatus;
 import repository.SuggestionRepository;
 import repository.userrepository.CampCommitteeRepository;
 
@@ -41,11 +41,11 @@ public class ReadSuggestion {
                 if (words.length >= 3){
                     String senderID = words[0].trim();
                     String content = words[1].trim();
-                    Status x = Status.valueOf(words[2].trim());
+                    SuggestionStatus x = SuggestionStatus.valueOf(words[2].trim());
                     CampCommittee user = CampCommitteeRepository.getCommitteeByID(senderID);
                     Suggestion s1 = new Suggestion(user, content);
                     Camp camp = user.getCommitteeOf();
-                    if (x == Status.PENDING){
+                    if (x == SuggestionStatus.PENDING){
                         camp.getListOfSuggestions().add(s1);
                     }
                     s1.setStatus(x);
