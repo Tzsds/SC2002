@@ -30,7 +30,7 @@ public class CampRepository {
     /**
      * Sets the list of camps in the repository to a new list
      * 
-     * @param newListOfCamps
+     * @param newListOfCamps - the new list of camp
      */
     public static void setListOfCamps(ArrayList<Camp> newListOfCamps){
         listOfCamps = newListOfCamps;
