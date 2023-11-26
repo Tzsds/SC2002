@@ -76,7 +76,7 @@ public class StudentNavigationPage extends NavigationPage {
                     currentStudent.viewRegisteredCamps();
                     break;
                 case 5:
-                    // Display registered camps
+                    // Withdraw camp
                     System.out.println("Retrieving registered camps...");
                     StudentManager.withdrawFromCamp();
                     break;
