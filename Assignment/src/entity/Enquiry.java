@@ -37,7 +37,6 @@ public class Enquiry {
      * @param sender - the sender of the enquiry
      * @param content - the content of the enquiry
      * @param campName - the name of the camp related to the enquiry
-     * @param status - the status of the enquiry default will be set to PENDING
      */
     public Enquiry(String sender, String content, String campName) {
         this.sender = sender;

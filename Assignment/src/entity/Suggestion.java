@@ -59,7 +59,7 @@ public class Suggestion {
 
     /**
      * Sets the content of the suggestion
-     * @param status - the new content of the suggestion
+     * @param content - the new content of the suggestion
      */
     public void setContent(String content){
         this.content = content;

@@ -105,7 +105,7 @@ public class CampCommittee extends Student {
 
     /**
      * Adds a suggestion provided by the camp committee member to the list of suggestions
-     * @param suggestion - the suggestion to add
+     * @param s - the suggestion to add
      */
     public void addSuggestion(Suggestion s){
         suggestions.add(s);

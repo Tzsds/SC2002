@@ -56,7 +56,7 @@ public class CampDetails {
      */
     public CampDetails(
             String name, LocalDate startDate, LocalDate endDate, LocalDate closeDate, 
-            String userGroup,String location, int slots, int campComitteeSlots,
+            String userGroup,String location, int slots, int campCommitteeSlots,
             String description, String staffID, boolean visibility) {
         this.name = name;
         this.startDate = startDate;
@@ -65,7 +65,7 @@ public class CampDetails {
         this.userGroup = userGroup;
         this.location = location;
         this.slots = slots;
-        this.campCommitteeSlots = campComitteeSlots;
+        this.campCommitteeSlots = campCommitteeSlots;
         this.description = description;
         this.visibility = visibility;
         this.staffInCharge = staffID;

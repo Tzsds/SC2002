@@ -24,7 +24,7 @@ public class Camp {
 
     /**
      * Constructs a new Camp object with the specified camp details
-     * @param campDetails - the details of the camp
+     * @param CampDetails - the details of the camp
      */
     public Camp(CampDetails CampDetails) {
         this.campDetails = CampDetails;
