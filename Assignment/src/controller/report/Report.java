@@ -53,6 +53,7 @@ public class Report {
 
     /**
      * this function sets the content attribute
+     * @param content - the content to be set
      */
 
     public void setContent(String content) {

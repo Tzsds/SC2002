@@ -141,7 +141,7 @@ public class InputScanner {
      * Prompts the user for an end date input relative to a start date.
      *
      * @param prompt The prompt message to display to the user.
-     * @param startDate The start date used as a reference for the end date.
+     * @param startdate The start date used as a reference for the end date.
      * @return The LocalDate object entered by the user as the end date.
      * @throws IllegalArgumentException If the entered date has already passed, is before the start date, or matches the start date.
      * @throws DateTimeException If the entered date does not exist in the calendar.
@@ -192,7 +192,7 @@ public class InputScanner {
      * Prompts the user for a close date input relative to a start date.
      *
      * @param prompt The prompt message to display to the user.
-     * @param startDate The start date used as a reference for the close date.
+     * @param startdate The start date used as a reference for the close date.
      * @return The LocalDate object entered by the user as the close date.
      * @throws IllegalArgumentException If the entered date has already passed, is after the start date, or matches the start date.
      * @throws DateTimeException If the entered date does not exist in the calendar.
