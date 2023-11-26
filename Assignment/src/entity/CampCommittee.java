@@ -134,15 +134,15 @@ public class CampCommittee extends Student {
      */
     public void viewRegisteredCamps(){
         System.out.println("Camp registered as camp committeee: ");
-        System.out.println("----------------------------------");
+        System.out.println("----------------------------------------");
         CampManager.printCampDetailsForStudents(committeeOf.getCampDetails());
         System.out.println();
         System.out.println("Camps registered as camp attendee:");
-        System.out.println("----------------------------------");
+        System.out.println("----------------------------------------");
         for (Camp camps : getRegisteredCamps()){
             if (camps != committeeOf){
                 CampManager.printCampDetailsForStudents(camps.getCampDetails());
-                System.out.println("=================================");
+                System.out.println("========================================");
             }
         }
     }
