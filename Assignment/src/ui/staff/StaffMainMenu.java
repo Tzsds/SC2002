@@ -35,7 +35,7 @@ public class StaffMainMenu implements MainMenuInterface {
                 + "5. Delete Camp\n"
                 + "6. Enquiry Page\n"
                 + "7. Suggestion Page\n"
-                + "8. View Attendee List To Be Generated\n"
+                + "8. View Attendee List\n"
                 + "9. Generate Camp Attendee List Report\n"
                 + "10. Generate Enquiry List Report\n"
                 + "11. Generate Performance Report\n"
