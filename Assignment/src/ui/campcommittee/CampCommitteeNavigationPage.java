@@ -66,7 +66,7 @@ public class CampCommitteeNavigationPage extends NavigationPage{
                     break;
                 case 6:
                     // View Camp Attendee Report
-                    System.out.println("Viewing Attendee List as Camp Committee...");
+                    System.out.println("Viewing Attendee List");
                     ReportManager.viewCampStudentListForCampCommittee();
                     break;
                 case 7:
