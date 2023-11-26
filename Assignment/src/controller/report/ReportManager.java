@@ -49,7 +49,7 @@ public class ReportManager {
             }
             int campNumber;
             while (true){
-                campNumber = InputScanner.promptForInt("Enter number of the camp for report to be generated: ");
+                campNumber = InputScanner.promptForInt("Enter the number of camp: ");
                 if(campNumber <= 0 || campNumber > campsCreated.size())
                     System.out.println("Invalid input. Please try again.");
                 else 
