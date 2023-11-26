@@ -370,7 +370,7 @@ public class ReportManager {
 
     /**
      * print the content of student list
-     * @param camp - the camp chosen for the student list to be printed
+     * @param campChosen - the camp chosen for the student list to be printed
      */
 
     public static void printStudentList(Camp campChosen) {
